@@ -8,12 +8,9 @@ const PORT = 1234;
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(routes);
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
-
-app.use(routes);
-app.use(express.json());
-app.use(cors());
 
 try {
   await db.authenticate();
