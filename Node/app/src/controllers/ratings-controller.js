@@ -23,6 +23,7 @@ export const getRating = async (req, res) => {
 export const createRating = async (req, res) => {
     try {
         const rating = await Rating.create(req.body);
+        console.log(req.body)
         res.json({
             "message": "Rating Created",
             data: rating

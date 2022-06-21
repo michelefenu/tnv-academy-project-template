@@ -1,11 +1,13 @@
-import express from 'express';
-import cors from 'cors';
-import db from './app/config/config.js';
-import routes from './app/src/routes/routes.js'
+import express from "express";
+import cors from "cors";
+import db from "./app/config/config.js";
+import routes from "./app/src/routes/routes.js";
 
 const PORT = 1234;
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 
@@ -14,10 +16,10 @@ app.use(express.json());
 app.use(cors());
 
 try {
-    await db.authenticate();
-    console.log('Database connection has been established successfully');
+  await db.authenticate();
+  console.log("Database connection has been established successfully");
 } catch (error) {
-    console.error('Unable to connect to the database: ', error);
+  console.error("Unable to connect to the database: ", error);
 }
 
 db.sync();
