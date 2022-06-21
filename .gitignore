@@ -105,3 +105,6 @@ dist
 
 # OS
 .DS_Store
+
+# Angular
+.angular
