@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import db from './config/config.js'
+import db from './app/config/config.js';
+import routes from './app/src/routes/routes.js'
 
 const PORT = 1234;
 
@@ -8,10 +9,7 @@ const app = express();
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 
-/* 
-app.use(express.static('public'));
-*/
-
+app.use(routes);
 app.use(express.json());
 app.use(cors());
 
