@@ -1,1 +1,0 @@
-# Descrizione Microservizio

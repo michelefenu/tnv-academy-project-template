@@ -1,34 +1,52 @@
-<div class="container">
+<div class="login-page-wrap">
   <div class="row justify-content-center">
-    <div class="col-lg-8">
+    <div class="col-md-7">
       <div class="wrap d-md-flex">
-        <div
-          class="img"
-        ></div>
+        <div class="img"></div>
         <div class="login-wrap p-4 p-md-5">
           <div class="d-flex">
             <div class="w-100">
               <h3 class="mb-4">Accedi</h3>
             </div>
           </div>
-          <form action="#" class="signin-form">
+          <form #f="ngForm" (ngSubmit)="login(f)" class="signin-form">
             <div class="form-group mb-3">
               <label class="label" for="name">Username</label>
               <input
+                [ngModel]
+                name="username"
                 type="text"
                 class="form-control"
                 placeholder="Username"
-                required=""
+                required
+                id="username"
+                #username="ngModel"
               />
+              <div
+              *ngIf="username.invalid && (username.dirty || username.touched)"
+              class="mt-1 small text-danger"
+            >
+              Campo obbligatorio
+            </div>
             </div>
             <div class="form-group mb-3">
               <label class="label" for="password">Password</label>
               <input
+                [ngModel]
+                required
+                name="password"
                 type="password"
                 class="form-control"
+                id="password"
                 placeholder="Password"
-                required=""
+                #password="ngModel"
               />
+              <div
+                *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="mt-1 small text-danger"
+              >
+                Campo obbligatorio
+              </div>
             </div>
             <div class="form-group">
               <button
@@ -39,8 +57,9 @@
               </button>
             </div>
           </form>
-          <p class="text-center">
-            Non sei iscritto? <a data-toggle="tab" routerLink="/register">Registrati</a>
+          <p class="text-center mt-3">
+            Non sei iscritto?
+            <a data-toggle="tab" routerLink="/register">Registrati</a>
           </p>
         </div>
       </div>

@@ -1,17 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
-/* Custom Colors 
-   https://getbootstrap.com/docs/4.0/getting-started/theming/
-*/
-
-$theme-colors: (
-  "primary": #F2055C,
-  "secondary": #D977A5
-);
+$primary: #bf0247;
+$secondary: #d977a5;
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
-.btn.btn-primary {
-    color: white;
-}
+@import "~bootstrap/scss/bootstrap";
