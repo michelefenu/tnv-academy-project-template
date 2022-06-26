@@ -14,8 +14,7 @@ export class AuthService {
     const response: User = {
       name: "Paolino",
       surname: "Paperino",
-      username: "paolino504",
-      email: "paolino@paperino.it",
+      username: "paolino504"
     };
 
     localStorage.setItem("user", JSON.stringify(response));
@@ -37,9 +36,8 @@ export class AuthService {
     return !!localStorage.getItem("user");
   }
 
-  getUser() {
-    if(this.isAuthenticated()) {
-      return JSON.parse(localStorage.getItem("user") || '');
-    }
+  getCurrentUser() {
+    const user = JSON.parse(localStorage.getItem("user") || '') as User;
+    return user;
   }
 }

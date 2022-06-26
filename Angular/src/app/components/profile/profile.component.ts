@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/@core/services/auth.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'tnv-profile',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  currentUser: Partial<User> = {};
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
   }
 
 }
