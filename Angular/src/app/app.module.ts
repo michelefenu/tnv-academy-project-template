@@ -9,6 +9,9 @@ import { RegisterComponent } from './@shared/components/register/register.compon
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { NavbarComponent } from './@shared/components/navbar/navbar.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     LoginComponent,
     RegisterComponent,
     MainPageComponent,
-    LogoutComponent
+    LogoutComponent,
+    NavbarComponent,
+    WelcomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

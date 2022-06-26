@@ -1,5 +1,6 @@
-.login-page-wrap {
-    margin-top: 18vh;
+
+.login-card {
+  width: 800px;
 }
 
 .img {
@@ -15,21 +16,13 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
 }
 
-.img,
-.login-wrap {
-  width: 50%;
-}
+@media only screen and (max-width: 768px){
 
-@media (max-width: 767.98px) {
-  div.container {
-    margin-top: 10vh;
+.login-card {
+  width: 400px;
 }
-  .img,
-  .login-wrap {
-    width: 100%;
-  }
-  .wrap .img {
-    height: 250px;
+  .img {
+    height: 200px;
   }
 }
 

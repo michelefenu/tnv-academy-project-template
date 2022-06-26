@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?&family=Roboto&display=swap');
+
 $primary: #bf0247;
 $secondary: #d977a5;
+$font-family-sans-serif: 'Roboto', sans-serif;
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+
+label {
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: bold;
+}

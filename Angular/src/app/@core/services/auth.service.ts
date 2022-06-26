@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { of } from "rxjs";
 import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
 
 @Injectable({
@@ -18,7 +19,8 @@ export class AuthService {
     };
 
     localStorage.setItem("user", JSON.stringify(response));
-    this.router.navigateByUrl("/");
+
+    return of('login ok');
   }
 
   register(registerData: RegisterDTO) {
@@ -29,10 +31,15 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("user");
-    this.router.navigateByUrl("/login");
   }
 
   isAuthenticated() {
     return !!localStorage.getItem("user");
+  }
+
+  getUser() {
+    if(this.isAuthenticated()) {
+      return JSON.parse(localStorage.getItem("user") || '');
+    }
   }
 }
