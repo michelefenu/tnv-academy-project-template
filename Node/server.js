@@ -20,3 +20,4 @@ try {
 }
 
 db.sync();
+//db.sync({ alter: true });

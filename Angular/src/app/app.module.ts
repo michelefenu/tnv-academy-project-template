@@ -12,6 +12,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavbarComponent } from './@shared/components/navbar/navbar.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { RankingsComponent } from './components/rankings/rankings.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LogoutComponent,
     NavbarComponent,
     WelcomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    RankingsComponent
   ],
   imports: [
     BrowserModule,
