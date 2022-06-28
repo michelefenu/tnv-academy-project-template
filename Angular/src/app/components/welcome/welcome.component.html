@@ -1,10 +1,28 @@
-<div class="row mt-3">
+<div class="row mt-3 align-items-center row-welcome">
   <div class="col-4">
-    <h5>Come si gioca</h5>
-    <ol>
-      <li> Fate una riunione di team, capite se qualcosa non è chiaro nel progetto e capite come organizzarvi</li>
-      <li> Create un repo di test e fate prove per capire se tutti hanno chiaro come si collabora sul repo usando i branch</li>
-    </ol>
+    <img [src]="imagePath" alt="" class="col-1-img" />
   </div>
-  
+  <div class="col-4">
+    <h4>Movie Genius! Indovina il film!</h4>
+    <h5>Come si gioca?</h5>
+    <ol>
+      <li>Prova a indovinare il film in meno tempo possibile!</li>
+      <li>
+        Hai a disposizione 5 aiuti... Attenzione però, ad ogni aiuto richiesto
+        ti verranno aggiunti dei secondi!!
+      </li>
+      <li>
+        Quando hai indovinato il film potrai salvarlo nei tuoi preferiti, dare
+        un voto e lasciare una breve recensione.
+      </li>
+    </ol>
+    <div class="text-center">
+      <button type="button" class="btn btn-outline-secondary btn-lg">
+        Gioca
+      </button>
+    </div>
+  </div>
+  <div class="col-4">
+    <img [src]="imagePath" alt="" class="col-3-img" />
+  </div>
 </div>

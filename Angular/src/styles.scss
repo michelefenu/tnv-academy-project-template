@@ -1,12 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anek+Malayalam&display=swap");
 
-$primary: #bf0247;
-$secondary: #d977a5;
-$font-family-sans-serif: 'Roboto', sans-serif;
+$primary: #313b59;
+$secondary: #4b1dbf;
+
+$font-family-sans-serif: "Anek Malayalam", sans-serif;
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+);
 
 label {
   text-transform: uppercase;
@@ -15,5 +22,5 @@ label {
 }
 
 ngb-rating {
-  color: $primary;
+  color: $secondary;
 }
