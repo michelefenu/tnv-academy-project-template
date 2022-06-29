@@ -7,7 +7,7 @@
         <th scope="col">Username</th>
         <th scope="col">Titolo del film indovinato</th>
         <th scope="col">Voto themoviedb</th>
-        <th scope="col">Tempo impiegato</th>
+        <th scope="col">Tempo impiegato (mm:ss:SSS)</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
         <td>{{ posizione.username }}</td>
         <td>{{ posizione.titleFilm }}</td>
         <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-        <td>{{ posizione.timeSpend }}</td>
+        <td>{{ posizione.timeSpend | date: "mm:ss:SSS" }}</td>
       </tr>
     </tbody>
   </table>
