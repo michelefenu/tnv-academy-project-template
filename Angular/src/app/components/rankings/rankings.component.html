@@ -6,71 +6,17 @@
         <th scope="col">#</th>
         <th scope="col">Username</th>
         <th scope="col">Titolo del film indovinato</th>
-        <th scope="col">Tempo impiegato</th>
+        <th scope="col">Voto themoviedb</th>
+        <th scope="col">Tempo impiegato (mm:ss:SSS)</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>1972</td>
-        <td>Il padrino</td>
-
+      <tr *ngFor="let posizione of classifica">
+        <th scope="row">{{ posizione.position }}</th>
+        <td>{{ posizione.username }}</td>
+        <td>{{ posizione.titleFilm }}</td>
         <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>1981</td>
-        <td>I predatori dell'arca perduta</td>
-
-        <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>1980</td>
-        <td>L'Impero colpisce ancora</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>1994</td>
-        <td>Le Ali della libertà</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>1975</td>
-        <td>Lo Squalo</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td>1990</td>
-        <td>Quei Bravi Ragazzi</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">7</th>
-        <td>1979</td>
-        <td>Apocalypse Now</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">8</th>
-        <td>1952</td>
-        <td>Cantando sotto la pioggia</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">9</th>
-        <td>1994</td>
-        <td>Pulp Fiction</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-      </tr>
-      <tr>
-        <th scope="row">10</th>
-        <td>1999</td>
-        <td>Fight Club</td>
-        <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+        <td>{{ posizione.timeSpend | date: "mm:ss:SSS" }}</td>
       </tr>
     </tbody>
   </table>

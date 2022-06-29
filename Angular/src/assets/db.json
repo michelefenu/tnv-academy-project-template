@@ -1,0 +1,26 @@
+[
+  {
+    "position": 1,
+    "username": "string",
+    "titleFilm": "string",
+    "timeSpend": 2000
+  },
+  {
+    "position": 2,
+    "username": "string",
+    "titleFilm": "string",
+    "timeSpend": 12000
+  },
+  {
+    "position": 3,
+    "username": "string",
+    "titleFilm": "string",
+    "timeSpend": 22123
+  },
+  {
+    "position": 4,
+    "username": "string",
+    "titleFilm": "string",
+    "timeSpend": 22222123
+  }
+]
