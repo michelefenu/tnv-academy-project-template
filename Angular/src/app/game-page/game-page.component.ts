@@ -12,10 +12,21 @@ export class GamePageComponent implements OnInit {
   public isCollapsedRegista = true;
   public isCollapsedAnno = true;
   public isCollapsedNazione = true;
+  public time = 0;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
+    if(this.isCollapsedAnno!){
+      this.time = this.time +30;
+    }
+    if(this.isCollapsedCategoria!){
+      this.time = this.time +30;
+    }
+    if(this.isCollapsedRegista!){
+      this.time = this.time +30;
+    }
+   
+}
 
 }

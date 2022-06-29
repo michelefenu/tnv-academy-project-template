@@ -8,9 +8,9 @@
                       
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Il tuo punteggio</h5>
-                      <p class="card-text">4666666</p>
-                      <a href="#" class="btn btn-dark">Arrenditi</a>
+                      <h5 class="card-title">Il tuo tempo</h5>
+                      <p class="card-text">{{ time }}</p>
+                      <a href="#" class="btn btn-dark">Mi arrendo, cambio film!</a>
                     </div>
                     <div class="card-footer text-muted">
                       <form class="form-floating">
@@ -22,7 +22,7 @@
                   <ul class="list-group list-group-flush">
 
                     <li class="list-group-item"><div class="d-grid gap-2">
-                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina"  (click)="time = time + 60">
                         Locandina (+60 sec)
                       </button>
                     </div>
@@ -35,7 +35,7 @@
                    
                       
                       <li class="list-group-item"><div class="d-grid gap-2">
-                        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno">
+                        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno" (click)="time = time + 30">
                           Anno (+30 sec)
                         </button>
                       </div>
@@ -48,7 +48,7 @@
                       </div>
                     </div></li>
                     <li class="list-group-item"><div class="d-grid gap-2">
-                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nazione" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedNazione = !isCollapsedNazione">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nazione" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedNazione = !isCollapsedNazione" (click)="time = time + 30">
                         Nazione (+30 sec)
                       </button>
                     </div>
@@ -61,7 +61,7 @@
                     </div>
                   </div></li>
                   <li class="list-group-item"><div class="d-grid gap-2">
-                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista">
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista" (click)="time = time + 30">
                       Regista (+30 sec)
                     </button>
                   </div>
@@ -74,7 +74,7 @@
                   </div>
                 </div></li>
                 <li class="list-group-item"><div class="d-grid gap-2">
-                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedCategoria = !isCollapsedCategoria">
+                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedCategoria = !isCollapsedCategoria" (click)="time = time + 30">
                     Categoria (+30 sec)
                   </button>
                 </div>
