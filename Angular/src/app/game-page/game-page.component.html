@@ -1,0 +1,96 @@
+<div class="container h-100">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class="card h-100 border-primary justify-content-center">
+                <div>
+                  <div class="card text-center">
+                    <div class="card-header">
+                      
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Il tuo punteggio</h5>
+                      <p class="card-text">4666666</p>
+                      <a href="#" class="btn btn-dark">Arrenditi</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                      <form class="form-floating">
+                        <input type="name" class="form-control is-invalid" id="floatingInputInvalid" placeholder="" value="">
+                        <label for="floatingInputInvalid"><div class="text-center">Inserisci qui il titolo del film</div></label>
+                      </form>
+                    </div>
+                  </div>
+                  <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item"><div class="d-grid gap-2">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina">
+                        Locandina (+60 sec)
+                      </button>
+                    </div>
+                
+                <div class="collapse" id="locandina" [ngbCollapse]="isCollapsedLocandina">
+                  <div class="card card-body">
+                    <img src="../../assets/images/login-screen.jpg" class="card-img-top" alt="...">
+                  </div>
+                </div></li>
+                   
+                      
+                      <li class="list-group-item"><div class="d-grid gap-2">
+                        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno">
+                          Anno (+30 sec)
+                        </button>
+                      </div>
+                    
+                    <div class="collapse" id="anno"  [ngbCollapse]="isCollapsedAnno">
+                      <div class="card card-body">
+                        <div class="text-center">
+                          2022
+                        </div>
+                      </div>
+                    </div></li>
+                    <li class="list-group-item"><div class="d-grid gap-2">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nazione" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedNazione = !isCollapsedNazione">
+                        Nazione (+30 sec)
+                      </button>
+                    </div>
+                  
+                  <div class="collapse" id="nazione" [ngbCollapse]="isCollapsedNazione">
+                    <div class="card card-body" >
+                      <div class="text-center">
+                        Spagna
+                      </div>
+                    </div>
+                  </div></li>
+                  <li class="list-group-item"><div class="d-grid gap-2">
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista">
+                      Regista (+30 sec)
+                    </button>
+                  </div>
+            
+                <div class="collapse" id="regista" [ngbCollapse]="isCollapsedRegista">
+                  <div class="card card-body" >
+                    <div class="text-center">
+                      Gianni lo scemo
+                    </div>
+                  </div>
+                </div></li>
+                <li class="list-group-item"><div class="d-grid gap-2">
+                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedCategoria = !isCollapsedCategoria">
+                    Categoria (+30 sec)
+                  </button>
+                </div>
+
+              <div class="collapse" id="categoria" [ngbCollapse]="isCollapsedCategoria">
+                <div class="card card-body" >
+                  <div class="text-center">
+                    Twins
+                  </div>
+                </div>
+              </div></li>
+                        
+                    
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>    

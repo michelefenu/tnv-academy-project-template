@@ -13,6 +13,8 @@ import { NavbarComponent } from './@shared/components/navbar/navbar.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RankingsComponent } from './components/rankings/rankings.component';
+import { FooterMGComponent } from './footer-mg/footer-mg.component';
+import { GamePageComponent } from './game-page/game-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { RankingsComponent } from './components/rankings/rankings.component';
     NavbarComponent,
     WelcomeComponent,
     ProfileComponent,
-    RankingsComponent
+    RankingsComponent,
+    FooterMGComponent,
+    GamePageComponent
   ],
   imports: [
     BrowserModule,
