@@ -1,0 +1,41 @@
+<!-- FAVORITES -->
+<div class="container">
+  <section class="menu">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">GENERE</h2>
+        <div class="separator"></div>
+      </div>
+    </div>
+
+    <div class="my-3 row">
+      <div class="col-10">
+        <input
+          [(ngModel)]="filterText"
+          (ngModelChange)="applyFilter()"
+          type="text"
+          class="form-control"
+          id="search"
+          placeholder="Cerca un piatto..."
+        />
+      </div>
+      <div class="col-2">
+        <button
+          class="btn btn-primary search-btn"
+          (click)="filterText = ''; applyFilter()"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="filteredPiatti.length === 0">Nessun risultato</div>
+    <app-menu-section
+      *ngFor="let category of categories"
+      [hidden]="getSectionData(category).length === 0"
+      [piatti]="getSectionData(category)"
+      [sectionTitle]="category"
+    ></app-menu-section>
+
+  </section>
+</div>
