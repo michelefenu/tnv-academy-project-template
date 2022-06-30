@@ -1,0 +1,116 @@
+<div class="container h-100">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class="card h-100 border-primary justify-content-center">
+                <div>
+                  <div class="card text-center">
+                    <div class="card-header">
+                      
+                    </div>
+                      <div class="card-body">
+                      <h5 class="card-title">Il tuo tempo</h5>
+                      <p class="card-text">{{ time }}</p>
+                      <form #f="ngForm" (ngSubmit)="answer(f)">
+                        <div class="form-group">
+                          <label class="label" for="titolo">Inserisci qui il titolo del film</label>
+                          <input
+                            [ngModel]
+                            name="titolo"
+                            type="text"
+                            class="form-control"
+                            placeholder="Inserisci qui il titolo del film"
+                            required
+                            id="titolo"
+                            #titolo="ngModel"
+                          />
+                          <div
+                            [style.visibility]="titolo.invalid && (titolo.dirty || titolo.touched) ? 'visible' : 'hidden'"
+                            class="mt-1 small text-danger"
+                          >
+                            Quanta indecisione
+                          </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                          <button class="btn btn-primary" type="submit">Submit</button>
+                          <button class="btn btn-primary" type="button" (click) = "startTimer()">Inizia il gioco</button>
+                        </div>
+                      </form>
+                      
+                  </div>
+                  
+                  <ul class="list-group list-group-flush">
+                    <h3>I tuoi indizi</h3>
+
+                    <li class="list-group-item"><div class="d-grid gap-2">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina"  (click)="time = time + 60">
+                        Locandina (+60 sec)
+                      </button>
+                    </div>
+                
+                <div class="collapse" id="locandina" [ngbCollapse]="isCollapsedLocandina">
+                  <div class="card card-body">
+                    <img src="../../assets/images/login-screen.jpg" class="card-img-top" alt="...">
+                  </div>
+                </div></li>
+                   
+                      
+                      <li class="list-group-item"><div class="d-grid gap-2">
+                        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno" (click)="time = time + 30">
+                          Anno (+30 sec)
+                        </button>
+                      </div>
+                    
+                    <div class="collapse" id="anno"  [ngbCollapse]="isCollapsedAnno">
+                      <div class="card card-body">
+                        <div class="text-center">
+                          2022
+                        </div>
+                      </div>
+                    </div></li>
+                    <li class="list-group-item"><div class="d-grid gap-2">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nazione" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedNazione = !isCollapsedNazione" (click)="time = time + 30">
+                        Nazione (+30 sec)
+                      </button>
+                    </div>
+                  
+                  <div class="collapse" id="nazione" [ngbCollapse]="isCollapsedNazione">
+                    <div class="card card-body" >
+                      <div class="text-center">
+                        Spagna
+                      </div>
+                    </div>
+                  </div></li>
+                  <li class="list-group-item"><div class="d-grid gap-2">
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista" (click)="time = time + 30">
+                      Regista (+30 sec)
+                    </button>
+                  </div>
+            
+                <div class="collapse" id="regista" [ngbCollapse]="isCollapsedRegista">
+                  <div class="card card-body" >
+                    <div class="text-center">
+                      Gianni lo scemo
+                    </div>
+                  </div>
+                </div></li>
+                <li class="list-group-item"><div class="d-grid gap-2">
+                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedCategoria = !isCollapsedCategoria" (click)="time = time + 30">
+                    Categoria (+30 sec)
+                  </button>
+                </div>
+
+              <div class="collapse" id="categoria" [ngbCollapse]="isCollapsedCategoria">
+                <div class="card card-body" >
+                  <div class="text-center">
+                    Twins
+                  </div>
+                </div>
+              </div></li>
+                        
+                    
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+      </div>    
