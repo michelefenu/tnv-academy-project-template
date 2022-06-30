@@ -12,7 +12,7 @@
                       <p class="card-text">{{ time }}</p>
                       <form #f="ngForm" (ngSubmit)="answer(f)">
                         <div class="form-group">
-                          <label class="label" for="titolo">Inserisci qui il titolo del film</label>
+                          <label class="label" for="titolo">Indovina il titolo</label>
                           <input
                             [ngModel]
                             name="titolo"
@@ -27,7 +27,7 @@
                             [style.visibility]="titolo.invalid && (titolo.dirty || titolo.touched) ? 'visible' : 'hidden'"
                             class="mt-1 small text-danger"
                           >
-                            Quanta indecisione
+                            Che scarso
                           </div>
                         </div>
                         <div class="d-grid gap-2">
