@@ -15,6 +15,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RankingsComponent } from './components/rankings/rankings.component';
 import { FooterMGComponent } from './footer-mg/footer-mg.component';
 import { GamePageComponent } from './game-page/game-page.component';
+import { CommentSectionComponent } from './comment-section/comment-section.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { GamePageComponent } from './game-page/game-page.component';
     ProfileComponent,
     RankingsComponent,
     FooterMGComponent,
-    GamePageComponent
+    GamePageComponent,
+    CommentSectionComponent,
+  
   ],
   imports: [
     BrowserModule,

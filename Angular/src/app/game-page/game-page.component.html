@@ -7,19 +7,39 @@
                     <div class="card-header">
                       
                     </div>
-                    <div class="card-body">
+                      <div class="card-body">
                       <h5 class="card-title">Il tuo tempo</h5>
                       <p class="card-text">{{ time }}</p>
-                      <a href="#" class="btn btn-dark">Mi arrendo, cambio film!</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                      <form class="form-floating">
-                        <input type="name" class="form-control is-invalid" id="floatingInputInvalid" placeholder="" value="">
-                        <label for="floatingInputInvalid"><div class="text-center">Inserisci qui il titolo del film</div></label>
+                      <form #f="ngForm" (ngSubmit)="answer(f)">
+                        <div class="form-group">
+                          <label class="label" for="titolo">Inserisci qui il titolo del film</label>
+                          <input
+                            [ngModel]
+                            name="titolo"
+                            type="text"
+                            class="form-control"
+                            placeholder="Inserisci qui il titolo del film"
+                            required
+                            id="titolo"
+                            #titolo="ngModel"
+                          />
+                          <div
+                            [style.visibility]="titolo.invalid && (titolo.dirty || titolo.touched) ? 'visible' : 'hidden'"
+                            class="mt-1 small text-danger"
+                          >
+                            Quanta indecisione
+                          </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                          <button class="btn btn-primary" type="submit">Submit</button>
+                          <button class="btn btn-primary" type="button" (click) = "startTimer()">Inizia il gioco</button>
+                        </div>
                       </form>
-                    </div>
+                      
                   </div>
+                  
                   <ul class="list-group list-group-flush">
+                    <h3>I tuoi indizi</h3>
 
                     <li class="list-group-item"><div class="d-grid gap-2">
                       <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina"  (click)="time = time + 60">
@@ -89,7 +109,7 @@
                         
                     
                     </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
