@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './@shared/components/login/login.component';
@@ -18,7 +20,6 @@ import { GamePageComponent } from './game-page/game-page.component';
 import { CommentSectionComponent } from './comment-section/comment-section.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,15 +34,15 @@ import { CommentSectionComponent } from './comment-section/comment-section.compo
     FooterMGComponent,
     GamePageComponent,
     CommentSectionComponent,
-  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
