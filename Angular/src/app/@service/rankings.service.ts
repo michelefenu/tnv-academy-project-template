@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Posizione } from "../classifica";
+import { Posizione } from "../@models/classifica";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({

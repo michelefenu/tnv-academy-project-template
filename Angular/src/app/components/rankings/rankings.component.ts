@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { RankingsService } from "src/app/@models/@service/rankings.service";
+import { RankingsService } from "src/app/@service/rankings.service";
 import { Posizione } from "../../@models/classifica";
 
 @Component({
