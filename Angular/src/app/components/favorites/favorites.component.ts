@@ -1,42 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Piatto } from '../@models/menu';
-import { MenuService } from '../@services/menu.service';
+import { Favoriti } from '../../@models/favoriti';
+import { FavoritesService } from '../../@service/favorites.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  selector: 'app-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrls: ['./favorites.component.scss'],
 })
-export class MenuComponent implements OnInit {
+export class FavoritesComponent implements OnInit {
   filterText: string = '';
 
-  piatti: Piatto[] = [];
-  filteredPiatti: Piatto[] = [];
+  favorites: Favoriti[] = [];
+  filteredFavorites: Favoriti[] = [];
   categories: string[] = [];
+  filteredfavorites: any;
 
-  constructor(private menuService: MenuService) {}
+  constructor(private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
-    const getMenuObservable = this.menuService.getMenu();
+    const getMenuObservable = this.favoritesService.getFavorites();
 
     getMenuObservable.subscribe({
-      next: (piatti) => {
-        this.categories = [...new Set(piatti.map(x => x.category))];
-        this.piatti = piatti;
-        this.applyFilter();
+      next: (favoriti: Favoriti[]) => {
+       console.log (favoriti)
       },
     });
   }
 
   getSectionData(category: string) {
-    return this.filteredPiatti.filter(x => x.category === category);
+    return this.filteredfavorites.filter((x: { category: string; }) => x.category === category);
   }
 
-  applyFilter() {
-    this.filteredPiatti = this.piatti.filter((x) =>
-      x.title.toLowerCase().includes(this.filterText.toLowerCase()) ||
-      x.description.toLowerCase().includes(this.filterText.toLowerCase())
-    );
-  }
+
 
 }
