@@ -9,8 +9,6 @@ export class RankingsService {
   constructor(private httpClient: HttpClient) {}
 
   getRankings() {
-    return this.httpClient.get<Posizione[]>(
-      "http://localhost:4200/assets/db.json"
-    );
+    return this.httpClient.get<Posizione[]>("http://localhost:1234/api/rating");
   }
 }

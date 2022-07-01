@@ -1,6 +1,11 @@
 export interface Posizione {
-  position: number;
+  id: number;
+  userId: number;
   username: string;
-  titleFilm: string;
+  movieId: number;
+  movieTitle: string;
+  rating: number;
   timeSpend: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
