@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MovieServicesService } from '../@core/services/movie-services.service';
 import { Movie } from '../@models/movie';
 
@@ -20,7 +21,7 @@ export class GamePageComponent implements OnInit {
   public isCollapsedNazione = true;
   public punteggio = 0;
   
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private router: Router) { 
   }
 
   ngOnInit(): void {
@@ -32,8 +33,7 @@ export class GamePageComponent implements OnInit {
   answer(form: NgForm) {
     form.control.markAllAsTouched();
     if (form.valid) {
-      this.punteggio = this.time;
-      console.log(this.punteggio);
+      console.log("Bravo");
       }
   }
 

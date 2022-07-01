@@ -12,7 +12,7 @@
                       <p class="card-text">{{ time }}</p>
                       <form #f="ngForm" (ngSubmit)="answer(f)">
                         <div class="form-group">
-                          <label class="label" for="titolo">Indovina il titolo</label>
+                          <label class="label" for= {{movie.title}}>Indovina il titolo</label>
                           <input
                             [ngModel]
                             name="titolo"
@@ -20,19 +20,20 @@
                             class="form-control"
                             placeholder="Inserisci qui il titolo del film"
                             required
-                            id="titolo"
+                            id={{movie.title}}
                             #titolo="ngModel"
                           />
                           <div
-                            [style.visibility]="titolo.invalid && (titolo.dirty || titolo.touched) ? 'visible' : 'hidden'"
+                            [style.visibility]="titolo.invalid && (titolo.dirty && titolo.touched) ? 'visible' : 'hidden'"
                             class="mt-1 small text-danger"
                           >
                             Che scarso
                           </div>
                         </div>
                         <div class="d-grid gap-2">
-                          <button class="btn btn-primary" type="submit">Submit</button>
-                          <button class="btn btn-primary" type="button" (click) = "getRandomMovie()">Inizia il gioco</button>
+                          <button class="btn btn-primary" type="submit"
+                          class="form-control btn btn-primary rounded submit px-3 mt-2">Submit</button>
+                          <button class="btn btn-primary" type="button" (click) = "getRandomMovie()">Cambia film (Sappi che il timer andrà più veloce)</button>
                         </div>
                       </form>
                       
