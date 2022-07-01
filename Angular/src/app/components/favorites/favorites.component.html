@@ -1,4 +1,9 @@
 <!-- FAVORITES -->
 <div class="container">
-    </div>
-  
+  <div *ngFor="let favCurr of favorites; let i = index">
+    <p>id: {{ favCurr.Id }}</p>
+    <p>UserId: {{ favCurr.UserId }}</p>
+    <p>MovieId: {{ favCurr.MovieId }}</p>
+    <p>UserComment: {{ favCurr.UserComment }}</p>
+  </div>
+</div>
