@@ -31,9 +31,41 @@
                           </div>
                         </div>
                         <div class="d-grid gap-2">
-                          <button class="btn btn-primary" type="submit"
-                          class="form-control btn btn-primary rounded submit px-3 mt-2">Submit</button>
-                          <button class="btn btn-primary" type="button" (click) = "getRandomMovie()">Cambia film (Sappi che il timer andrà più veloce)</button>
+                        <button class="btn btn-primary" type="button" (click) = "getRandomMovie()">Mi arrendo, cambio film.</button>
+                        <ng-template #content let-modal>
+                          <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Complimenti {{user.name}} il tuo punteggio è {{punteggio}}</h4>
+                            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class = "col-md-6">
+                              <div class="text-center">
+                                {{user.name}}
+                              </div>
+                             
+                          </div><div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Vuoi lasciare un commento su questo film?</h4>
+
+                          </div>
+                          <div class="col-md-12">
+                            <label for="comments" class = "form-label">Comments</label>
+                            <textarea class="form-control" id="comments" rows="3"></textarea>
+                        </div>
+                        <br>
+                      
+                          <div class="d-grid gap-2">
+                              <button class="btn btn-primary" type="submit" (click)="modal.close()" (click) = "getRandomMovie()"
+                            >Gioca ancora</button>
+                              <button class="btn btn-primary" type="button">Salva il film tra i preferiti</button>
+                            </div>
+                          </div>
+                        </ng-template>
+        
+                        
+                        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Submit</button>
+                        
+                        <hr>
+        
                         </div>
                       </form>
                       

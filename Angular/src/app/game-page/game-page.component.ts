@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MovieServicesService } from '../@core/services/movie-services.service';
 import { Movie } from '../@models/movie';
+import { User } from '../@models/user';
 
 
 @Component({
@@ -13,7 +15,9 @@ import { Movie } from '../@models/movie';
 })
 export class GamePageComponent implements OnInit {
   movie: Partial<Movie> = {};
+  user : Partial<User> = {};
 
+  closeResult = '';
   public isCollapsedLocandina:boolean = true;
   public isCollapsedDurata:boolean = true;
   public isCollapsedOverview:boolean = true;
@@ -21,8 +25,9 @@ export class GamePageComponent implements OnInit {
   public isCollapsedRevenue:boolean = true;
   public punteggio = 0;
   private timerOn :boolean= false;
+  private answerRight: boolean = false;
   
-  constructor(public http: HttpClient, public router: Router) { 
+  constructor(public http: HttpClient, public router: Router,private modalService: NgbModal) { 
   }
 
   ngOnInit(): void {
@@ -34,7 +39,9 @@ export class GamePageComponent implements OnInit {
   answer(form: NgForm) {
     form.control.markAllAsTouched();
     if (form.valid) {
-      console.log("Bravo");
+      this.punteggio = this.time;
+      this.answerRight = !this.answerRight;
+
       }
   }
 
@@ -86,6 +93,25 @@ export class GamePageComponent implements OnInit {
           this.time += 30;
         }
       
+    }
+  }
+  open(content: any) {
+    if(this.answerRight){
+      this.modalService.open(content , {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+   
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
   }
 }
