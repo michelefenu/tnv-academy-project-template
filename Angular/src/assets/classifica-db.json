@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "userId": 4,
+    "username": "diego",
+    "movieId": 4,
+    "movieTitle": "titanic",
+    "rating": 5,
+    "timeSpend": 3951,
+    "commentId": 1,
+    "createdAt": "2022-06-30T20:00:34.000Z",
+    "updatedAt": "2022-06-30T20:00:34.000Z"
+  },
+  {
+    "id": 1,
+    "userId": 1,
+    "username": "vale",
+    "movieId": 2,
+    "movieTitle": "ciao",
+    "rating": 1,
+    "timeSpend": 70896,
+    "commentId": 1,
+    "createdAt": "2022-06-30T19:46:40.000Z",
+    "updatedAt": "2022-06-30T19:46:40.000Z"
+  }
+]

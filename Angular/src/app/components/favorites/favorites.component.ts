@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Favoriti } from "../../@models/favoriti";
+import { Posizione } from "../../@models/classifica";
 import { FavoritesService } from "../../@service/favorites.service";
 
 @Component({
@@ -8,18 +9,20 @@ import { FavoritesService } from "../../@service/favorites.service";
   styleUrls: ["./favorites.component.scss"],
 })
 export class FavoritesComponent implements OnInit {
-  favorites: Favoriti[] = [];
+  favorites: Posizione[] = [];
 
   constructor(private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
-    const getObservable = this.favoritesService.getFavorites();
+    const getObservable = this.favoritesService.getFavoritesByUserId();
 
-    getObservable.subscribe({
-      next: (favoriti: Favoriti[]) => {
-        this.favorites = favoriti;
-      },
-      error: (err) => console.error(err),
-    });
+    if (getObservable) {
+      getObservable.subscribe({
+        next: (favoriti: Posizione[]) => {
+          this.favorites = favoriti;
+        },
+        error: (err) => console.error(err),
+      });
+    }
   }
 }
