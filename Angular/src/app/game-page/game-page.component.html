@@ -32,7 +32,7 @@
                         </div>
                         <div class="d-grid gap-2">
                           <button class="btn btn-primary" type="submit">Submit</button>
-                          <button class="btn btn-primary" type="button" (click) = "startTimer()">Inizia il gioco</button>
+                          <button class="btn btn-primary" type="button" (click) = "getRandomMovie()">Inizia il gioco</button>
                         </div>
                       </form>
                       
@@ -49,60 +49,60 @@
                 
                 <div class="collapse" id="locandina" [ngbCollapse]="isCollapsedLocandina">
                   <div class="card card-body">
-                    <img src="../../assets/images/login-screen.jpg" class="card-img-top" alt="...">
+                    <img [src]="'https://image.tmdb.org/t/p/w440_and_h660_face' + movie.poster_path" class="card-img-top" alt="...">
                   </div>
                 </div></li>
                    
                       
                       <li class="list-group-item"><div class="d-grid gap-2">
                         <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno" (click)="time = time + 30">
-                          Anno (+30 sec)
+                          Data di uscita (+30 sec)
                         </button>
                       </div>
                     
                     <div class="collapse" id="anno"  [ngbCollapse]="isCollapsedAnno">
                       <div class="card card-body">
                         <div class="text-center">
-                          2022
+                          {{movie.release_date}}
                         </div>
                       </div>
                     </div></li>
                     <li class="list-group-item"><div class="d-grid gap-2">
                       <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nazione" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedNazione = !isCollapsedNazione" (click)="time = time + 30">
-                        Nazione (+30 sec)
+                        Revenue (+30 sec)
                       </button>
                     </div>
                   
                   <div class="collapse" id="nazione" [ngbCollapse]="isCollapsedNazione">
                     <div class="card card-body" >
                       <div class="text-center">
-                        Spagna
+                        {{movie.revenue}} $
                       </div>
                     </div>
                   </div></li>
                   <li class="list-group-item"><div class="d-grid gap-2">
-                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista" (click)="time = time + 30">
-                      Regista (+30 sec)
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista" (click)="time = time + 60">
+                      Overview (+60 sec)
                     </button>
                   </div>
             
                 <div class="collapse" id="regista" [ngbCollapse]="isCollapsedRegista">
                   <div class="card card-body" >
                     <div class="text-center">
-                      Gianni lo scemo
+                      {{movie.overview}}
                     </div>
                   </div>
                 </div></li>
                 <li class="list-group-item"><div class="d-grid gap-2">
                   <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedCategoria = !isCollapsedCategoria" (click)="time = time + 30">
-                    Categoria (+30 sec)
+                    Durata (+30 sec)
                   </button>
                 </div>
 
               <div class="collapse" id="categoria" [ngbCollapse]="isCollapsedCategoria">
                 <div class="card card-body" >
                   <div class="text-center">
-                    Twins
+                    {{movie.runtime}} min
                   </div>
                 </div>
               </div></li>

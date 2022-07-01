@@ -16,7 +16,7 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { FooterMGComponent } from './footer-mg/footer-mg.component';
 import { GamePageComponent } from './game-page/game-page.component';
 import { CommentSectionComponent } from './comment-section/comment-section.component';
-
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -39,7 +39,8 @@ import { CommentSectionComponent } from './comment-section/comment-section.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
