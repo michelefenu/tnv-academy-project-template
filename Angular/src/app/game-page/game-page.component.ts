@@ -14,14 +14,15 @@ import { Movie } from '../@models/movie';
 export class GamePageComponent implements OnInit {
   movie: Partial<Movie> = {};
 
-  public isCollapsedLocandina = true;
-  public isCollapsedCategoria = true;
-  public isCollapsedRegista = true;
-  public isCollapsedAnno = true; 
-  public isCollapsedNazione = true;
+  public isCollapsedLocandina:boolean = true;
+  public isCollapsedDurata:boolean = true;
+  public isCollapsedOverview:boolean = true;
+  public isCollapsedAnno:boolean = true; 
+  public isCollapsedRevenue:boolean = true;
   public punteggio = 0;
+  private timerOn :boolean= false;
   
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(public http: HttpClient, public router: Router) { 
   }
 
   ngOnInit(): void {
@@ -40,12 +41,16 @@ export class GamePageComponent implements OnInit {
   interval: number | undefined;
   time = 0;
   startTimer() {
+    this.timerOn = !this.timerOn;
     let timer;
     timer = setInterval(() => (this.time = this.time + 1), 1000);
     return timer;
   }
    getRandomMovie() {
-    this.startTimer();
+    if(!this.timerOn){
+      this.startTimer();
+    }
+    
     this.time = 0;
     // Per determinare questo valore facciamo eventualmente una query su movies/latest per avere l'id dell'ultimo Film inserito su TMDB
     const latestId = 4000;
@@ -71,6 +76,17 @@ export class GamePageComponent implements OnInit {
           this.getRandomMovie();
         },
       });
+  }
+
+  penalty(collapsed : boolean){
+    if(collapsed){
+      }else{
+        this.time += 30;
+        if(collapsed===this.isCollapsedLocandina){
+          this.time += 30;
+        }
+      
+    }
   }
 }
 

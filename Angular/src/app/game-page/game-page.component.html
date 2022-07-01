@@ -43,7 +43,7 @@
                     <h3>I tuoi indizi</h3>
 
                     <li class="list-group-item"><div class="d-grid gap-2">
-                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina"  (click)="time = time + 60">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina"  (click)="penalty(isCollapsedLocandina)">
                         Locandina (+60 sec)
                       </button>
                     </div>
@@ -56,7 +56,7 @@
                    
                       
                       <li class="list-group-item"><div class="d-grid gap-2">
-                        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno" (click)="time = time + 30">
+                        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno" (click)="penalty(isCollapsedAnno)">
                           Data di uscita (+30 sec)
                         </button>
                       </div>
@@ -69,12 +69,12 @@
                       </div>
                     </div></li>
                     <li class="list-group-item"><div class="d-grid gap-2">
-                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nazione" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedNazione = !isCollapsedNazione" (click)="time = time + 30">
+                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#revenue" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRevenue = !isCollapsedRevenue" (click)="penalty(isCollapsedRevenue)">
                         Revenue (+30 sec)
                       </button>
                     </div>
                   
-                  <div class="collapse" id="nazione" [ngbCollapse]="isCollapsedNazione">
+                  <div class="collapse" id="nazione" [ngbCollapse]="isCollapsedRevenue">
                     <div class="card card-body" >
                       <div class="text-center">
                         {{movie.revenue}} $
@@ -82,12 +82,12 @@
                     </div>
                   </div></li>
                   <li class="list-group-item"><div class="d-grid gap-2">
-                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista" (click)="time = time + 60">
-                      Overview (+60 sec)
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#overview" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedOverview = !isCollapsedOverview" (click)="penalty(isCollapsedOverview)">
+                      Overview (+30 sec)
                     </button>
                   </div>
             
-                <div class="collapse" id="regista" [ngbCollapse]="isCollapsedRegista">
+                <div class="collapse" id="regista" [ngbCollapse]="isCollapsedOverview">
                   <div class="card card-body" >
                     <div class="text-center">
                       {{movie.overview}}
@@ -95,12 +95,12 @@
                   </div>
                 </div></li>
                 <li class="list-group-item"><div class="d-grid gap-2">
-                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedCategoria = !isCollapsedCategoria" (click)="time = time + 30">
+                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedDurata = !isCollapsedDurata" (click)="penalty(isCollapsedDurata)">
                     Durata (+30 sec)
                   </button>
                 </div>
 
-              <div class="collapse" id="categoria" [ngbCollapse]="isCollapsedCategoria">
+              <div class="collapse" id="categoria" [ngbCollapse]="isCollapsedDurata">
                 <div class="card card-body" >
                   <div class="text-center">
                     {{movie.runtime}} min
