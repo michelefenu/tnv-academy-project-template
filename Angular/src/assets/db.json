@@ -1,26 +1,26 @@
 [
   {
-    "position": 1,
-    "username": "string",
-    "titleFilm": "string",
-    "timeSpend": 2000
+    "Id": 1,
+    "UserId": 1,
+    "MovieId": 1,
+    "UserComment": "uyuyu"
   },
   {
-    "position": 2,
-    "username": "string",
-    "titleFilm": "string",
-    "timeSpend": 12000
+    "Id": 1,
+    "UserId": 1,
+    "MovieId": 1,
+    "UserComment": "uyuyu"
   },
   {
-    "position": 3,
-    "username": "string",
-    "titleFilm": "string",
-    "timeSpend": 22123
+    "Id": 1,
+    "UserId": 1,
+    "MovieId": 1,
+    "UserComment": "uyuyu"
   },
   {
-    "position": 4,
-    "username": "string",
-    "titleFilm": "string",
-    "timeSpend": 22222123
+    "Id": 1,
+    "UserId": 1,
+    "MovieId": 1,
+    "UserComment": "uyuyu"
   }
 ]
