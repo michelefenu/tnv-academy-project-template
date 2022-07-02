@@ -1,8 +1,8 @@
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">
-      Complimenti {{ user.name }} il tuo punteggio è
-      {{ punteggio }}. Vuoi lasciare un commento su questo film?
+      Complimenti {{ user.name }} il tuo punteggio è {{ punteggio }}. Vuoi
+      lasciare un commento su questo film?
     </h4>
     <button
       type="button"
@@ -13,17 +13,18 @@
   </div>
   <div class="modal-body">
     <div class="col-md-6">
-      
-          <div class="mb-3 col-12">
-          <label for="rating" class="modal-header">Voto    </label>
-          <ngb-rating [(rate)]="currentRate" id="rating" [max]="10" class="modal-title"></ngb-rating>
-           
-    </div>
+      <div class="mb-3 col-12">
+        <label for="rating" class="modal-header">Voto </label>
+        <ngb-rating
+          [(rate)]="currentRate"
+          id="rating"
+          [max]="10"
+          class="modal-title"
+        ></ngb-rating>
+      </div>
     </div>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">
-        
-      </h4>
+      <h4 class="modal-title" id="modal-basic-title"></h4>
     </div>
     <div class="col-md-12">
       <label for="comments" class="form-label">Comments</label>
@@ -47,7 +48,6 @@
   </div>
 </ng-template>
 
-
 <div class="container h-100">
   <div class="row align-items-center h-100">
     <div class="col-6 mx-auto">
@@ -69,14 +69,13 @@
                     type="text"
                     class="form-control"
                     placeholder="Inserisci qui il titolo del film"
-                
                     required
                     id="{{ movie.title }}"
                     #titolo="ngModel"
                   />
                   <div
                     [style.visibility]="
-                      titolo.invalid &&titolo.dirty || titolo.touched
+                      (titolo.invalid && titolo.dirty) || titolo.touched
                         ? 'visible'
                         : 'hidden'
                     "
@@ -85,14 +84,17 @@
                     Risposta sbagliata
                   </div>
                 </div>
-                <br>
+                <br />
                 <div class="d-grid gap-2">
                   <button
                     class="btn btn-primary"
                     type="button"
                     (click)="getRandomMovie()"
                   >
-                    Mi arrendo, cambio film.
+                    <label *ngIf="timerOn === true"
+                      >Mi arrendo, cambio film.</label
+                    >
+                    <label *ngIf="timerOn === false">Inizia gioco</label>
                   </button>
 
                   <button

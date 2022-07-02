@@ -23,7 +23,7 @@ export class GamePageComponent implements OnInit {
   public isCollapsedAnno: boolean = true;
   public isCollapsedRevenue: boolean = true;
   public punteggio = 0;
-  private timerOn: boolean = false;
+  public timerOn: boolean = false;
   private answerRight: boolean = false;
   currentRate = 0;
 
@@ -34,7 +34,7 @@ export class GamePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getRandomMovie();
+    //this.getRandomMovie();
   }
 
   answer(form: NgForm, content: any) {

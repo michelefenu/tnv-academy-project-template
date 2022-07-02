@@ -1,10 +1,24 @@
+$colorShadow: #a1a1a1;
 
 .login-card {
   width: 800px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px white;
+  border-style: solid;
 }
 
 .img {
-  background-image: url('/assets/images/login-screen.jpg');
+  background-image: url("/assets/images/login-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.login {
+  background-image: url("/assets/images/login-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -16,14 +30,11 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
 }
 
-@media only screen and (max-width: 768px){
-
-.login-card {
-  width: 400px;
-}
+@media only screen and (max-width: 768px) {
+  .login-card {
+    width: 400px;
+  }
   .img {
     height: 200px;
   }
 }
-
-
