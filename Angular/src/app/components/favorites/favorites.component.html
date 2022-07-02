@@ -1,0 +1,24 @@
+<!-- FAVORITES -->
+
+<div class="container d-flex flex-wrap justify-content-start">
+  <div
+    class="card"
+    style="width: 30%; margin: 10px"
+    *ngFor="let favCurr of favorites; let i = index"
+  >
+    <img src="..." class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ favCurr.movieTitle }}</h5>
+      <p class="card-text">LOCANDINA FILM</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ favCurr.rating }}</li>
+      <li class="list-group-item">Valutazione</li>
+      <li class="list-group-item">Trama</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+</div>

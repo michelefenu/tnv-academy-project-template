@@ -12,19 +12,20 @@ export class AuthService {
   login(loginData: LoginDTO) {
     // TODO Chiamare il servizio per l'autenticazione e salvare l'utente corrente nel localStorage
     const response: User = {
+      id: 1,
       name: "Paolino",
       surname: "Paperino",
-      username: "paolino504"
+      username: "paolino504",
     };
 
     localStorage.setItem("user", JSON.stringify(response));
 
-    return of('login ok');
+    return of("login ok");
   }
 
   register(registerData: RegisterDTO) {
     // TODO Chiamare il servizio per la registrazione e redirigere l'utente alla root per il login
-    
+
     this.router.navigateByUrl("/");
   }
 
@@ -37,7 +38,7 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    const user = JSON.parse(localStorage.getItem("user") || '') as User;
+    const user = JSON.parse(localStorage.getItem("user") || "") as User;
     return user;
   }
 }
