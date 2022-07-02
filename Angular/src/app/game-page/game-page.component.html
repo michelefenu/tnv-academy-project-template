@@ -1,116 +1,257 @@
-<div class="container h-100">
-    <div class="row align-items-center h-100">
-        <div class="col-6 mx-auto">
-            <div class="card h-100 border-primary justify-content-center">
-                <div>
-                  <div class="card text-center">
-                    <div class="card-header">
-                      
-                    </div>
-                      <div class="card-body">
-                      <h5 class="card-title">Il tuo tempo</h5>
-                      <p class="card-text">{{ time }}</p>
-                      <form #f="ngForm" (ngSubmit)="answer(f)">
-                        <div class="form-group">
-                          <label class="label" for="titolo">Inserisci qui il titolo del film</label>
-                          <input
-                            [ngModel]
-                            name="titolo"
-                            type="text"
-                            class="form-control"
-                            placeholder="Inserisci qui il titolo del film"
-                            required
-                            id="titolo"
-                            #titolo="ngModel"
-                          />
-                          <div
-                            [style.visibility]="titolo.invalid && (titolo.dirty || titolo.touched) ? 'visible' : 'hidden'"
-                            class="mt-1 small text-danger"
-                          >
-                            Quanta indecisione
-                          </div>
-                        </div>
-                        <div class="d-grid gap-2">
-                          <button class="btn btn-primary" type="submit">Submit</button>
-                          <button class="btn btn-primary" type="button" (click) = "startTimer()">Inizia il gioco</button>
-                        </div>
-                      </form>
-                      
-                  </div>
-                  
-                  <ul class="list-group list-group-flush">
-                    <h3>I tuoi indizi</h3>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Complimenti {{ user.name }} il tuo punteggio è
+      {{ punteggio }}. Vuoi lasciare un commento su questo film?
+    </h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-6">
+      
+          <div class="mb-3 col-12">
+          <label for="rating" class="modal-header">Voto    </label>
+          <ngb-rating [(rate)]="currentRate" id="rating" [max]="10" class="modal-title"></ngb-rating>
+           
+    </div>
+    </div>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        
+      </h4>
+    </div>
+    <div class="col-md-12">
+      <label for="comments" class="form-label">Comments</label>
+      <textarea class="form-control" id="comments" rows="3"></textarea>
+    </div>
+    <br />
 
-                    <li class="list-group-item"><div class="d-grid gap-2">
-                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#locandina" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedLocandina = !isCollapsedLocandina"  (click)="time = time + 60">
-                        Locandina (+60 sec)
-                      </button>
-                    </div>
+    <div class="d-grid gap-2">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="modal.close()"
+        (click)="getRandomMovie()"
+      >
+        Gioca ancora
+      </button>
+      <button class="btn btn-primary" type="button">
+        Salva il film tra i preferiti
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+
+<div class="container h-100">
+  <div class="row align-items-center h-100">
+    <div class="col-6 mx-auto">
+      <div class="card h-100 border-primary justify-content-center">
+        <div>
+          <div class="card text-center">
+            <div class="card-header"></div>
+            <div class="card-body">
+              <h5 class="card-title">Il tuo tempo</h5>
+              <p class="card-text">{{ time }}</p>
+              <form #f="ngForm" (ngSubmit)="answer(f, content)">
+                <div class="form-group">
+                  <label class="label" for="{{ movie.title }}"
+                    >Indovina il titolo</label
+                  >
+                  <input
+                    [ngModel]
+                    name="titolo"
+                    type="text"
+                    class="form-control"
+                    placeholder="Inserisci qui il titolo del film"
                 
-                <div class="collapse" id="locandina" [ngbCollapse]="isCollapsedLocandina">
-                  <div class="card card-body">
-                    <img src="../../assets/images/login-screen.jpg" class="card-img-top" alt="...">
+                    required
+                    id="{{ movie.title }}"
+                    #titolo="ngModel"
+                  />
+                  <div
+                    [style.visibility]="
+                      titolo.invalid &&titolo.dirty || titolo.touched
+                        ? 'visible'
+                        : 'hidden'
+                    "
+                    class="mt-3 text-danger"
+                  >
+                    Risposta sbagliata
                   </div>
-                </div></li>
-                   
-                      
-                      <li class="list-group-item"><div class="d-grid gap-2">
-                        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#anno" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedAnno = !isCollapsedAnno" (click)="time = time + 30">
-                          Anno (+30 sec)
-                        </button>
-                      </div>
-                    
-                    <div class="collapse" id="anno"  [ngbCollapse]="isCollapsedAnno">
-                      <div class="card card-body">
-                        <div class="text-center">
-                          2022
-                        </div>
-                      </div>
-                    </div></li>
-                    <li class="list-group-item"><div class="d-grid gap-2">
-                      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nazione" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedNazione = !isCollapsedNazione" (click)="time = time + 30">
-                        Nazione (+30 sec)
-                      </button>
-                    </div>
-                  
-                  <div class="collapse" id="nazione" [ngbCollapse]="isCollapsedNazione">
-                    <div class="card card-body" >
-                      <div class="text-center">
-                        Spagna
-                      </div>
-                    </div>
-                  </div></li>
-                  <li class="list-group-item"><div class="d-grid gap-2">
-                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#regista" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedRegista = !isCollapsedRegista" (click)="time = time + 30">
-                      Regista (+30 sec)
-                    </button>
-                  </div>
-            
-                <div class="collapse" id="regista" [ngbCollapse]="isCollapsedRegista">
-                  <div class="card card-body" >
-                    <div class="text-center">
-                      Gianni lo scemo
-                    </div>
-                  </div>
-                </div></li>
-                <li class="list-group-item"><div class="d-grid gap-2">
-                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#categoria" aria-expanded="false" aria-controls="collapseExample" (click)="isCollapsedCategoria = !isCollapsedCategoria" (click)="time = time + 30">
-                    Categoria (+30 sec)
+                </div>
+                <br>
+                <div class="d-grid gap-2">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    (click)="getRandomMovie()"
+                  >
+                    Mi arrendo, cambio film.
+                  </button>
+
+                  <button
+                    class="btn btn-lg btn-outline-primary"
+                    [disabled]="!f.valid"
+                  >
+                    Submit
+                  </button>
+
+                  <hr />
+                </div>
+              </form>
+            </div>
+
+            <ul class="list-group list-group-flush">
+              <h3>I tuoi indizi</h3>
+
+              <li class="list-group-item">
+                <div class="d-grid gap-2">
+                  <button
+                    class="btn btn-dark"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#locandina"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                    (click)="isCollapsedLocandina = !isCollapsedLocandina"
+                    (click)="penalty(isCollapsedLocandina)"
+                  >
+                    Locandina (+60 sec)
                   </button>
                 </div>
 
-              <div class="collapse" id="categoria" [ngbCollapse]="isCollapsedCategoria">
-                <div class="card card-body" >
-                  <div class="text-center">
-                    Twins
+                <div
+                  class="collapse"
+                  id="locandina"
+                  [ngbCollapse]="isCollapsedLocandina"
+                >
+                  <div class="card card-body">
+                    <img
+                      [src]="
+                        'https://image.tmdb.org/t/p/w440_and_h660_face' +
+                        movie.poster_path
+                      "
+                      class="card-img-top"
+                      alt="..."
+                    />
                   </div>
                 </div>
-              </div></li>
-                        
-                    
-                    </ul>
-                    
+              </li>
+
+              <li class="list-group-item">
+                <div class="d-grid gap-2">
+                  <button
+                    class="btn btn-dark"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#anno"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                    (click)="isCollapsedAnno = !isCollapsedAnno"
+                    (click)="penalty(isCollapsedAnno)"
+                  >
+                    Data di uscita (+30 sec)
+                  </button>
                 </div>
-            </div>
+
+                <div class="collapse" id="anno" [ngbCollapse]="isCollapsedAnno">
+                  <div class="card card-body">
+                    <div class="text-center">
+                      {{ movie.release_date }}
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-grid gap-2">
+                  <button
+                    class="btn btn-dark"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#revenue"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                    (click)="isCollapsedRevenue = !isCollapsedRevenue"
+                    (click)="penalty(isCollapsedRevenue)"
+                  >
+                    Revenue (+30 sec)
+                  </button>
+                </div>
+
+                <div
+                  class="collapse"
+                  id="nazione"
+                  [ngbCollapse]="isCollapsedRevenue"
+                >
+                  <div class="card card-body">
+                    <div class="text-center">{{ movie.revenue }} $</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-grid gap-2">
+                  <button
+                    class="btn btn-dark"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#overview"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                    (click)="isCollapsedOverview = !isCollapsedOverview"
+                    (click)="penalty(isCollapsedOverview)"
+                  >
+                    Overview (+30 sec)
+                  </button>
+                </div>
+
+                <div
+                  class="collapse"
+                  id="regista"
+                  [ngbCollapse]="isCollapsedOverview"
+                >
+                  <div class="card card-body">
+                    <div class="text-center">
+                      {{ movie.overview }}
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-grid gap-2">
+                  <button
+                    class="btn btn-dark"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#categoria"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                    (click)="isCollapsedDurata = !isCollapsedDurata"
+                    (click)="penalty(isCollapsedDurata)"
+                  >
+                    Durata (+30 sec)
+                  </button>
+                </div>
+
+                <div
+                  class="collapse"
+                  id="categoria"
+                  [ngbCollapse]="isCollapsedDurata"
+                >
+                  <div class="card card-body">
+                    <div class="text-center">{{ movie.runtime }} min</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>    
+      </div>
+    </div>
+  </div>
+</div>

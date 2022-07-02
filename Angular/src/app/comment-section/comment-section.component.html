@@ -18,15 +18,17 @@
                                     <input type="text" class ="form-control" id="nome" required>
                                 </div>
                                 <div class = "col-md-6">
-                                    <label for="cognome" class = "form-label">Cognome</label>
-                                    <input type="text" class ="form-control" id="cognome" required>
+                                    <label for="filmId" class = "form-label">Film</label>
+                                    <input type="text" class ="form-control" id="filmId" required>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="comments" class = "form-label">Comments</label>
                                     <textarea class="form-control" id="comments" rows="3"></textarea>
                                 </div>
+                                <br>
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                    <button class="btn btn-primary" type="submit" routerLink="/game"
+                                    routerLinkActive="gioca-active">Gioca ancora</button>
                                     <button class="btn btn-primary" type="button">Salva il film tra i preferiti</button>
                                   </div>
                         
