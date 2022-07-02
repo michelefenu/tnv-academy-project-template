@@ -1,9 +1,24 @@
+$colorShadow: #a1a1a1;
+
 .register-card {
   width: 800px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px white;
+  border-style: solid;
 }
 
 .img {
-  background-image: url("/assets/images/login-screen.jpg");
+  background-image: url("/assets/images/registrazione-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.register {
+  background-image: url("/assets/images/registrazione-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

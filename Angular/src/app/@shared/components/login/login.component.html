@@ -1,6 +1,6 @@
 <div
-  class="d-flex align-items-center justify-content-center"
-  style="height: 100vh;"
+  class="d-flex align-items-center justify-content-center login"
+  style="height: 100vh"
 >
   <div class="login-card">
     <div class="wrap d-md-flex">
@@ -25,7 +25,11 @@
               #username="ngModel"
             />
             <div
-              [style.visibility]="username.invalid && (username.dirty || username.touched) ? 'visible' : 'hidden'"
+              [style.visibility]="
+                username.invalid && (username.dirty || username.touched)
+                  ? 'visible'
+                  : 'hidden'
+              "
               class="mt-1 small text-danger"
             >
               Campo obbligatorio
@@ -44,7 +48,11 @@
               #password="ngModel"
             />
             <div
-            [style.visibility]="password.invalid && (password.dirty || password.touched) ? 'visible' : 'hidden'"
+              [style.visibility]="
+                password.invalid && (password.dirty || password.touched)
+                  ? 'visible'
+                  : 'hidden'
+              "
               class="mt-1 small text-danger"
             >
               Campo obbligatorio
