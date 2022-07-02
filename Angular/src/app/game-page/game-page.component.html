@@ -2,7 +2,7 @@
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">
       Complimenti {{ user.name }} il tuo punteggio è
-      {{ punteggio }}
+      {{ punteggio }}. Vuoi lasciare un commento su questo film?
     </h4>
     <button
       type="button"
@@ -13,13 +13,16 @@
   </div>
   <div class="modal-body">
     <div class="col-md-6">
-      <div class="text-center">
-        {{ user.name }}
-      </div>
+      
+          <div class="mb-3 col-12">
+          <label for="rating" class="modal-header">Voto    </label>
+          <ngb-rating [(rate)]="currentRate" id="rating" [max]="10" class="modal-title"></ngb-rating>
+           
+    </div>
     </div>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">
-        Vuoi lasciare un commento su questo film?
+        
       </h4>
     </div>
     <div class="col-md-12">
@@ -44,6 +47,7 @@
   </div>
 </ng-template>
 
+
 <div class="container h-100">
   <div class="row align-items-center h-100">
     <div class="col-6 mx-auto">
@@ -65,21 +69,23 @@
                     type="text"
                     class="form-control"
                     placeholder="Inserisci qui il titolo del film"
+                
                     required
                     id="{{ movie.title }}"
                     #titolo="ngModel"
                   />
                   <div
                     [style.visibility]="
-                      titolo.invalid && titolo.dirty && titolo.touched
+                      titolo.invalid &&titolo.dirty || titolo.touched
                         ? 'visible'
                         : 'hidden'
                     "
-                    class="mt-1 small text-danger"
+                    class="mt-3 text-danger"
                   >
-                    Che scarso
+                    Risposta sbagliata
                   </div>
                 </div>
+                <br>
                 <div class="d-grid gap-2">
                   <button
                     class="btn btn-primary"

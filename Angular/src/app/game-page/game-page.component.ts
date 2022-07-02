@@ -25,6 +25,7 @@ export class GamePageComponent implements OnInit {
   public punteggio = 0;
   private timerOn: boolean = false;
   private answerRight: boolean = false;
+  currentRate = 0;
 
   constructor(
     public http: HttpClient,
