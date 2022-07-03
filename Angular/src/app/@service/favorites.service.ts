@@ -15,7 +15,7 @@ export class FavoritesService {
     const userId = JSON.parse(this.stringUser).id;
     // chiamare node con tutti i dati sui film, voto e tempo gioco,
     return this.httpClient.get<Posizione[]>(
-      "http://localhost:4200/assets/classifica-db.json"
+      `http://localhost:1234/api/favorites/${userId}`
     );
   }
 
