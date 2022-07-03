@@ -105,10 +105,11 @@
                     type="button"
                     (click)="getRandomMovie()"
                   >
-                    <label *ngIf="timerOn === true"
-                      >Mi arrendo, cambio film.</label
-                    >
-                    <label *ngIf="timerOn === false">Inizia gioco</label>
+                    {{
+                      timerOn === true
+                        ? "Mi arrendo, cambio film."
+                        : "Inizia gioco"
+                    }}
                   </button>
 
                   <button
