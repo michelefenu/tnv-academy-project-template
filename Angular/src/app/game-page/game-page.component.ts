@@ -6,6 +6,7 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { MovieServicesService } from "../@core/services/movie-services.service";
 import { Movie } from "../@models/movie";
 import { User } from "../@models/user";
+import { RankingsService } from "../@service/rankings.service";
 
 @Component({
   selector: "tnv-game-page",
@@ -30,7 +31,8 @@ export class GamePageComponent implements OnInit {
   constructor(
     public http: HttpClient,
     public router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private rankingService: RankingsService,
   ) {}
 
   ngOnInit(): void {
@@ -117,6 +119,26 @@ export class GamePageComponent implements OnInit {
       return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
+    }
+  }
+
+  onSubmit(form: NgForm){
+    if(form.valid){
+      form.value['rating'] = this.currentRate;
+      form.value['moviePoster'] = this.movie.poster_path;
+      form.value['movieRevenue'] = this.movie.revenue;
+      form.value['movieTitle'] = this.movie.title;
+      form.value['movieRelease'] = this.movie.release_date;
+      form.value['movieOverview'] = this.movie.overview;
+      form.value['movieDurata'] = this.movie.runtime;
+      form.value['timeSpend'] = this.punteggio;
+      
+      this.rankingService.addRating(form.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.router.navigateByUrl('/game');
+        },
+      });
     }
   }
 }

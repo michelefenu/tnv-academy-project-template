@@ -24,6 +24,25 @@ const Rating = db.define(
     timeSpend: {
       type: DataTypes.INTEGER,
     },
+    movieOverview: {
+      type: DataTypes.STRING,
+    },
+    moviePoster: {
+      type: DataTypes.STRING,
+    },
+    movieRevenue: {
+      type: DataTypes.INTEGER,
+    },
+    movieDurata: {
+      type: DataTypes.INTEGER,
+    },
+    movieRelease: {
+      type: DataTypes.STRING,
+    },
+    punteggio: {
+      type: DataTypes.INTEGER,
+    },
+
   },
   {
     freezeTableName: true,

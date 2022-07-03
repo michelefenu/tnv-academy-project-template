@@ -11,4 +11,10 @@ export class RankingsService {
   getRankings() {
     return this.httpClient.get<Posizione[]>("http://localhost:1234/api/rating");
   }
+
+  addRating(posizione : Partial<Posizione>) {
+    return this.httpClient.post<Posizione[]>("http://localhost:1234/api/rating", posizione);
+  }
 }
+
+

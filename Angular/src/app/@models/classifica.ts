@@ -8,4 +8,9 @@ export interface Posizione {
   timeSpend: number;
   createdAt: Date;
   updatedAt: Date;
+  moviePoster: string;
+  movieRevenue: number;
+  movieRelease: string;
+  movieDurata: number;
+  movieOverview: string;
 }
