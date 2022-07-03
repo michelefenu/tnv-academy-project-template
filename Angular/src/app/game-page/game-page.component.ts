@@ -136,7 +136,7 @@ export class GamePageComponent implements OnInit {
       this.rankingService.addRating(form.value).subscribe({
         next: (res) => {
           console.log(res);
-          this.router.navigateByUrl('/game');
+          this.getRandomMovie();
         },
       });
     }
