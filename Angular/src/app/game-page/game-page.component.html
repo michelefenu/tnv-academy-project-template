@@ -1,5 +1,5 @@
 <ng-template #content let-modal>
-  <form class="row" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form class="row" #f="ngForm">
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">
         Complimenti {{ user.name }} il tuo punteggio è {{ punteggio }}. Vuoi
@@ -36,16 +36,15 @@
       <div class="d-grid gap-2">
         <button
           class="btn btn-primary"
-          type="submit"
-          (click)="modal.close()"
-          (click)="getRandomMovie()"
+          type="button"
+          (click)="onSubmit(f, true)"
         >
           Gioca ancora
         </button>
         <button
           class="btn btn-primary"
-          type="submit"
-          (click)="modal.dismiss('Cross click')"
+          type="button"
+          (click)="onSubmit(f, false)"
         >
           Salva il film tra i preferiti
         </button>
@@ -80,6 +79,7 @@
                     id="{{ movie.title }}"
                     #titolo="ngModel"
                     (focus)="setAnswerRight(true)"
+                    [disabled]="!timerOn"
                   />
                   <div
                     [style.display]="
@@ -101,7 +101,13 @@
                 <br />
                 <div class="d-grid gap-2">
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-lg btn-outline-primary"
+                    [disabled]="!f.valid"
+                  >
+                    Invia
+                  </button>
+                  <button
+                    class="btn btn-lg btn-outline-primary"
                     type="button"
                     (click)="getRandomMovie()"
                   >
@@ -110,13 +116,6 @@
                         ? "Mi arrendo, cambio film."
                         : "Inizia gioco"
                     }}
-                  </button>
-
-                  <button
-                    class="btn btn-lg btn-outline-primary"
-                    [disabled]="!f.valid"
-                  >
-                    Submit
                   </button>
 
                   <hr />

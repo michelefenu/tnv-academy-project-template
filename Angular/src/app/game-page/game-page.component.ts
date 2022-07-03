@@ -15,9 +15,8 @@ import { RankingsService } from "../@service/rankings.service";
 })
 export class GamePageComponent implements OnInit {
   stringUser = localStorage.getItem("user");
-  idUser = localStorage.getItem("id");
   movie: Partial<Movie> = {};
-  user: Partial<User> = {};
+  user: Partial<User> = this.stringUser ? JSON.parse(this.stringUser) : null;
 
   closeResult = "";
   public isCollapsedLocandina: boolean = true;
@@ -133,19 +132,24 @@ export class GamePageComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit(form: NgForm, playAgain: boolean) {
+    debugger;
     if (form.valid) {
-      form.value["rating"] = this.currentRate;
+      if (!playAgain) {
+        form.value["rating"] = this.currentRate;
+      }
       form.value["movieId"] = this.movie.id;
-      form.value["moviePoster"] = this.movie.poster_path;
+      form.value[
+        "moviePoster"
+      ] = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${this.movie.poster_path}`;
       form.value["movieRevenue"] = this.movie.revenue;
       form.value["movieTitle"] = this.movie.title;
       form.value["movieRelease"] = this.movie.release_date;
       form.value["movieOverview"] = this.movie.overview;
       form.value["movieDurata"] = this.movie.runtime;
-      form.value["timeSpend"] = this.punteggio;
-      form.value["username"] = this.stringUser;
-      form.value["userId"] = this.idUser;
+      form.value["timeSpend"] = this.punteggio * 1000; // secondi convertiti a millisecondi
+      form.value["username"] = this.user.username;
+      form.value["userId"] = this.user.id;
 
       this.rankingService.addRating(form.value).subscribe({
         next: (res) => {
