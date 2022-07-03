@@ -1,4 +1,5 @@
 <ng-template #content let-modal>
+  <form class="row" #f="ngForm" (ngSubmit)="onSubmit(f)">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">
       Complimenti {{ user.name }} il tuo punteggio è {{ punteggio }}. Vuoi
@@ -41,11 +42,12 @@
       >
         Gioca ancora
       </button>
-      <button class="btn btn-primary" type="button">
+      <button class="btn btn-primary" type="submit" (click)="modal.dismiss('Cross click')">
         Salva il film tra i preferiti
       </button>
     </div>
   </div>
+</form>
 </ng-template>
 
 <div class="container h-100">
@@ -57,7 +59,7 @@
             <div class="card-header"></div>
             <div class="card-body">
               <h5 class="card-title">Il tuo tempo</h5>
-              <p class="card-text">{{ time }}</p>
+              <h1 class="card-text">{{ time }}</h1>
               <form #f="ngForm" (ngSubmit)="answer(f, content)">
                 <div class="form-group">
                   <label class="label" for="{{ movie.title }}"
@@ -123,6 +125,7 @@
                     aria-controls="collapseExample"
                     (click)="isCollapsedLocandina = !isCollapsedLocandina"
                     (click)="penalty(isCollapsedLocandina)"
+                    [disabled]="!isCollapsedLocandina"
                   >
                     Locandina (+60 sec)
                   </button>
@@ -157,6 +160,7 @@
                     aria-controls="collapseExample"
                     (click)="isCollapsedAnno = !isCollapsedAnno"
                     (click)="penalty(isCollapsedAnno)"
+                    [disabled]="!isCollapsedAnno"
                   >
                     Data di uscita (+30 sec)
                   </button>
@@ -181,6 +185,7 @@
                     aria-controls="collapseExample"
                     (click)="isCollapsedRevenue = !isCollapsedRevenue"
                     (click)="penalty(isCollapsedRevenue)"
+                    [disabled]="!isCollapsedRevenue"
                   >
                     Revenue (+30 sec)
                   </button>
@@ -207,6 +212,7 @@
                     aria-controls="collapseExample"
                     (click)="isCollapsedOverview = !isCollapsedOverview"
                     (click)="penalty(isCollapsedOverview)"
+                    [disabled]="!isCollapsedOverview"
                   >
                     Overview (+30 sec)
                   </button>
@@ -235,6 +241,7 @@
                     aria-controls="collapseExample"
                     (click)="isCollapsedDurata = !isCollapsedDurata"
                     (click)="penalty(isCollapsedDurata)"
+                    [disabled]="!isCollapsedDurata"
                   >
                     Durata (+30 sec)
                   </button>
