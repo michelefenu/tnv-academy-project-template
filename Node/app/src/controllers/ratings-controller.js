@@ -1,12 +1,16 @@
 import Rating from "../models/rating.js";
+import { Op } from "sequelize";
 
-export const getRating = async (req, res) => {
+export const getFavoritesByUserId = async (req, res) => {
   try {
-    const rating = await Rating.findOne({
+    const rating = await Rating.findAll({
       where: {
         userId: req.params.userId,
-        movieId: req.params.movieId,
+        rating: {
+          [Op.ne]: null,
+        },
       },
+      order: [["timeSpend", "ASC"]],
     });
 
     if (rating) {
@@ -82,11 +86,14 @@ export const deleteRating = async (req, res) => {
   }
 };
 
-export const getPreferiti =  async (req, res) => {
+export const moviePreferiti = async (req, res) => {
   try {
-    const rating = await Rating.findAll( {
-      where:{
-      userId: req.params.userId,},
+    const rating = await Rating.findAll({
+      where: {
+        userId: req.params.userId,
+        movieId: req.params.movieId,
+        rating: req.params.rating,
+      },
     });
 
     if (rating) {

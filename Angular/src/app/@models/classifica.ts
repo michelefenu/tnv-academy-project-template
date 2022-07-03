@@ -4,11 +4,11 @@ export interface Posizione {
   username: string;
   movieId: number;
   movieTitle: string;
+  moviePoster: string;
   rating: number;
   timeSpend: number;
   createdAt: Date;
   updatedAt: Date;
-  moviePoster: string;
   movieRevenue: number;
   movieRelease: string;
   movieDurata: number;

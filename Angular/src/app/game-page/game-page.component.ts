@@ -15,7 +15,7 @@ import { RankingsService } from "../@service/rankings.service";
 })
 export class GamePageComponent implements OnInit {
   stringUser = localStorage.getItem("user");
-  idUser = localStorage.getItem('id');
+  idUser = localStorage.getItem("id");
   movie: Partial<Movie> = {};
   user: Partial<User> = {};
 
@@ -26,28 +26,36 @@ export class GamePageComponent implements OnInit {
   public isCollapsedAnno: boolean = true;
   public isCollapsedRevenue: boolean = true;
   public punteggio = 0;
-  private timerOn: boolean = false;
-  private answerRight: boolean = false;
+  public timerOn: boolean = false;
+  public answerRight: boolean = true;
   currentRate = 0;
 
   constructor(
     public http: HttpClient,
     public router: Router,
     private modalService: NgbModal,
-    private rankingService: RankingsService,
+    private rankingService: RankingsService
   ) {}
 
   ngOnInit(): void {
-    this.getRandomMovie();
+    //this.getRandomMovie();
+  }
+
+  setAnswerRight(valore: boolean) {
+    this.answerRight = valore;
   }
 
   answer(form: NgForm, content: any) {
     form.control.markAllAsTouched();
     if (form.valid) {
       this.punteggio = this.time;
-      this.answerRight = form.form.value.titolo === this.movie.title;
+      this.answerRight =
+        form.form.value.titolo.toUpperCase() ===
+        this.movie.title?.toUpperCase();
       if (this.answerRight) {
         this.open(content);
+        this.timerOn = false;
+        clearInterval(this.currentInterval);
       }
     }
   }
@@ -60,9 +68,10 @@ export class GamePageComponent implements OnInit {
     timer = setInterval(() => (this.time = this.time + 1), 1000);
     return timer;
   }
+  currentInterval: any = null;
   getRandomMovie() {
     if (!this.timerOn) {
-      this.startTimer();
+      this.currentInterval = this.startTimer();
     }
 
     this.time = 0;
@@ -124,20 +133,20 @@ export class GamePageComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm){
-    if(form.valid){
-      form.value['rating'] = this.currentRate;
-      form.value['movieId'] = this.movie.id;
-      form.value['moviePoster'] = this.movie.poster_path;
-      form.value['movieRevenue'] = this.movie.revenue;
-      form.value['movieTitle'] = this.movie.title;
-      form.value['movieRelease'] = this.movie.release_date;
-      form.value['movieOverview'] = this.movie.overview;
-      form.value['movieDurata'] = this.movie.runtime;
-      form.value['timeSpend'] = this.punteggio;
-      form.value['username'] = this.stringUser;
-      form.value['userId'] = this.idUser;
-      
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      form.value["rating"] = this.currentRate;
+      form.value["movieId"] = this.movie.id;
+      form.value["moviePoster"] = this.movie.poster_path;
+      form.value["movieRevenue"] = this.movie.revenue;
+      form.value["movieTitle"] = this.movie.title;
+      form.value["movieRelease"] = this.movie.release_date;
+      form.value["movieOverview"] = this.movie.overview;
+      form.value["movieDurata"] = this.movie.runtime;
+      form.value["timeSpend"] = this.punteggio;
+      form.value["username"] = this.stringUser;
+      form.value["userId"] = this.idUser;
+
       this.rankingService.addRating(form.value).subscribe({
         next: (res) => {
           console.log(res);

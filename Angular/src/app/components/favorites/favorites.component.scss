@@ -1,3 +1,27 @@
 .search-btn {
-    width: 100%;
+  width: 100%;
+}
+$colorShadow: #a1a1a1;
+.cardPreferiti {
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $colorShadow,
+    0 0 0.8rem $colorShadow, 0 0 2.8rem $colorShadow,
+    inset 0 0 1.3rem $colorShadow;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #212529;
+  text-decoration: none;
+  background-color: #fff;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.225);
+  border-left: 0.5px solid rgba(0, 0, 0, 0.225);
+  border-right: 0.5px solid rgba(0, 0, 0, 0.225);
+}
+
+.list-group-flush > .list-group-item:last-child {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.225);
 }
