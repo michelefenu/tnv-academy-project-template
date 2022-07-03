@@ -6,18 +6,30 @@
     style="width: 30%; margin: 10px"
     *ngFor="let favCurr of favorites; let i = index"
   >
-    <img src="..." class="card-img-top" alt="..." />
+    <img [src]="
+    'https://image.tmdb.org/t/p/w440_and_h660_face' +
+    favCurr.moviePoster
+  " class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{ favCurr.movieTitle }}</h5>
-      <p class="card-text">LOCANDINA FILM</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ favCurr.rating }}</li>
-      <li class="list-group-item">Valutazione</li>
-      <li class="list-group-item">Trama</li>
+      <li class="list-group-item">Valutazione<br>{{ favCurr.rating }}</li>
+      <li class="list-group-item">Release<br>{{favCurr.movieRelease}}</li>
+      <li class="list-group-item">Trama<br>{{favCurr.movieOverview}}</li>
     </ul>
     <div class="card-body">
-      <a routerLink="/movie" class="card-link">Dettagli</a>
+      <ul class="list-inline m-0">
+        <li class="list-inline-item">
+          <a routerLink="/movie" class="card-link">Dettagli</a>
+        </li>
+        
+        <li class="list-inline-item">
+            
+        </li>
+    </ul>
+      
+    
     </div>
   </div>
 </div>

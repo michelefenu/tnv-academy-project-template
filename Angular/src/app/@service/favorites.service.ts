@@ -14,9 +14,9 @@ export class FavoritesService {
     if (!this.stringUser) return;
     const userId = JSON.parse(this.stringUser).id;
     // chiamare node con tutti i dati sui film, voto e tempo gioco,
-    return this.httpClient.get<Posizione[]>(
-      "http://localhost:4200/assets/classifica-db.json"
-    );
+    return this.httpClient.get<Posizione[]>("http://localhost:1234/api/rating")
+  
+    
   }
 
   getCommentByUserIdAndMovieId(movieId: number) {
@@ -27,5 +27,23 @@ export class FavoritesService {
     return this.httpClient.get<Favoriti>(
       "http://localhost:4200/assets/commenti-db.json"
     );
+  }
+
+  getMovieByMovieId(movieId: number){
+   
+    if (!this.stringUser) return;
+    const userId = JSON.parse(this.stringUser).id;
+
+    return this.httpClient.get<Posizione>("http://localhost:1234/api/rating/"+ userId + movieId);
+  
+
+  }
+
+  deleteMovie(movieId : number){
+    if (!this.stringUser) return;
+    const userId = JSON.parse(this.stringUser).id;
+
+    return this.httpClient.delete<Posizione>("http://localhost:1234/api/rating/"+ userId + movieId);
+    
   }
 }

@@ -25,6 +25,7 @@ const routes: Routes = [
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
       { path: "game", component: GamePageComponent},
       { path: "movie", component: CommentSectionComponent},
+      
     ],
   },
   {

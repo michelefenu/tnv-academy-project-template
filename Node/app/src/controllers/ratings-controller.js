@@ -82,13 +82,11 @@ export const deleteRating = async (req, res) => {
   }
 };
 
-export const moviePreferiti =  async (req, res) => {
+export const getPreferiti =  async (req, res) => {
   try {
     const rating = await Rating.findAll( {
       where:{
-      userId: req.params.userId,
-      movieId: req.params.movieId,
-      rating: req.params.rating,},
+      userId: req.params.userId,},
     });
 
     if (rating) {
