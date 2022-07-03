@@ -14,6 +14,8 @@ import { RankingsService } from "../@service/rankings.service";
   styleUrls: ["./game-page.component.scss"],
 })
 export class GamePageComponent implements OnInit {
+  stringUser = localStorage.getItem("user");
+  idUser = localStorage.getItem("id");
   movie: Partial<Movie> = {};
   user: Partial<User> = {};
 
@@ -134,6 +136,7 @@ export class GamePageComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.valid) {
       form.value["rating"] = this.currentRate;
+      form.value["movieId"] = this.movie.id;
       form.value["moviePoster"] = this.movie.poster_path;
       form.value["movieRevenue"] = this.movie.revenue;
       form.value["movieTitle"] = this.movie.title;
@@ -141,6 +144,8 @@ export class GamePageComponent implements OnInit {
       form.value["movieOverview"] = this.movie.overview;
       form.value["movieDurata"] = this.movie.runtime;
       form.value["timeSpend"] = this.punteggio;
+      form.value["username"] = this.stringUser;
+      form.value["userId"] = this.idUser;
 
       this.rankingService.addRating(form.value).subscribe({
         next: (res) => {

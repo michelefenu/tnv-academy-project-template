@@ -5,8 +5,6 @@ export interface Posizione {
   movieId: number;
   movieTitle: string;
   moviePoster: string;
-  anno: number;
-  plot: string;
   rating: number;
   timeSpend: number;
   createdAt: Date;

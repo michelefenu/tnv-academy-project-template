@@ -28,4 +28,22 @@ export class FavoritesService {
       "http://localhost:4200/assets/commenti-db.json"
     );
   }
+
+  getMovieByMovieId(movieId: number) {
+    if (!this.stringUser) return;
+    const userId = JSON.parse(this.stringUser).id;
+
+    return this.httpClient.get<Posizione>(
+      "http://localhost:1234/api/rating/" + userId + movieId
+    );
+  }
+
+  deleteMovie(movieId: number) {
+    if (!this.stringUser) return;
+    const userId = JSON.parse(this.stringUser).id;
+
+    return this.httpClient.delete<Posizione>(
+      "http://localhost:1234/api/rating/" + userId + movieId
+    );
+  }
 }
