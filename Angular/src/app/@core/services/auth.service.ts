@@ -10,6 +10,7 @@ export class AuthService {
   constructor(private router: Router) {}
 
   login(loginData: LoginDTO) {
+    
     // TODO Chiamare il servizio per l'autenticazione e salvare l'utente corrente nel localStorage
     const response: User = {
       id: 1,
@@ -24,7 +25,7 @@ export class AuthService {
   }
 
   register(registerData: RegisterDTO) {
-    // TODO Chiamare il servizio per la registrazione e redirigere l'utente alla root per il login
+    
 
     this.router.navigateByUrl("/");
   }
