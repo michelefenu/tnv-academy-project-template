@@ -7,6 +7,7 @@ import { MovieServicesService } from "../@core/services/movie-services.service";
 import { Movie } from "../@models/movie";
 import { User } from "../@models/user";
 import { RankingsService } from "../@service/rankings.service";
+import { FavoritesService } from "../@service/favorites.service";
 
 @Component({
   selector: "tnv-game-page",
@@ -36,8 +37,9 @@ export class GamePageComponent implements OnInit {
   constructor(
     public http: HttpClient,
     public router: Router,
-    private modalService: NgbModal,
-    private rankingService: RankingsService
+    public modalService: NgbModal,
+    public rankingService: RankingsService,
+    public favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {}
@@ -160,14 +162,35 @@ export class GamePageComponent implements OnInit {
       form.value["username"] = this.user.username;
       form.value["userId"] = this.user.id;
 
-      this.rankingService.addRating(form.value).subscribe({
-        next: (res) => {
-          if (playAgain) {
-            this.getRandomMovie();
-          }
-          this.modalService.dismissAll();
-        },
-      });
+      const obsCreateCommment = this.favoritesService.createComment(
+        this.movie.id || 0,
+        this.currentComment
+      );
+
+      const obsCreateClassifica = this.rankingService.addRating(form.value);
+
+      if (obsCreateCommment) {
+        obsCreateCommment.subscribe({
+          next: (res) => {
+            debugger;
+            console.log(res);
+            obsCreateClassifica.subscribe({
+              next: (res) => {
+                if (playAgain) {
+                  this.getRandomMovie();
+                }
+                this.modalService.dismissAll();
+              },
+              error: (err) => {
+                console.error(err);
+              },
+            });
+          },
+          error: (err) => {
+            console.error(err);
+          },
+        });
+      }
     }
   }
 }

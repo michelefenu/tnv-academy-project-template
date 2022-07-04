@@ -1,4 +1,4 @@
-export interface Favoriti {
+export interface Comment {
   Id: number;
   UserId: number;
   MovieId: number;

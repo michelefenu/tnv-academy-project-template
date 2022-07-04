@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Favoriti } from "../../@models/favoriti";
 import { Posizione } from "../../@models/classifica";
 import { FavoritesService } from "../../@service/favorites.service";
 
@@ -25,6 +24,4 @@ export class FavoritesComponent implements OnInit {
       });
     }
   }
-
-  
 }
