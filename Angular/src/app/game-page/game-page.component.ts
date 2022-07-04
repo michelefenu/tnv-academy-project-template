@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
@@ -28,6 +28,10 @@ export class GamePageComponent implements OnInit {
   public timerOn: boolean = false;
   public answerRight: boolean = true;
   currentRate = 0;
+  currentComment = "";
+
+  @ViewChild("titleForm") titleForm: NgForm | undefined;
+  @ViewChild("commentForm") commentForm: NgForm | undefined;
 
   constructor(
     public http: HttpClient,
@@ -36,12 +40,13 @@ export class GamePageComponent implements OnInit {
     private rankingService: RankingsService
   ) {}
 
-  ngOnInit(): void {
-    //this.getRandomMovie();
-  }
+  ngOnInit(): void {}
 
   setAnswerRight(valore: boolean) {
     this.answerRight = valore;
+  }
+  changeComment(target: any) {
+    this.currentComment = target.value;
   }
 
   answer(form: NgForm, content: any) {
@@ -68,7 +73,11 @@ export class GamePageComponent implements OnInit {
     return timer;
   }
   currentInterval: any = null;
+
   getRandomMovie() {
+    this.titleForm?.reset();
+    this.commentForm?.reset();
+
     if (!this.timerOn) {
       this.currentInterval = this.startTimer();
     }
@@ -153,8 +162,10 @@ export class GamePageComponent implements OnInit {
 
       this.rankingService.addRating(form.value).subscribe({
         next: (res) => {
-          console.log(res);
-          this.getRandomMovie();
+          if (playAgain) {
+            this.getRandomMovie();
+          }
+          this.modalService.dismissAll();
         },
       });
     }

@@ -1,5 +1,5 @@
 <ng-template #content let-modal>
-  <form class="row" #f="ngForm">
+  <form class="row" #commentForm="ngForm">
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">
         Complimenti {{ user.name }} il tuo punteggio è {{ punteggio }}. Vuoi
@@ -29,7 +29,14 @@
       </div>
       <div class="col-md-12">
         <label for="comments" class="form-label">Comments</label>
-        <textarea class="form-control" id="comments" rows="3"></textarea>
+        <textarea
+          class="form-control"
+          id="comments"
+          rows="3"
+          (input)="changeComment($event.target)"
+          [ngModel]="currentComment"
+          [ngModelOptions]="{ standalone: true }"
+        ></textarea>
       </div>
       <br />
 
@@ -37,16 +44,18 @@
         <button
           class="btn btn-primary"
           type="button"
-          (click)="onSubmit(f, true)"
+          (click)="onSubmit(commentForm, false)"
+          [disabled]="currentRate === 0 || currentComment.length === 0"
         >
-          Gioca ancora
+          Salva il film tra i preferiti
         </button>
+        <hr />
         <button
           class="btn btn-primary"
           type="button"
-          (click)="onSubmit(f, false)"
+          (click)="onSubmit(commentForm, true)"
         >
-          Salva il film tra i preferiti
+          Oppure gioca ancora
         </button>
       </div>
     </div>
@@ -64,7 +73,7 @@
               <h1 class="card-text">{{ time }}</h1>
             </div>
             <div class="card-body">
-              <form #f="ngForm" (ngSubmit)="answer(f, content)">
+              <form #titleForm="ngForm" (ngSubmit)="answer(titleForm, content)">
                 <div class="form-group">
                   <label class="label" for="{{ movie.title }}"
                     >Indovina il titolo</label
@@ -76,7 +85,7 @@
                     class="form-control"
                     placeholder="Inserisci qui il titolo del film"
                     required
-                    id="{{ movie.title }}"
+                    [id]="movie.id"
                     #titolo="ngModel"
                     (focus)="setAnswerRight(true)"
                     [disabled]="!timerOn"
@@ -102,7 +111,7 @@
                 <div class="d-grid gap-2">
                   <button
                     class="btn btn-lg btn-outline-primary"
-                    [disabled]="!f.valid"
+                    [disabled]="!titleForm.valid"
                   >
                     Invia
                   </button>
