@@ -29,7 +29,7 @@ export class GamePageComponent implements OnInit {
   public timerOn: boolean = false;
   public answerRight: boolean = true;
   currentRate = 0;
-  comment = "";
+
 
   constructor(
     public http: HttpClient,
@@ -136,7 +136,7 @@ export class GamePageComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      form.value["comments"] = this.comment;
+      form.value["movieComment"] = form.value.comment;
       form.value["rating"] = this.currentRate;
       form.value["movieId"] = this.movie.id;
       form.value["moviePoster"] = this.movie.poster_path;
@@ -148,6 +148,8 @@ export class GamePageComponent implements OnInit {
       form.value["timeSpend"] = this.punteggio;
       form.value["username"] = this.stringUser;
       form.value["userId"] = this.idUser;
+
+      console.log(form.value.comment);
 
       this.rankingService.addRating(form.value).subscribe({
         next: (res) => {

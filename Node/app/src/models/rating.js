@@ -42,7 +42,7 @@ const Rating = db.define(
     punteggio: {
       type: DataTypes.INTEGER,
     },
-    commento: {
+    movieComment: {
       type: DataTypes.STRING
     },
 

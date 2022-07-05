@@ -29,12 +29,12 @@ export class FavoritesService {
     );
   }
 
-  getMovieByMovieId(movieId: number) {
+  getMovieByMovieIdAndUserId(movieId: number) {
     if (!this.stringUser) return;
     const userId = JSON.parse(this.stringUser).id;
 
     return this.httpClient.get<Posizione>(
-      "http://localhost:1234/api/rating/" + userId + movieId
+      `http://localhost:1234/api/rating/${userId}/${movieId}`
     );
   }
 
@@ -43,7 +43,7 @@ export class FavoritesService {
     const userId = JSON.parse(this.stringUser).id;
 
     return this.httpClient.delete<Posizione>(
-      "http://localhost:1234/api/rating/" + userId + movieId
+      `http://localhost:1234/api/rating/${userId}/${movieId}`
     );
   }
 }
