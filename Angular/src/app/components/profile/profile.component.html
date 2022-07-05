@@ -3,29 +3,42 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 col-xl-7">
         <div class="card">
-          <div class="rounded-top text-white d-flex flex-row" style="background-color: #313b59; height:200px;">
-            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                style="width: 150px; z-index: 1">
-              <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
-                style="z-index: 1;">
+          <div
+            class="rounded-top text-white d-flex flex-row"
+            style="background-color: #313b59; height: 200px"
+          >
+            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                alt="Generic placeholder image"
+                class="img-fluid img-thumbnail mt-4 mb-2"
+                style="width: 150px; z-index: 1"
+              />
+              <button
+                type="button"
+                class="btn btn-outline-dark"
+                data-mdb-ripple-color="dark"
+                style="z-index: 1"
+              >
                 Edit profile
               </button>
-              <button type="button" class="btn btn-outline-blue" data-mdb-ripple-color="dark"
-              style="z-index: 1;">
-              <tnv-logout class="mt-3"></tnv-logout>
-            </button>
+              <button
+                type="button"
+                class="btn btn-outline-blue"
+                data-mdb-ripple-color="dark"
+                style="z-index: 1"
+              >
+                <tnv-logout class="mt-3"></tnv-logout>
+              </button>
               <div></div>
-              
             </div>
-            <div class="ms-3" style="margin-top: 130px;">
+            <div class="ms-3" style="margin-top: 130px">
               <h5>{{ currentUser.name }}</h5>
               <h5>{{ currentUser.surname }}</h5>
               <p>{{ currentUser.username }}</p>
             </div>
           </div>
-          <div class="p-4 text-black" style="background-color: #f8f9fa;">
+          <div class="p-4 text-black" style="background-color: #f8f9fa">
             <div class="d-flex justify-content-end text-center py-1">
               <div>
                 <p class="mb-1 h5">253</p>
@@ -36,29 +49,25 @@
           <div class="card-body p-4 text-black">
             <div class="mb-5">
               <h6 class="text-center">Ultimi commenti:</h6>
-            
+
               <div class="container d-flex flex-wrap justify-content-start">
                 <table class="table table-image">
-                 
                   <th scope="col">Poster</th>
-		              <th scope="col">Titolo</th>
-		              <th scope="col">Risultato</th>
+                  <th scope="col">Titolo</th>
+                  <th scope="col">Risultato</th>
                   <tr *ngFor="let favCurr of favorites; let i = index">
                     <td class="w-25">
-                      <img [src]="
-                      'https://image.tmdb.org/t/p/w440_and_h660_face' +
-                      favCurr.moviePoster
-                    " alt="Poster" class="img-thumbnail">
+                      <img
+                        [src]="favCurr.moviePoster"
+                        alt="Poster"
+                        class="img-thumbnail"
+                      />
                     </td>
-                    <td>Titolo:  </td>
-                    <td>{{favCurr.movieTitle}}</td>
-                    <td>Commento:  </td>
-                    <td>{{favCurr.movieComment}}</td>
+                    <td>Titolo:</td>
+                    <td>{{ favCurr.movieTitle }}</td>
                   </tr>
-                  
                 </table>
-            
-            </div>
+              </div>
             </div>
           </div>
         </div>
