@@ -29,6 +29,7 @@ export class GamePageComponent implements OnInit {
   public timerOn: boolean = false;
   public answerRight: boolean = true;
   currentRate = 0;
+  comment = "";
 
   constructor(
     public http: HttpClient,
@@ -135,6 +136,7 @@ export class GamePageComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
+      form.value["comments"] = this.comment;
       form.value["rating"] = this.currentRate;
       form.value["movieId"] = this.movie.id;
       form.value["moviePoster"] = this.movie.poster_path;

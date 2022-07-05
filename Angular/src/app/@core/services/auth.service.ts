@@ -12,13 +12,23 @@ export class AuthService {
   
 
   login(loginData: LoginDTO) {
-    try{
+    const response: User = {
+      name: "Paolino",
+      surname: "Paperino",
+      username: "paolino504",
+      id: 4,
+    };
+
+    localStorage.setItem("user", JSON.stringify(response));
+
+    return of('login ok');
+    /*try{
       const response = this.getUser(loginData.username);
       localStorage.setItem("user", JSON.stringify(response));
       return of('login ok');
     } catch{
       return of('login fallito')
-    }
+    }*/
 
   }
   
