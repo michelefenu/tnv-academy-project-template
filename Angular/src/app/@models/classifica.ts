@@ -14,5 +14,4 @@ export interface Posizione {
   movieRelease: string;
   movieDurata: number;
   movieOverview: string;
-  movieComment: string;
 }
