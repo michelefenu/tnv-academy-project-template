@@ -48,7 +48,7 @@ export class FavoritesService {
     const userId = JSON.parse(this.stringUser).id;
 
     return this.httpClient.delete<Posizione>(
-      "http://localhost:1234/api/rating/" + userId + movieId
+      `http://localhost:1234/api/rating/${userId}/${movieId}`
     );
   }
 }

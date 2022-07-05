@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
     form.control.markAllAsTouched();
     if (form.valid) {
       this.authService.register(form.value);
+      this.router.navigateByUrl("/");
     }
   }
 }

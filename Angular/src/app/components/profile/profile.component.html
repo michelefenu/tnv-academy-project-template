@@ -20,8 +20,9 @@
               
             </div>
             <div class="ms-3" style="margin-top: 130px;">
-              <h5>Gianni Il Camionista</h5>
-              <p>Giorgino</p>
+              <h5>{{ currentUser.name }}</h5>
+              <h5>{{ currentUser.surname }}</h5>
+              <p>{{ currentUser.username }}</p>
             </div>
           </div>
           <div class="p-4 text-black" style="background-color: #f8f9fa;">
@@ -34,7 +35,7 @@
           </div>
           <div class="card-body p-4 text-black">
             <div class="mb-5">
-              <h6 class="text-center">Ultimi aggiunti ai preferiti:</h6>
+              <h6 class="text-center">Ultimi commenti:</h6>
             
               <div class="container d-flex flex-wrap justify-content-start">
                 <table class="table table-image">
@@ -51,8 +52,8 @@
                     </td>
                     <td>Titolo:  </td>
                     <td>{{favCurr.movieTitle}}</td>
-                    <td>Durata:  </td>
-                    <td>{{favCurr.movieDurata}}</td>
+                    <td>Commento:  </td>
+                    <td>{{favCurr.movieComment}}</td>
                   </tr>
                   
                 </table>

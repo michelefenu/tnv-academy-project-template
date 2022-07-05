@@ -42,6 +42,10 @@ const Rating = db.define(
     punteggio: {
       type: DataTypes.INTEGER,
     },
+    movieComment: {
+      type: DataTypes.STRING
+    },
+
 
   },
   {
