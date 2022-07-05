@@ -1,6 +1,11 @@
-export interface Comment {
-  Id: number;
-  UserId: number;
-  MovieId: number;
-  UserComment: string;
+export interface CommentRequest {
+  userId: number;
+  movieId: number;
+  userComment: string;
+}
+export interface CommentResponse {
+  id: number;
+  userId: number;
+  movieId: number;
+  userComment: string;
 }

@@ -3,6 +3,7 @@ export interface Posizione {
   userId: number;
   username: string;
   movieId: number;
+  commentId: number;
   movieTitle: string;
   moviePoster: string;
   rating: number;

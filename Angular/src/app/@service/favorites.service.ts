@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Comment } from "../@models/comment";
+import { CommentRequest, CommentResponse } from "../@models/comment";
 import { HttpClient } from "@angular/common/http";
 import { Posizione } from "../@models/classifica";
 
@@ -23,23 +23,15 @@ export class FavoritesService {
     if (!this.stringUser) return;
     const userId = JSON.parse(this.stringUser).id;
 
-    const body = {
+    const body: CommentRequest = {
       userId,
       movieId,
       userComment,
     };
-    console.log({ body });
 
-    const headers = new Headers();
-    headers.append("Access-Control-Allow-Origin", "*");
-    const httpOptions: any = {
-      headers: headers,
-    };
-
-    return this.httpClient.post<Comment>(
+    return this.httpClient.post<CommentResponse>(
       "http://localhost:5286/api/comments/",
-      body,
-      httpOptions
+      body
     );
   }
 

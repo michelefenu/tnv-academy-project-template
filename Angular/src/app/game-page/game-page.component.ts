@@ -6,6 +6,7 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { MovieServicesService } from "../@core/services/movie-services.service";
 import { Movie } from "../@models/movie";
 import { User } from "../@models/user";
+import { CommentResponse } from "../@models/comment";
 import { RankingsService } from "../@service/rankings.service";
 import { FavoritesService } from "../@service/favorites.service";
 
@@ -167,13 +168,13 @@ export class GamePageComponent implements OnInit {
         this.currentComment
       );
 
-      const obsCreateClassifica = this.rankingService.addRating(form.value);
-
       if (obsCreateCommment) {
         obsCreateCommment.subscribe({
-          next: (res) => {
-            debugger;
-            console.log(res);
+          next: (res: CommentResponse) => {
+            form.value["commnetId"] = res.id;
+            const obsCreateClassifica = this.rankingService.addRating(
+              form.value
+            );
             obsCreateClassifica.subscribe({
               next: (res) => {
                 if (playAgain) {
