@@ -85,6 +85,7 @@ export const deleteRating = async (req, res) => {
     res.sendStatus(500);
   }
 };
+<<<<<<< Updated upstream
 
 export const moviePreferiti = async (req, res) => {
   try {
@@ -93,6 +94,16 @@ export const moviePreferiti = async (req, res) => {
         userId: req.params.userId,
         movieId: req.params.movieId,
         rating: req.params.rating,
+=======
+<<<<<<< Updated upstream
+=======
+
+export const getMovie = async (req, res) => {
+  try {
+    const rating = await Rating.findAll({
+      where: {
+        movieId: req.params.movieId,
+>>>>>>> Stashed changes
       },
     });
 
@@ -106,3 +117,7 @@ export const moviePreferiti = async (req, res) => {
     res.sendStatus(500);
   }
 };
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

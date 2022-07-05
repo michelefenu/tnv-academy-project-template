@@ -46,4 +46,10 @@ export class FavoritesService {
       `http://localhost:1234/api/rating/${userId}/${movieId}`
     );
   }
+
+  getMovieById(movieId : number){
+    return  this.httpClient.get<Posizione>(
+      `http://localhost:1234/api/movie/${movieId}`
+    );
+  }
 }
