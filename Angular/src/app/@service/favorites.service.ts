@@ -30,7 +30,7 @@ export class FavoritesService {
     };
 
     return this.httpClient.post<CommentResponse>(
-      "http://localhost:5286/api/comments/",
+      "http://localhost:5286/api/comments",
       body
     );
   }

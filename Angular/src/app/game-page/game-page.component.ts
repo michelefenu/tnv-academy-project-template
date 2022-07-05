@@ -145,7 +145,6 @@ export class GamePageComponent implements OnInit {
   }
 
   onSubmit(form: NgForm, playAgain: boolean) {
-    debugger;
     if (form.valid) {
       if (!playAgain) {
         form.value["rating"] = this.currentRate;
@@ -170,7 +169,7 @@ export class GamePageComponent implements OnInit {
 
       if (obsCreateCommment) {
         obsCreateCommment.subscribe({
-          next: (res: CommentResponse) => {
+          next: (res) => {
             form.value["commentId"] = res.id;
             const obsCreateClassifica = this.rankingService.addRating(
               form.value
