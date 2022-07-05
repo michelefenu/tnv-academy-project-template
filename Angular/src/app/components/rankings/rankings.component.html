@@ -6,17 +6,15 @@
         <th scope="col">#</th>
         <th scope="col">Username</th>
         <th scope="col">Titolo del film indovinato</th>
-        <th scope="col">Voto</th>
         <th scope="col">Tempo impiegato (mm:ss:SSS)</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let posizione of classifica; let i = index">
-        <th scope="row">{{ i + 1 }}</th>
+        <td scope="row">{{ i + 1 }}</td>
         <td>{{ posizione.username }}</td>
         <td>{{ posizione.movieTitle }}</td>
-        <td><ngb-rating [rate]="posizione.rating" [max]="10"></ngb-rating></td>
-        <td>{{ posizione.timeSpend | date: "mm:ss:SSS" }}</td>
+        <td>{{ posizione.timeSpend | date: "mm:ss" }}</td>
       </tr>
     </tbody>
   </table>

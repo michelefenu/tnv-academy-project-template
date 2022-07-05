@@ -1,6 +1,7 @@
 using core.BL;
 using core.BL.Service;
 using core.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using restapi.RestAPI.Model;
 
@@ -8,6 +9,7 @@ namespace restapi.Controllers;
 
 [ApiController]
 [Route("api/comments")]
+[EnableCors("OpenCORSPolicy")]
 public class CommentsController : ControllerBase
 {
     ApplicationManager _applicationManager;

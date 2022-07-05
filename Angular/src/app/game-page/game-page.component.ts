@@ -1,12 +1,14 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { MovieServicesService } from "../@core/services/movie-services.service";
 import { Movie } from "../@models/movie";
 import { User } from "../@models/user";
+import { CommentResponse } from "../@models/comment";
 import { RankingsService } from "../@service/rankings.service";
+import { FavoritesService } from "../@service/favorites.service";
 
 @Component({
   selector: "tnv-game-page",
@@ -15,9 +17,8 @@ import { RankingsService } from "../@service/rankings.service";
 })
 export class GamePageComponent implements OnInit {
   stringUser = localStorage.getItem("user");
-  idUser = localStorage.getItem("id");
   movie: Partial<Movie> = {};
-  user: Partial<User> = {};
+  user: Partial<User> = this.stringUser ? JSON.parse(this.stringUser) : null;
 
   closeResult = "";
   public isCollapsedLocandina: boolean = true;
@@ -29,21 +30,26 @@ export class GamePageComponent implements OnInit {
   public timerOn: boolean = false;
   public answerRight: boolean = true;
   currentRate = 0;
+  currentComment = "";
 
+  @ViewChild("titleForm") titleForm: NgForm | undefined;
+  @ViewChild("commentForm") commentForm: NgForm | undefined;
 
   constructor(
     public http: HttpClient,
     public router: Router,
-    private modalService: NgbModal,
-    private rankingService: RankingsService
+    public modalService: NgbModal,
+    public rankingService: RankingsService,
+    public favoritesService: FavoritesService
   ) {}
 
-  ngOnInit(): void {
-    //this.getRandomMovie();
-  }
+  ngOnInit(): void {}
 
   setAnswerRight(valore: boolean) {
     this.answerRight = valore;
+  }
+  changeComment(target: any) {
+    this.currentComment = target.value;
   }
 
   answer(form: NgForm, content: any) {
@@ -70,7 +76,11 @@ export class GamePageComponent implements OnInit {
     return timer;
   }
   currentInterval: any = null;
+
   getRandomMovie() {
+    this.titleForm?.reset();
+    this.commentForm?.reset();
+
     if (!this.timerOn) {
       this.currentInterval = this.startTimer();
     }
@@ -134,29 +144,54 @@ export class GamePageComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit(form: NgForm, playAgain: boolean) {
+    debugger;
     if (form.valid) {
-      form.value["movieComment"] = form.value.comment;
-      form.value["rating"] = this.currentRate;
+      if (!playAgain) {
+        form.value["rating"] = this.currentRate;
+      }
       form.value["movieId"] = this.movie.id;
-      form.value["moviePoster"] = this.movie.poster_path;
+      form.value[
+        "moviePoster"
+      ] = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${this.movie.poster_path}`;
       form.value["movieRevenue"] = this.movie.revenue;
       form.value["movieTitle"] = this.movie.title;
       form.value["movieRelease"] = this.movie.release_date;
       form.value["movieOverview"] = this.movie.overview;
       form.value["movieDurata"] = this.movie.runtime;
-      form.value["timeSpend"] = this.punteggio;
-      form.value["username"] = this.stringUser;
-      form.value["userId"] = this.idUser;
+      form.value["timeSpend"] = this.punteggio * 1000; // secondi convertiti a millisecondi
+      form.value["username"] = this.user.username;
+      form.value["userId"] = this.user.id;
 
-      console.log(form.value.comment);
+      const obsCreateCommment = this.favoritesService.createComment(
+        this.movie.id || 0,
+        this.currentComment
+      );
 
-      this.rankingService.addRating(form.value).subscribe({
-        next: (res) => {
-          console.log(res);
-          this.getRandomMovie();
-        },
-      });
+      if (obsCreateCommment) {
+        obsCreateCommment.subscribe({
+          next: (res: CommentResponse) => {
+            form.value["commnetId"] = res.id;
+            const obsCreateClassifica = this.rankingService.addRating(
+              form.value
+            );
+            obsCreateClassifica.subscribe({
+              next: (res) => {
+                if (playAgain) {
+                  this.getRandomMovie();
+                }
+                this.modalService.dismissAll();
+              },
+              error: (err) => {
+                console.error(err);
+              },
+            });
+          },
+          error: (err) => {
+            console.error(err);
+          },
+        });
+      }
     }
   }
 }

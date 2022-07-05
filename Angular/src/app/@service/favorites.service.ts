@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Favoriti } from "../@models/favoriti";
+import { CommentRequest, CommentResponse } from "../@models/comment";
 import { HttpClient } from "@angular/common/http";
 import { Posizione } from "../@models/classifica";
 
@@ -19,22 +19,27 @@ export class FavoritesService {
     );
   }
 
-  getCommentByUserIdAndMovieId(movieId: number) {
+  createComment(movieId: number, userComment: string) {
     if (!this.stringUser) return;
     const userId = JSON.parse(this.stringUser).id;
-    console.log({ userId, movieId });
-    //TODO: costruire query string params
-    return this.httpClient.get<Favoriti>(
-      "http://localhost:4200/assets/commenti-db.json"
+
+    const body: CommentRequest = {
+      userId,
+      movieId,
+      userComment,
+    };
+
+    return this.httpClient.post<CommentResponse>(
+      "http://localhost:5286/api/comments/",
+      body
     );
   }
 
-  getMovieByMovieIdAndUserId(movieId: number) {
+  getMovieCommentById(commentId: number) {
     if (!this.stringUser) return;
-    const userId = JSON.parse(this.stringUser).id;
 
     return this.httpClient.get<Posizione>(
-      `http://localhost:1234/api/rating/${userId}/${movieId}`
+      "http://localhost:5286/api/comments/" + commentId
     );
   }
 
