@@ -37,7 +37,7 @@ export class FavoritesService {
     };
 
     return this.httpClient.post<Comment>(
-      " http://localhost:5286/api/comments/",
+      "http://localhost:5286/api/comments/",
       body,
       httpOptions
     );
@@ -47,7 +47,7 @@ export class FavoritesService {
     if (!this.stringUser) return;
 
     return this.httpClient.get<Posizione>(
-      " http://localhost:5286/api/comments/" + commentId
+      "http://localhost:5286/api/comments/" + commentId
     );
   }
 
