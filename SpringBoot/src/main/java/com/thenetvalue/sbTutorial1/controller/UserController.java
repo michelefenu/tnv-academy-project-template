@@ -19,8 +19,12 @@ public class UserController {
         this.userService = userService;
     }
     @PostMapping("/")
-    public String addUser(@RequestBody User user){
-        return userService.addUser( user);
+    public ResponseEntity addUser(@RequestBody User user){
+        user = userService.addUser(user);
+        if(user != null){
+            return new ResponseEntity(user,HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @GetMapping("/{id}")

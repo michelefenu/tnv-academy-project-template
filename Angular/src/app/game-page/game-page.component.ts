@@ -9,6 +9,7 @@ import { User } from "../@models/user";
 import { CommentResponse } from "../@models/comment";
 import { RankingsService } from "../@service/rankings.service";
 import { FavoritesService } from "../@service/favorites.service";
+import { AuthService } from "../@core/services/auth.service";
 
 @Component({
   selector: "tnv-game-page",
@@ -16,9 +17,7 @@ import { FavoritesService } from "../@service/favorites.service";
   styleUrls: ["./game-page.component.scss"],
 })
 export class GamePageComponent implements OnInit {
-  stringUser = localStorage.getItem("user");
   movie: Partial<Movie> = {};
-  user: Partial<User> = this.stringUser ? JSON.parse(this.stringUser) : null;
 
   closeResult = "";
   public isCollapsedLocandina: boolean = true;
@@ -31,6 +30,7 @@ export class GamePageComponent implements OnInit {
   public answerRight: boolean = true;
   currentRate = 0;
   currentComment = "";
+  user: Partial<User> = {};
 
   @ViewChild("titleForm") titleForm: NgForm | undefined;
   @ViewChild("commentForm") commentForm: NgForm | undefined;
@@ -40,10 +40,13 @@ export class GamePageComponent implements OnInit {
     public router: Router,
     public modalService: NgbModal,
     public rankingService: RankingsService,
-    public favoritesService: FavoritesService
+    public favoritesService: FavoritesService,
+    public authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = this.authService.getCurrentUser();
+  }
 
   setAnswerRight(valore: boolean) {
     this.answerRight = valore;
@@ -159,8 +162,10 @@ export class GamePageComponent implements OnInit {
       form.value["movieOverview"] = this.movie.overview;
       form.value["movieDurata"] = this.movie.runtime;
       form.value["timeSpend"] = this.punteggio * 1000; // secondi convertiti a millisecondi
-      form.value["username"] = this.user.username;
-      form.value["userId"] = this.user.id;
+
+      const user = this.authService.getCurrentUser();
+      form.value["username"] = user.username;
+      form.value["userId"] = user.id;
 
       const obsCreateCommment = this.favoritesService.createComment(
         this.movie.id || 0,

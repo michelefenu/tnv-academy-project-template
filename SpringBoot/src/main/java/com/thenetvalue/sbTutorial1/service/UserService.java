@@ -20,13 +20,12 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
-    public String addUser(User user) {
+    public User addUser(User user) {
         User result = userDAO.save(user);
         if (result != null) {
-            return "utente salvato correttamente";
+            return result;
         } else {
-            return "Errore nel salvataggio dell'utente";
-
+            return null;
         }
     }
 
