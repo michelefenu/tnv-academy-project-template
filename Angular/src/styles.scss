@@ -24,3 +24,10 @@ label {
 ngb-rating {
   color: $secondary;
 }
+
+body {
+  background-image: url("/assets/images/login-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

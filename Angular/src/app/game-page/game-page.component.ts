@@ -149,9 +149,6 @@ export class GamePageComponent implements OnInit {
 
   onSubmit(form: NgForm, playAgain: boolean) {
     if (form.valid) {
-      if (!playAgain) {
-        form.value["rating"] = this.currentRate;
-      }
       form.value["movieId"] = this.movie.id;
       form.value[
         "moviePoster"
@@ -167,35 +164,50 @@ export class GamePageComponent implements OnInit {
       form.value["username"] = user.username;
       form.value["userId"] = user.id;
 
-      const obsCreateCommment = this.favoritesService.createComment(
-        this.movie.id || 0,
-        this.currentComment
-      );
+      // se salvi preferito
+      if (!playAgain) {
+        // recupero voto utente
+        form.value["rating"] = this.currentRate;
 
-      if (obsCreateCommment) {
-        obsCreateCommment.subscribe({
-          next: (res) => {
-            form.value["commentId"] = res.id;
-            const obsCreateClassifica = this.rankingService.addRating(
-              form.value
-            );
-            obsCreateClassifica.subscribe({
-              next: (res) => {
-                if (playAgain) {
-                  this.getRandomMovie();
-                }
-                this.modalService.dismissAll();
-              },
-              error: (err) => {
-                console.error(err);
-              },
-            });
-          },
-          error: (err) => {
-            console.error(err);
-          },
-        });
+        // salvo commento dotnet
+        const obsCreateCommment = this.favoritesService.createComment(
+          this.movie.id || 0,
+          this.currentComment
+        );
+
+        if (obsCreateCommment) {
+          obsCreateCommment.subscribe({
+            next: (res) => {
+              // recupero id record commento dotnet e lo aggiungo a node
+              form.value["commentId"] = res.id;
+              // salvo su node tutte le info classifica
+              this.salvaClassifica(form, playAgain);
+            },
+            error: (err) => {
+              console.error(err);
+            },
+          });
+        }
+      } else {
+        // gioca ancora
+        // salvo su node tutte le info classifica
+        this.salvaClassifica(form, playAgain);
       }
     }
+  }
+
+  salvaClassifica(form: NgForm, playAgain: boolean) {
+    const obsCreateClassifica = this.rankingService.addRating(form.value);
+    obsCreateClassifica.subscribe({
+      next: (res) => {
+        if (playAgain) {
+          this.getRandomMovie();
+        }
+        this.modalService.dismissAll();
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 }
