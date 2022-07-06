@@ -24,7 +24,7 @@ export class AuthService {
         username: registerData.username,
         password: registerData.password,
       };
-      this.httpClient.put(`http://localhost:8080/users/`, newUser);
+      this.httpClient.post(`http://localhost:8080/users/`, newUser);
 
       this.router.navigateByUrl("/");
 

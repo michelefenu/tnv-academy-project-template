@@ -42,9 +42,9 @@ const Rating = db.define(
     punteggio: {
       type: DataTypes.INTEGER,
     },
-    commentId: {
+    commentId:{
       type: DataTypes.INTEGER,
-    },
+    }
   },
   {
     freezeTableName: true,
