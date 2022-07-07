@@ -21,7 +21,7 @@ export class CommentSectionComponent implements OnInit {
     private favoritesService : FavoritesService,
   ) {}
 
-  movie : Partial<Movie> = {}
+  movie : Partial<Posizione> = {}
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['movieId'];
     const getObservable = this.favoritesService.getMovieById(id);
@@ -36,19 +36,24 @@ export class CommentSectionComponent implements OnInit {
   }
   
 
-  /*deletePiatto(id: number | undefined) {
-    if (id) {
-      this.favoritesService.deleteMovie(id).subscribe({
-        next: () => this.router.navigateByUrl('/'),
-      });
-    }
-  }*/
+  
   }
 
-  deleteMovie(){
+  deleteMovie() {
     const id = this.activatedRoute.snapshot.params['movieId'];
-    this.favoritesService.deleteMovie(id);
-  }
-}
+    const getObservable = this.favoritesService.deleteMovie(id);
+
+
+    if (getObservable) {
+      if (id) {
+        getObservable.subscribe({
+          next: () => this.router.navigateByUrl('/'),
+        });
+    }
+    
+    }
+
   
 
+  
+}}

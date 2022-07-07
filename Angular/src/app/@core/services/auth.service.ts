@@ -73,4 +73,9 @@ export class AuthService {
   createUser(newUser :User){
     return this.httpClient.post<User>(`http://localhost:8080/users/`,newUser);
   }
+
+  updateUser(username: string, user : User){
+    return this.httpClient.put<User>(`http://localhost:8080/users/${username}`,user);
+  }
+  
 }
