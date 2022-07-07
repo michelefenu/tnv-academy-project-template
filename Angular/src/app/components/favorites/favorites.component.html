@@ -27,7 +27,8 @@
     <div class="card-body">
       <ul class="list-inline m-0">
         <li class="list-inline-item">
-          <a routerLink="/movie" class="card-link">Dettagli</a>
+          <a href
+          [routerLink]="['/menu', favCurr.movieId]" class="card-link">Dettagli</a>
         </li>
 
         <li class="list-inline-item"></li>

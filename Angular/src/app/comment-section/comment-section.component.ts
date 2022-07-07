@@ -89,7 +89,7 @@ export class CommentSectionComponent implements OnInit {
       this.favoritesService.getMovieByMovieId(id).subscribe({
       next: (response : Partial <Posizione>) => (this.movie = response),
       error: (err) => console.log('Film non trovato!'),
-    });
+    });*
   }
   
 
