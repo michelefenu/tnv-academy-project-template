@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Posizione } from '../@models/classifica';
-import { Favoriti } from '../@models/favoriti';
 import { Movie } from '../@models/movie';
 import { FavoritesService } from '../@service/favorites.service';
 
@@ -21,15 +20,18 @@ export class CommentSectionComponent implements OnInit {
     private activatedRoute : ActivatedRoute,
     private favoritesService : FavoritesService,
   ) {}
- 
-  movie : Partial<Posizione> = {};
 
+  movie : Partial<Movie> = {}
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['movieId'];
+    const getObservable = this.favoritesService.getMovieById(id);
 
-    this.favoritesService.getMovieById(id).subscribe({
-      next: (response) => (this.movie = response),
-      error: (err) => console.log('Film non trovato!'),
+    if(getObservable){
+      getObservable.subscribe({
+      next: (favoriti: Posizione) => {
+        this.movie = favoriti;
+      },
+      error: (err) => console.error(err),
     });
   }
   
@@ -43,6 +45,10 @@ export class CommentSectionComponent implements OnInit {
   }*/
   }
 
-
+  deleteMovie(){
+    const id = this.activatedRoute.snapshot.params['movieId'];
+    this.favoritesService.deleteMovie(id);
+  }
+}
   
 

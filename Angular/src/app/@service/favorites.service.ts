@@ -35,11 +35,11 @@ export class FavoritesService {
     );
   }
 
-  getMovieCommentById(commentId: number) {
+  getMovieById(movieId: number) {
     if (!this.stringUser) return;
 
     return this.httpClient.get<Posizione>(
-      "http://localhost:5286/api/comments/" + commentId
+      `http://localhost:1234/api/rating/${movieId}`
     );
   }
 
