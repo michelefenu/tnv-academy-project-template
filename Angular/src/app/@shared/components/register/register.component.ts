@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   register(form: NgForm) {
     form.control.markAllAsTouched();
     if (form.valid) {
-      this.authService.register(form.value);
+      this.authService.createUser(form.value);
       this.router.navigateByUrl("/");
     }
   }

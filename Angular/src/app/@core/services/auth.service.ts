@@ -8,49 +8,30 @@ import { LoginDTO, RegisterDTO, User } from "src/app/@models/user";
   providedIn: "root",
 })
 export class AuthService {
-  constructor(private router: Router, private httpClient : HttpClient) {}
-  
+  constructor(private router: Router, private httpClient: HttpClient) {}
 
   login(loginData: LoginDTO) {
-    const response: User = {
-      name: "Paolino",
-      surname: "Paperino",
-      username: "paolino504",
-      id: 4,
-    };
-
-    localStorage.setItem("user", JSON.stringify(response));
-
-    return of('login ok');
-    /*try{
-      const response = this.getUser(loginData.username);
-      localStorage.setItem("user", JSON.stringify(response));
-      return of('login ok');
-    } catch{
-      return of('login fallito')
-    }*/
-
+    return this.httpClient.get(
+      `http://localhost:8080/users/username/${loginData.username}/password/${loginData.password}`
+    );
   }
-  
+
   register(registerData: RegisterDTO) {
-    try{
-      const newUser : RegisterDTO ={
-        name : registerData.name,
-        surname : registerData.surname,
-        username : registerData.username,
-        password : registerData.password,
-      }
-       this.httpClient.put(`http://localhost:8080/users/`,newUser);
-  
-       this.router.navigateByUrl("/");
+    try {
+      const newUser: RegisterDTO = {
+        name: registerData.name,
+        surname: registerData.surname,
+        username: registerData.username,
+        password: registerData.password,
+      };
+      this.httpClient.post(`http://localhost:8080/users/`, newUser);
 
-       return console.log("Utente salvato")
+      this.router.navigateByUrl("/");
 
+      return console.log("Utente salvato");
+    } catch {
+      return console.log("Utente non creato");
     }
-    catch{
-       return console.log("Utente non creato")
-    }
-    
   }
 
   logout() {
@@ -66,12 +47,12 @@ export class AuthService {
     return user;
   }
 
-  getUser(username : string){
-   return  this.httpClient.get<User>( `http://localhost:8080/users/${username}`);
+  getUser(username: string) {
+    return this.httpClient.get<User>(`http://localhost:8080/users/${username}`);
   }
 
-  createUser(newUser :User){
-    return this.httpClient.post<User>(`http://localhost:8080/users/`,newUser);
+  createUser(newUser: User) {
+    return this.httpClient.post<User>(`http://localhost:8080/users/`, newUser);
   }
 
   updateUser(userId: number, user : Partial<RegisterDTO>){try{

@@ -24,15 +24,12 @@ export class CommentSectionComponent implements OnInit {
   movie : Partial<Posizione> = {}
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['movieId'];
-    const getObservable = this.favoritesService.getMovieById(id);
+    ;
 
-    if(getObservable){
-      getObservable.subscribe({
-      next: (favoriti: Posizione) => {
-        this.movie = favoriti;
-      },
-      error: (err) => console.error(err),
-    });
+      this.favoritesService.getMovieById(id).subscribe({
+      next: (response : Partial <Posizione>) => (this.movie = response),
+      error: (err) => console.log('Film non trovato!'),
+    });*
   }
   
 
