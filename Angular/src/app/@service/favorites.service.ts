@@ -38,7 +38,11 @@ export class FavoritesService {
     );
   }
 
+<<<<<<< HEAD
   getMovieCommentById(commentId: number) {
+=======
+  getMovieById(movieId: number) {
+>>>>>>> 2a446c6504a069994f875e4ba69d549e3ebbcfd9
     return this.httpClient.get<Posizione>(
       `http://localhost:5286/api/rating/${commentId}`
     );
@@ -54,11 +58,12 @@ export class FavoritesService {
     );
   }
 
-  deleteMovieComment(movieId:number){
+  deleteMovieComment(movieId: number) {
     return this.httpClient.delete<CommentResponse>(
       `http://localhost:5286/api/comments/${movieId}`
     );
   }
+<<<<<<< HEAD
 
   getMovieById(movieId:number){
     return this.httpClient.get<CommentResponse>(
@@ -67,4 +72,6 @@ export class FavoritesService {
   }
 
   
+=======
+>>>>>>> 2a446c6504a069994f875e4ba69d549e3ebbcfd9
 }
