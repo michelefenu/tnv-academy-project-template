@@ -9,6 +9,7 @@ import { User } from "../@models/user";
 import { CommentResponse } from "../@models/comment";
 import { RankingsService } from "../@service/rankings.service";
 import { FavoritesService } from "../@service/favorites.service";
+import { AuthService } from "../@core/services/auth.service";
 
 @Component({
   selector: "tnv-game-page",
@@ -16,9 +17,7 @@ import { FavoritesService } from "../@service/favorites.service";
   styleUrls: ["./game-page.component.scss"],
 })
 export class GamePageComponent implements OnInit {
-  stringUser = localStorage.getItem("user");
   movie: Partial<Movie> = {};
-  user: Partial<User> = this.stringUser ? JSON.parse(this.stringUser) : null;
 
   closeResult = "";
   public isCollapsedLocandina: boolean = true;
@@ -31,6 +30,8 @@ export class GamePageComponent implements OnInit {
   public answerRight: boolean = true;
   currentRate = 0;
   currentComment = "";
+  user: Partial<User> = {};
+  moviePoster: string = "";
 
   @ViewChild("titleForm") titleForm: NgForm | undefined;
   @ViewChild("commentForm") commentForm: NgForm | undefined;
@@ -40,10 +41,13 @@ export class GamePageComponent implements OnInit {
     public router: Router,
     public modalService: NgbModal,
     public rankingService: RankingsService,
-    public favoritesService: FavoritesService
+    public favoritesService: FavoritesService,
+    public authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = this.authService.getCurrentUser();
+  }
 
   setAnswerRight(valore: boolean) {
     this.answerRight = valore;
@@ -99,6 +103,7 @@ export class GamePageComponent implements OnInit {
           console.log("ID trovato", randomId);
           if (res.poster_path) {
             this.movie = res;
+            this.moviePoster = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${this.movie.poster_path}`;
           } else {
             console.log("Film senza poster");
             this.getRandomMovie();
@@ -146,9 +151,6 @@ export class GamePageComponent implements OnInit {
 
   onSubmit(form: NgForm, playAgain: boolean) {
     if (form.valid) {
-      if (!playAgain) {
-        form.value["rating"] = this.currentRate;
-      }
       form.value["movieId"] = this.movie.id;
       form.value[
         "moviePoster"
@@ -159,38 +161,55 @@ export class GamePageComponent implements OnInit {
       form.value["movieOverview"] = this.movie.overview;
       form.value["movieDurata"] = this.movie.runtime;
       form.value["timeSpend"] = this.punteggio * 1000; // secondi convertiti a millisecondi
-      form.value["username"] = this.user.username;
-      form.value["userId"] = this.user.id;
 
-      const obsCreateCommment = this.favoritesService.createComment(
-        this.movie.id || 0,
-        this.currentComment
-      );
+      const user = this.authService.getCurrentUser();
+      form.value["username"] = user.username;
+      form.value["userId"] = user.id;
 
-      if (obsCreateCommment) {
-        obsCreateCommment.subscribe({
-          next: (res) => {
-            form.value["commentId"] = res.id;
-            const obsCreateClassifica = this.rankingService.addRating(
-              form.value
-            );
-            obsCreateClassifica.subscribe({
-              next: (res) => {
-                if (playAgain) {
-                  this.getRandomMovie();
-                }
-                this.modalService.dismissAll();
-              },
-              error: (err) => {
-                console.error(err);
-              },
-            });
-          },
-          error: (err) => {
-            console.error(err);
-          },
-        });
+      // se salvi preferito
+      if (!playAgain) {
+        // recupero voto utente
+        form.value["rating"] = this.currentRate;
+
+        // salvo commento dotnet
+        const obsCreateCommment = this.favoritesService.createComment(
+          this.movie.id || 0,
+          this.currentComment
+        );
+
+        if (obsCreateCommment) {
+          obsCreateCommment.subscribe({
+            next: (res) => {
+              // recupero id record commento dotnet e lo aggiungo a node
+              form.value["commentId"] = res.id;
+              // salvo su node tutte le info classifica
+              this.salvaClassifica(form, playAgain);
+            },
+            error: (err) => {
+              console.error(err);
+            },
+          });
+        }
+      } else {
+        // gioca ancora
+        // salvo su node tutte le info classifica
+        this.salvaClassifica(form, playAgain);
       }
     }
+  }
+
+  salvaClassifica(form: NgForm, playAgain: boolean) {
+    const obsCreateClassifica = this.rankingService.addRating(form.value);
+    obsCreateClassifica.subscribe({
+      next: (res) => {
+        if (playAgain) {
+          this.getRandomMovie();
+        }
+        this.modalService.dismissAll();
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 }
