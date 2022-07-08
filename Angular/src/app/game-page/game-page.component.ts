@@ -31,6 +31,7 @@ export class GamePageComponent implements OnInit {
   currentRate = 0;
   currentComment = "";
   user: Partial<User> = {};
+  moviePoster: string = "";
 
   @ViewChild("titleForm") titleForm: NgForm | undefined;
   @ViewChild("commentForm") commentForm: NgForm | undefined;
@@ -102,6 +103,7 @@ export class GamePageComponent implements OnInit {
           console.log("ID trovato", randomId);
           if (res.poster_path) {
             this.movie = res;
+            this.moviePoster = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${this.movie.poster_path}`;
           } else {
             console.log("Film senza poster");
             this.getRandomMovie();
