@@ -8,7 +8,7 @@
               <div class="container mt-5">
                 <div class="card card-body">
                   <img
-                    [src]=''+ movie.poster_path
+                    [src]="movie.moviePoster"
                     class="card-img-top"
                     alt="..."
                   />
@@ -17,29 +17,29 @@
                   <tbody>
                     <tr>
                       <td>Titolo</td>
-                      <td>{{ movie.title }}</td>
+                      <td>{{ movie.movieTitle }}</td>
                     </tr>
                     <tr>
                       <td class="bd">Overview</td>
-                      <td>{{ movie.overview }}</td>
+                      <td>{{ movie.movieOverview }}</td>
                     </tr>
                     <tr>
                       <td>Data di Uscita</td>
-                      <td>{{ movie.release_date }}</td>
+                      <td>{{ movie.movieRelease }}</td>
                     </tr>
                     <tr>
                       <td>Durata</td>
-                      <td>{{ movie.runtime }}</td>
+                      <td>{{ movie.movieDurata }}</td>
                     </tr>
                     <tr>
                       <td>Revenue</td>
-                      <td>{{ movie.revenue }}</td>
+                      <td>{{ movie.movieRevenue }}</td>
                     </tr>
                     <tr>
                       <div class="card">
                         <div class="card-body text-center">
                           <span class="myratings">{{
-                            movie.vote_average
+                            movie.rating
                           }}</span>
                           <h4 class="mt-1">Media</h4>
                         </div>
@@ -47,16 +47,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <button
-                type="button"
-                class="btn btn-outline-dark"
-                data-mdb-ripple-color="dark"
-                style="z-index: 1"
-              >
-                Cancella film dai preferiti
-              </button>
-
-
+                <button type="button" class="btn btn-danger" (click)="deleteMovie()">Red</button>
 
                 <div class="container my-5 py-5">
                   <div class="row d-flex justify-content-center">

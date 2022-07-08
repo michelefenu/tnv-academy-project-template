@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: "favorites", component: FavoritesComponent },
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
       { path: "game", component: GamePageComponent},
-      { path: "movie", component: CommentSectionComponent},
+      { path: 'movie/:movieId', component: CommentSectionComponent},
       
     ],
   },
