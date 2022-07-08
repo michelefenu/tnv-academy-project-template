@@ -85,39 +85,3 @@ export const deleteRating = async (req, res) => {
     res.sendStatus(500);
   }
 };
-<<<<<<< Updated upstream
-
-export const moviePreferiti = async (req, res) => {
-  try {
-    const rating = await Rating.findAll({
-      where: {
-        userId: req.params.userId,
-        movieId: req.params.movieId,
-        rating: req.params.rating,
-=======
-<<<<<<< Updated upstream
-=======
-
-export const getMovie = async (req, res) => {
-  try {
-    const rating = await Rating.findAll({
-      where: {
-        movieId: req.params.movieId,
->>>>>>> Stashed changes
-      },
-    });
-
-    if (rating) {
-      res.send(rating);
-    } else {
-      res.sendStatus(404);
-    }
-  } catch (err) {
-    console.log(err);
-    res.sendStatus(500);
-  }
-};
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes

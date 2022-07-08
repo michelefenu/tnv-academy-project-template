@@ -8,7 +8,6 @@ import {
   createRating,
   updateRating,
   deleteRating,
-  getMovie,
 } from "../controllers/ratings-controller.js";
 
 const router = express.Router();
@@ -18,6 +17,5 @@ router.get(`${API_ROOT}/favorites/:userId/`, getFavoritesByUserId);
 router.post(`${API_ROOT}/rating`, createRating);
 router.patch(`${API_ROOT}/rating/:id`, updateRating);
 router.delete(`${API_ROOT}/rating/:id`, deleteRating);
-router.get(`${API_ROOT}/movie/:id`, getMovie);
 
 export default router;
