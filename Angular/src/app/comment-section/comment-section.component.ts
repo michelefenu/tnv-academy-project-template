@@ -29,13 +29,9 @@ export class CommentSectionComponent implements OnInit {
       this.favoritesService.getMovieById(id).subscribe({
       next: (response : Partial <Posizione>) => (this.movie = response),
       error: (err) => console.log('Film non trovato!'),
-    });*
+    });
   }
   
-
-  
-  }
-
   deleteMovie() {
     const id = this.activatedRoute.snapshot.params['movieId'];
     const getObservable = this.favoritesService.deleteMovie(id);
@@ -53,9 +49,14 @@ export class CommentSectionComponent implements OnInit {
         
     }
     
-    }
+   }
 
+
+  
+  }
+
+  
   
 
   
-}}
+}
