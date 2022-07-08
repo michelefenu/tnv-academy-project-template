@@ -38,9 +38,9 @@ export class FavoritesService {
     );
   }
 
-  getMovieCommentById(commentId: number) {
+  getMovieById(movieId: number) {
     return this.httpClient.get<Posizione>(
-      "http://localhost:5286/api/comments/" + commentId
+      `http://localhost:1234/api/rating/${movieId}`
     );
   }
 
@@ -51,6 +51,12 @@ export class FavoritesService {
 
     return this.httpClient.delete<Posizione>(
       `http://localhost:1234/api/rating/${userId}/${movieId}`
+    );
+  }
+
+  deleteMovieComment(movieId: number) {
+    return this.httpClient.delete<CommentResponse>(
+      `http://localhost:5286/api/comments/${movieId}`
     );
   }
 }

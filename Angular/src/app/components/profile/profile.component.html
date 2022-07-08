@@ -1,3 +1,47 @@
+<ng-template #content let-modal>
+  <form #upDateForm="ngForm">
+    <div class="mb-3">
+        <label class="form-label">Nuovo Nome</label>
+        <input [ngModel]
+        name="name"
+        type="text"
+        class="form-control"
+        placeholder="Nome"
+        required
+        id="name"
+        #name="ngModel" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nuovo Cognome</label>
+        <input [ngModel]
+        name="cognome"
+        type="text"
+        class="form-control"
+        placeholder="Cognome"
+        required
+        id="cognome"
+        #cognome="ngModel" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Nuovo Username</label>
+      <input [ngModel]
+        name="username"
+        type="text"
+        class="form-control"
+        placeholder="Username"
+        required
+        id="username"
+        #username="ngModel" />
+  </div>
+    
+    <div class="modal-footer d-block">
+        
+        <button type="submit" class="btn btn-warning float-end"  class="btn btn-primary"
+        type="button"
+        (click)="onSubmit(upDateForm)">Submit</button>
+    </div>
+</form>
+</ng-template>
 <section class="h-100 gradient-custom-2">
   <div class="container">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -9,7 +53,7 @@
           >
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                src="../../../assets/images/user-placeholder.jpg"
                 alt="Generic placeholder image"
                 class="img-fluid img-thumbnail mt-4 mb-2"
                 style="width: 150px; z-index: 1"
@@ -19,8 +63,10 @@
                 class="btn btn-outline-dark"
                 data-mdb-ripple-color="dark"
                 style="z-index: 1"
+                (click)="open(content)"
               >
                 Edit profile
+              
               </button>
               <button
                 type="button"
@@ -41,8 +87,8 @@
           <div class="p-4 text-black" style="background-color: #f8f9fa">
             <div class="d-flex justify-content-end text-center py-1">
               <div>
-                <p class="mb-1 h5">253</p>
-                <p class="small text-muted mb-0">Preferiti</p>
+                <br>
+                <br>
               </div>
             </div>
           </div>
