@@ -42,13 +42,18 @@ export class CommentSectionComponent implements OnInit {
   deleteMovie() {
     const id = this.activatedRoute.snapshot.params['movieId'];
     const getObservable = this.favoritesService.deleteMovie(id);
+    const getObservableDotNet = this. favoritesService.deleteMovieComment(id);
 
 
     if (getObservable) {
       if (id) {
-        getObservable.subscribe({
-          next: () => this.router.navigateByUrl('/'),
-        });
+        if(getObservableDotNet){
+          getObservable.subscribe({
+            next: () =>
+             this.router.navigateByUrl('/favorites'),
+          });
+        }
+        
     }
     
     }

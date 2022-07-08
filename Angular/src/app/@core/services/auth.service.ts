@@ -74,8 +74,21 @@ export class AuthService {
     return this.httpClient.post<User>(`http://localhost:8080/users/`,newUser);
   }
 
-  updateUser(username: string, user : User){
-    return this.httpClient.put<User>(`http://localhost:8080/users/${username}`,user);
+  updateUser(userId: number, user : Partial<RegisterDTO>){try{
+    const updateUser : Partial<RegisterDTO> ={
+      name : user.name,
+      surname : user.surname,
+      username : user.username,
+    }
+    this.httpClient.put<User>(`http://localhost:8080/users/${userId}`,updateUser)
+
+     return console.log("Utente salvato")
+
+  }
+  catch{
+     return console.log("Utente non aggiornato")
+  }
+   
   }
   
 }

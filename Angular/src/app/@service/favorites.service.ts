@@ -52,5 +52,11 @@ export class FavoritesService {
     );
   }
 
+  deleteMovieComment(movieId:number){
+    return this.httpClient.delete<CommentResponse>(
+      `http://localhost:5286/api/comments/${movieId}`
+    );
+  }
+
   
 }
