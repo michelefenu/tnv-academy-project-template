@@ -37,18 +37,17 @@ public class UserService {
         return userDAO.findAll();
     }
 
-    public String putUser(int id, User user) {
+    public User putUser(int id, User user) {
         User resultUser = userDAO.findById(id).get();
         if (resultUser == null){
-            return "utente non trovato";
+            return null;
         }
-        user.setId(id);
-        User result = userDAO.save(user);
-        if (result != null) {
-            return "utente aggiornato correttamente";
-        } else {
-            return "Errore nel aggiornamento dell'utente";
-        }
+        resultUser.setName(user.getName());
+        resultUser.setSurname(user.getSurname());
+        resultUser.setUsername(user.getUsername());
+
+        User result = userDAO.save(resultUser);
+        return result;
     }
 
     public String deleteUser(int id) {

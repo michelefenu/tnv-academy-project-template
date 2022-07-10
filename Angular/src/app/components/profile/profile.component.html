@@ -1,46 +1,57 @@
 <ng-template #content let-modal>
   <form #upDateForm="ngForm">
     <div class="mb-3">
-        <label class="form-label">Nuovo Nome</label>
-        <input [ngModel]
+      <label class="form-label">Nuovo Nome</label>
+      <input
+        [ngModel]
         name="name"
         type="text"
         class="form-control"
         placeholder="Nome"
         required
         id="name"
-        #name="ngModel" />
+        #name="ngModel"
+      />
     </div>
     <div class="mb-3">
-        <label class="form-label">Nuovo Cognome</label>
-        <input [ngModel]
-        name="cognome"
+      <label class="form-label">Nuovo Cognome</label>
+      <input
+        [ngModel]
+        name="surname"
         type="text"
         class="form-control"
         placeholder="Cognome"
         required
-        id="cognome"
-        #cognome="ngModel" />
+        id="surname"
+        #cognome="ngModel"
+      />
     </div>
     <div class="mb-3">
       <label class="form-label">Nuovo Username</label>
-      <input [ngModel]
+      <input
+        [ngModel]
         name="username"
         type="text"
         class="form-control"
         placeholder="Username"
         required
         id="username"
-        #username="ngModel" />
-  </div>
-    
-    <div class="modal-footer d-block">
-        
-        <button type="submit" class="btn btn-warning float-end"  class="btn btn-primary"
-        type="button"
-        (click)="onSubmit(upDateForm)">Submit</button>
+        #username="ngModel"
+      />
     </div>
-</form>
+
+    <div class="modal-footer d-block">
+      <button
+        type="submit"
+        class="btn btn-warning float-end"
+        class="btn btn-primary"
+        type="button"
+        (click)="onSubmit(upDateForm)"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
 </ng-template>
 <section class="h-100 gradient-custom-2">
   <div class="container">
@@ -66,7 +77,6 @@
                 (click)="open(content)"
               >
                 Edit profile
-              
               </button>
               <button
                 type="button"
@@ -87,8 +97,8 @@
           <div class="p-4 text-black" style="background-color: #f8f9fa">
             <div class="d-flex justify-content-end text-center py-1">
               <div>
-                <br>
-                <br>
+                <br />
+                <br />
               </div>
             </div>
           </div>

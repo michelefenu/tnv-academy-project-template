@@ -55,7 +55,7 @@ public class UserController {
 
     //updateUsers put
     @PutMapping("/{id}")
-    public String putUser(@PathVariable("id") int id,@RequestBody User user)  {
+    public User putUser(@PathVariable("id") int id,@RequestBody User user)  {
         return userService.putUser(id,user);
     }
 

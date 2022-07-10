@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { catchError, Observable, of } from "rxjs";
 import { LoginDTO, RegisterDTO, User } from "src/app/@models/user";
 
 @Injectable({
@@ -44,20 +43,15 @@ export class AuthService {
   }
 
   updateUser(userId: number, user: Partial<RegisterDTO>) {
-    try {
-      const updateUser: Partial<RegisterDTO> = {
-        name: user.name,
-        surname: user.surname,
-        username: user.username,
-      };
-      this.httpClient.put<User>(
-        `http://localhost:8080/users/${userId}`,
-        updateUser
-      );
+    const updateUser: Partial<RegisterDTO> = {
+      name: user.name,
+      surname: user.surname,
+      username: user.username,
+    };
 
-      return console.log("Utente salvato");
-    } catch {
-      return console.log("Utente non aggiornato");
-    }
+    return this.httpClient.put<User>(
+      `http://localhost:8080/users/${userId}`,
+      updateUser
+    );
   }
 }
