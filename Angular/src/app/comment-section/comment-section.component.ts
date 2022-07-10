@@ -49,22 +49,29 @@ export class CommentSectionComponent implements OnInit {
   }
 
   deleteMovie() {
-    const id = this.activatedRoute.snapshot.params["movieId"];
-    const getObservable = this.favoritesService.deleteMovie(id);
-    const getObservableDotNet = this.favoritesService.deleteMovieComment(id);
-
-    if (getObservable) {
-      if (id) {
-        if (getObservableDotNet) {
-          getObservable.subscribe({
-            next: () => {this.router.navigateByUrl("/favorites");
+    debugger;
+    const idClassifica = this.activatedRoute.snapshot.params["movieId"];
+    const getObservable = this.favoritesService.deleteMovie(idClassifica);
+    const getObservableDotNet = this.favoritesService.deleteMovieComment(
+      this.movie.commentId || 0
+    );
+    debugger;
+    getObservable?.subscribe({
+      next: (err) => {
+        debugger;
+        console.log("preferito e posizione in classifica rimosso da node");
+        getObservableDotNet.subscribe({
+          next: () => {
+            debugger;
+            console.log("commento rimosso da dotnet");
+            this.router.navigateByUrl("/favorites");
           },
           error: (err) => {
             console.error(err);
           },
         });
-        }
-      }
-    }
+      },
+      error: (err) => console.error(err),
+    });
   }
 }
