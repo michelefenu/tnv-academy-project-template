@@ -15,6 +15,7 @@ export class RankingsService {
   addRating(posizione : Partial<Posizione>) {
     return this.httpClient.post<Posizione[]>("http://localhost:1234/api/rating", posizione);
   }
+  
 
 
 }

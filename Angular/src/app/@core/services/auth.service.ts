@@ -17,13 +17,21 @@ export class AuthService {
   }
 
   register(registerData: RegisterDTO) {
-    const newUser: RegisterDTO = {
-      name: registerData.name,
-      surname: registerData.surname,
-      username: registerData.username,
-      password: registerData.password,
-    };
-    return this.httpClient.post(`http://localhost:8080/users/`, newUser);
+    try {
+      const newUser: RegisterDTO = {
+        name: registerData.name,
+        surname: registerData.surname,
+        username: registerData.username,
+        password: registerData.password,
+      };
+      this.httpClient.post(`http://localhost:8080/users/`, newUser);
+
+      this.router.navigateByUrl("/");
+
+      return console.log("Utente salvato");
+    } catch {
+      return console.log("Utente non creato");
+    }
   }
 
   logout() {

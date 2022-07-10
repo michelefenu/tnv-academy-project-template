@@ -194,6 +194,7 @@ export class GamePageComponent implements OnInit {
         // gioca ancora
         // salvo su node tutte le info classifica
         this.salvaClassifica(form, playAgain);
+        this.Uncollapse();
       }
     }
   }
@@ -211,5 +212,15 @@ export class GamePageComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  Uncollapse(){
+
+      this.isCollapsedLocandina = true;
+      this.isCollapsedDurata = true;
+      this.isCollapsedOverview = true;
+      this.isCollapsedAnno = true;
+      this.isCollapsedRevenue = true;
+
   }
 }
