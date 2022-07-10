@@ -57,8 +57,12 @@ export class CommentSectionComponent implements OnInit {
       if (id) {
         if (getObservableDotNet) {
           getObservable.subscribe({
-            next: () => this.router.navigateByUrl("/favorites"),
-          });
+            next: () => {this.router.navigateByUrl("/favorites");
+          },
+          error: (err) => {
+            console.error(err);
+          },
+        });
         }
       }
     }
