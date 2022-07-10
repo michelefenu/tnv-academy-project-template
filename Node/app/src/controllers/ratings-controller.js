@@ -86,6 +86,7 @@ export const deleteRating = async (req, res) => {
   }
 };
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 export const moviePreferiti = async (req, res) => {
   try {
@@ -120,4 +121,6 @@ export const getMovie = async (req, res) => {
 <<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
