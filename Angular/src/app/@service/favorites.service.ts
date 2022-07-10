@@ -38,6 +38,12 @@ export class FavoritesService {
     );
   }
 
+  getComment(id: number) {
+    return this.httpClient.get<CommentResponse>(
+      `http://localhost:5286/api/comments/${id}`
+    );
+  }
+
   getMovieById(movieId: number) {
     return this.httpClient.get<Posizione>(
       `http://localhost:1234/api/rating/${movieId}`
