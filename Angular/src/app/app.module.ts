@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './@shared/components/login/login.component';
 import { LogoutComponent } from './@shared/components/logout/logout.component';
@@ -30,7 +30,8 @@ import { RankingsComponent } from './components/rankings/rankings.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

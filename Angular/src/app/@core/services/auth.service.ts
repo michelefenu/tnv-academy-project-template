@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { of } from "rxjs";
@@ -7,19 +8,15 @@ import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
   providedIn: "root",
 })
 export class AuthService {
-  constructor(private router: Router) {}
+  springBootUrl = 'http://localhost:8080';
+
+  constructor(private router: Router, private http: HttpClient) {}
 
   login(loginData: LoginDTO) {
-    // TODO Chiamare il servizio per l'autenticazione e salvare l'utente corrente nel localStorage
-    const response: User = {
-      name: "Paolino",
-      surname: "Paperino",
-      username: "paolino504"
-    };
+    console.log('auth service.ts', loginData);
 
-    localStorage.setItem("user", JSON.stringify(response));
-
-    return of('login ok');
+    // Passare username e password
+    return this.http.get(`${this.springBootUrl}/api/user`);
   }
 
   register(registerData: RegisterDTO) {
