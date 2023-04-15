@@ -16,12 +16,20 @@ export class AuthService {
     console.log('auth service.ts', loginData);
 
     // Passare username e password
-    return this.http.get(`${this.springBootUrl}/api/user`);
+    // return this.http.get(`${this.springBootUrl}/api/user`);
+
+    // Stub prima di implementare l'API
+    const user: User = {
+      name: 'Paolino',
+      surname: 'Paperino',
+      username: 'papero123'
+    }
+    return of(user);
+    // Fine stub
   }
 
   register(registerData: RegisterDTO) {
     // TODO Chiamare il servizio per la registrazione e redirigere l'utente alla root per il login
-    
     this.router.navigateByUrl("/");
   }
 
