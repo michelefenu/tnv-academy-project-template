@@ -1,0 +1,49 @@
+$primary-palette: (
+ 50: #fde3e9,
+ 100: #f9b8c8,
+ 200: #f58aa3,
+ 300: #ef5b80,
+ 400: #ea3765,
+ 500: #e40f4c,
+ 600: #d4084b,
+ 700: #bf0247,
+ 800: #ab0045,
+ 900: #880040,
+ contrast: (
+  50: black,
+  100: black,
+  200: black,
+  300: black,
+  400: black,
+  500: white,
+  600: white,
+  700: white,
+  800: white,
+  900: white
+ )
+);
+
+$secondary-palette: (
+ 50: #f6e6ef,
+ 100: #ecc1d8,
+ 200: #e29bbe,
+ 300: #d977a5,
+ 400: #d36091,
+ 500: #d34b7f,
+ 600: #c24779,
+ 700: #ab4270,
+ 800: #963d69,
+ 900: #723459,
+ contrast: (
+  50: black,
+  100: black,
+  200: black,
+  300: black,
+  400: black,
+  500: white,
+  600: white,
+  700: white,
+  800: white,
+  900: white
+ )
+);
