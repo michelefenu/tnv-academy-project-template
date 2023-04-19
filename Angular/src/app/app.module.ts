@@ -16,6 +16,7 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { HeroContentComponent } from './components/hero-content/hero-content.component';
+import { MovieCardsComponent } from './components/movie-cards/movie-cards.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeroContentComponent } from './components/hero-content/hero-content.com
     WelcomeComponent,
     ProfileComponent,
     RankingsComponent,
-    HeroContentComponent
+    HeroContentComponent,
+    MovieCardsComponent
   ],
   imports: [
     BrowserModule,
