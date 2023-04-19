@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("user", JSON.stringify(response));
           this.router.navigateByUrl("/rankings");
         },
-        error: () => alert("Login Errrato"),
+        error: () => alert("Login Errato"),
       });
     }
   }
