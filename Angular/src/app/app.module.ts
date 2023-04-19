@@ -12,11 +12,12 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavbarComponent } from './@shared/components/navbar/navbar.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { HeroContentComponent } from './components/hero-content/hero-content.component';
 import { MovieCardsComponent } from './components/movie-cards/movie-cards.component';
+import { SearchComponent } from './components/search/search.component';
+import { MovieSectionComponent } from './components/movie-section/movie-section.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { MovieCardsComponent } from './components/movie-cards/movie-cards.compon
     NavbarComponent,
     WelcomeComponent,
     ProfileComponent,
-    RankingsComponent,
     HeroContentComponent,
-    MovieCardsComponent
+    MovieCardsComponent,
+    SearchComponent,
+    MovieSectionComponent
   ],
   imports: [
     BrowserModule,
