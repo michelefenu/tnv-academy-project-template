@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top px-3">
-  <a class="navbar-brand" routerLink="/">TNV Final Project Template</a>
+  <a class="navbar-brand" routerLink="/">TimeAmovie</a>
+  
   <button
-    class="navbar-toggler hidden-sm-up"
+  class="navbar-toggler hidden-sm-up"
     type="button"
     (click)="isNavbarCollapsed = !isNavbarCollapsed"
     data-target="#navbarsDefault"
@@ -12,6 +13,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div
+  
     [ngbCollapse]="isNavbarCollapsed"
     class="collapse navbar-collapse"
     id="navbarsDefault"
@@ -22,24 +24,15 @@
           >Welcome</a
         >
       </li>
+      
       <li class="nav-item active">
         <a class="nav-link" href="#"
-          >Gioca</a
-        >
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/rankings" routerLinkActive="active"
-          >Classifica</a
-        >
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#"
-          >Preferiti</a
+          >My movies</a
         >
       </li>
       <li class="nav-item active">
         <a class="nav-link" routerLink="/profile" routerLinkActive="active"
-          >Profilo</a
+          >My account</a
         >
       </li>
     </ul>
