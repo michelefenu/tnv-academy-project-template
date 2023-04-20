@@ -1,1 +1,28 @@
-<p>movie-cards works!</p>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-3">
+<mat-card >
+    <img
+      mat-card-image
+      [src]="imgUrl"
+      [alt]=""
+    />
+    <mat-card-header>
+       
+        <mat-card-title><a routerLink="">{{movie.title}}</a></mat-card-title>
+               
+    </mat-card-header>
+    <mat-card-content>
+      <p>        
+ <mat-card-subtitle><a routerLink="">{{movie.release_date | date: "yyyy"}}</a></mat-card-subtitle> 
+      </p>
+    </mat-card-content>
+    <mat-card-actions>        
+      <button mat-fab >
+        <mat-icon>bookmark</mat-icon>        
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
