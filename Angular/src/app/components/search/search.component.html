@@ -1,4 +1,4 @@
-
+<form #f="ngForm" (ngSubmit)="onNgSubmit(f)">
 <div class="card  mx-auto w-75 mt-5">
     <div class="card-body">
       <div class="row mt-3">
@@ -27,13 +27,11 @@
         </div>
       </div>
 
-     
         <div class="row">
           <div class="col-md-12 d-flex justify-content-center">
-            <button type="button" class="btn btn-primary mt-4 ml-auto">Primary</button>
+            <button type="submit" class="btn btn-primary mt-4 ml-auto">Submit</button>
           </div>
         </div>
-      
-
     </div>
   </div>
+</form>
