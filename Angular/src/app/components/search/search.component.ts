@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'tnv-search',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent {
 
+
+  onNgSubmit(form: NgForm) {
+    console.log(form.value)
+  }
 }
