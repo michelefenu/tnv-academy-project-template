@@ -1,0 +1,35 @@
+.card-black{
+    background-color: grey;
+   
+}
+.form-control{
+    background-color: black;
+    border-color: grey;
+    
+}
+.form-row {
+    margin-left: 10px; 
+    margin-top: 4px;
+  }
+.form-row2 {
+    margin-left: 6px; 
+   
+  }
+
+.placeholder{
+    color: #ce862b;
+}
+.button{
+    margin-left: 2px;
+    margin-bottom: 20px;
+}
+.label-color{
+    color: #ce862b;
+}
+mat-form-field {
+    &.mat-form-field-appearance-fill .mat-input-element {
+      color: #ce862b; /* Change the color to your preferred value */
+    }
+  }
+
+ 

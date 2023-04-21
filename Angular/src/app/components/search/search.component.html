@@ -1,37 +1,46 @@
-<form #f="ngForm" (ngSubmit)="onNgSubmit(f)">
-<div class="card  mx-auto w-75 mt-5">
-    <div class="card-body">
-      <div class="row mt-3">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Title" aria-label="Title">
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Actor" aria-label="Actor">
-        </div>
-      </div>
-  
-      <div class="row g-3 mt-2">
-        <div class="col-sm">
-          <select class="form-select">
-            <option selected>Action</option>
-            <option value="1">Drama</option>
-            <option value="2">Adventure</option>
-            <option value="3">Romance</option>
-          </select>
-        </div>
-        <div class="col-sm">
-          <input type="text" class="form-control" placeholder="Year" aria-label="Year">
-        </div>
-        <div class="col-sm">
-          <input type="text" class="form-control" placeholder="Duration" aria-label="Duration">
-        </div>
-      </div>
 
-        <div class="row">
+
+<div class="card  mx-auto w-75 mt-5 card-black">
+
+  <form #f="ngForm" (ngSubmit)="onNgSubmit(f)" class="form-control material">
+    <div class="row mt-3">
+      <div class="row mt-3 form-row">
+      <div class="row ">
+        <mat-form-field class="col-sm" appearance="fill">
+          <mat-label  class="label-color">Title</mat-label>
+          <input matInput placeholder="" aria-label="Title">
+        </mat-form-field>
+        <mat-form-field class="col-sm ml-5" appearance="fill">
+          <mat-label  class="label-color">Actor</mat-label>
+          <input matInput placeholder="Actor" aria-label="Actor">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row mt-3 form-row2">
+      <div class="row g-3 mt-2">
+        <mat-form-field class="col-md-4"appearance="fill">
+          <mat-label  class="label-color">Genre</mat-label>
+          <mat-select>
+            <!-- options here -->
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-md-4"appearance="fill">
+          <mat-label class="label-color">Year</mat-label>
+          <input matInput placeholder="" aria-label="Year">
+        </mat-form-field>
+        <mat-form-field class="col-md-4"appearance="fill">
+          <mat-label  class="label-color">Duration</mat-label>
+          <input class="input-color" matInput placeholder="" aria-label="Duration">
+        </mat-form-field>
+      </div>
+    </div>
+        <div class="row button">
           <div class="col-md-12 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary mt-4 ml-auto">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
           </div>
         </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
+
+
