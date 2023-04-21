@@ -40,10 +40,31 @@ $font-family-sans-serif: 'Roboto', sans-serif;
 // GLOBAL STYLES qui sotto
 
 label {
-  text-transform: uppercase;
-  font-size: small;
-  font-weight: bold;
+  text-transform:none;
+  font-size: medium;
+  font-weight:lighter; 
 }
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: black;
+  outline-style:groove;
+  color: grey;
+  padding-top: -15px;
+
+}
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{
+  color: grey;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 ngb-rating {
   color: $primary;
