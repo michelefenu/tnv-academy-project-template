@@ -4,10 +4,11 @@
 }
 
 .img {
-  background-image: url('/assets/images/login-screen.jpg');
+  background-image: url('/assets/images/posters-log.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  border-radius: 5%;
 }
 
 .wrap {
@@ -26,4 +27,7 @@
   }
 }
 
-
+h3 {
+  font-family: "Chivo Mono", monospace;
+  color: #6d6ea3;
+}
