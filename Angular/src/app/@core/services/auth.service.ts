@@ -23,7 +23,9 @@ export class AuthService {
     // return of(user);
     // Fine stub
   
-    return this.http.post<User>(`${this.springBootUrl}/login`, loginData).pipe(
+    return this.http.post<User>(
+      `${this.springBootUrl}/login`, loginData)
+      .pipe(
       tap((user: User) => {
         localStorage.setItem("user", JSON.stringify(user));
         this.router.navigateByUrl("/welcome");
@@ -31,7 +33,6 @@ export class AuthService {
     )
   }
 
- 
   // register(registerData: RegisterDTO) : Observable<User> {
   //   this.router.navigateByUrl("/register");
   //   // TODO Chiamare il servizio per la registrazione e redirigere l'utente alla root per il login
@@ -41,12 +42,13 @@ export class AuthService {
   //       this.router.navigateByUrl("/welcome");
   //     })
   //   )
-    
   // }
 
   register(registerData: RegisterDTO): Observable<User> {
     // TODO Chiamare il servizio per la registrazione e redirigere l'utente alla root per il login
-    return this.http.post<User>(`${this.springBootUrl}/register`, registerData).pipe(
+    return this.http.post<User>(
+      `${this.springBootUrl}/register`, registerData)
+      .pipe(
       tap((user: User) => {
         localStorage.setItem("user", JSON.stringify(user));
         this.router.navigateByUrl("/welcome");

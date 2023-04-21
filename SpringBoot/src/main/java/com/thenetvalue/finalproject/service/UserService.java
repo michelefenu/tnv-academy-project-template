@@ -21,7 +21,7 @@ public class UserService {
 //    public String register(User user) throws UserRegistrationException {         //User must not be null > IllegalArgumentException
 //        User newUser = new User();                                                //new User inzialized
 //        for (User anyUser : userDAO.findAll()){                             //for each User in DB
-//            if (!(anyUser.getUsername().equalsIgnoreCase(user.getUsername()))){   
+//            if (!(anyUser.getUsername().equalsIgnoreCase(user.getUsername()))){   //TODO check exceptions
 ////                newUser.setUsername(user.getUsername());
 ////                newUser.setPassword((user.getPassword()));
 //                newUser = userDAO.save(user);           //do not invert with saving in authorityDAO!!!
@@ -33,7 +33,7 @@ public class UserService {
 //                return "Error, this username already exist";                //return error
 //            }
 //        }
-//            throw new UserRegistrationException();                           //return error 
+//            throw new UserRegistrationException();                           //return error //TODO TEST OR RETURN NULL
 //    }
 
     //    public String login(String username, String password) {
@@ -69,6 +69,7 @@ public class UserService {
         if (!password.equals(users.get(0).getPassword())) {
             throw new AuthenticationException();
         }
+        user.setPassword(""); //hide password
         return user;
     }
 }
