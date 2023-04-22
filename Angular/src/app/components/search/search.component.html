@@ -46,17 +46,17 @@
           <input matInput [ngModel] name="releaseDate" aria-label="Year">
         </mat-form-field>
 
-        <mat-form-field  class="col-md-4"appearance="fill">
+        <mat-form-field class="col-md-4" appearance="fill">
           <mat-label class="label-color">Release date from</mat-label>
-          <input matInput [matDatepicker]="dateFrom"  aria-label="Release date from">
-          <mat-hint class="label-color" ></mat-hint>
+          <input matInput [ngModel] name="dateFrom" [matDatepicker]="dateFrom" aria-label="Release date from" [value]="dateFromTest | date:'yyyy-MM-dd'">
+          <mat-hint class="label-color"></mat-hint>
           <mat-datepicker-toggle class="label-color" matIconSuffix [for]="dateFrom"></mat-datepicker-toggle>
           <mat-datepicker #dateFrom></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field  class="col-md-4"appearance="fill">
           <mat-label class="label-color">Date to</mat-label>
-          <input matInput [matDatepicker]="dateTo"  aria-label="Date to">
+          <input matInput [ngModel] name="dateTo" [matDatepicker]="dateTo"  aria-label="Date to">
           <mat-hint class="label-color" ></mat-hint>
           <mat-datepicker-toggle class="label-color" matIconSuffix [for]="dateTo"></mat-datepicker-toggle>
           <mat-datepicker #dateTo></mat-datepicker>
