@@ -9,10 +9,15 @@
         <mat-form-field class="col-sm" appearance="fill">
           <mat-label  class="label-color">Order by</mat-label>
           <mat-select [ngModel] name="sortParameter">
-            <mat-option value="original_title.desc">Average vote</mat-option>
-            <mat-option value="primary_release_date.desc">Release date</mat-option>
+            <mat-option value="release_date.desc">Release date (descendent)</mat-option>
+            <mat-option value="release_date.asc">Release date (ascendent)</mat-option>
+            <mat-option value="vote_average.desc">Average vote (descendent)</mat-option>
+            <mat-option value="vote_average.asc">Average vote (ascendent)</mat-option>
+            <mat-option value="original_title.desc">Original title (descendent)</mat-option>
+            <mat-option value="original_title.asc">Original title (ascendent)</mat-option>
           </mat-select>
         </mat-form-field>
+        
         <mat-form-field class="col-sm ml-5" appearance="fill">
           <mat-label  class="label-color">Actor</mat-label>
           <input matInput placeholder="Actor" aria-label="Actor">
@@ -48,7 +53,7 @@
 
         <mat-form-field class="col-md-4" appearance="fill">
           <mat-label class="label-color">Release date from</mat-label>
-          <input matInput [ngModel] name="dateFrom" [matDatepicker]="dateFrom" aria-label="Release date from" [value]="dateFromTest | date:'yyyy-MM-dd'">
+          <input matInput [ngModel] name="dateFrom" [matDatepicker]="dateFrom" aria-label="Release date from">
           <mat-hint class="label-color"></mat-hint>
           <mat-datepicker-toggle class="label-color" matIconSuffix [for]="dateFrom"></mat-datepicker-toggle>
           <mat-datepicker #dateFrom></mat-datepicker>

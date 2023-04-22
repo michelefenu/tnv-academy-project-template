@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'tnv-search',
@@ -15,8 +16,8 @@ export class SearchComponent {
 
   movies: any = [];
 
-  dateFromTest!: string | number | Date;
-  dateToTest!: string | number | Date;
+  //dateFromTest!: string | number | Date;
+  //dateToTest!: string | number | Date;
 
   constructor(private http: HttpClient, dataPipe: DatePipe) {
     this.datePipe = dataPipe;
@@ -35,13 +36,8 @@ export class SearchComponent {
     const dateFrom = f.value.dateFrom; //check
     const dateTo = f.value.dateTo;     //check
 
-
-    //testing
-    const dateToTest = new Date(dateTo);
-    const dateFromTest= new Date(dateFrom);
-    const test1 = this.datePipe.transform(dateFromTest, 'yyyy-MM-dd');
-    const test2 = this.datePipe.transform(dateToTest, 'yyyy-MM-dd');
-
+    const test1 = this.getFormattedDate(dateFrom);
+    const test2 = this.getFormattedDate(dateTo);
    
     console.log(test1);
     console.log(test2);
@@ -57,12 +53,15 @@ export class SearchComponent {
     this.http.get(queryString).subscribe({
       next: (response: any) => (this.movies = response.results),
     });
-
-    
+  }
+  //function that returns a date or an empty string whether the datepicker has been selected on form or not
+  getFormattedDate(date: string ): string | null{      
+    if (!date){
+      return '';  //empty string for the query if dates are null
+    }
+    const formattedDate = this.datePipe.transform(date, 'yyyy-MM-dd');
+    return formattedDate; //formatted date if the dates has been selected
   }
 
-  // getFormattedDate(date: Date): string {
-  //   const formattedDate = this.datePipe.transform(date, 'yyyy-MM-dd');
-  //   return formattedDate ? formattedDate : '';
-  // }
+
 }
