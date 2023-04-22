@@ -2,35 +2,69 @@
 
 <div class="card  mx-auto w-75 mt-5 card-black">
 
-  <form #f="ngForm" (ngSubmit)="onNgSubmit(f)" class="form-control material">
+  <form #f="ngForm" (submit)="search(f)"class="form-control material">
     <div class="row mt-3">
       <div class="row mt-3 form-row">
       <div class="row ">
         <mat-form-field class="col-sm" appearance="fill">
-          <mat-label  class="label-color">Title</mat-label>
-          <input matInput placeholder="" aria-label="Title">
+          <mat-label  class="label-color">Order by</mat-label>
+          <mat-select [ngModel] name="sortParameter">
+            <mat-option value="original_title.desc">Average vote</mat-option>
+            <mat-option value="primary_release_date.desc">Release date</mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="col-sm ml-5" appearance="fill">
           <mat-label  class="label-color">Actor</mat-label>
           <input matInput placeholder="Actor" aria-label="Actor">
         </mat-form-field>
+
+        <mat-form-field class="col-sm" appearance="fill">
+          <mat-label  class="label-color">Original language</mat-label>
+          <mat-select [ngModel] name="language">
+            <mat-option value="it">Italian</mat-option>
+            <mat-option value="en">English</mat-option>
+            <mat-option value="es">Spanish</mat-option>
+            <mat-option value="fr">French</mat-option>
+            <mat-option value="de">German</mat-option>
+          </mat-select>
+        </mat-form-field>
+
       </div>
     </div>
     <div class="row mt-3 form-row2">
       <div class="row g-3 mt-2">
         <mat-form-field class="col-md-4"appearance="fill">
-          <mat-label  class="label-color">Genre</mat-label>
-          <mat-select>
-            <!-- options here -->
+          <mat-label class="label-color">Genre</mat-label>
+          <mat-select [ngModel] name="genre">
+            <mat-option value="27">Horror</mat-option>
+            <mat-option value="35">Comedy</mat-option>
+            <mat-option value="18">Drama</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="col-md-4"appearance="fill">
           <mat-label class="label-color">Year</mat-label>
-          <input matInput placeholder="" aria-label="Year">
+          <input matInput [ngModel] name="releaseDate" aria-label="Year">
         </mat-form-field>
+
+        <mat-form-field  class="col-md-4"appearance="fill">
+          <mat-label class="label-color">Release date from</mat-label>
+          <input matInput [matDatepicker]="dateFrom"  aria-label="Release date from">
+          <mat-hint class="label-color" ></mat-hint>
+          <mat-datepicker-toggle class="label-color" matIconSuffix [for]="dateFrom"></mat-datepicker-toggle>
+          <mat-datepicker #dateFrom></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field  class="col-md-4"appearance="fill">
+          <mat-label class="label-color">Date to</mat-label>
+          <input matInput [matDatepicker]="dateTo"  aria-label="Date to">
+          <mat-hint class="label-color" ></mat-hint>
+          <mat-datepicker-toggle class="label-color" matIconSuffix [for]="dateTo"></mat-datepicker-toggle>
+          <mat-datepicker #dateTo></mat-datepicker>
+        </mat-form-field>
+
         <mat-form-field class="col-md-4"appearance="fill">
-          <mat-label  class="label-color">Duration</mat-label>
-          <input class="input-color" matInput placeholder="" aria-label="Duration">
+          <mat-label  class="label-color">Average Vote</mat-label>
+          <input class="input-color" matInput [ngModel] name="voteAvgFrom" aria-label="Average Vote">
         </mat-form-field>
       </div>
     </div>
@@ -39,8 +73,13 @@
             <button type="submit" class="btn btn-primary mt-2">Submit</button>
           </div>
         </div>
+      
     </div>
   </form>
 </div>
 
+
+<pre>
+  {{ movies | json}}
+</pre>
 
