@@ -2,9 +2,10 @@
     justify-content: flex-end;
   }
 .navbar-brand{
+  padding-left: 25px;
   font-family: 'Chivo Mono', monospace;
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #ce862b;
   }  
   .navbar{
@@ -12,9 +13,19 @@
   }
   .navbar {
     background-color: black;
-   
   }
+  
   .navbar-dark .navbar-nav .nav-link.active {
     color:#ce862b;
   }
- 
+
+.material-symbols-outlined {
+  padding-right: 5px;
+  padding-right: 5px;
+  vertical-align: -25.5% ;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 40
+}
