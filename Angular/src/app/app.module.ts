@@ -18,6 +18,8 @@ import { HeroContentComponent } from './components/hero-content/hero-content.com
 import { MovieCardsComponent } from './components/movie-cards/movie-cards.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieSectionComponent } from './components/movie-section/movie-section.component';
+import { DatePipe } from '@angular/common';
+import { MyFavoritesComponent } from './components/my-favorites/my-favorites.component';
 
 @NgModule({
   declarations: [

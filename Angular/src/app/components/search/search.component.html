@@ -1,26 +1,14 @@
-
-
 <div class="card  mx-auto w-75 mt-5 card-black">
+  <h4 class="info">Set your preferences and create now your downloadable timeline!</h4>
 
   <form #f="ngForm" (submit)="search(f)"class="form-control material">
     <div class="row mt-3">
       <div class="row mt-3 form-row">
       <div class="row ">
+
         <mat-form-field class="col-sm" appearance="fill">
-          <mat-label  class="label-color">Order by</mat-label>
-          <mat-select [ngModel] name="sortParameter">
-            <mat-option value="release_date.desc">Release date (descendent)</mat-option>
-            <mat-option value="release_date.asc">Release date (ascendent)</mat-option>
-            <mat-option value="vote_average.desc">Average vote (descendent)</mat-option>
-            <mat-option value="vote_average.asc">Average vote (ascendent)</mat-option>
-            <mat-option value="original_title.desc">Original title (descendent)</mat-option>
-            <mat-option value="original_title.asc">Original title (ascendent)</mat-option>
-          </mat-select>
-        </mat-form-field>
-        
-        <mat-form-field class="col-sm ml-5" appearance="fill">
           <mat-label  class="label-color">Actor</mat-label>
-          <input matInput  aria-label="Actor">
+          <input matInput placeholder="Actor" aria-label="Actor">
         </mat-form-field>
 
         <mat-form-field class="col-sm" appearance="fill">
@@ -34,11 +22,7 @@
           </mat-select>
         </mat-form-field>
 
-      </div>
-    </div>
-    <div class="row mt-3 form-row2">
-      <div class="row g-3 mt-2">
-        <mat-form-field class="col-md-4"appearance="fill">
+        <mat-form-field class="col-sm"appearance="fill">
           <mat-label class="label-color">Genre</mat-label>
           <mat-select [ngModel] name="genre">
             <mat-option value="27">Horror</mat-option>
@@ -46,9 +30,23 @@
             <mat-option value="18">Drama</mat-option>
           </mat-select>
         </mat-form-field>
-       
 
-        <mat-form-field class="col-md-4" appearance="fill">
+        <mat-form-field class="col-sm" appearance="fill">
+          <mat-label  class="label-color">Average Vote</mat-label>
+          <input class="input-color" matInput [ngModel] name="voteAvgFrom" aria-label="Average Vote">
+        </mat-form-field>
+
+      </div>
+    </div>
+    <div class="row mt-3 form-row2">
+      <div class="row g-3 mt-2">
+
+        <mat-form-field class="col-sm"appearance="fill">
+          <mat-label class="label-color">Year</mat-label>
+          <input matInput [ngModel] name="releaseDate" aria-label="Year">
+        </mat-form-field>
+
+        <mat-form-field class="col-sm" appearance="fill">
           <mat-label class="label-color">Release date from</mat-label>
           <input matInput [ngModel] name="dateFrom" [matDatepicker]="dateFrom" aria-label="Release date from">
           <mat-hint class="label-color"></mat-hint>
@@ -56,7 +54,7 @@
           <mat-datepicker #dateFrom></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field  class="col-md-4"appearance="fill">
+        <mat-form-field  class="col-sm"appearance="fill">
           <mat-label class="label-color">Date to</mat-label>
           <input matInput [ngModel] name="dateTo" [matDatepicker]="dateTo"  aria-label="Date to">
           <mat-hint class="label-color" ></mat-hint>
@@ -64,10 +62,18 @@
           <mat-datepicker #dateTo></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field class="col-md-4"appearance="fill">
-          <mat-label  class="label-color">Average Vote</mat-label>
-          <input class="input-color" matInput [ngModel] name="voteAvgFrom" aria-label="Average Vote"autocomplete="off">
+        <mat-form-field class="col-sm" appearance="fill">
+          <mat-label  class="label-color">Order by</mat-label>
+          <mat-select [ngModel] name="sortParameter">
+            <mat-option value="release_date.desc">Release date (descendent)</mat-option>
+            <mat-option value="release_date.asc">Release date (ascendent)</mat-option>
+            <mat-option value="vote_average.desc">Average vote (descendent)</mat-option>
+            <mat-option value="vote_average.asc">Average vote (ascendent)</mat-option>
+            <mat-option value="original_title.desc">Original title (descendent)</mat-option>
+            <mat-option value="original_title.asc">Original title (ascendent)</mat-option>
+          </mat-select>
         </mat-form-field>
+
       </div>
     </div>
         <div class="row button">
@@ -84,5 +90,4 @@
 <pre>
   {{ movies | json}}
 </pre>
-
 
