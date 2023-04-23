@@ -20,7 +20,7 @@
         
         <mat-form-field class="col-sm ml-5" appearance="fill">
           <mat-label  class="label-color">Actor</mat-label>
-          <input matInput placeholder="Actor" aria-label="Actor">
+          <input matInput  aria-label="Actor">
         </mat-form-field>
 
         <mat-form-field class="col-sm" appearance="fill">
@@ -46,10 +46,7 @@
             <mat-option value="18">Drama</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field class="col-md-4"appearance="fill">
-          <mat-label class="label-color">Year</mat-label>
-          <input matInput [ngModel] name="releaseDate" aria-label="Year">
-        </mat-form-field>
+       
 
         <mat-form-field class="col-md-4" appearance="fill">
           <mat-label class="label-color">Release date from</mat-label>
@@ -69,7 +66,7 @@
 
         <mat-form-field class="col-md-4"appearance="fill">
           <mat-label  class="label-color">Average Vote</mat-label>
-          <input class="input-color" matInput [ngModel] name="voteAvgFrom" aria-label="Average Vote">
+          <input class="input-color" matInput [ngModel] name="voteAvgFrom" aria-label="Average Vote"autocomplete="off">
         </mat-form-field>
       </div>
     </div>
@@ -87,4 +84,5 @@
 <pre>
   {{ movies | json}}
 </pre>
+
 
