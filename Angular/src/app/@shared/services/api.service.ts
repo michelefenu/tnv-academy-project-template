@@ -31,7 +31,7 @@ export class ApiService {
     return this.httpClient.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=it-it`);
   }
 
-  getPoster(posterPath: string | undefined) {
+  getPoster(posterPath: string | null) {
     return `https://image.tmdb.org/t/p/original${posterPath}`;
   }
 

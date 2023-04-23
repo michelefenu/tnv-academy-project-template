@@ -20,17 +20,8 @@ export class MovieCardsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getMovie();   
+       
   }
 
 
-  getMovie() {
-    this.apiService.getMovieById(this.movieId).subscribe(
-      {
-        next: (res) =>{ 
-        this.movie = res; 
-        this.imgUrl = this.apiService.getPoster(this.movie.poster_path);
-      }
-      });      
-  }
 }

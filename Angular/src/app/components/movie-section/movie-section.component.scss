@@ -1,3 +1,51 @@
+.descrizione{
+    justify-content: flex-end;
+}
+h2{
+    justify-content:end;
+    color: #000000;
+    
+}
+
+h4{
+    justify-content:end;
+    color: #3d3d3d;
+
+}
+
+h5{
+    justify-content:end;
+    color: #3d3d3d;
+    font-size: small;
+    text-justify:ce;
+
+}
+
+img{
+   width: 19%;
+    
+}
+mat-card-actions{
+    display: flex;    
+    justify-content: right;
+     
+}
+
+button{
+    background-color: #d2902f;
+    margin-top: 10%;
+}
+
+
+.star{
+    color:#FFD700;
+}
+.rating{
+    justify-content:end;
+    color: #000000;
+}
+
+
 /* Timeline holder */
 ul.timeline {
     list-style-type: none;
@@ -63,5 +111,5 @@ body {
 }
 
 .text-gray {
-    color: #999;
+    color: #000000;
 }
