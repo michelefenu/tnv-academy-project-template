@@ -1,8 +1,8 @@
 <div class="card  mx-auto w-75 mt-5 card-black">
-  <h4 class="info">Set your preferences and create now your downloadable timeline!</h4>
+  <h4 class="info d-flex justify-content-center">Set your preferences and create now your downloadable timeline!</h4>
 
   <form #f="ngForm" (submit)="search(f)"class="form-control material">
-    <div class="row mt-3">
+    <div class="row">
       <div class="row mt-3 form-row">
       <div class="row ">
 
@@ -25,9 +25,25 @@
         <mat-form-field class="col-sm"appearance="fill">
           <mat-label class="label-color">Genre</mat-label>
           <mat-select [ngModel] name="genre">
-            <mat-option value="27">Horror</mat-option>
+            <mat-option value="28">Action</mat-option>
+            <mat-option value="12">Adventure</mat-option>
+            <mat-option value="16">Animation</mat-option>
             <mat-option value="35">Comedy</mat-option>
+            <mat-option value="80">Crime</mat-option>
+            <mat-option value="99">Documentary</mat-option>
             <mat-option value="18">Drama</mat-option>
+            <mat-option value="10751">Family</mat-option>
+            <mat-option value="14">Fantasy</mat-option>
+            <mat-option value="36">History</mat-option>
+            <mat-option value="27">Horror</mat-option>
+            <mat-option value="10402">Music</mat-option>
+            <mat-option value="9648">Mistery</mat-option>
+            <mat-option value="10749">Romance</mat-option>
+            <mat-option value="878">Science Fiction</mat-option>
+            <mat-option value="10770">TV Movie</mat-option>
+            <mat-option value="53">Thriller</mat-option>
+            <mat-option value="10752">War</mat-option>
+            <mat-option value="37">Western</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -78,7 +94,7 @@
     </div>
         <div class="row button">
           <div class="col-md-12 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2">Search</button>
           </div>
         </div>
       
@@ -91,3 +107,4 @@
   {{ movies | json}}
 </pre>
 
+ 
