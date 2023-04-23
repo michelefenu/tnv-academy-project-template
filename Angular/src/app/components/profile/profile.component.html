@@ -1,9 +1,11 @@
-<h2>Profilo Utente</h2>
+<div class="container">
+  <h2>Welcome back {{currentUser.name}}!</h2>
+  <h3>Your data:</h3>
 <div class="row">
   <div>
-    <span>Nome</span>: <span class="profile-data">{{ currentUser.name }}</span
+    <span>Name</span>: <span class="profile-data">{{ currentUser.name }}</span
     ><br />
-    <span>Cognome</span>:
+    <span>Surname</span>:
     <span class="profile-data">{{ currentUser.surname }}</span
     ><br />
     <span>Username</span>:
@@ -11,4 +13,5 @@
     ><br />
   </div>
   <tnv-logout class="mt-3"></tnv-logout>
+</div>
 </div>
