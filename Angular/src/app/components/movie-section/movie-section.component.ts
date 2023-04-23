@@ -15,6 +15,7 @@ export class MovieSectionComponent implements OnInit {
   movies: Cast[] | undefined = [];
   actorId: number | undefined = 500;
   actorCredits: Partial<ActorCredits> = {};
+  
 
 
   constructor(private apiService: ApiService) {
@@ -30,10 +31,14 @@ export class MovieSectionComponent implements OnInit {
       {
         next: (res) => {
           this.actorCredits = res;
-          this.movies = this.actorCredits.credits?.cast;
+          this.movies = this.actorCredits.credits?.cast;        
+                      
         }
       }
     )
   }
-
+  getPoster(imgUrl:string | null){
+    return this.apiService.getPoster(imgUrl);
+  }
+  
 }
