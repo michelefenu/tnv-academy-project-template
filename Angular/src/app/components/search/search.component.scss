@@ -1,10 +1,11 @@
 .card-black{
-    background-color: grey;
+    background-color: black;
    
 }
 .form-control{
     background-color: black;
-    border-color: grey;
+    border-color: black;
+    margin-top: -7px;
     
 }
 .form-row {
@@ -25,4 +26,7 @@
 }
 .label-color{
     color: #ce862b;
+}
+.info{
+    color: grey;
 }
