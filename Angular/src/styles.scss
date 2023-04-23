@@ -53,7 +53,26 @@ label {
 }
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{
   color: grey;
+  background-color: black;
+  
 }
+.mdc-list-item__primary-text{
+  color: #090908;
+  
+  
+}
+.mat-select-value-5{
+color: #ce862b;
+background-color: #090908;
+}
+
+.mat-mdc-select-value-text{
+  color: #ce862b;
+}
+
+ .mat-mdc-select-arrow{
+  color: #ce862b;
+ }
 
 
 
@@ -78,3 +97,4 @@ body {
   justify-content: center;
 
 }
+

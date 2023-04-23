@@ -6,6 +6,7 @@ import { MainPageComponent } from "./components/main-page/main-page.component";
 import { RegisterComponent } from "./@shared/components/register/register.component";
 import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { ProfileComponent } from "./components/profile/profile.component";
+import { MyFavoritesComponent } from "./components/my-favorites/my-favorites.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: "welcome", component: WelcomeComponent },
       { path: "profile", component: ProfileComponent },
+      { path: "movies", component: MyFavoritesComponent },
 
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
     ],
