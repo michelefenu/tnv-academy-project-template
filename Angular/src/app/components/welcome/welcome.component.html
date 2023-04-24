@@ -1,3 +1,4 @@
 <tnv-hero-content></tnv-hero-content>
-<tnv-search></tnv-search>
-  <tnv-movie-section></tnv-movie-section>
+<tnv-search (onSearch)="onSearch($event)"></tnv-search>
+
+<tnv-movie-section [movies]="movies"></tnv-movie-section> 

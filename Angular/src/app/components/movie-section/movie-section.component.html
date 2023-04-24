@@ -1,38 +1,12 @@
-<!-- <div class="container py-5">
-    <div class="row">
-        <div class="col-lg-7 mx-auto">
 
-            <ul class="timeline">
-                <div class:"justify-content-md-center">
-                <li *ngFor="let movie of actorCredits.credits?.cast"
-                    class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <p><img src={{getPoster(movie.poster_path)}} width="auto" height="auto" border="1" align="left">
-                   
-                    <h2 class="row justify-content-md-center" >{{movie.title}} </h2>
-                    <h4 class="row justify-content-md-center"> {{movie.release_date | date: "yyyy"}} </h4>
-                    <div class="rating" align="right">
-                        <p><mat-icon class="star">star</mat-icon>
-                            {{movie.vote_average}}
-                        </p>
-                    </div>
-                    <h5 class="row justify-content-md-center"> {{movie.overview}} <button mat-fab>
-                            <mat-icon>bookmark</mat-icon>
-                        </button> </h5>
-                    <p>{{movie.id}}</p>
-                </li>
-                </div>
-            </ul>
 
-        </div>
-    </div>
-</div> -->
 
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-7 mx-auto">
             <ul class="timeline">
                 <div class="justify-content-md-center">
-                    <li *ngFor="let movie of actorCredits.credits?.cast"
+                    <li *ngFor="let movie of movies"
                     class="timeline-item bg-white rounded ml-3 p-4 shadow">
                     <div class="locandina"><img src={{getPoster(movie.poster_path)}} width="auto" height="auto" border="1" align="left"></div>
                    <div class="descrizione">
@@ -55,4 +29,5 @@
             </ul>
         </div>
     </div>
-</div>
+</div> 
+
