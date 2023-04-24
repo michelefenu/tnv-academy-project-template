@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'tnv-search',
@@ -12,20 +11,16 @@ import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 export class SearchComponent {
 
   private readonly datePipe: DatePipe;
-  [x: string]: any;
+
+  @Output() onSearch = new EventEmitter<any>(); // emit search results to parent component
 
   movies: any = [];
 
-  //dateFromTest!: string | number | Date;
-  //dateToTest!: string | number | Date;
-
   constructor(private http: HttpClient, dataPipe: DatePipe) {
     this.datePipe = dataPipe;
-   }
+  }
 
   search(f: NgForm) {
-    console.log(f.value);
-
     const APIKEY = "1ce8b34c9c9e676aa0072abcba688089";
 
     const genre = f.value.genre;
@@ -33,36 +28,34 @@ export class SearchComponent {
     const sortParameter = f.value.sortParameter
     const voteAvgFrom = f.value.voteAvgFrom;
     const language = f.value.language;
-    const dateFrom = f.value.dateFrom; //check
-    const dateTo = f.value.dateTo;     //check
+    const dateFrom = f.value.dateFrom;
+    const dateTo = f.value.dateTo;
 
     const test1 = this.getFormattedDate(dateFrom);
     const test2 = this.getFormattedDate(dateTo);
-   
-    console.log(test1);
-    console.log(test2);
-
-    // const searchString = `https://api.themoviedb.org/3/discover/movie?api_key=4cd1fa7f6243bb50ecc7fcbfe050eb83&language=en-US&sort_by=primary_release_date.desc&with_genres=${genre}&primary_release_year=${releaseDate}&limit=10`;
 
     const searchString = `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&page=1&with_original_language=${language}&with_genres=${genre}&vote_average.gte=${voteAvgFrom}&sort_by=${sortParameter}&primary_release_year=${releaseDate}&release_date.gte=${test1}&release_date.lte=${test2}`;
-    
+
     const queryString = searchString.replace(/null/g, '');
 
-    console.log(queryString); //test
-
     this.http.get(queryString).subscribe({
-      next: (response: any) => (this.movies = response.results),
+      next: (response: any) => {
+        this.movies = response.results;
+        this.onSearch.emit(this.movies); // emit search results to parent component
+      },
+      error: (error: any) => {
+        console.log(error);
+        this.movies = [];
+      }
     });
   }
-  
-  //function that returns a date or an empty string whether the datepicker has been selected on form or not
-  getFormattedDate(date: string ): string | null{      
-    if (!date){
-      return '';  //empty string for the query if dates are null
+
+  getFormattedDate(date: string): string | null {
+    if (!date) {
+      return '';
     }
     const formattedDate = this.datePipe.transform(date, 'yyyy-MM-dd');
-    return formattedDate; //formatted date if the dates has been selected
+    return formattedDate;
   }
-
 
 }
