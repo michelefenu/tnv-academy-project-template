@@ -20,7 +20,7 @@ import { SearchComponent } from './components/search/search.component';
 import { MovieSectionComponent } from './components/movie-section/movie-section.component';
 import { DatePipe } from '@angular/common';
 import { MyFavoritesComponent } from './components/my-favorites/my-favorites.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,7 @@ import { MyFavoritesComponent } from './components/my-favorites/my-favorites.com
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    
+    MatExpansionModule
   ],
   providers: [
     DatePipe
