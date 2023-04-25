@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import { ApiService } from 'src/app/@shared/services/api.service';
+import { FavoritesService } from 'src/app/@shared/services/favorites.service';
 import { Actor } from 'src/app/models/actor';
 import { ActorCredits, Cast } from 'src/app/models/actorCredits';
 import { Movie } from 'src/app/models/movie';
@@ -16,12 +17,18 @@ export class MovieSectionComponent  {
   @ViewChild(MatAccordion) accordion!: MatAccordion;
     
   @Input() movies: Movie[] = [];
-
-  constructor(private apiService: ApiService) {
+  
+  
+  constructor(private apiService: ApiService, private favoritesService: FavoritesService) {
   }
 
   getPoster(imgUrl:string | null){
     return this.apiService.getPoster(imgUrl);
   }
+
+  addToFavorites(movie: any) {
+    this.favoritesService.addFavorite(movie);
+  }
+
 }
 
