@@ -1,6 +1,25 @@
-<div class="container">
+<div class="container py-5">
     <div class="row">
-        <p>my-favorites works!</p>
+      <div class="col-lg-7 mx-auto">
+       
+          <div class="justify-content-md-center">
+            <li *ngFor="let movie of favorites"
+                class="timeline-item bg-white rounded ml-3 p-4 shadow">
+              <div class="locandina"><img src={{getPoster(movie.poster_path)}} width="auto" height="auto" border="1" align="left"></div>
+              <div class="descrizione">
+                <h2 class="row justify-content-md-center" >{{movie.title}} </h2>
+                <h4 class="row justify-content-md-center"> {{movie.release_date | date: "yyyy"}} </h4>
+                <div class="rating" align="right">
+                  <p><mat-icon class="star">star</mat-icon>
+                    {{movie.vote_average}}
+                  </p>
+                  <h5> {{movie.overview}} </h5>
+                </div>
+                <p>{{movie.id}}</p>
+              </div>
+            </li>
+          </div>
+       
+      </div>
     </div>
-</div>
-
+  </div>

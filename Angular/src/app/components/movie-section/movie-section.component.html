@@ -69,7 +69,7 @@
                       <mat-label class="label-color">Review </mat-label>
                       <input matInput placeholder="review (max 160char)" aria-label="review">
                     </mat-form-field>
-                    <button type="submit" class="btn btn-primary mt-2 col col-lg-2"><span
+                    <button (click)="addToFavorites(movie)" type="submit" class="btn btn-primary mt-2 col col-lg-2"><span
                         class="material-symbols-outlined heart">
                         heart_plus
                       </span>Add</button>
