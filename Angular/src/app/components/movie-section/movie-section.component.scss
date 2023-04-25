@@ -1,29 +1,49 @@
-.descrizione{
-    justify-content: flex-end;
+.card-body {
+    border-color: transparent; /*doesn't work*/
 }
-h2{
-    justify-content:end;
-    color: #000000;
-    
-}
-
-h4{
-    justify-content:end;
-    color: #3d3d3d;
-
-}
-
-h5{
-    justify-content:end;
-    color: #3d3d3d;
-    font-size: small;
-    text-justify:ce;
-
-}
-
 img{
-   width: 19%;
-    
+    width: auto;
+     
+ }
+.card-body {
+
+    h1,h2,h3,h4,h5,p{
+        justify-content:end;
+        color: #000000;
+    }
+
+    h4{
+        font-family: 'Chino Mono', monospace;
+        justify-content:end;;
+        font-size: large;
+        font-weight: 600;
+        text-align:left;
+    }
+
+    h5 {
+        font-size: medium;
+        /*text-align: right;*/
+    }
+    .mat-fab {
+        text-align: right;
+    }
+    .release
+    {
+        text-align: right; 
+    }
+
+    p {
+        font-size: small;
+    }
+
+    mat-icon{
+        color:#FFD700;
+        vertical-align:-20%;
+    }
+
+    .rating{
+        color: #000000;
+    }
 }
 mat-card-actions{
     display: flex;    
@@ -33,30 +53,24 @@ mat-card-actions{
 
 button{
     background-color: #d2902f;
-    margin-top: 10%;
+    box-shadow: none;
 }
 
-
-.star{
-    color:#FFD700;
+.timeline.justify-content-md-center {
+    background-color: #000000; /*doesn't work*/
 }
-.rating{
-    justify-content:end;
-    color: #000000;
-}
-
 
 /* Timeline holder */
 ul.timeline {
     list-style-type: none;
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 2.5rem;
 }
 
  /* Timeline vertical line */
 ul.timeline:before {
     content: ' ';
-    background: #fff;
+    background: #eaeaf2;
     display: inline-block;
     position: absolute;
     left: 16px;
@@ -73,7 +87,7 @@ li.timeline-item {
 /* Timeline item arrow */
 .timeline-arrow {
     border-top: 0.5rem solid transparent;
-    border-right: 0.5rem solid #fff;
+    border-right: 0.5rem solid #eaeaf2;
     border-bottom: 0.5rem solid transparent;
     display: block;
     position: absolute;
@@ -83,33 +97,16 @@ li.timeline-item {
 /* Timeline item circle marker */
 li.timeline-item::before {
     content: ' ';
-    background: #ddd;
+    background: #c87826;
     display: inline-block;
     position: absolute;
     border-radius: 50%;
-    border: 3px solid #fff;
-    left: 11px;
-    width: 14px;
-    height: 14px;
+    border: 3px solid #eaeaf2;
+    left: 3.5px;
+    width: 30px;
+    height: 30px;
     z-index: 400;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);*/
 }
 
 
-/*
-*
-* ==========================================
-* FOR DEMO PURPOSES
-* ==========================================
-*
-*/
-body {
-    background: #E8CBC0;
-    background: -webkit-linear-gradient(to right, #E8CBC0, #636FA4);
-    background: linear-gradient(to right, #E8CBC0, #636FA4);
-    min-height: 100vh;
-}
-
-.text-gray {
-    color: #000000;
-}

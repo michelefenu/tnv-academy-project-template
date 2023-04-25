@@ -1,13 +1,77 @@
+<div class="row">
+    <div class="col-lg-7 mx-auto">
+        <ul class="timeline">
+            <div class="justify-content-md-center">
+                <li *ngFor="let movie of movies" class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                    <!--NUOVO-->
+
+<div class="card mb-3" style="max-width: 700px;">
+    <div class="card-header">
+      <h4 class="card-title">{{movie.title}}</h4>
+          <div class="card-subtitle">
+            <span class="rating col-6"><mat-icon>star</mat-icon>{{movie.vote_average}}</span>
+            <span class="release col-6"><h5>{{movie.release_date | date: "yyyy"}}</h5></span>
+        </div>
+    </div><!--TEST-->
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+        src={{getPoster(movie.poster_path)}} alt="{{movie.title}}, ({{movie.release_date}})" class="img-fluid rounded-start"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          
+          <p class="card-text">
+            {{movie.overview}}
+          </p>
+          
+          
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted"></div>
+  </div>
+  <!--FINE CARD-->
+  <form #f="ngForm" class="form-control material">
+    <div class="row">
+    <mat-form-field class="col-sm" appearance="fill">
+      <mat-label  class="label-color">Review </mat-label>
+      <input matInput placeholder="review (max 160char)" aria-label="review">
+    </mat-form-field>
+    <mat-form-field class="col-sm" appearance="fill">
+      <mat-label  class="label-color">Rating</mat-label>
+      <mat-select [ngModel] name="language">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit" class="btn btn-primary mt-2">Add to favorites</button>
+    </div>            
+  </form>
+  <p>PROVA</p>
+  <p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Button with data-target
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <!--<div class="card card-body">
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    </div>-->
+  </div>
+  </li></div></ul></div></div>
 
 
-
-<div class="container py-5">
+<!--<div class="container py-5">
     <div class="row">
         <div class="col-lg-7 mx-auto">
             <ul class="timeline">
                 <div class="justify-content-md-center">
-                    <li *ngFor="let movie of movies"
-                    class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                    <li *ngFor="let movie of movies" class="timeline-item bg-white rounded ml-3 p-4 shadow">
                     <div class="locandina"><img src={{getPoster(movie.poster_path)}} width="auto" height="auto" border="1" align="left"></div>
                    <div class="descrizione">
                     <h2 class="row justify-content-md-center" >{{movie.title}} </h2>
@@ -30,4 +94,4 @@
         </div>
     </div>
 </div> 
-
+-->
