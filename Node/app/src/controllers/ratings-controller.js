@@ -1,38 +1,43 @@
 import Rating from "../models/rating.js";
 
+
+
 export const addToMyMovies = async (req, res) => {
     try {
-      const { userId, movieId, review, rating } = req.body;
-      const ratingInstance = await Rating.create({
-        userId,
-        movieId,
-        review,
-        rating
-      });
-      res.json({
-        message: "Film aggiunto ai preferiti",
-        data: ratingInstance,
-      });
-    } catch (err) {
-      console.log(err);
-      res.sendStatus(500);
-    }
-  };
+        const { userId, movieId, review, rating } = req.body;
+        const ratingInstance = await Rating.create({
+            userId,
+            movieId,
+            review,
+            rating
 
-export const getRating = async (req, res) => {
+        });
+        res.json({
+
+            result: "Film aggiunto ai preferiti",
+
+            data: ratingInstance,
+        });
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+};
+
+export const getMovies = async (req, res) => {
     try {
-        const rating = await Rating.findOne({
+        const ratings = await Rating.findAll({
             where: {
-                userId: req.params.userId,
-                movieId: req.params.movieId,
+                userId: req.params.userId
             }
         });
-        
-        if (rating) {
-            res.send(rating);
-        } else {
-            res.sendStatus(404);
-        }
+        const movieIdUser = ratings.map(rating => rating.movieId);
+
+        res.json({
+            result: "OKKKKK",
+
+            data: movieIdUser
+        });
     } catch (err) {
         console.log(err);
         res.sendStatus(500);
