@@ -1,5 +1,24 @@
 import Rating from "../models/rating.js";
 
+export const addToMyMovies = async (req, res) => {
+    try {
+      const { userId, movieId, review, rating } = req.body;
+      const ratingInstance = await Rating.create({
+        userId,
+        movieId,
+        review,
+        rating
+      });
+      res.json({
+        message: "Film aggiunto ai preferiti",
+        data: ratingInstance,
+      });
+    } catch (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+  };
+
 export const getRating = async (req, res) => {
     try {
         const rating = await Rating.findOne({
@@ -66,3 +85,6 @@ export const deleteRating = async (req, res) => {
         res.sendStatus(500);
     }
 }
+
+
+
