@@ -17,7 +17,8 @@ const Rating = db.define('ratings', {
     type: DataTypes.INTEGER
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps:false
 });
  
 export default Rating;
