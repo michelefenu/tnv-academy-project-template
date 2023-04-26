@@ -1,7 +1,5 @@
 import Rating from "../models/rating.js";
 
-
-
 export const addToMyMovies = async (req, res) => {
     try {
         const { userId, movieId, review, rating } = req.body;
@@ -10,19 +8,16 @@ export const addToMyMovies = async (req, res) => {
             movieId,
             review,
             rating
-
         });
         res.json({
-
-            result: "Film aggiunto ai preferiti",
-
+            result: "Film added successfully",
             data: ratingInstance,
         });
     } catch (err) {
         console.log(err);
         res.sendStatus(500);
     }
-};
+}
 
 export const getMovies = async (req, res) => {
     try {
@@ -34,7 +29,7 @@ export const getMovies = async (req, res) => {
         const movieIdUser = ratings.map(rating => rating.movieId);
 
         res.json({
-            result: "OKKKKK",
+            result: "OK",
 
             data: movieIdUser
         });
@@ -90,6 +85,9 @@ export const deleteRating = async (req, res) => {
         res.sendStatus(500);
     }
 }
+
+
+
 
 
 

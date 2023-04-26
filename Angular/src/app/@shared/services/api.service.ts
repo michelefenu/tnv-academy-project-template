@@ -32,7 +32,11 @@ export class ApiService {
   }
 
   getPoster(posterPath: string | null) {
-    return `https://image.tmdb.org/t/p/original${posterPath}`;
+    if (!posterPath) {
+      return 'http://localhost:4200/assets/images/poster-missing.jpeg'; 
+    } else {
+      return `https://image.tmdb.org/t/p/original${posterPath}`;
+    }
   }
 
   getMoviesFiltered(genre: string | null, averageVote: number | null, releaseYear: string | null) {

@@ -52,12 +52,15 @@
                     <mat-icon>library_add</mat-icon>    
                   </mat-panel-description>
                 </mat-expansion-panel-header>
-            
-                <form #f="ngForm" class="form-control material">
+                <form #f="ngForm" (ngSubmit)="addToFavorites(movie); compileRating(movie.id, formData)" class="form-control material">
                   <div class="row">
                     <mat-form-field class="col" appearance="outline">
                       <mat-label class="label-color">Rating</mat-label>
-                      <mat-select [ngModel] name="language">
+                      <mat-select [(ngModel)]="formData.ratingNum"
+                      required 
+                      type="text"
+                      name="ratingNum"
+                      required placeholder="1">
                         <mat-option value="1">1</mat-option>
                         <mat-option value="2">2</mat-option>
                         <mat-option value="3">3</mat-option>
@@ -67,9 +70,14 @@
                     </mat-form-field>
                     <mat-form-field class="col-md-auto" appearance="outline">
                       <mat-label class="label-color">Review </mat-label>
-                      <input matInput placeholder="review (max 160char)" aria-label="review">
+                      <input matInput [(ngModel)]="formData.review"
+                      name="review" 
+                      required 
+                      type="text"
+                      placeholder="review (max 160char)" 
+                      aria-label="review">
                     </mat-form-field>
-                    <button (click)="addToFavorites(movie)" type="submit" class="btn btn-primary mt-2 col col-lg-2"><span
+                    <button type="submit" class="btn btn-primary mt-2 col col-lg-2"><span
                         class="material-symbols-outlined heart">
                         heart_plus
                       </span>Add</button>

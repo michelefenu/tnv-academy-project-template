@@ -15,16 +15,16 @@ export class RatingService {
     return this.httpClient.get<Rating>(`${this.API_ROOT}/rating/${userId}`);
   }
 
-  addToMyMovies(rating: Rating){
-    return this.httpClient.post<Rating>(`${this.API_ROOT}/rating/add`, rating);
-  }
+  // addToMyMovies(rating: Rating){
+  //   return this.httpClient.post<Rating>(`${this.API_ROOT}/rating/add`, rating);
+  // }
 
   getRating(userId: string, movieId: string) {
     return this.httpClient.get<Rating>(`${this.API_ROOT}/ratings/${userId}/${movieId}`);
   }
 
   addRating(rating: Rating) {
-    return this.httpClient.post<Rating>(`${this.API_ROOT}/ratings/`, rating);
+    return this.httpClient.post<Rating>(`${this.API_ROOT}/rating/`, rating);
   }
 
   editRating(rating: Rating) {

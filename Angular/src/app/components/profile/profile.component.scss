@@ -1,7 +1,25 @@
+h1,h2,h3,h4 {
+    font-family: 'Chivo Mono', monospace;
+}
+h2 {
+    color: #6d6ea3;
+}
+h3 {
+    color: #d2902f;
+    font-size: 1.3rem;
+}
 .profile-data {
     font-weight: bold;
 }
+.row {
+    font-size: large;
+    line-height: 2.0rem;
 
+    .profile-data {
+        letter-spacing: 0.1rem;
+        font-weight: 400;
+    }
+}
 .container {
     margin-left: auto; margin-right: auto;
     margin-top: 35px;
