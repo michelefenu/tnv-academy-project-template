@@ -31,7 +31,7 @@
             /*text-align: right;*/
         }
         mat-icon {
-            color: #FFD700;
+            color:  #d2902f;
             vertical-align: -20%;
         }
     
@@ -149,3 +149,21 @@ li.timeline-item::before {
     z-index: 400;
     /*box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);*/
 }
+// Changed input colors for movie sction card
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{
+    color:black;
+    background-color: white;  
+  }
+
+  .input{
+    background-color: white;
+  }
+  
+  .mat-mdc-select-arrow{
+    color: black;
+   }
+
+   .mat-mdc-select-value-text{
+    color:#c87826;
+  }
+  

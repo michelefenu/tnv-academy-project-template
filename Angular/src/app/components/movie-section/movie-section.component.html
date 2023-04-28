@@ -56,11 +56,7 @@
                   <div class="row">
                     <mat-form-field class="col" appearance="outline">
                       <mat-label class="label-color">Rating</mat-label>
-                      <mat-select [(ngModel)]="formData.ratingNum"
-                      required 
-                      type="text"
-                      name="ratingNum"
-                      required placeholder="1">
+                      <mat-select [(ngModel)]="formData.ratingNum" name="ratingNum" placeholder="1" required>
                         <mat-option value="1">1</mat-option>
                         <mat-option value="2">2</mat-option>
                         <mat-option value="3">3</mat-option>
@@ -70,14 +66,9 @@
                     </mat-form-field>
                     <mat-form-field class="col-md-auto" appearance="outline">
                       <mat-label class="label-color">Review </mat-label>
-                      <input matInput [(ngModel)]="formData.review"
-                      name="review" 
-                      required 
-                      type="text"
-                      placeholder="review (max 160char)" 
-                      aria-label="review">
+                      <input matInput [(ngModel)]="formData.review" name="review" placeholder="review (max 160char)" aria-label="review"  maxlength="160" required>
                     </mat-form-field>
-                    <button type="submit" class="btn btn-primary mt-2 col col-lg-2"><span
+                    <button type="submit" class="btn btn-primary mt-2 col col-lg-2"[disabled]="!f.valid"><span
                         class="material-symbols-outlined heart">
                         heart_plus
                       </span>Add</button>
