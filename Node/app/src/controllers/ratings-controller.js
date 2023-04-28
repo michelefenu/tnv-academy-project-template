@@ -87,6 +87,22 @@ export const deleteRating = async (req, res) => {
 }
 
 
+export const getRatingsByUserId = async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const ratings = await Rating.findAll({
+        where: {
+          userId: userId
+        }
+      });
+      res.status(200).json(ratings);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('An error occurred while getting the ratings');
+    }
+  };
+
+
 
 
 

@@ -18,9 +18,10 @@ import { HeroContentComponent } from './components/hero-content/hero-content.com
 import { MovieCardsComponent } from './components/movie-cards/movie-cards.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieSectionComponent } from './components/movie-section/movie-section.component';
-import { DatePipe } from '@angular/common';
 import { MyFavoritesComponent } from './components/my-favorites/my-favorites.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FavoriteItemComponent } from './components/favorite-item/favorite-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MovieCardsComponent,
     SearchComponent,
     MovieSectionComponent,
-    MyFavoritesComponent
+    MyFavoritesComponent,
+    FavoriteItemComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatExpansionModule
   ],
   providers: [
-    DatePipe
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/@core/services/auth.service';
 import { ApiService } from 'src/app/@shared/services/api.service';
-import { FavoritesService } from 'src/app/@shared/services/favorites.service';
+import { RatingService } from 'src/app/@shared/services/rating.service';
 import { Movie } from 'src/app/models/movie';
+import { Rating } from 'src/app/models/rating';
 
 @Component({
   selector: 'tnv-my-favorites',
@@ -10,17 +13,25 @@ import { Movie } from 'src/app/models/movie';
 })
 export class MyFavoritesComponent {
    
-  favorites: Movie[] = [];
+  ratings: Rating[] = [];  //collects all ratings and related movie data
 
-  constructor(private apiService: ApiService, private favoritesService: FavoritesService) {}
-  
-  ngOnInit() {
-    this.favorites = this.favoritesService.getFavorites();
+  constructor(private authService: AuthService, private ratingService: RatingService) {
+    this.ratings = [];
   }
+ 
+  ngOnInit() {
+    //first: we get the userId of the current user
+    const userId = this.authService.getCurrentUser().id.toString();
+    console.log("userID:", userId)
+    this.getAllRatings(userId.toString());
+    console.log(this.ratings);    
+    }
 
-  
-  getPoster(imgUrl: string | null) {
-    return this.apiService.getPoster(imgUrl);
+  getAllRatings(userId: string) {
+    this.ratingService.getRatingsByUserId(userId).subscribe((ratings: Rating[]) => {
+      this.ratings = ratings;
+    });
+
   }
 
 }

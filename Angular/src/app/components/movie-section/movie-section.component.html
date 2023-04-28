@@ -52,7 +52,7 @@
                     <mat-icon>library_add</mat-icon>    
                   </mat-panel-description>
                 </mat-expansion-panel-header>
-                <form #f="ngForm" (ngSubmit)="addToFavorites(movie); compileRating(movie.id, formData)" class="form-control material">
+                <form #f="ngForm" (ngSubmit)="compileRating(movie.id, movie.poster_path, movie.title, movie.overview, movie.release_date, formData)" class="form-control material">
                   <div class="row">
                     <mat-form-field class="col" appearance="outline">
                       <mat-label class="label-color">Rating</mat-label>
@@ -66,7 +66,9 @@
                     </mat-form-field>
                     <mat-form-field class="col-md-auto" appearance="outline">
                       <mat-label class="label-color">Review </mat-label>
-                      <input matInput [(ngModel)]="formData.review" name="review" placeholder="review (max 160char)" aria-label="review"  maxlength="160" required>
+                       <input matInput [(ngModel)]="formData['review']" name="review" placeholder="" aria-label="review"  maxlength="160" required>
+                       <mat-hint align="end">{{formData['review'].length}} / 160</mat-hint>
+                       <mat-error *ngIf="f.controls['review'].hasError('maxlength')">Maximum 160 characters allowed.</mat-error>
                     </mat-form-field>
                     <button type="submit" class="btn btn-primary mt-2 col col-lg-2"[disabled]="!f.valid"><span
                         class="material-symbols-outlined heart">

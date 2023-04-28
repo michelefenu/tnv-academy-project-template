@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 import { Rating } from 'src/app/models/rating';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class RatingService {
   }
 
   addRating(rating: Rating) {
-    return this.httpClient.post<Rating>(`${this.API_ROOT}/rating/`, rating);
+    return this.httpClient.post<Rating>(`${this.API_ROOT}/rating`, rating);
   }
 
   editRating(rating: Rating) {
@@ -34,5 +34,18 @@ export class RatingService {
 
   deleteRating(id: string) {
     return this.httpClient.delete(`${this.API_ROOT}/ratings/${id}`);
+  }
+
+
+  getRatingsByUserId(userId: string) { //OK
+    return this.httpClient.get<Rating[]>(`${this.API_ROOT}/ratings/userid/${userId}`).pipe(
+      map(ratings => ratings.filter(rating => rating.userId === userId))
+    );
+  }
+
+  getRatingsByMovieId(movieId: string) {
+    return this.httpClient.get<Rating[]>(`${this.API_ROOT}/ratings/movieid/${movieId}`).pipe(
+      map(ratings => ratings.filter(rating => rating.movieId === movieId))
+    );
   }
 }

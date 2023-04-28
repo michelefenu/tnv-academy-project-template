@@ -31,12 +31,11 @@ export class SearchComponent {
     const dateFrom = f.value.dateFrom;
     const dateTo = f.value.dateTo;
 
-    const test1 = this.getFormattedDate(dateFrom);
-    const test2 = this.getFormattedDate(dateTo);
+    const from = this.getFormattedDate(dateFrom);
+    const to = this.getFormattedDate(dateTo);
 
-    const searchString = `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&page=1&with_original_language=${language}&with_genres=${genre}&vote_average.gte=${voteAvgFrom}&sort_by=${sortParameter}&primary_release_year=${releaseDate}&release_date.gte=${test1}&release_date.lte=${test2}`;
-
-    const queryString = searchString.replace(/null/g, '');
+    const searchString = `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&page=1&with_original_language=${language}&with_genres=${genre}&vote_average.gte=${voteAvgFrom}&sort_by=${sortParameter}&primary_release_year=${releaseDate}&release_date.gte=${from}&release_date.lte=${to}`;
+    const queryString = searchString.replace(/null/g, ''); //global replacement of null fields
 
     this.http.get(queryString).subscribe({
       next: (response: any) => {

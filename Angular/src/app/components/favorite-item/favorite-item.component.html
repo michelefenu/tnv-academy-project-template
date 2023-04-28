@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <ul>
+          <li *ngFor="let rating of ratings"> <!--ratings got by MyFavorite component-->
+            <!--CARD-->
+            <!--CARD TEST-->
+            <mat-card class="favorite-card">
+              <mat-card-header>
+                <div mat-card-avatar class="favorite-header-image"></div>
+                <mat-card-title>{{rating.movieTitle}}</mat-card-title>
+                <mat-card-subtitle>Sottotoli???</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image src="{{rating.posterPath}}" alt="{{rating.movieTitle}}u">
+              <mat-card-content>
+                <p>{{rating.review}}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>EDIT?</button>
+                <button mat-button>REMOVE</button>
+              </mat-card-actions>
+            </mat-card>
+          </li>
+        </ul>
+      </div>
+    </div>

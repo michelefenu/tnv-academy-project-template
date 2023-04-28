@@ -10,6 +10,18 @@ const Rating = db.define('ratings', {
   movieId: {
     type: DataTypes.STRING
   },
+  posterPath:{
+    type: DataTypes.STRING
+  },
+  movieTitle:{
+    type: DataTypes.STRING
+  }, 
+  movieOverview:{
+    type: DataTypes.STRING
+  }, 
+  movieReleaseDate:{
+    type: DataTypes.STRING
+  }, 
   review:{
     type: DataTypes.STRING
   },  

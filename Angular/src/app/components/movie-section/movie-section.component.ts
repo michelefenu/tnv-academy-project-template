@@ -2,10 +2,9 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/services/auth.service';
 import { ApiService } from 'src/app/@shared/services/api.service';
-import { FavoritesService } from 'src/app/@shared/services/favorites.service';
+// import { FavoritesService } from 'src/app/@shared/services/favorites.service';
 import { RatingService } from 'src/app/@shared/services/rating.service';
 import { Movie } from 'src/app/models/movie';
 import { Rating } from 'src/app/models/rating';
@@ -27,14 +26,14 @@ export class MovieSectionComponent implements OnInit {
   @ViewChild('f') form!: NgForm; //form data
 
   @Input() movies: Movie[] = []; //CHECK
+  ratings: Rating[] = []; //TEST
 
   userId = this.authService.getCurrentUser().id.toString();
 
   constructor(private apiService: ApiService,
-    private favoritesService: FavoritesService,
+    // private favoritesService: FavoritesService,
     private ratingService: RatingService,
     private authService: AuthService, //recupero dati user > Id
-    private router: Router,
      private snackBar: MatSnackBar            //CHECK
   ) { }
 
@@ -50,11 +49,11 @@ export class MovieSectionComponent implements OnInit {
     return this.apiService.getPoster(imgUrl);
   }
 
-  addToFavorites(movie: any) {    //TEST GABRIEL
-    this.favoritesService.addFavorite(movie);
-  }
+  // addToFavorites(movie: any) {    //TEST GABRIEL
+  //   this.favoritesService.addFavorite(movie);
+  // }
 
-  compileRating(movieId: number, formData: {ratingNum : string, review: string}) {
+  compileRating(movieId: number, posterPath: string, movieTitle: string, movieOverview: string, movieReleaseDate: string, formData: {ratingNum : string, review: string}) {
     if (!this.form.value.review || !this.form.value.ratingNum) {
     console.log("Error: Review or rating missing");
     return;
@@ -62,6 +61,10 @@ export class MovieSectionComponent implements OnInit {
     const rating: Rating = {
       userId: this.userId,
       movieId: movieId.toString(),
+      posterPath: this.apiService.getPoster(posterPath),
+      movieTitle: movieTitle,
+      movieOverview: movieOverview,
+      movieReleaseDate: movieReleaseDate,
       review: this.formData.review,
       rating: parseInt(this.formData.ratingNum) //parsing the string of rate
     };
@@ -69,15 +72,15 @@ export class MovieSectionComponent implements OnInit {
     console.log("Rating: ", this.form.value.ratingNum);
     console.log("Movie ID: ", movieId);
     console.log("User ID: ", this.userId);
-    this.snackBar.open('Movie added to favorites', 'Dismiss', {
-      duration: 3000,
-      verticalPosition: 'bottom'
-    });
+
     this.ratingService.addRating(rating).subscribe({
       next: () => {
+        this.ratings.push(rating); //TEST
+        console.log("New rating", rating)
         this.resetFormValues();  //reset form values
       },
       error: () => console.error('Error'),
     });
   }
 }
+
