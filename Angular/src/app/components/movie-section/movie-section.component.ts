@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/services/auth.service';
 import { ApiService } from 'src/app/@shared/services/api.service';
@@ -33,7 +34,8 @@ export class MovieSectionComponent implements OnInit {
     private favoritesService: FavoritesService,
     private ratingService: RatingService,
     private authService: AuthService, //recupero dati user > Id
-    private router: Router            //CHECK
+    private router: Router,
+     private snackBar: MatSnackBar            //CHECK
   ) { }
 
   ngOnInit() {
@@ -52,8 +54,6 @@ export class MovieSectionComponent implements OnInit {
     this.favoritesService.addFavorite(movie);
   }
 
-  //GetMovies > GetUserId (AuthService> Currentuser.id = xxx) > 
-
   compileRating(movieId: number, formData: {ratingNum : string, review: string}) {
     if (!this.form.value.review || !this.form.value.ratingNum) {
     console.log("Error: Review or rating missing");
@@ -69,7 +69,10 @@ export class MovieSectionComponent implements OnInit {
     console.log("Rating: ", this.form.value.ratingNum);
     console.log("Movie ID: ", movieId);
     console.log("User ID: ", this.userId);
-
+    this.snackBar.open('Movie added to favorites', 'Dismiss', {
+      duration: 3000,
+      verticalPosition: 'bottom'
+    });
     this.ratingService.addRating(rating).subscribe({
       next: () => {
         this.resetFormValues();  //reset form values
