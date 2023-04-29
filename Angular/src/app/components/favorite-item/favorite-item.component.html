@@ -1,26 +1,19 @@
-<div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col col-lg-6">
-        <ul>
-          <li *ngFor="let rating of ratings"> <!--ratings got by MyFavorite component-->
-            <!--CARD-->
-            <!--CARD TEST-->
-            <mat-card class="favorite-card">
-              <mat-card-header>
-                <div mat-card-avatar class="favorite-header-image"></div>
-                <mat-card-title>{{rating.movieTitle}}</mat-card-title>
-                <mat-card-subtitle>Sottotoli???</mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image src="{{rating.posterPath}}" alt="{{rating.movieTitle}}u">
-              <mat-card-content>
-                <p>{{rating.review}}</p>
-              </mat-card-content>
-              <mat-card-actions>
-                <button mat-button>EDIT?</button>
-                <button mat-button>REMOVE</button>
-              </mat-card-actions>
-            </mat-card>
-          </li>
-        </ul>
+
+<div class="container-fluid">
+  <div class="row py-4 px-2">
+    <div *ngFor="let rating of ratings" class="card col-3 py-4" style="width: 18rem;">
+      <img class="card-img-top img-fluid" src="{{rating.posterPath}}" alt="{{rating.movieTitle}}" style="height: 350px; width: 300px;">
+      <div class="card-body">
+        <h5 class="card-title"  style="height: 3em; overflow: hidden;" >{{rating.movieTitle}}</h5>
+        <h6 class="card-text">{{rating.movieReleaseDate | date: "yyyy"}} </h6>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Your rating: <span><mat-icon>star</mat-icon>{{rating.rating}}</span></li>
+        <li class="list-group-item">Your review: {{rating.review}}</li>
+      </ul>
+      <div class="card-body">
+       <!--Tasti?-->
       </div>
     </div>
+  </div>
+</div>

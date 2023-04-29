@@ -65,12 +65,16 @@ background-color: #090908;
   color: #ce862b;
  }
 
-
-
  .mat-mdc-form-field{
   margin: 16px 0px 0px;
   padding: 0px 8px;
  }
+
+ .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{
+  color: gray;
+ }
+
+
 
 
 
