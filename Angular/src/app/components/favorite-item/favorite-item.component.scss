@@ -1,17 +1,37 @@
-
-mat-card-subtitle {
-    display: flex;
-    justify-content: end;
-    align-items: baseline;
+// Title font style 
+.card-title{
+    font-family: 'Chino Mono', monospace;
+    color: black;
+    font-size:x-large;
+    font-weight: 600;
 }
-
-a {
-    text-decoration: none
+//Card text Color
+.card-text{
+    color: black;
 }
-
-mat-card-actions{
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-     //background-color: ;//
+//icon
+.mat-icon{
+    color:#c06b22;
+    vertical-align: -20%;
 }
+//Buttons margin
+button{
+   margin-right: 1cm;
+   margin-top: 20px;
+}
+//Card margins
+.card {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 1cm;
+  }
+// Realese date on the same height even if the movie doesnt have one
+  .card-text {
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-body{
+    padding-bottom: 0px;
+  }
+
