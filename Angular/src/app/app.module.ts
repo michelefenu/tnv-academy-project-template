@@ -21,6 +21,7 @@ import { MovieSectionComponent } from './components/movie-section/movie-section.
 import { MyFavoritesComponent } from './components/my-favorites/my-favorites.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FavoriteItemComponent } from './components/favorite-item/favorite-item.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FavoriteItemComponent } from './components/favorite-item/favorite-item.
     SearchComponent,
     MovieSectionComponent,
     MyFavoritesComponent,
-    FavoriteItemComponent
+    FavoriteItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
