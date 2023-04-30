@@ -1,2 +1,3 @@
-<tnv-search (onSearch)="onSearch($event)"></tnv-search>
-<tnv-movie-section [movies]="movies"></tnv-movie-section> 
+<tnv-search [actorToFind]="foundActorId" (searchStringToEmit)="getQueryString($event)" (ActorToEmit)="searchActorId($event)"></tnv-search>
+<!--Welcome component send values of: user Id-->
+<tnv-movie-section [userId]="currentUserId" [movies]="foundMovies" (ratingToEmit)="getRatingToSave($event)"></tnv-movie-section>
