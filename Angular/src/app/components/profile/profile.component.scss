@@ -2,11 +2,14 @@ h1,h2,h3,h4 {
     font-family: 'Chivo Mono', monospace;
 }
 h2 {
-    color: #6d6ea3;
+    color: lightgray;
 }
 h3 {
     color: #d2902f;
     font-size: 1.3rem;
+}
+span{
+    color: lightgray;
 }
 .profile-data {
     font-weight: bold;

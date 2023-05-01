@@ -39,11 +39,14 @@ $font-family-sans-serif: 'Roboto', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,300,1,0');
 // GLOBAL STYLES qui sotto
 
+// Text for for search inputs
 label {
   text-transform:none;
   font-size: medium;
   font-weight:lighter; 
 }
+
+// Input mat-formfield styling / Didn't work on search component
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: black;
   outline-style:groove;
@@ -51,37 +54,36 @@ label {
   padding-top: -15px;
 
 }
+// Writing input text of review inputs
 .mdc-list-item__primary-text{
   color: #090908;
-  
-  
 }
+
+// Selected values in matt-select
 .mat-select-value-5{
 color: #ce862b;
 background-color: #090908;
 }
 
+// Arrow color of select form
 .mat-mdc-select-arrow{
   color: #ce862b;
  }
-
+// Margins form fields
  .mat-mdc-form-field{
   margin: 16px 0px 0px;
   padding: 0px 8px;
  }
 
+ // Writing text color search inputs
  .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{
   color: gray;
  }
 
-  //mat select, selected color
+  //mat select, selected text color
   .mat-mdc-select-value-text{
     color:grey
   }
-
-
-
-
 
 ngb-rating {
   color: $primary;

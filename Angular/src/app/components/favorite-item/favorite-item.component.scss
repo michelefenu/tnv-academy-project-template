@@ -5,32 +5,38 @@
     font-size:large;
     font-weight: 600;
 }
+
 //Card text Color
 .card-text{
     color: black;
 }
+
 //icon
 .mat-icon{
     color:#c06b22;
     vertical-align: -20%;
 }
+
 //Buttons margin
 button{
    margin-right: 1cm;
    margin-top: 20px;
 }
+
 //Card margins
 .card {
     margin-right: 20px;
     margin-bottom: 10px;
     margin-top: 1cm;
   }
+
 // Realese date on the same height even if the movie doesnt have one
   .card-text {
     height: 3em;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  
   .card-body{
     padding-bottom: 0px;
   }
