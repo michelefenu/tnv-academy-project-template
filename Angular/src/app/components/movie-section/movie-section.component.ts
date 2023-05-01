@@ -62,9 +62,20 @@ export class MovieSectionComponent implements OnInit {
       review: this.formData.review,
       rating: parseInt(this.formData.ratingNum) //parsing the string of rate
     };
+    if(this.formData.review.length <= 160){
     this.emitRatingToSave(rating);
     this.resetFormValues();  //reset form values
-  }
+    this.snackBar.open('Added to favorites', 'Dismiss', {
+      duration: 3000,
+      verticalPosition: 'bottom'})   
+     }
+     else{
+      this.snackBar.open('Comment too long [max 160 chars]', 'Dismiss', {
+        duration: 3000,
+        verticalPosition: 'bottom'}) 
+     }
+     
+}
 
   emitRatingToSave(ratingToSave: Rating) {
     this.ratingToEmit.emit(ratingToSave);
