@@ -1,32 +1,52 @@
+
+// Card around all inputs
 .card-black{
     background-color: black;
-   
 }
+
+// Form 
 .form-control{
     background-color: black;
     border-color: black;
-    margin-top: -7px;
-    
+    margin-top: -7px;  
 }
+
+// First and second row margins
 .form-row {
     margin-left: 10px; 
     margin-top: 4px;
   }
+
 .form-row2 {
     margin-left: 6px; 
-   
-  }
+}
 
+// Placeholders with primary color
 .placeholder{
     color: #ce862b;
 }
+
+// search button
 .button{
     margin-left: 2px;
     margin-bottom: 20px;
 }
+// Labels primary color
 .label-color{
     color: #ce862b;
 }
+
+// Writing under hero content color
 .info{
-    color: grey;
+    color:  #f0dbb6;
+}
+
+// Search example color
+h6{
+    color: gray;
+}
+
+// Search example margin
+.example{
+    margin-top: 20px;
 }
