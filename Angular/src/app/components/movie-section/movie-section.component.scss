@@ -1,5 +1,7 @@
 .action {
     text-align: center;
+    margin-left: 0.5cm;
+    margin-bottom: 0.5cm;
 
     button {
         background-color: #c87826;
@@ -10,6 +12,7 @@
     }
 }
 
+//LISTA DOWNLOAD
 .content {
 
     mat-divider {
@@ -46,19 +49,28 @@
         justify-content: flex-end;
         text-align: right;
         color: black;
-        padding: 0;
+        padding-left: 10px;
+        vertical-align: -10%;
 
         mat-icon {
-            color: #c87826
+            color: #c87826;
+            vertical-align: -20%;
         }
     }
 
     .release {
-        padding: 0;
+        padding-left: 0.5cm;
         font-size: small;
         color: black;
     }
+    .list{
+        padding: 5px;
+       
+    }
 
+}
+.timeline-container{
+    padding-left: 1.5cm;
 }
 
 /*CARD CON POSTER*/
