@@ -16,26 +16,6 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getActor(actorName: string | undefined, actorSurname: string | undefined){
-   return this.httpClient.get<Actor>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&query=${actorName}+${actorSurname}`); 
-  }
-
-  getActorIdByNameSurname(actorName: string | undefined): Observable<string> {
-    console.log(actorName?.toLocaleLowerCase());
-    return this.httpClient.get<Actor>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&query=${actorName?.toLocaleLowerCase()}`)
-      .pipe(
-        map(actor => actor.results[0].id?.toString() || '')
-      );
-  }
- 
-  getActorCredits(actorId: number | undefined){
-    return this.httpClient.get<ActorCredits>(`https://api.themoviedb.org/3/person/${actorId}?api_key=${this.apiKey}&append_to_response=credits`)
-  }
-
-  getMovieById(movieId: number | null) {
-    return this.httpClient.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=it-it`);
-  }
-
   //method that sets poster url to original url if exists
   getPoster(posterPath: string | null) {
     if (!posterPath) {
@@ -46,7 +26,33 @@ export class ApiService {
     }
   }
 
+  //get all movies using the discover url of TMDB built on Angular Welcome Component
   getFilteredMovies(searchString : string) { //new method that takes the whole url query
     return this.httpClient.get<Movie[]>(searchString);
   }
+  
+  //get Actor data passing its name and surname
+  getActor(actorName: string | undefined, actorSurname: string | undefined){
+   return this.httpClient.get<Actor>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&query=${actorName}+${actorSurname}`); 
+  }
+
+  //get Actor data passing its name + surname as a unique string
+  getActorIdByNameSurname(actorName: string | undefined): Observable<string> {
+    console.log(actorName?.toLocaleLowerCase());
+    return this.httpClient.get<Actor>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&query=${actorName?.toLocaleLowerCase()}`)
+      .pipe(
+        map(actor => actor.results[0].id?.toString() || '')
+      );
+  }
+
+  //get actor data using its ID
+  getActorCredits(actorId: number | undefined){
+    return this.httpClient.get<ActorCredits>(`https://api.themoviedb.org/3/person/${actorId}?api_key=${this.apiKey}&append_to_response=credits`)
+  }
+
+  //get a movie by ID - Italian language translation of its data
+  getMovieById(movieId: number | null) {
+    return this.httpClient.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=it-it`);
+  }
+
 }

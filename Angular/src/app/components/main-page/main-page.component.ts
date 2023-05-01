@@ -10,7 +10,7 @@ import { RatingService } from 'src/app/@shared/services/rating.service';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private apiService: ApiService, private ratingService : RatingService, private authService : AuthService ) { }      //testing
+  constructor() { }      //testing
 
   ngOnInit(): void {
   }

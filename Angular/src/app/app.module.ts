@@ -22,7 +22,7 @@ import { MyFavoritesComponent } from './components/my-favorites/my-favorites.com
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FavoriteItemComponent } from './components/favorite-item/favorite-item.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ExportAsModule } from 'ngx-export-as'; //module for pdf download
+import { ExportAsModule } from 'ngx-export-as'; //Luca???? module for pdf download
 
 
 @NgModule({

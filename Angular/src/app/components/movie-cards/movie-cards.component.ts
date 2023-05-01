@@ -10,18 +10,14 @@ import { Movie } from 'src/app/models/movie';
 })
 export class MovieCardsComponent implements OnInit {
 
-  
-  movieId: number | null = 550;
-  movie: Partial<Movie> = {};
-  imgUrl: string = "";
+  movie: Partial<Movie> = {};   //remove?
+  imgUrl: string = "";          //remove?
 
   constructor(private apiService:ApiService){
   }
 
 
   ngOnInit(): void {
-       
   }
-
 
 }

@@ -1,5 +1,6 @@
 import Rating from "../models/rating.js";
 
+//method to get all ratings in DB
 export const getAllRatings = async (res) => {
     try {
       const ratings = await Rating.findAll();
@@ -10,6 +11,7 @@ export const getAllRatings = async (res) => {
     }
   };
 
+//method to get movies of a specific user id
 export const getMovies = async (req, res) => {
     try {
         const ratings = await Rating.findAll({
@@ -30,6 +32,7 @@ export const getMovies = async (req, res) => {
     }
 }
 
+//method to create a Rating (movie data + rating + review)
 export const createRating = async (req, res) => {
     try {
         const rating = await Rating.create(req.body);
@@ -44,6 +47,7 @@ export const createRating = async (req, res) => {
     }
 }
 
+//method to update a Rating
 export const updateRating = async (req, res) => {
     try {
         const rating = await Rating.update(req.body, {
@@ -61,6 +65,7 @@ export const updateRating = async (req, res) => {
     }
 }
 
+//method to delete a Rating using its ID
 export const deleteRating = async (req, res) => {
     try {
         await Rating.destroy({
@@ -77,7 +82,7 @@ export const deleteRating = async (req, res) => {
     }
 }
 
-
+//method to get Ratings by using a specific user ID
 export const getRatingsByUserId = async (req, res) => {
     try {
       const userId = req.params.userId;

@@ -13,20 +13,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/");   //when logged in go to main page of localhost
     }
   }
 
   login(form: NgForm) {
-    console.log("login component.ts", form.value);
-    form.control.markAllAsTouched();
-    if (form.valid) {
-      this.authService.login(form.value).subscribe({
-        next: (response) => {
-          localStorage.setItem("user", JSON.stringify(response));
-          this.router.navigateByUrl("/profile");    //to change
+    console.log("login component.ts", form.value);                //test for showing login data
+    form.control.markAllAsTouched();                              //verify if all fields are filled
+    if (form.valid) {                                             
+      this.authService.login(form.value).subscribe({              
+        next: (response) => {                                     
+          localStorage.setItem("user", JSON.stringify(response)); 
+          this.router.navigateByUrl("/welcome");                  //when logged navigate to welcome page with filter for movies
         },
-        error: () => alert("Login Errato"),
+        error: () => alert("Login Error, check your username or password"),   //alert message                  
       });
     }
   }

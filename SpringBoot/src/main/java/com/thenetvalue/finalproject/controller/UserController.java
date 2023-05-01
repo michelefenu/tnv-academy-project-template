@@ -15,28 +15,12 @@ import java.util.Map;
 @RestController
 //@RequestMapping("/users")
 public class UserController {
-    private UserService userService;    //managing Service level
+    private UserService userService;                    //managing Service level
     //Constructor
-    @Autowired      //dependency injection
+    @Autowired                                              //dependency injection
     public UserController(UserService userService) {                //Constructor
         this.userService = userService;
     }
-
-//    @PostMapping("/register")
-//    public String register(@RequestBody User user) {       //todo exceptions
-//        try{
-//            return userService.register(user);
-//        } catch (Exception i) {
-//            return "error";
-//        }
-//    }
-//
-//    @PostMapping("/login")
-//    public String login (@RequestBody Map<String, String> loginData){
-//        String username = loginData.get("username");
-//        String password = loginData.get("password");
-//        return userService.login(username,password);
-//    }
 
     @PostMapping("/login")
     public ResponseEntity<?> testLogin(@RequestBody Map<String, String> loginData) {

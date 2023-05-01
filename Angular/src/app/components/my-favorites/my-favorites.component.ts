@@ -24,20 +24,19 @@ export class MyFavoritesComponent {
     //first: we get the userId of the current user
     const userId = this.authService.getCurrentUser().id.toString();
     console.log("userID:", userId)
-    this.getAllRatings(userId.toString());
-    console.log(this.ratings);    
+    this.getAllRatings(userId.toString()); //get all ratings of current user
     }
 
-  getAllRatings(userId: string) {
+  getAllRatings(userId: string) {     //call service method for data
     this.ratingService.getRatingsByUserId(userId).subscribe((ratings: Rating[]) => {
       this.ratings = ratings;
     });
 
   }
 
-  onDelete(id: string) {
+  onDelete(id: string) {      //clicking on delete use id for the following actions 
     console.log(id);
-    this.ratings = this.ratings.filter(rating => rating.id !== id);
-    this.ratingService.deleteRating(id).subscribe();
+    this.ratings = this.ratings.filter(rating => rating.id !== id); //filter remaining rating withouth that id
+    this.ratingService.deleteRating(id).subscribe();                //delete that rating in service
   }
 }

@@ -1,15 +1,8 @@
-<div *ngIf="movies.length > 0" class="row">
-  <!--BUTTON FOR DOWNLOAD-->
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <button ngxExportAs="png" (click)="download()" class="btn btn-primary mt-2">Esporta in PNG <i
-          class="bi bi-download"></i> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-          <path
-            d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
-        </svg></button>
-    </div>
+  <!--check if movies contains data-->
+  <div *ngIf="!movies || movies.length === 0" class="justify-content-md-center">
+    <p class="text-center">You haven't searched for movies yet</p>
   </div>
+<div *ngIf="movies.length > 0" class="row">
   <!-- FOR DOWNLOAD-->
   <div id="area">
     <div class="col-lg-7 mx-auto">
@@ -79,7 +72,7 @@
                       </mat-form-field>
                       <mat-form-field class="col-md-auto" appearance="outline">
                         <mat-label class="label-color">Review </mat-label>
-                        <input matInput [(ngModel)]="formData['review']" name="review" placeholder="review"
+                        <input matInput [(ngModel)]="formData['review']" name="review" placeholder="review (max 160char)"
                           aria-label="review" maxlength="160" required>
                         <!-- <mat-hint>{{formData['review'].length}} / 160</mat-hint> -->
                         <!-- <mat-error *ngIf="f.controls['review'].hasError('maxlength')">Maximum 160 characters allowed.</mat-error> -->
@@ -98,9 +91,19 @@
         </div>
       </ul>
     </div>
-    <!--END OF DIV AREA-->
   </div>
-
+    <!--END OF DIV AREA-->
+ <!--BUTTON FOR DOWNLOAD-->
+ <div class="row justify-content-center">
+  <div class="col-4">
+    <button ngxExportAs="png" (click)="download()" class="btn btn-primary mt-2">Esporta in PNG <i
+        class="bi bi-download"></i> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+        <path
+          d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
+      </svg></button>
+  </div>
+</div>
   <!--DOWNLOADABLE-->
   <div class="action container"><button (click)="captureScreen()" class="rounded">Download this timeline!</button></div>
 
@@ -116,7 +119,3 @@
     <!--DOWNLOADABLE END-->
   </div>
 
-  <!--check if movies contains data-->
-  <div *ngIf="!movies || movies.length === 0" class="justify-content-md-center">
-    <p class="text-center">You haven't searched for movies yet</p>
-  </div>
