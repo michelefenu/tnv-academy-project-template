@@ -57,6 +57,11 @@ export class SearchComponent {
     const to = this.getFormattedDate(dateTo);
     console.log('SEARCHCOMP ACTOR ID: ', this.actorToFind); //TEST OK gets the value (slow)
 
+    if (!sortParameter) {
+      alert("Please fill the order by section to create a timeline");
+      return;
+    }
+
     //setting the query to send to service and removing null values
     const searchString = `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&page=1&with_original_language=${language}&with_genres=${genre}&vote_average.gte=${voteAvgFrom}&sort_by=${sortParameter}&primary_release_year=${releaseDate}&release_date.gte=${from}&release_date.lte=${to}&with_cast=${this.actorToFind}`;
     const queryString = searchString.replace(/null/g, ''); //global replacement of null fields
@@ -73,6 +78,7 @@ export class SearchComponent {
     //     this.movies = [];
     //   }
     // });
+  
   }
 
   getFormattedDate(date: string): string | null {

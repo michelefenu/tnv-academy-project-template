@@ -5,13 +5,14 @@
     from 8.</h6>
   <h6 class=" d-flex justify-content-center">You can also explore movies withouth selecting an actor, just choose the
     other available filters.</h6>
+    <h6 class=" d-flex justify-content-center">Order by is a required field to create a timeline.</h6>
   <form #f="ngForm" (submit)="search(f)" class="form-control material">
     <div class="row">
       <div class="row mt-3 form-row">
         <div class="row ">
 
           <mat-form-field class="col-lg" appearance="fill">
-            <mat-label class="label-color">Actor</mat-label>
+            <mat-label class="label-color">Actor (name surname)</mat-label>
             <input matInput [ngModel] name="actor" placeholder="name and surname" aria-label="Actor">
           </mat-form-field>
 
@@ -84,8 +85,8 @@
           </mat-form-field>
 
           <mat-form-field class="col-lg" appearance="fill">
-            <mat-label class="label-color">Order by*</mat-label>
-            <mat-select [ngModel] name="sortParameter">
+            <mat-label class="label-color">Order by</mat-label>
+            <mat-select [ngModel] name="sortParameter" required>
               <mat-option value="release_date.desc">Release date (descendent)</mat-option>
               <mat-option value="release_date.asc">Release date (ascendent)</mat-option>
               <mat-option value="vote_average.desc">Average vote (descendent)</mat-option>
@@ -99,7 +100,7 @@
       </div>
       <div class="row button">
         <div class="col-md-12 d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary mt-2" (click)="onCreateQuery()">Search</button>
+          <button   type="submit" class="btn btn-primary mt-2" (click)="onCreateQuery()">Search</button>
         </div>
       </div>
     </div>
