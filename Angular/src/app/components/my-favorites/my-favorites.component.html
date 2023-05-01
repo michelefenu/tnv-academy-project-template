@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
         <div class="justify-content" >
-          <tnv-favorite-item [ratings]="ratings"></tnv-favorite-item>
+          <tnv-favorite-item [ratings]="ratings" (delete)="onDelete($event)"></tnv-favorite-item>
         </div>                        
     </div>
   </div>
