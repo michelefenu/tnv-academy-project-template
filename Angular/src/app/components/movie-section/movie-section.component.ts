@@ -1,10 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ExportAsConfig, ExportAsService } from 'ngx-export-as';
 import { Movie } from 'src/app/models/movie';
 import { Rating } from 'src/app/models/rating';
+import html2canvas from 'html2canvas';   //to install
 
+//TO INSTALL:
+// npm install --save html2canvas file-saver
+//npm i ngx-export-as
 
 @Component({
   selector: 'tnv-movie-section',
@@ -18,6 +23,7 @@ export class MovieSectionComponent implements OnInit {
     review: ''
   };
 
+  @ViewChild('content') content!: ElementRef;
   @ViewChild(MatAccordion) accordion!: MatAccordion; //accordion input for rating
   @ViewChild('f') form!: NgForm; //form data
 
@@ -31,16 +37,16 @@ export class MovieSectionComponent implements OnInit {
   ratings: Rating[] = []; //TEST not needed?
 
   //CHECK and add popup notification
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar, private exportAsService: ExportAsService) { }
 
   ngOnInit() {
     console.log("USER ID: ", this.userId) //Test OK
+
   }
 
   resetFormValues() {
     this.form.resetForm();
   }
-
 
   compileRating(movieId: number,
     posterPath: string,
@@ -62,23 +68,33 @@ export class MovieSectionComponent implements OnInit {
       review: this.formData.review,
       rating: parseInt(this.formData.ratingNum) //parsing the string of rate
     };
-    if(this.formData.review.length <= 160){
     this.emitRatingToSave(rating);
     this.resetFormValues();  //reset form values
-    this.snackBar.open('Added to favorites', 'Dismiss', {
-      duration: 3000,
-      verticalPosition: 'bottom'})   
-     }
-     else{
-      this.snackBar.open('Comment too long [max 160 chars]', 'Dismiss', {
-        duration: 3000,
-        verticalPosition: 'bottom'}) 
-     }
-     
-}
+  }
 
   emitRatingToSave(ratingToSave: Rating) {
     this.ratingToEmit.emit(ratingToSave);
+  }
+
+  //Tools for png download
+  printArea: ExportAsConfig = {
+    type: 'png',
+    elementIdOrContent: 'area'
+  };
+
+  download(){
+    //LUCA
+    this.exportAsService.save(this.printArea, 'area').subscribe(() => {});
+  }
+
+  captureScreen() {
+    html2canvas(this.content.nativeElement).then(canvas => {
+      const imageURL = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = 'screenshot.png';
+      link.href = imageURL;
+      link.click();
+    });
   }
 }
 

@@ -1,96 +1,173 @@
-.mb-3{
+.action {
+    text-align: center;
+
+    button {
+        background-color: #c87826;
+        border-style: none;
+        height: 35px;
+        margin: 10px;
+        /**/
+    }
+}
+
+.content {
+
+    mat-divider {
+        color: #c87826;
+    }
+
+    background-color: none;
+    border-radius: 0.8%;
+
+    div {
+        background-color: white;
+    }
+
+    li {
+        background-color: transparent;
+        padding: 20px;
+        max-height: fit-content;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        vertical-align: middle;
+        font-size: 100%;
+        font-weight: 500;
+        color: black;
+        font-family: 'Chino Mono', monospace;
+    }
+
+    .rating {
+        justify-content: flex-end;
+        text-align: right;
+        color: black;
+        padding: 0;
+
+        mat-icon {
+            color: #c87826
+        }
+    }
+
+    .release {
+        padding: 0;
+        font-size: small;
+        color: black;
+    }
+
+}
+
+/*CARD CON POSTER*/
+.mb-3 {
+    max-width: 700px;
     border-style: hidden;
+
     .card-header {
         background-color: white;
-    
+
     }
+
     .card-body {
         border-color: transparent;
         /*doesn't work*/
     }
-    
+
     img {
         width: auto;
     }
-    
-    h1,h2,h3,h4,h5,p {
-            justify-content: end;
-            color: #000000;
-        }
-        h4 {
-            font-family: 'Chino Mono', monospace;
-            justify-content: end;
-            ;
-            font-size:x-large;
-            font-weight: 600;
-            text-align: left;
-        }
-    
-        h5 {
-            font-size: medium;
-            /*text-align: right;*/
-        }
-        mat-icon {
-            color:  #d2902f;
-            vertical-align: -20%;
-        }
-    
-        .rating {
-            color: #000000;
-            text-align: right;
-        }
-    
-        .release {
-            text-align: left;
-        }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+        justify-content: end;
+        color: #000000;
+    }
+
+    h4 {
+        font-family: 'Chino Mono', monospace;
+        justify-content: end;
+        ;
+        font-size: x-large;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    h5 {
+        font-size: medium;
+        /*text-align: right;*/
+    }
+
+    mat-icon {
+        color: #d2902f;
+        vertical-align: -20%;
+    }
+
+    .rating {
+        color: #000000;
+        text-align: right;
+    }
+
+    .release {
+        text-align: left;
+    }
+
     .card-body {
-    
+
         .mat-fab {
             text-align: right;
         }
-    
+
         p {
             font-size: small;
         }
-    
+
     }
-    
+
     mat-card-actions {
         display: flex;
         justify-content: right;
-    
+
     }
-    
+
     button {
         background-color: #d2902f;
         box-shadow: none;
     }
 }
 
-.btn{
+.btn {
     height: fit-content;
     /*vertical-align: bottom; doesn't work*/
-    align-self:center;
+    align-self: center;
 
-    .heart{
+    .heart {
         vertical-align: -20%;
     }
 }
+
+
 /*COLLAPSE BUTTON*/
 .example-action-buttons {
     padding-bottom: 20px;
-  }
-  
-  .example-headers-align .mat-expansion-panel-header-description {
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
-    margin-left: 8px;
-  }
+}
 
-  /*TIMELINE SET*/
+.example-headers-align .mat-mdc-form-field+.mat-mdc-form-field {
+    margin-left: 8px;
+}
+
+/*TIMELINE SET*/
 
 .timeline.justify-content-md-center {
     background-color: #000000;
@@ -149,16 +226,17 @@ li.timeline-item::before {
     z-index: 400;
     /*box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);*/
 }
-// Changed input colors for movie sction card
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{
-    color:black;
-    background-color: white;  
-  }
 
-  .input{
-    background-color: white;
-  }
-  
-  .mat-mdc-select-arrow{
+// Changed input colors for movie sction card
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
     color: black;
-   }
+    background-color: white;
+}
+
+.input {
+    background-color: white;
+}
+
+.mat-mdc-select-arrow {
+    color: black;
+}

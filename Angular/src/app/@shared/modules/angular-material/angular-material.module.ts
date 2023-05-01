@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -12,6 +11,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common'; //test Added
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -26,9 +26,8 @@ import { DatePipe } from '@angular/common'; //test Added
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
-
-    
+    MatSnackBarModule,
+    MatDividerModule
   ],
   providers: [
     DatePipe,  //test added

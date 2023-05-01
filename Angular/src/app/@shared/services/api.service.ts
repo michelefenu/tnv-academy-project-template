@@ -39,21 +39,12 @@ export class ApiService {
   //method that sets poster url to original url if exists
   getPoster(posterPath: string | null) {
     if (!posterPath) {
-      return 'http://localhost:4200/assets/images/poster-missing.jpeg'; 
+      return '../assets/images/poster-missing.jpeg'; //set the local image for missing poster
     } else {
       //or get the image for local folder if null
-      return `https://image.tmdb.org/t/p/original${posterPath}`;
+      return `https://image.tmdb.org/t/p/original${posterPath}`; //build the entire url for poster
     }
   }
-
-  // getMoviesFiltered(genre: string | null, averageVote: number | null, releaseYear: string | null) {
-  //   return this.httpClient.get<FilteredMovies>(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}
-  //                               &page=1&with_original_language=en
-  //                               &with_genres=${genre}
-  //                               &vote_average.gte=${averageVote}                                
-  //                               &sort_by=primary_release_date.desc
-  //                               &primary_release_year=${releaseYear}`);
-  // }
 
   getFilteredMovies(searchString : string) { //new method that takes the whole url query
     return this.httpClient.get<Movie[]>(searchString);

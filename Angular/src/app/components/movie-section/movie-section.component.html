@@ -1,91 +1,124 @@
 <div *ngIf="movies.length > 0" class="row">
-  <div class="col-lg-7 mx-auto">
-    <ul class="timeline">
-      <div class="justify-content-md-center">
-        <li *ngFor="let movie of movies" class="timeline-item bg-white rounded ml-3 p-4 shadow">
-          <!--CARD-->
-          <div class="card mb-3" style="max-width: 700px;">
-            <div class="card-header">
-              <h4 class="card-title">{{movie.title}}</h4>
-              <div class="card-subtitle">
-                <div class="row">
-                  <span class="release col-6">
-                    <h5>{{movie.release_date | date: "yyyy"}}</h5>
-                  </span>
-                  <span class="rating col-6"><mat-icon>star</mat-icon>{{movie.vote_average}}</span>
+  <!--BUTTON FOR DOWNLOAD-->
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <button ngxExportAs="png" (click)="download()" class="btn btn-primary mt-2">Esporta in PNG <i
+          class="bi bi-download"></i> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+          <path
+            d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
+        </svg></button>
+    </div>
+  </div>
+  <!-- FOR DOWNLOAD-->
+  <div id="area">
+    <div class="col-lg-7 mx-auto">
+      <ul class="timeline">
+        <div class="justify-content-md-center">
+          <li *ngFor="let movie of movies" class="timeline-item bg-white rounded ml-3 p-4 shadow">
+            <!--CARD-->
+            <div class="card mb-3">
+              <div class="card-header">
+                <h4 class="card-title">{{movie.title}}</h4>
+                <div class="card-subtitle">
+                  <div class="row">
+                    <span class="release col-6">
+                      <h5>{{movie.release_date | date: "yyyy"}}</h5>
+                    </span>
+                    <span class="rating col-6"><mat-icon>star</mat-icon>{{movie.vote_average}}</span>
+                  </div>
+                </div>
+              </div><!--TEST-->
+
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src={{movie.poster_path}} alt="{{movie.title}}, ({{movie.release_date}})"
+                    class="img-fluid rounded-start" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <p class="card-text">
+                      {{movie.overview}}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div><!--TEST-->
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src={{movie.poster_path}} alt="{{movie.title}}, ({{movie.release_date}})"
-                  class="img-fluid rounded-start" />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <p class="card-text">
-                    {{movie.overview}}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="card-footer text-muted">footer</div>-->
-            <!-- <div class="action-button">
+              <!-- <div class="card-footer text-muted">footer</div>-->
+              <!-- <div class="action-button">
               <button mat-button (click)="accordion.openAll()">Expand All</button>
               <button mat-button (click)="accordion.closeAll()">Collapse All</button>
             </div> -->
-            <mat-accordion class="example-headers-align" multi>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    Add this movie to favorite
-                    <mat-icon>library_add</mat-icon>
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <form #f="ngForm"
-                  (ngSubmit)="compileRating(movie.id, movie.poster_path, movie.title, movie.overview, movie.release_date, formData)"
-                  class="form-control material">
-                  <div class="row">
-                    <mat-form-field class="col" appearance="outline">
-                      <mat-label class="label-color">Rating</mat-label>
-                      <mat-select [(ngModel)]="formData.ratingNum" name="ratingNum" placeholder="1" required>
-                        <mat-option value="1">1</mat-option>
-                        <mat-option value="2">2</mat-option>
-                        <mat-option value="3">3</mat-option>
-                        <mat-option value="4">4</mat-option>
-                        <mat-option value="5">5</mat-option>
-                        <mat-option value="6">6</mat-option>
-                        <mat-option value="7">7</mat-option>
-                        <mat-option value="8">8</mat-option>
-                        <mat-option value="9">9</mat-option>
-                        <mat-option value="10">10</mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <mat-form-field class="col-md-auto" appearance="outline">
-                      <mat-label class="label-color">Review </mat-label>
-                      <input matInput [(ngModel)]="formData['review']" name="review" placeholder="review"
-                        aria-label="review" maxlength="160" required>
-                      <!-- <mat-hint>{{formData['review'].length}} / 160</mat-hint> -->
-                      <!-- <mat-error *ngIf="f.controls['review'].hasError('maxlength')">Maximum 160 characters allowed.</mat-error> -->
-                    </mat-form-field>
-                    <button type="submit" class="btn btn-primary mt-2 col col-lg-2" [disabled]="!f.valid"><span
-                        class="material-symbols-outlined heart">
-                        heart_plus
-                      </span>Add</button>
-                  </div>
-                </form>
-              </mat-expansion-panel>
-            </mat-accordion>
-          </div>
-          <!--CARD END-->
-        </li>
-      </div>
-    </ul>
+              <mat-accordion class="example-headers-align" multi>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Add this movie to favorite
+                      <mat-icon>library_add</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <form #f="ngForm"
+                    (ngSubmit)="compileRating(movie.id, movie.poster_path, movie.title, movie.overview, movie.release_date, formData)"
+                    class="form-control material">
+                    <div class="row">
+                      <mat-form-field class="col" appearance="outline">
+                        <mat-label class="label-color">Rating</mat-label>
+                        <mat-select [(ngModel)]="formData.ratingNum" name="ratingNum" placeholder="1" required>
+                          <mat-option value="1">1</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                          <mat-option value="4">4</mat-option>
+                          <mat-option value="5">5</mat-option>
+                          <mat-option value="5">6</mat-option>
+                          <mat-option value="5">7</mat-option>
+                          <mat-option value="5">9</mat-option>
+                          <mat-option value="5">9</mat-option>
+                          <mat-option value="5">10</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="col-md-auto" appearance="outline">
+                        <mat-label class="label-color">Review </mat-label>
+                        <input matInput [(ngModel)]="formData['review']" name="review" placeholder="review"
+                          aria-label="review" maxlength="160" required>
+                        <!-- <mat-hint>{{formData['review'].length}} / 160</mat-hint> -->
+                        <!-- <mat-error *ngIf="f.controls['review'].hasError('maxlength')">Maximum 160 characters allowed.</mat-error> -->
+                      </mat-form-field>
+                      <button type="submit" class="btn btn-primary mt-2 col col-lg-2" [disabled]="!f.valid"><span
+                          class="material-symbols-outlined heart">
+                          heart_plus
+                        </span>Add</button>
+                    </div>
+                  </form>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <!--CARD END-->
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!--END OF DIV AREA-->
   </div>
-</div>
-<!--check if movies contains data-->
-<div *ngIf="!movies || movies.length === 0" class="justify-content-md-center">
-  <p class="text-center">No movies found</p>
-</div>
+
+  <!--DOWNLOADABLE-->
+  <div class="action container"><button (click)="captureScreen()" class="rounded">Download this timeline!</button></div>
+  
+  <div class="content row mx-auto justify-content-md-center" #content>
+    <div class="col-lg-7 mx-auto">
+      <li class="list" *ngFor="let element of movies">
+        <div class="col-md-auto"></div>
+        <h4>{{element.title}} ({{element.release_date}}) </h4>
+        <div class="col col-lg-2 rating">
+          <mat-icon>star</mat-icon>{{element.vote_average}}
+        </div>
+      </li>
+      <mat-divider></mat-divider>
+    </div>
+    <!--DOWNLOADABLE END-->
+  </div>
+
+  <!--check if movies contains data-->
+  <div *ngIf="!movies || movies.length === 0" class="justify-content-md-center">
+    <p class="text-center">You haven't searched for movies yet</p>
+  </div>

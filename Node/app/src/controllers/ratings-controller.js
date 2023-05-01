@@ -1,23 +1,14 @@
 import Rating from "../models/rating.js";
 
-export const addToMyMovies = async (req, res) => {
+export const getAllRatings = async (res) => {
     try {
-        const { userId, movieId, review, rating } = req.body;
-        const ratingInstance = await Rating.create({
-            userId,
-            movieId,
-            review,
-            rating
-        });
-        res.json({
-            result: "Film added successfully",
-            data: ratingInstance,
-        });
+      const ratings = await Rating.findAll();
+      res.status(200).json(ratings);
     } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
+      console.error(err);
+      res.status(500).send('An error occurred while getting the ratings');
     }
-}
+  };
 
 export const getMovies = async (req, res) => {
     try {
@@ -101,6 +92,25 @@ export const getRatingsByUserId = async (req, res) => {
       res.status(500).send('An error occurred while getting the ratings');
     }
   };
+
+//   export const addToMyMovies = async (req, res) => {
+//     try {
+//         const { userId, movieId, review, rating } = req.body;
+//         const ratingInstance = await Rating.create({
+//             userId,
+//             movieId,
+//             review,
+//             rating
+//         });
+//         res.json({
+//             result: "Film added successfully",
+//             data: ratingInstance,
+//         });
+//     } catch (err) {
+//         console.log(err);
+//         res.sendStatus(500);
+//     }
+// }
 
 
 
