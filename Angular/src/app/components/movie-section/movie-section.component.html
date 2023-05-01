@@ -103,16 +103,14 @@
 
   <!--DOWNLOADABLE-->
   <div class="action container"><button (click)="captureScreen()" class="rounded">Download this timeline!</button></div>
-  
-  <div class="content row mx-auto justify-content-md-center" #content>
+
+  <div class="content row mx-auto justify-content-md-center timeline-container" #content>
     <div class="col-lg-7 mx-auto">
-      <li class="list" *ngFor="let element of movies">
+      <div class="list" *ngFor="let element of movies">
         <div class="col-md-auto"></div>
-        <h4>{{element.title}} ({{element.release_date}}) </h4>
-        <div class="col col-lg-2 rating">
-          <mat-icon>star</mat-icon>{{element.vote_average}}
-        </div>
-      </li>
+        <h4>{{element.title}} <span class="release-date">({{element.release_date}})</span><span
+            class="rating"><mat-icon>star</mat-icon>{{element.vote_average}}</span></h4>
+      </div>
       <mat-divider></mat-divider>
     </div>
     <!--DOWNLOADABLE END-->
