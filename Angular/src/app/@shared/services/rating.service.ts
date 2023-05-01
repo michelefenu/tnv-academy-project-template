@@ -29,7 +29,7 @@ export class RatingService {
   }
 
   deleteRating(id: string) {
-    return this.httpClient.delete(`${this.API_ROOT}/ratings/${id}`);
+    return this.httpClient.delete(`${this.API_ROOT}/rating/${id}`);
   }
 
 

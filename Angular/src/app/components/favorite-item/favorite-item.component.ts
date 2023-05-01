@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Rating } from 'src/app/models/rating';
 
 @Component({
@@ -10,8 +10,15 @@ export class FavoriteItemComponent implements OnInit {
 
   @Input() ratings: Partial<Rating>[] = []; //gets the ratings from parent component
 
+  @Output() delete = new EventEmitter();
+
   constructor(){
     this.ratings = []; 
+  }
+
+  onClick (id: string | undefined){
+    this.delete.emit(id);
+    console.log(id);
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/@core/services/auth.service';
 import { ApiService } from 'src/app/@shared/services/api.service';
@@ -14,6 +14,7 @@ import { Rating } from 'src/app/models/rating';
 export class MyFavoritesComponent {
    
   ratings: Rating[] = [];  //collects all ratings and related movie data
+  
 
   constructor(private authService: AuthService, private ratingService: RatingService) {
     this.ratings = [];
@@ -34,4 +35,9 @@ export class MyFavoritesComponent {
 
   }
 
+  onDelete(id: string) {
+    console.log(id);
+    this.ratings = this.ratings.filter(rating => rating.id !== id);
+    this.ratingService.deleteRating(id).subscribe();
+  }
 }
