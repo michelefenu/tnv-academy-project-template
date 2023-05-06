@@ -1,6 +1,6 @@
   <!--check if movies contains data-->
   <div *ngIf="!movies || movies.length === 0" class="justify-content-md-center">
-    <p class="text-center">You haven't searched for movies yet</p>
+    <p class="text-center">You haven't searched for movies yet...</p>
   </div>
 <div *ngIf="movies.length > 0" class="row">
   <!-- FOR DOWNLOAD-->
@@ -8,7 +8,7 @@
     <div class="col-lg-7 mx-auto">
       <ul class="timeline">
         <div class="justify-content-md-center">
-          <li *ngFor="let movie of movies" class="timeline-item bg-white rounded ml-3 p-4 shadow">
+          <li *ngFor="let movie of movies" class="timeline-item  rounded ml-3 p-4 shadow">
             <!--CARD-->
             <div class="card mb-3">
               <div class="card-header">
@@ -94,6 +94,7 @@
   </div>
     <!--END OF DIV AREA-->
  <!--BUTTON FOR DOWNLOAD-->
+ <!--
  <div class="row justify-content-center">
   <div class="col-4">
     <button ngxExportAs="png" (click)="download()" class="btn btn-primary mt-2">Esporta in PNG <i
@@ -103,19 +104,25 @@
           d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
       </svg></button>
   </div>
-</div>
+</div> -->
   <!--DOWNLOADABLE-->
-  <div class="action container"><button (click)="captureScreen()" class="rounded">Download this timeline!</button></div>
-
+ 
+  <div class="action container"><button (click)="captureScreen()" class="rounded">Download this timeline!</button>
+    <div class="separator"></div>
+  </div>
   <div class="content row mx-auto justify-content-md-center timeline-container" #content>
     <div class="col-lg-7 mx-auto">
-      <div class="list" *ngFor="let element of movies">
-        <div class="col-md-auto"></div>
-        <h4>{{element.title}} <span class="release-date">({{element.release_date}})</span><span
-            class="rating"><mat-icon>star</mat-icon>{{element.vote_average}}</span></h4>
+      <div class="row">
+      <h2 class="head">Your timeline</h2>
       </div>
-      <mat-divider></mat-divider>
+      <div class="list row" *ngFor="let element of movies">
+        <div class="col-md-auto"></div>
+        <div class="col-sm-8">
+          <h3 class="title">{{element.title}} <span class="release-date">({{element.release_date}})</span></h3>
+        </div>
+        <div class="col-2">
+          <h3 class="rating"><mat-icon>star</mat-icon>{{element.vote_average}}</h3>
+        </div>
+      </div>
     </div>
-    <!--DOWNLOADABLE END-->
   </div>
-

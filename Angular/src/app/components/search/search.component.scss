@@ -30,6 +30,7 @@
 .button{
     margin-left: 2px;
     margin-bottom: 20px;
+
 }
 // Labels primary color
 .label-color{
@@ -49,4 +50,12 @@ h6{
 // Search example margin
 .example{
     margin-top: 20px;
+}
+
+.separator {
+    width: 150px;
+    height: 4px;
+    background-color: gray;
+    margin: 0 auto; 
+    margin-top: 15px; 
 }

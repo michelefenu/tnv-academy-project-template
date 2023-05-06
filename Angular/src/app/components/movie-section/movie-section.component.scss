@@ -1,3 +1,80 @@
+
+
+.mb-3{
+    border-style: hidden;
+    .card-header {
+        background-color: #f9f1e2;
+    
+    }
+    .card-body {
+        background-color:#f9f1e2;
+        border-color: transparent;
+        /*doesn't work*/
+    }
+    
+    img {
+        width: auto;
+    }
+    
+    h1,h2,h3,h4,h5,p {
+            justify-content: end;
+            color: black;
+        }
+        h4 {
+            font-family: 'Chino Mono', monospace;
+            justify-content: end;
+            ;
+            font-size:x-large;
+            font-weight: 600;
+            text-align: left;
+        }
+    
+        h5 {
+            font-size: medium;
+            /*text-align: right;*/
+        }
+        mat-icon {
+            color:  #d2902f;
+            vertical-align: -20%;
+        }
+    
+        .rating {
+            color: black;
+            text-align: right;
+        }
+    
+        .release {
+            text-align: left;
+        }
+    .card-body {
+        background-color:#f9f1e2;
+    
+        .mat-fab {
+            text-align: right;
+        }
+    
+        p {
+            font-size: small;
+        }
+    
+    }
+    
+    mat-card-actions {
+        display: flex;
+        justify-content: right;
+    
+    }
+    
+    button {
+        background-color: #d2902f;
+        box-shadow: none;
+    }
+}
+
+p{
+    color: gray;
+}
+
 .action {
     text-align: center;
     margin-left: 0.5cm;
@@ -8,22 +85,21 @@
         border-style: none;
         height: 35px;
         margin: 10px;
+        margin-top: 15px;
+        
         /**/
     }
 }
 
-//LISTA DOWNLOAD
+//Download
 .content {
-
-    mat-divider {
-        color: #c87826;
-    }
-
+    margin-top: 20px;
+    padding-left: 1.5cm;
     background-color: none;
     border-radius: 0.8%;
 
     div {
-        background-color: white;
+        background-color:#f9f1e2;
     }
 
     li {
@@ -32,8 +108,8 @@
         max-height: fit-content;
     }
 
-    h1,
-    h2,
+    
+    
     h3,
     h4,
     h5,
@@ -44,13 +120,23 @@
         color: black;
         font-family: 'Chino Mono', monospace;
     }
+    .title{
+        font-weight: bold;
+        padding-top: 3px;
+        
+    }
+    .release-date{
+        font-weight: 100;
+    }
 
     .rating {
-        justify-content: flex-end;
-        text-align: right;
+        justify-content:end;
+        text-align:end;
         color: black;
-        padding-left: 10px;
+        padding-left: 0px;
         vertical-align: -10%;
+        font-weight:bold;
+       
 
         mat-icon {
             color: #c87826;
@@ -67,119 +153,54 @@
         padding: 5px;
        
     }
-
-}
-.timeline-container{
-    padding-left: 1.5cm;
-}
-
-/*CARD CON POSTER*/
-.mb-3 {
-    max-width: 700px;
-    border-style: hidden;
-
-    .card-header {
-        background-color: white;
-
-    }
-
-    .card-body {
-        border-color: transparent;
-        /*doesn't work*/
-    }
-
-    img {
-        width: auto;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p {
-        justify-content: end;
-        color: #000000;
-    }
-
-    h4 {
+    .head{
+        font-weight: bold;
+        justify-content: center;
         font-family: 'Chino Mono', monospace;
-        justify-content: end;
-        ;
-        font-size: x-large;
-        font-weight: 600;
-        text-align: left;
-    }
-
-    h5 {
-        font-size: medium;
-        /*text-align: right;*/
-    }
-
-    mat-icon {
-        color: #d2902f;
-        vertical-align: -20%;
-    }
-
-    .rating {
         color: #000000;
-        text-align: right;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 
-    .release {
-        text-align: left;
-    }
 
-    .card-body {
-
-        .mat-fab {
-            text-align: right;
-        }
-
-        p {
-            font-size: small;
-        }
-
-    }
-
-    mat-card-actions {
-        display: flex;
-        justify-content: right;
-
-    }
-
-    button {
-        background-color: #d2902f;
-        box-shadow: none;
-    }
 }
 
-.btn {
+.separator {
+    width: 150px;
+    height: 4px;
+    background-color: gray;
+    margin: 0 auto; 
+    
+}
+
+
+.btn{
     height: fit-content;
     /*vertical-align: bottom; doesn't work*/
-    align-self: center;
+    align-self:center;
 
-    .heart {
+    .heart{
         vertical-align: -20%;
+        color: rgb(31, 29, 29);
+        
     }
 }
-
-
 /*COLLAPSE BUTTON*/
 .example-action-buttons {
     padding-bottom: 20px;
-}
-
-.example-headers-align .mat-expansion-panel-header-description {
+  }
+  
+  .example-headers-align .mat-expansion-panel-header-description {
     justify-content: space-between;
     align-items: center;
-}
-
-.example-headers-align .mat-mdc-form-field+.mat-mdc-form-field {
+  }
+  
+  .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
     margin-left: 8px;
-}
+  }
 
-/*TIMELINE SET*/
+  /*TIMELINE SET*/
 
 .timeline.justify-content-md-center {
     background-color: #000000;
@@ -196,7 +217,7 @@ ul.timeline {
 /* Timeline vertical line */
 ul.timeline:before {
     content: ' ';
-    background: #eaeaf2;
+    background: darkgrey;
     display: inline-block;
     position: absolute;
     left: 16px;
@@ -207,17 +228,23 @@ ul.timeline:before {
 }
 
 .form-control {
-    border-style: hidden;
+    border-style:hidden;
+    background-color: #f9f1e2;
+    
+    
 }
 
 li.timeline-item {
     margin: 20px 0;
+    background-color:#f9f1e2;
+    
+
 }
 
 /* Timeline item arrow */
 .timeline-arrow {
     border-top: 0.5rem solid transparent;
-    border-right: 0.5rem solid #eaeaf2;
+    border-right: 0.5rem solid #f9f1e2;
     border-bottom: 0.5rem solid transparent;
     display: block;
     position: absolute;
@@ -231,25 +258,38 @@ li.timeline-item::before {
     display: inline-block;
     position: absolute;
     border-radius: 50%;
-    border: 3px solid #eaeaf2;
+    border: 2px solid black;
     left: 3.5px;
     width: 30px;
     height: 30px;
     z-index: 400;
     /*box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);*/
 }
-
-// Changed input colors for movie sction card
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+.bg-white{
+    background-color: #f9f1e2;
+}
+.example-action-buttons{
+    background-color:#f9f1e2;
+}
+.mat-expansion-panel{
+    background-color: #f9f1e2;
+    border-color: black;
+}
+.mat-expansion-panel-header-description{
     color: black;
-    background-color: white;
+}
+.card{
+    color: black;
+    background-color: #f9f1e2;
+    
 }
 
-.input {
-    background-color: white;
-}
 
-.mat-mdc-select-arrow {
+mat-label{
+    color: black;
+   
+}
+mat-hint{
     color: black;
 }
 
