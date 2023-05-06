@@ -13,16 +13,15 @@ import { Rating } from 'src/app/models/rating';
 })
 export class WelcomeComponent implements OnInit {
 
-  @Input() foundMovies: any[] = []; //send found movies to child component MovieSection
-  @Input() foundActorId: string = ''; //gets actor Id
+  @Input() foundMovies: Movie[] = []; //send found movies to child component MovieSection
+  @Input() foundActorId: string = ''; //send actor Id to MovieSection component
 
   currentUserId = this.authService.getCurrentUser().id.toString();  //get the current user query (OK)s
   
-  actorToFind: string = '';   //receive nam+surname of an actor to find in TMDB
-  searchString: string = '';  //receive the url string to be sent to apiService for getting movies
+  // actorToFind: string = '';   //receive nam+surname of an actor to find in TMDB
+  // searchString: string = '';  //receive the url string to be sent to apiService for getting movies
   movies: Movie[] = [];       //receive movies from apiService
-
-  //verifyRating: any;          //check below
+  searchData: any = {};       //TESTING
 
   movieRating: Rating = { //receive the movie with rating and review to be sent to DB
     userId: '',
@@ -40,32 +39,72 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchActorId(actorNameSurname: string) {
-    const splitActorName = actorNameSurname.replace(/' '/g, '+');     //replace space char with + symbol compatible with url Api request
-    console.log(`${actorNameSurname} becomes ${splitActorName}`);     //TEST of replacement
-    //call method to get the actor ID using the previous string
-    this.apiService.getActorIdByNameSurname(splitActorName).subscribe((response: string) => {
-      this.foundActorId = response;
-      console.log('WELCOME COMP ACTOR ', this.foundActorId); //TEST OK gets the value (slow)
-    });
-  }
+  // searchActorId(actorNameSurname: string) {
+  //   const splitActorName = actorNameSurname.replace(/' '/g, '+');     //replace space char with + symbol compatible with url Api request
+  //   console.log(`${actorNameSurname} becomes ${splitActorName}`);     //TEST of replacement
+  //   //call method to get the actor ID using the previous string
+  //   this.apiService.getActorIdByNameSurname(splitActorName).subscribe((response: string) => {
+  //     this.foundActorId = response;
+  //     console.log('WELCOME COMP ACTOR ', this.foundActorId); //TEST OK gets the value (slow)
+  //   });
+  // }
 
   //method to get all the movies filtered with selected parameters filled by user in Search Component
-  getQueryString(query: any){ 
-    this.searchString = query;
-    console.log('new query:', this.searchString);                   //TEST ok
-    //get the movies from apiService
-    this.apiService.getFilteredMovies(this.searchString).subscribe({
-      next: (response: any) => {
-        this.foundMovies = response.results;                        // save group of movies in foundMovies
-        this.setPosterUrl();                                        //set the whole url address of every poster
-        console.log('Found movies', this.foundMovies);              //TEST OK
+  // getQueryString(query: any){ 
+  //   this.searchString = query;
+  //   console.log('new query:', this.searchString);                   //TEST ok
+  //   //get the movies from apiService
+  //   this.apiService.getFilteredMovies(this.searchString).subscribe({
+  //     next: (response: any) => {
+  //       this.foundMovies = response.results;                        //save group of movies in foundMovies
+  //       this.setPosterUrl();                                        //set the whole url address of every poster
+  //       console.log('Found movies', this.foundMovies);              //TEST OK
+  //     },
+  //     error: (error: any) => {
+  //       console.log(error);
+  //       this.movies = [];
+  //     }
+  //   });
+  // }
+
+  // getQueryData(data: any){
+  //   this.searchData = data;
+  //   console.log('WELCOME COMP DATA TO FIND ', this.searchData);
+  //   this.apiService.getFilteredMovies(this.searchData).subscribe({
+  //         next: (response: any) => {
+  //           this.foundMovies = response.results;                        //save group of movies in foundMovies
+  //           this.setPosterUrl();                                        //set the whole url address of every poster
+  //           console.log('Found movies', this.foundMovies);              //TEST OK
+  //         },
+  //         error: (error: any) => {
+  //           console.log(error);
+  //           this.movies = [];
+  //         }
+  //       });
+  //       console.log(this.foundMovies);
+  // }
+
+  findMovies(data: any) {
+    // this.searchData = data;
+    // if (this.searchData.actor !== '' && this.searchData.actor){
+    //   this.apiService.getActorIdByNameSurname(this.searchData.actor).subscribe((response: string) => {
+    //     this.searchData.actor = response;
+    //   });
+    // } else {
+    //   this.searchData.actor = '';
+    // }
+    let gotMovies: Movie[] = []; //TEST
+    this.apiService.getFilteredMovies(data).subscribe({
+      next: (movies: Movie[]) => {
+      console.log('WELCOME COMP. GOT MOVIES', gotMovies);
+      movies.map((response) => gotMovies.push(response));
       },
       error: (error: any) => {
         console.log(error);
         this.movies = [];
       }
     });
+    this.foundMovies = gotMovies;
   }
 
   getRatingToSave(rating: any){ 
@@ -88,7 +127,7 @@ export class WelcomeComponent implements OnInit {
   //clicking on search save movies
   onSearch(foundMovies: Movie[]) {
     this.foundMovies = foundMovies;
-    console.log("WELCOME COMP:", this.foundMovies) //TEST ok
+    console.log("WELCOME COMP:", this.foundMovies) //TEST ok sono loro
    }
 
    //set movie poster path using service method (if poster path exist build whole url, otherwise use local image)

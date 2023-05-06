@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -16,7 +16,7 @@ import html2canvas from 'html2canvas';   //to install
   templateUrl: './movie-section.component.html',
   styleUrls: ['./movie-section.component.scss']
 })
-export class MovieSectionComponent implements OnInit {
+export class MovieSectionComponent implements OnInit, OnChanges {
 
   formData = {          //structure of formData containing rating and review
     ratingNum: '',
@@ -38,9 +38,15 @@ export class MovieSectionComponent implements OnInit {
 
   //CHECK and add popup notification
   constructor(private snackBar: MatSnackBar, private exportAsService: ExportAsService) { }
+  
+  ngOnChanges(changes: SimpleChanges): void { //TESTING
+    if (changes['movies'] && changes['movies'].currentValue) {
+      this.movies = changes['movies'].currentValue;
+    }
+    console.log(this.movies);
+  }
 
   ngOnInit() {
-    console.log("USER ID: ", this.userId) //Test OK
   }
 
   resetFormValues() {
