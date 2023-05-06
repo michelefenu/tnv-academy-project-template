@@ -55,32 +55,32 @@
                     (ngSubmit)="compileRating(movie.id, movie.poster_path, movie.title, movie.overview, movie.release_date, formData)"
                     class="form-control material">
                     <div class="row">
-                      <mat-form-field class="col" appearance="outline">
-                        <mat-label class="label-color">Rating</mat-label>
-                        <mat-select [(ngModel)]="formData.ratingNum" name="ratingNum" placeholder="1" required>
-                          <mat-option value="1">1</mat-option>
-                          <mat-option value="2">2</mat-option>
-                          <mat-option value="3">3</mat-option>
-                          <mat-option value="4">4</mat-option>
-                          <mat-option value="5">5</mat-option>
-                          <mat-option value="5">6</mat-option>
-                          <mat-option value="5">7</mat-option>
-                          <mat-option value="5">9</mat-option>
-                          <mat-option value="5">9</mat-option>
-                          <mat-option value="5">10</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                      <mat-form-field class="col-md-auto" appearance="outline">
+                      <div class="container">
+                        <mat-form-field class="col-sm-12" appearance="outline">
                         <mat-label class="label-color">Review </mat-label>
                         <input matInput [(ngModel)]="formData['review']" name="review" placeholder="review (max 160char)"
                           aria-label="review" maxlength="160" required>
                         <!-- <mat-hint>{{formData['review'].length}} / 160</mat-hint> -->
                         <!-- <mat-error *ngIf="f.controls['review'].hasError('maxlength')">Maximum 160 characters allowed.</mat-error> -->
                       </mat-form-field>
-                      <button type="submit" class="btn btn-primary mt-2 col col-lg-2" [disabled]="!f.valid"><span
-                          class="material-symbols-outlined heart">
-                          heart_plus
-                        </span>Add</button>
+                      <div class="starrating risingstar justify-content-between d-flex flex-row-reverse col-sm-12" id="stars">                          
+                        <input type="radio" id="star10" name="ratingNum" value="10" [(ngModel)]="formData.ratingNum" /><label for="star10" title="10"></label>
+                          <input type="radio" id="star9" name="ratingNum" value="9" [(ngModel)]="formData.ratingNum" /><label for="star9" title="9"></label>
+                          <input type="radio" id="star8" name="ratingNum" value="8" [(ngModel)]="formData.ratingNum" /><label for="star8" title="8"></label>
+                          <input type="radio" id="star7" name="ratingNum" value="7" [(ngModel)]="formData.ratingNum" /><label for="star7" title="7"></label>
+                          <input type="radio" id="star6" name="ratingNum" value="6" [(ngModel)]="formData.ratingNum" /><label for="star6" title="6"></label>
+                          <input type="radio" id="star5" name="ratingNum" value="5" [(ngModel)]="formData.ratingNum" /><label for="star5" title="5"></label>
+                          <input type="radio" id="star4" name="ratingNum" value="4" [(ngModel)]="formData.ratingNum" /><label for="star4" title="4"></label>
+                          <input type="radio" id="star3" name="ratingNum" value="3" [(ngModel)]="formData.ratingNum" /><label for="star3" title="3"></label>
+                          <input type="radio" id="star2" name="ratingNum" value="2" [(ngModel)]="formData.ratingNum" /><label for="star2" title="2"></label>
+                          <input type="radio" id="star1" name="ratingNum" value="1" [(ngModel)]="formData.ratingNum" /><label for="star1" title="1"></label>                                                  
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary mt-2 col col-sm-12 justify-content-center text-left" [disabled]="!f.valid"><span
+                        class="material-symbols-outlined heart">
+                        heart_plus
+                      </span>Add</button>
+                      </div>
                     </div>
                   </form>
                 </mat-expansion-panel>
