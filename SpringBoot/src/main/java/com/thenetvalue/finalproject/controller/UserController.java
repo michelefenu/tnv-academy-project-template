@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 //@RequestMapping("/users")
 public class UserController {
-    private UserService userService;                    //managing Service level
+    private UserService userService;                       //managing Service level
     //Constructor
     @Autowired                                              //dependency injection
     public UserController(UserService userService) {                //Constructor
@@ -23,11 +23,11 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> testLogin(@RequestBody Map<String, String> loginData) {
+    public ResponseEntity<?> login(@RequestBody Map<String, String> loginData) {
         String username = loginData.get("username");
         String password = loginData.get("password");
         try {
-            User resultUser = userService.testLogin(username, password);
+            User resultUser = userService.login(username, password);
             // if login works returns 200 OK with the user in the response body
             return ResponseEntity.ok().body(resultUser);
         } catch (AuthenticationException e) {
@@ -37,9 +37,9 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> testRegister(@RequestBody User body) {
+    public ResponseEntity<?> register(@RequestBody User body) {
         try {
-            User user = userService.testRegister(body);
+            User user = userService.register(body);
             URI uri = URI.create("/user/" + user.getId()); //TODO check if needed
             return ResponseEntity.created(uri).body(body); //returns 201 if registration is successful
 //            return ResponseEntity.ok().build(); // return 200 OK if registration is successful
