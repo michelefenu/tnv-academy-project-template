@@ -34,23 +34,15 @@ export class MovieSectionComponent implements OnInit, OnChanges {
   //Rating emit to Welcome component (parent)
   @Output() ratingToEmit = new EventEmitter<Rating>(); // emit filled rating to parent component
 
-  ratings: Rating[] = []; //TEST not needed?
-
-  //CHECK and add popup notification
   constructor(private snackBar: MatSnackBar, private exportAsService: ExportAsService) { }
   
-  ngOnChanges(changes: SimpleChanges): void { //TESTING
+  ngOnChanges(changes: SimpleChanges): void { 
     if (changes['movies'] && changes['movies'].currentValue) {
       this.movies = changes['movies'].currentValue;
     }
-    console.log(this.movies);
   }
 
   ngOnInit() {
-  }
-
-  resetFormValues() {
-    this.form.resetForm();                //reset values on form after clicking
   }
 
   //method to compile a rating with mixed data
@@ -60,12 +52,11 @@ export class MovieSectionComponent implements OnInit, OnChanges {
     movieOverview: string,
     movieReleaseDate: string,
     formData: { ratingNum: string, review: string }) {
-
+    //check if review and rating inputs have values
     if (!this.form.value.review || !this.form.value.ratingNum) {
       console.log("Error: Review or rating missing");
       return;
     }
-
     const rating: Rating = {      //create an object Rating with form data + card data
       userId: this.userId,
       movieId: movieId.toString(),
@@ -76,10 +67,10 @@ export class MovieSectionComponent implements OnInit, OnChanges {
       review: this.formData.review,
       rating: parseInt(this.formData.ratingNum)   //parsing the string of rate
     };
-    if (this.formData.review.length <= 160) {     //TEST
+    if (this.formData.review.length <= 160) {     
       this.emitRatingToSave(rating);                            //method to emit object rating to parent WelcomeComponent
       this.resetFormValues();                                   //reset form values
-      this.snackBar.open('Added to favorites', 'Dismiss', {     //TESTING PopUp notification when review and rating have been added to favorites
+      this.snackBar.open('Added to favorites', 'Dismiss', {     //PopUp notification when review and rating have been added to favorites
         duration: 3000,                                         //ERROR: notification appears even when there's error 500 with some movies
         verticalPosition: 'bottom'
       })
@@ -90,6 +81,10 @@ export class MovieSectionComponent implements OnInit, OnChanges {
         verticalPosition: 'bottom'
       })
     }
+  }
+
+  resetFormValues() {
+    this.form.resetForm();                //reset values on form after clicking
   }
 
   emitRatingToSave(ratingToSave: Rating) {                //emit object rating to parent WelcomeComponent 
@@ -105,7 +100,6 @@ export class MovieSectionComponent implements OnInit, OnChanges {
       link.click();
     });
   }
-  
                                      //LUCA:
   printArea: ExportAsConfig = {
     type: 'png',
@@ -115,6 +109,5 @@ export class MovieSectionComponent implements OnInit, OnChanges {
   download() {                      //LUCA:
     this.exportAsService.save(this.printArea, 'area').subscribe(() => { });
   }
-
 }
 

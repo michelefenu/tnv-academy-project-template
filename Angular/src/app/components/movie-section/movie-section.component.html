@@ -1,7 +1,7 @@
-  <!--check if movies contains data-->
-  <div *ngIf="!movies || movies.length === 0" class="justify-content-md-center">
-    <p class="text-center">You haven't searched for movies yet...</p>
-  </div>
+<!--check if movies contains data-->
+<div *ngIf="!movies || movies.length === 0" class="justify-content-md-center">
+  <p class="text-center">You haven't searched for movies yet...</p>
+</div>
 <div *ngIf="movies.length > 0" class="row">
   <!-- FOR DOWNLOAD-->
   <div id="area">
@@ -36,11 +36,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="card-footer text-muted">footer</div>-->
-              <!-- <div class="action-button">
-              <button mat-button (click)="accordion.openAll()">Expand All</button>
-              <button mat-button (click)="accordion.closeAll()">Collapse All</button>
-            </div> -->
               <mat-accordion class="example-headers-align" multi>
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
@@ -57,29 +52,40 @@
                     <div class="row">
                       <div class="container">
                         <mat-form-field class="col-sm-12" appearance="outline">
-                        <mat-label class="label-color">Review </mat-label>
-                        <input matInput [(ngModel)]="formData['review']" name="review" placeholder="review (max 160char)"
-                          aria-label="review" maxlength="160" required>
-                        <!-- <mat-hint>{{formData['review'].length}} / 160</mat-hint> -->
-                        <!-- <mat-error *ngIf="f.controls['review'].hasError('maxlength')">Maximum 160 characters allowed.</mat-error> -->
-                      </mat-form-field>
-                      <div class="starrating risingstar justify-content-between d-flex flex-row-reverse col-sm-12" id="stars">                          
-                        <input type="radio" id="star10" name="ratingNum" value="10" [(ngModel)]="formData.ratingNum" /><label for="star10" title="10"></label>
-                          <input type="radio" id="star9" name="ratingNum" value="9" [(ngModel)]="formData.ratingNum" /><label for="star9" title="9"></label>
-                          <input type="radio" id="star8" name="ratingNum" value="8" [(ngModel)]="formData.ratingNum" /><label for="star8" title="8"></label>
-                          <input type="radio" id="star7" name="ratingNum" value="7" [(ngModel)]="formData.ratingNum" /><label for="star7" title="7"></label>
-                          <input type="radio" id="star6" name="ratingNum" value="6" [(ngModel)]="formData.ratingNum" /><label for="star6" title="6"></label>
-                          <input type="radio" id="star5" name="ratingNum" value="5" [(ngModel)]="formData.ratingNum" /><label for="star5" title="5"></label>
-                          <input type="radio" id="star4" name="ratingNum" value="4" [(ngModel)]="formData.ratingNum" /><label for="star4" title="4"></label>
-                          <input type="radio" id="star3" name="ratingNum" value="3" [(ngModel)]="formData.ratingNum" /><label for="star3" title="3"></label>
-                          <input type="radio" id="star2" name="ratingNum" value="2" [(ngModel)]="formData.ratingNum" /><label for="star2" title="2"></label>
-                          <input type="radio" id="star1" name="ratingNum" value="1" [(ngModel)]="formData.ratingNum" /><label for="star1" title="1"></label>                                                  
-                      </div>
-                      
-                      <button type="submit" class="btn btn-primary mt-2 col col-sm-12 justify-content-center text-left" [disabled]="!f.valid"><span
-                        class="material-symbols-outlined heart">
-                        heart_plus
-                      </span>Add</button>
+                          <mat-label class="label-color">Review </mat-label>
+                          <input matInput [(ngModel)]="formData['review']" name="review"
+                            placeholder="review (max 160char)" aria-label="review" maxlength="160" required>
+                          <!-- <mat-hint>{{formData['review'].length}} / 160</mat-hint> -->
+                          <!-- <mat-error *ngIf="f.controls['review'].hasError('maxlength')">Maximum 160 characters allowed.</mat-error> -->
+                        </mat-form-field>
+                        <div class="starrating risingstar justify-content-between d-flex flex-row-reverse col-sm-12"
+                          id="stars">
+                          <input type="radio" id="star10" name="ratingNum" value="10"
+                            [(ngModel)]="formData.ratingNum" /><label for="star10" title="10"></label>
+                          <input type="radio" id="star9" name="ratingNum" value="9"
+                            [(ngModel)]="formData.ratingNum" /><label for="star9" title="9"></label>
+                          <input type="radio" id="star8" name="ratingNum" value="8"
+                            [(ngModel)]="formData.ratingNum" /><label for="star8" title="8"></label>
+                          <input type="radio" id="star7" name="ratingNum" value="7"
+                            [(ngModel)]="formData.ratingNum" /><label for="star7" title="7"></label>
+                          <input type="radio" id="star6" name="ratingNum" value="6"
+                            [(ngModel)]="formData.ratingNum" /><label for="star6" title="6"></label>
+                          <input type="radio" id="star5" name="ratingNum" value="5"
+                            [(ngModel)]="formData.ratingNum" /><label for="star5" title="5"></label>
+                          <input type="radio" id="star4" name="ratingNum" value="4"
+                            [(ngModel)]="formData.ratingNum" /><label for="star4" title="4"></label>
+                          <input type="radio" id="star3" name="ratingNum" value="3"
+                            [(ngModel)]="formData.ratingNum" /><label for="star3" title="3"></label>
+                          <input type="radio" id="star2" name="ratingNum" value="2"
+                            [(ngModel)]="formData.ratingNum" /><label for="star2" title="2"></label>
+                          <input type="radio" id="star1" name="ratingNum" value="1"
+                            [(ngModel)]="formData.ratingNum" /><label for="star1" title="1"></label>
+                        </div>
+                        <button type="submit"
+                          class="btn btn-primary mt-2 col col-sm-12 justify-content-center text-left"
+                          [disabled]="!f.valid"><span class="material-symbols-outlined heart">
+                            heart_plus
+                          </span>Add</button>
                       </div>
                     </div>
                   </form>
@@ -92,28 +98,27 @@
       </ul>
     </div>
   </div>
-    <!--END OF DIV AREA-->
- <!--BUTTON FOR DOWNLOAD-->
- <!--
- <div class="row justify-content-center">
-  <div class="col-4">
-    <button ngxExportAs="png" (click)="download()" class="btn btn-primary mt-2">Esporta in PNG <i
-        class="bi bi-download"></i> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-        class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-        <path
-          d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
-      </svg></button>
+  <!--END OF DIV AREA-->
+  <!--BUTTON FOR DOWNLOAD-->
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <button ngxExportAs="png" (click)="download()" class="btn btn-primary mt-2">Esporta in PNG <i
+          class="bi bi-download"></i> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+          <path
+            d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
+        </svg></button>
+    </div>
   </div>
-</div> -->
   <!--DOWNLOADABLE-->
- 
+
   <div class="action container"><button (click)="captureScreen()" class="rounded">Download this timeline!</button>
     <div class="separator"></div>
   </div>
   <div class="content row mx-auto justify-content-md-center timeline-container" #content>
     <div class="col-lg-7 mx-auto">
       <div class="row">
-      <h2 class="head">Your timeline</h2>
+        <h2 class="head">Your timeline</h2>
       </div>
       <div class="list row" *ngFor="let element of movies">
         <div class="col-md-auto"></div>

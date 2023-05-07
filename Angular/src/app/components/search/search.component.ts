@@ -16,34 +16,34 @@ export class SearchComponent {
   movies: any = [];
 
   //Query emit to welcome component (parent)
-  @Output() searchToEmit = new EventEmitter<any>(); //test changing
+  @Output() searchToEmit = new EventEmitter<any>(); 
   dataFromForm: any = {};
 
   constructor(dataPipe: DatePipe) {
     this.datePipe = dataPipe;                         //module to format dates
   }
 
-  searchForValues(){
+  searchForValues() {
     console.log('SEARCHCOMPO DATA TO FIND ', this.dataFromForm);
     this.searchToEmit.emit(this.dataFromForm);  //emit the url for API request to parent component Welcome
   }
 
-  search(f: NgForm) {                    
-    const searchFormData = {                    //TESTING
+  search(f: NgForm) {
+    const searchFormData = {                   
       actor: f.value.actor || '',
-      genre : f.value.genre || '',
+      genre: f.value.genre || '',
       releaseDate: f.value.releaseDate || '',
       sortParameter: f.value.sortParameter || '',
       voteAvgFrom: f.value.voteAvgFrom || '',
       language: f.value.language || '',
       dateFrom: this.getFormattedDate(f.value.dateFrom) || '',
-      dateTo:this.getFormattedDate(f.value.dateTo) || ''
+      dateTo: this.getFormattedDate(f.value.dateTo) || ''
     };
     searchFormData.actor = searchFormData.actor.replace(/ /g, '+');     //replace space char with + symbol compatible with url Api request
     console.log(`Actor to find ${searchFormData.actor}`);     //TEST of replacement
     this.dataFromForm = searchFormData;       //save values as property class
     console.log('SEARCHCOMPO DATA TO FIND ', this.dataFromForm);
-    if (!searchFormData.sortParameter) {     //TEST changed alter if sortParameter is not selected form the user
+    if (!searchFormData.sortParameter) {     //alert and return if sortParameter is not selected form the user
       alert("Please fill the order by section to create a timeline");
       return;
     }
@@ -58,5 +58,4 @@ export class SearchComponent {
     const formattedDate = this.datePipe.transform(date, 'yyyy-MM-dd');
     return formattedDate;
   }
-
 }

@@ -27,34 +27,29 @@ export class ApiService {
     }
   }
 
-  //get all movies using the discover url of TMDB built on Angular Welcome Component
-  // getFilteredMovies(searchString : string) { //new method that takes the whole url query
-  //   return this.httpClient.get<Movie[]>(searchString);
-  // }
-
   getFilteredMovies(data: any): Observable<Movie[]> {
     let allMovies: Movie[] = [];
-    console.log(data); //TEST
     return this.getActorIdByNameSurname(data.actor).pipe(
       switchMap(actorId => {
         data.actor = actorId;
-        if (!data.vote_average) {
-          data.vote_average = '';
+        if (!data.voteAvgFrom) {   //replace vote average with empty string if undefined
+          data.voteAvgFrom = '';
         }
-        if (!data.release_date) {
+        if (!data.release_date) {   //replace release date with empty string if undefined
           data.release_date = '';
         }
-        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&with_original_language=${data.language}&with_genres=${data.genre}&vote_average.gte=${data.vote_average}&sort_by=${data.sortParameter}&primary_release_year=${data.releaseDate}&release_date.gte=${data.dateFrom}&release_date.lte=${data.dateTo}&with_cast=${data.actor}&page=`;
+        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&with_original_language=${data.language}&with_genres=${data.genre}&vote_average.gte=${data.voteAvgFrom}&sort_by=${data.sortParameter}&primary_release_year=${data.releaseDate}&release_date.gte=${data.dateFrom}&release_date.lte=${data.dateTo}&with_cast=${data.actor}&page=`;
         console.log(url);
-        return forkJoin([
+        return forkJoin([   //get results of first 5 pages
           this.httpClient.get<ApiResponse>(`${url}1`),
           this.httpClient.get<ApiResponse>(`${url}2`),
           this.httpClient.get<ApiResponse>(`${url}3`),
-          this.httpClient.get<ApiResponse>(`${url}4`)
-        ]).pipe(debounceTime(1000), //testing debounce
+          this.httpClient.get<ApiResponse>(`${url}4`),
+          this.httpClient.get<ApiResponse>(`${url}5`)
+        ]).pipe(
           map(responses => {
             responses.forEach((response: ApiResponse) => {
-              const movies: any[] = response.results || []; 
+              const movies: Movie[] = response.results || [];
               const newMovies = movies.map(movie => ({
                 adult: movie.adult,
                 backdrop_path: movie.backdrop_path,
@@ -82,7 +77,7 @@ export class ApiService {
                 vote_average: movie.vote_average,
                 vote_count: movie.vote_count
               }));
-              allMovies = [...allMovies, ...newMovies];
+              allMovies = [...allMovies, ...newMovies]; //include newMovies in allMovies array
             });
             return allMovies;
           })
@@ -91,7 +86,6 @@ export class ApiService {
     );
   }
 
-
   //get Actor data passing its name and surname
   getActor(actorName: string | undefined, actorSurname: string | undefined) {
     return this.httpClient.get<Actor>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&query=${actorName}+${actorSurname}`);
@@ -99,7 +93,7 @@ export class ApiService {
 
   //get Actor data passing its name + surname as a unique string
   getActorIdByNameSurname(actorName: string | undefined): Observable<string> {
-    if (!actorName){
+    if (!actorName) {
       return of('');
     }
     console.log(actorName?.toLocaleLowerCase());
@@ -109,6 +103,7 @@ export class ApiService {
       );
   }
 
+  //Not used (below)
   //get actor data using its ID
   getActorCredits(actorId: number | undefined) {
     return this.httpClient.get<ActorCredits>(`https://api.themoviedb.org/3/person/${actorId}?api_key=${this.apiKey}&append_to_response=credits`)
@@ -117,6 +112,11 @@ export class ApiService {
   //get a movie by ID - Italian language translation of its data
   getMovieById(movieId: number | null) {
     return this.httpClient.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=it-it`);
+  }
+
+  //get all movies using the discover url of TMDB built on Angular Welcome Component
+  getMovies(searchString: string) { //new method that takes the whole url query
+    return this.httpClient.get<Movie[]>(searchString);
   }
 
 }
