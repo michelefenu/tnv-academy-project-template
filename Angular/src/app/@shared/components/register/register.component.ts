@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "src/app/@core/services/auth.service";
+import { RegisterDTO } from "src/app/models/user";
 
 @Component({
   selector: "tnv-register",
@@ -13,14 +14,32 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/login");
     }
   }
 
   register(form: NgForm) {
     form.control.markAllAsTouched();
     if (form.valid) {
-      this.authService.register(form.value);
+      const registerData: RegisterDTO = {
+        name: form.value.name,
+        surname: form.value.surname,
+        username: form.value.username,
+        password: form.value.password,
+      };
+      this.authService.register(registerData)
+      .subscribe( () => {
+        this.router.navigateByUrl("/login");
+      },
+      (error: any) => {
+        if(error.status === 400 && error.error.message === "Utente già esistente"){
+          alert("Username già esistente");
+        }else{
+          console.error("Errore durante la registrazione", error);
+          alert("Errore durante la registrazione. Username già esistente");
+        }
+      }
+      );
     }
   }
 }
