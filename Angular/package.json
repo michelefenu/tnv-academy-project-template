@@ -25,7 +25,6 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -40,6 +39,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "tslib": "^2.6.0",
     "typescript": "~4.9.5"
   }
 }
