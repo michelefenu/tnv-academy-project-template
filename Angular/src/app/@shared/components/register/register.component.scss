@@ -1,5 +1,13 @@
+body{
+  background-image: url("/assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 .register-card {
   width: 800px;
+  background-color: white;
 }
 
 .img {
