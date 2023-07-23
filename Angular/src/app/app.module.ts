@@ -16,6 +16,10 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { FooterComponent } from './@shared/components/footer/footer.component';
+import { GameRulesComponent } from './@shared/components/game-rules/game-rules.component';
+import {MatListModule} from '@angular/material/list';
+import { HeroComponent } from './@shared/components/hero/hero.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { FooterComponent } from './@shared/components/footer/footer.component';
     WelcomeComponent,
     ProfileComponent,
     RankingsComponent,
-    FooterComponent
+    FooterComponent,
+    GameRulesComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,10 @@ import { FooterComponent } from './@shared/components/footer/footer.component';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MatListModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
