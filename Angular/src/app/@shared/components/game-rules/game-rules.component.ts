@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 })
 export class GameRulesComponent implements OnInit{
 
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
