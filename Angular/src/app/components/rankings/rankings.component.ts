@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'tnv-rankings',
   templateUrl: './rankings.component.html',
