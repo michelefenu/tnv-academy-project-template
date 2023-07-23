@@ -89,6 +89,9 @@ footer .credits {
 	margin:auto;
 }
 
+iframe{
+width: 16000px;}
+
 .copyright {
     display: flex; /* Imposta il layout del blocco come "flex" */
     justify-content: flex-start; /* Allinea il contenuto del blocco a sinistra */
@@ -117,7 +120,7 @@ footer .social-cont .social-list li img {
 }
 
 footer .social-cont .social-list > li:hover {
-background:#99c4ff; /* light seconday color*/		
+  transform: scale(1.2);
 }
 
 /* Stile per la lista nel footer */
