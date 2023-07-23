@@ -140,15 +140,18 @@ background:#99c4ff; /* light seconday color*/
     margin-right: 0; /* Rimuove lo spazio per l'ultimo elemento della lista */
   }
   
-  .menu-menu-footer li a {
-    text-decoration: none;
+  .menu-menu-footer ul li a {
     color: white;
     padding: 5px 10px;
   }
+
+  .menu-menu-footer ul li a:hover{
+    color:#aacdfe;
+    text-decoration: underline;
+  }
   
   .menu-menu-footer li a.active {
-    font-weight: bold;
-    color: #aacdfe;
+    color: white;
   }
   
   div.by {
