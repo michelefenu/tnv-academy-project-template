@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HeroComponent {
 
+  title: string ="Guess The Movie";
+
+  constructor(){}
+
+  ngOnInit(): void {}
+
+  
+
 }
