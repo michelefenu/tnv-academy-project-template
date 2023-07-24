@@ -21,6 +21,7 @@ import { HeroComponent } from './@shared/components/hero/hero.component';
 import { GtmCarouselComponent } from './@shared/components/gtm-carousel/gtm-carousel.component';
 import { PlayButtonComponent } from './@shared/components/play-button/play-button.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PlayComponent } from './components/play/play.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HeroComponent,
     PlayButtonComponent,
     GtmCarouselComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
