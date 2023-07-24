@@ -17,9 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { FooterComponent } from './@shared/components/footer/footer.component';
 import { GameRulesComponent } from './@shared/components/game-rules/game-rules.component';
-import {MatListModule} from '@angular/material/list';
 import { HeroComponent } from './@shared/components/hero/hero.component';
-import {MatIconModule} from '@angular/material/icon';
+import { GtmCarouselComponent } from './@shared/components/gtm-carousel/gtm-carousel.component';
+import { PlayButtonComponent } from './@shared/components/play-button/play-button.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,10 @@ import {MatIconModule} from '@angular/material/icon';
     RankingsComponent,
     FooterComponent,
     GameRulesComponent,
-    HeroComponent
+    HeroComponent,
+    PlayButtonComponent,
+    GtmCarouselComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +49,6 @@ import {MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    MatListModule,
-    MatIconModule
 
   ],
   providers: [],

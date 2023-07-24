@@ -7,6 +7,7 @@ import { RegisterComponent } from "./@shared/components/register/register.compon
 import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
     ],
   },
+   { path: '404', component: NotFoundComponent},
   {
     path: "login",
     component: LoginComponent,
@@ -28,11 +30,12 @@ const routes: Routes = [
     path: "register",
     component: RegisterComponent,
   },
-  { path: "**", redirectTo: "" },
+  { path: "**", redirectTo: "/404" },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-})
+}
+)
 export class AppRoutingModule {}
