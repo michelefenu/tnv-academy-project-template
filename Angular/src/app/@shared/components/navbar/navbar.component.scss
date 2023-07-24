@@ -1,5 +1,4 @@
 
-/* Add a black background color to the top navigation */
 .collapse
  {
     background-color: #279e27;
@@ -7,7 +6,6 @@
     z-index: 1000;
 }
 
-/* Style the links inside the navigation bar */
 .collapse
  a {
     float: left;
@@ -18,13 +16,11 @@
     font-size: 17px;
 }
 
-/* Change the color of links on hover */
 .collapse a:hover {
     color: 99de99;
     text-decoration: underline;
 }
 
-/* Add a color to the active/current link */
 .collapse a.active {
     color: #99de99;
     text-decoration: underline;
