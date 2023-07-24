@@ -1,6 +1,22 @@
-.button-63 {
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    min-height: 100vh; /* Imposta il contenitore della pagina a coprire almeno l'altezza della finestra del browser */
+    background-color: #f0f0f0; /* Imposta il colore di sfondo della pagina */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .button-63 {
+    align-items: center;
+    background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
     border: 0;
     border-radius: 8px;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -20,7 +36,6 @@
     touch-action: manipulation;
     white-space: nowrap;
     cursor: pointer;
-    margin-bottom: 40px ;
   }
   
   .button-63:active,
@@ -34,7 +49,4 @@
       min-width: 196px;
     }
   }
-.button-container .button-63{
-    align-items: center;
-    width: 200px;
-}
+  
