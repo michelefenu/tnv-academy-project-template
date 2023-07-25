@@ -1,8 +1,184 @@
-.profile-data {
-    font-family: 'Kanit', sans-serif, 'Mukta', sans-serif;
-}
-
 .row{
 margin: 0px;
 padding: 0px;
 }
+
+$black: #071011;
+$white: #fff;
+$red: #542754;
+$standard: 10px;
+$card-height: 450px;
+$card-width: 400px;
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outer-div,
+.inner-div {
+  height: $card-height;
+  max-width: $card-width;
+  margin: 0 auto;
+  position: relative;
+}
+
+.outer-div {
+  perspective: 900px;
+  perspective-origin: 50% calc(50% - 18em);
+}
+
+.inner-div {
+  margin: 0 auto;
+  border-radius: 5px;
+  font-weight: 400;
+  color: $black;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+  transform-style: preserve-3d;
+
+}
+
+.outer-div:hover .inner-div {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: relative;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.front {
+  cursor: pointer;
+  height: 100%;
+  background: $white;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.front__bkg-photo {
+  position: relative;
+  height: 150px;
+  width: $card-width;
+  background: url("/assets/images/profilo-back.jpg")
+    no-repeat;
+  background-size: cover;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.front__face-photo {
+  position: relative;
+  top: -60px;
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid $white;
+  background: url("/assets/images/img-profilo.jpg")
+    no-repeat;
+  background-size: contain;
+  overflow: hidden;
+ 
+}
+
+.front__text {
+  position: relative;
+  top: -55px;
+  margin: 0 auto;
+  font-family: "Kanit', sans-serif, 'Mukta', sans-serif";
+  font-size: 22px;
+  backface-visibility: hidden;
+
+  .front__text-header {
+    font-weight: 700;
+    font-family: "Kanit', sans-serif, 'Mukta', sans-serif";
+    text-transform: uppercase;
+    font-size: 25px;
+    
+  }
+
+  .front__text-para {
+    position: relative;
+    top: -5px;
+
+    color: #000;
+    font-size: 22px;
+    letter-spacing: 0.4px;
+    font-weight: 400;
+    font-family: "Kanit', sans-serif, 'Mukta', sans-serif";
+  }
+
+  .front-icons {
+    position: relative;
+    top: 0;
+    font-size: 20px;
+    margin-right: 6px;
+    color: gray;
+  }
+
+  .front__text-hover {
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+    backface-visibility: hidden;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+
+    border: 2px solid $red;
+    padding: 15px 17px;
+
+    color: $white;
+    background-image: linear-gradient(144deg, #542754, #ab4dab 50%, #cf99cf);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  }
+}
+
+.back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+    cursor: pointer;
+    height: 100%;
+    background: url("/assets/images/back-profilo.jpg");
+    background-size: cover;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(0, 0, 0, 0.1) inset;
+  }
+

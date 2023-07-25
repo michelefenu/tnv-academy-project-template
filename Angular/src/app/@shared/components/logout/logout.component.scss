@@ -1,4 +1,23 @@
-.btn{
-    outline: none;
+.logout-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .logout-container button {
+    font-size: 22px;
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     background-image: linear-gradient(144deg, #542754, #ab4dab 50%, #cf99cf);
-}
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  }
+  
+.logout-container button:hover{
+    transform: scale(1.1);
+}  
