@@ -1,20 +1,20 @@
 $primary-palette: (
-  50: #e6f5e6,
-  100: #c2eac2,
-  200: #99de99,
-  300: #70d370,
-  400: #4dcc4d,
-  500: #33c233,
-  600: #2eb82e,
-  700: #279e27,
-  800: #208520,
-  900: #196c19,
+  50: #f2e6f2,
+  100: #e1c2e1,
+  200: #cf99cf, //sec
+  300: #bd70bd,
+  400: #ab4dab,
+  500: #7D5684,    
+  600: #693e6a,
+  700: #542754, //scelto
+  800: #401f40,
+  900: #2c112c,
   contrast: (
     50: black,
     100: black,
     200: black,
-    300: black,
-    400: black,
+    300: white,
+    400: white,
     500: white,
     600: white,
     700: white,
@@ -24,16 +24,16 @@ $primary-palette: (
 );
 
 $secondary-palette: (
-  50: #e6f2ff,
-  100: #c0dbff,
-  200: #99c4ff,
-  300: #73adff,
-  400: #4d96ff,
-  500: #2680ff,
-  600: #0077e6,
-  700: #0061b3,
-  800: #004b80,
-  900: #00354d,
+  50: #f1f9ee,
+  100: #dcedd3,
+  200: #c4e2b7, //sec
+  300: #abda9b,
+  400: #92d17f,
+  500: #6fa94a,    
+  600: #5c9238,
+  700: #487a26,  // Colore principale scelto
+  800: #355314,
+  900: #203b02,
   contrast: (
     50: black,
     100: black,
@@ -47,4 +47,3 @@ $secondary-palette: (
     900: white
   )
 );
-

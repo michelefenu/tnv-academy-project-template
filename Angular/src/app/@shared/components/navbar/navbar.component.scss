@@ -1,13 +1,13 @@
 
 .collapse
  {
-    background-color: #279e27;
     overflow: hidden;
     z-index: 1000;
 }
 
 .collapse
  a {
+    background-color: #542754;
     float: left;
     color: white;
     text-align: center;
@@ -17,12 +17,12 @@
 }
 
 .collapse a:hover {
-    color: 99de99;
+    color: #cf99cf;
     text-decoration: underline;
 }
 
 .collapse a.active {
-    color: #99de99;
+    color: #cf99cf;
     text-decoration: underline;
 
 }
