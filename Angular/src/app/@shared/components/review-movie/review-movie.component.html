@@ -1,0 +1,35 @@
+
+<form [formGroup]="reviewform" (ngSubmit)="onSubmit()">
+  
+  <mat-form-field>
+    <mat-label>Recensione</mat-label>
+    <textarea matInput type="text" name="recensione" formControlName="recensione"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!reviewform.valid" >Pubblica recensione</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<form #reviewform="ngForm" (ngSubmit)="onSubmit(reviewform)">
+  
+  <mat-form-field>
+    <mat-label>Recensione</mat-label>
+    <textarea matInput type="text" maxlength="150" size="150" name="recensione" ngModel ></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="reviewform.valid">Pubblica recensione</button>
+</form>
+
+-->
