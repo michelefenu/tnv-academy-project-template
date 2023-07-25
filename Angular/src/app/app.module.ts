@@ -22,6 +22,8 @@ import { GtmCarouselComponent } from './@shared/components/gtm-carousel/gtm-caro
 import { PlayButtonComponent } from './@shared/components/play-button/play-button.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PlayComponent } from './components/play/play.component';
+import { ReviewMovieComponent } from './@shared/components/review-movie/review-movie.component';
+
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { PlayComponent } from './components/play/play.component';
     PlayButtonComponent,
     GtmCarouselComponent,
     NotFoundComponent,
-    PlayComponent
+    PlayComponent,
+    ReviewMovieComponent,
   ],
   imports: [
     BrowserModule,
