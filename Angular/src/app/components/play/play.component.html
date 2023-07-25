@@ -1,1 +1,43 @@
-<tnv-review-movie></tnv-review-movie>
+<!--<tnv-review-movie></tnv-review-movie>-->
+<!--{{movie | json}}-->
+
+<mat-card class="movie-card">
+    <mat-card-header>
+      <mat-card-title>Indovina il titolo!</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="movie.backdrop_path" [alt]="movie.title">
+    <mat-card-content>
+      <button (click)="toggle()" id="bt">
+        Premi per sapere la descrizione 
+      </button><br>
+      <h2 *ngIf="show">
+        {{movie.overview}}
+      </h2><br>
+      <button (click)="toggle()" id="bt">
+        Premi per sapere la data di uscita
+      </button><br>
+      <h2 *ngIf="show">
+        {{movie.release_date}}
+      </h2><br>
+      <button (click)="toggle()" id="bt">
+        Premi per sapere il voto
+      </button><br>
+      <h2 *ngIf="show">
+        {{movie.vote_average}}
+      </h2><br>
+    </mat-card-content>
+    <mat-card-actions>
+        <p>
+            <mat-form-field appearance="outline">
+              <mat-label>titolo...</mat-label>
+              <input matInput placeholder="Placeholder">
+              <mat-icon matSuffix>help_outline</mat-icon>
+            </mat-form-field>
+          </p>
+    </mat-card-actions>
+  </mat-card>
+  
+    
+
+
+    
