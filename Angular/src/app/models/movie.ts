@@ -1,9 +1,3 @@
-export interface Movies {
-  page: number;
-  results: any[];
-  total_pages: number;
-  total_results: number;
-}
 
 export interface Movie {
     adult: boolean;
