@@ -10,9 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavbarComponent } from './@shared/components/navbar/navbar.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { RankingsComponent } from './components/rankings/rankings.component';
+import { RulesPageComponent } from './components/rules-page/rules-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { FooterComponent } from './@shared/components/footer/footer.component';
@@ -34,9 +34,9 @@ import { ReviewMovieComponent } from './@shared/components/review-movie/review-m
     MainPageComponent,
     LogoutComponent,
     NavbarComponent,
-    WelcomeComponent,
+    HomePageComponent,
     ProfileComponent,
-    RankingsComponent,
+    RulesPageComponent,
     FooterComponent,
     GameRulesComponent,
     HeroComponent,

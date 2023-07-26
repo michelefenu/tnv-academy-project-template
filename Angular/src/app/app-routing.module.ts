@@ -4,9 +4,9 @@ import { AuthGuard } from "./@core/helpers/auth-guard";
 import { LoginComponent } from "./@shared/components/login/login.component";
 import { MainPageComponent } from "./components/main-page/main-page.component";
 import { RegisterComponent } from "./@shared/components/register/register.component";
-import { WelcomeComponent } from "./components/welcome/welcome.component";
+import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ProfileComponent } from "./components/profile/profile.component";
-import { RankingsComponent } from "./components/rankings/rankings.component";
+import { RulesPageComponent } from "./components/rules-page/rules-page.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { PlayComponent } from "./components/play/play.component";
 
@@ -16,11 +16,11 @@ const routes: Routes = [
     component: MainPageComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: "welcome", component: WelcomeComponent },
+      { path: "home", component: HomePageComponent },
       { path: "profile", component: ProfileComponent },
-      { path: "rankings", component: RankingsComponent },
+      { path: "rules", component: RulesPageComponent },
       { path: "play", component: PlayComponent},
-      { path: "", redirectTo: "welcome", pathMatch: 'full' },
+      { path: "", redirectTo: "home", pathMatch: 'full' },
     ],
   },
    { path: '404', component: NotFoundComponent},
