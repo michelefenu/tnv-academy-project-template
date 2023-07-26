@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 
@@ -427,7 +428,7 @@ export class PlayComponent implements OnInit{
 
   movie: Movie;
 
-  constructor(){
+  constructor(private http: HttpClient){
     this.movie = this.movies[Math.floor(Math.random() * this.movies.length)];
     
   }
