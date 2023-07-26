@@ -5,25 +5,25 @@
     <mat-card-header>
       <mat-card-title>Indovina il titolo!</mat-card-title>
     </mat-card-header>
-    <img mat-card-image [src]="movie.backdrop_path" [alt]="movie.title">
+    <img mat-card-image  [src]="movie.backdrop_path" [alt]="movie.title"> 
     <mat-card-content>
       <button (click)="toggle()" id="bt">
         Premi per sapere la descrizione 
       </button><br>
       <h2 *ngIf="show">
-        {{movie.overview}}
+        {{movie.overview}} 
       </h2><br>
       <button (click)="toggle()" id="bt">
         Premi per sapere la data di uscita
       </button><br>
       <h2 *ngIf="show">
-        {{movie.release_date}}
+        {{movie.release_date}} 
       </h2><br>
       <button (click)="toggle()" id="bt">
         Premi per sapere il voto
       </button><br>
       <h2 *ngIf="show">
-        {{movie.vote_average}}
+        {{movie.vote_average}} 
       </h2><br>
     </mat-card-content>
     <mat-card-actions>
@@ -36,6 +36,15 @@
           </p>
     </mat-card-actions>
   </mat-card>
+
+  <pre>
+    {{ movie | json }}
+  </pre>
+
+  <img   [src]="movie.backdrop_path" [alt]="movie.title">
+
+
+
   
     
 
