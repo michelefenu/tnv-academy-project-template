@@ -5,25 +5,25 @@
     <mat-card-header>
       <mat-card-title>Indovina il titolo!</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title"> 
+    <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title" ng-style="{'filter': 'blur(9px)'}"> 
     <mat-card-content>
-      <button class="button-63" role="button" (click)="toggleOverview()" name="bt">
-        {{buttonOverview}}
+      <button class="button-63" role="button" name="bt">
+        <p> </p>
       </button><br>
-      <h2 *ngIf="showOverview">
+      <h2 >
         {{tmdService.movie.overview}} 
       </h2><br>
       <button class="button-63" role="button"  id="bt">
-        Premi per sapere la data di uscita
+        
       </button><br>
-      <h2 *ngIf="showRelease">
+      <h2 >
         {{tmdService.movie.release_date}} 
       </h2><br>
-      <button class="button-63" role="button"  id="bt">
+      <button class="button-63" role="button" (click)="toggleVote()" id="bt">
         Premi per sapere il voto
       </button><br>
       <h2 *ngIf="showVote">
-        {{tmdService.movie.vote_average}} 
+        
       </h2><br>
     </mat-card-content>
     <mat-card-actions>
