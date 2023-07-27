@@ -24,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PlayComponent } from './components/play/play.component';
 import { ReviewMovieComponent } from './@shared/components/review-movie/review-movie.component';
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
+import { FormGuessTitleComponent } from './@shared/components/form-guess-title/form-guess-title.component';
 
 
 
@@ -47,6 +48,7 @@ import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
     PlayComponent,
     ReviewMovieComponent,
     HomeCarouselComponent,
+    FormGuessTitleComponent,
   ],
   imports: [
     BrowserModule,
