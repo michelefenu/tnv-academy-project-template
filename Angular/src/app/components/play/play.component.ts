@@ -9,6 +9,7 @@ import { TmdService } from 'src/app/@shared/servicesTMD/tmd.service';
 
 export class PlayComponent implements OnInit{
 
+
   movieId: number;
   idFamousMovies: number[];
 

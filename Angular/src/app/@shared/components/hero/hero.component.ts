@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'tnv-hero',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HeroComponent {
 
-  title: string ="Guess The Movie";
+  @Input() title: string = "Welcome";
 
   constructor(){}
 
