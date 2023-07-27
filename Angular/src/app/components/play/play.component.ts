@@ -11,11 +11,10 @@ export class PlayComponent implements OnInit{
 
   movieId: number;
   idFamousMovies: number[];
-  showOverview: boolean = false;
-  showRelease: boolean = false;
   showVote: boolean = false;
+  backgroundImage: string;
 
-  buttonOverview: any = this.showOverview;
+  //buttonVote: any = this.showVote;
   
 
   constructor(public tmdService: TmdService){
@@ -29,36 +28,24 @@ export class PlayComponent implements OnInit{
     this.tmdService.getMovie(this.movieId)
     
     
- /* 
-    toggleRelease(): void{
-      this.showRelease = !this.showRelease;
 
-      
-      if(this.showRelease)  
-        this.buttonName = "Hide";
-      else
-        this.buttonName = "Show";
-    }
-  
-    toggleVote(): void{
-      this.show = !this.show;
-
-      
-      if(this.show)  
-        this.buttonName = "Hide";
-      else
-        this.buttonName = "Show";
-    }
-    */
   }
-  toggleOverview() {
-    this.showOverview = !this.showOverview;
 
-    if(this.showOverview)  
-      this.buttonOverview = "Hide";
+
+  toggleVote() {
+    /*
+    this.showVote = !this.showVote;
+
+    if(this.showVote)  
+      this.buttonVote = "Premi per sapere il voto della community!";
     else
-      this.buttonOverview = "Show";
+      this.buttonVote = "Voto:";
+      */
   }
+
+    changeImage(){
+
+    }
   }
 
     

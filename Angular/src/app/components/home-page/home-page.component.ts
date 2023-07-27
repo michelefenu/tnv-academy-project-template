@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TmdService } from 'src/app/@shared/servicesTMD/tmd.service';
 
 @Component({
   selector: 'tnv-home-page',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(public tmdService: TmdService) { }
 
   ngOnInit(): void {
   }
