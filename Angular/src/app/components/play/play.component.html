@@ -5,27 +5,40 @@
     <mat-card-header>
       <mat-card-title>Indovina il titolo!</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title" ng-style="{'filter': 'blur(9px)'}"> 
+    <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title">
     <mat-card-content>
-      <button class="button-63" role="button" name="bt">
-        <p> </p>
+      <button class="button-63" role="button" (click)="onClickButtonShowOverview()" name="bt">
+        Premi per sapere la trama!
       </button><br>
-      <h2 >
+      <h2 *ngIf="showOverview" >
         {{tmdService.movie.overview}} 
       </h2><br>
-      <button class="button-63" role="button"  id="bt">
-        
+      <button class="button-63" role="button"  id="bt" (click)="onClickButtonShowReleaseDate()" name="bt">
+        Premi per sapere la data di uscita!
       </button><br>
-      <h2 >
-        {{tmdService.movie.release_date}} 
+      <h2 *ngIf="showReleaseDate">
+        {{tmdService.movie.release_date | date: 'dd/MM/yyyy'}} 
       </h2><br>
-      <button class="button-63" role="button" (click)="toggleVote()" id="bt">
-        Premi per sapere il voto
+      <button class="button-63" role="button" id="bt" (click)="onClickButtonShowVoteAverage()">
+        Premi per sapere il voto!
       </button><br>
-      <h2 *ngIf="showVote">
-        
+      <h2 *ngIf="showVoteAverage">
+        {{tmdService.movie.vote_average}}
+      </h2><br>
+      <button class="button-63" role="button" id="bt" (click)="onClickButtonShowOriginalLanguage()">
+        Premi per sapere la lingua originale!
+      </button><br>
+      <h2 *ngIf="showOriginalLanguage">
+        {{tmdService.movie.original_language}}
+      </h2><br>
+      <button class="button-63" role="button" id="bt" (click)="onClickButtonShowPopularity()">
+        Premi per sapere quanti voti ha ricevuto dalla community!
+      </button><br>
+      <h2 *ngIf="showPopularity">
+        {{tmdService.movie.vote_count | number: '1.0'}}
       </h2><br>
     </mat-card-content>
+    <h1>Prova a indovinare il titolo..</h1>
     <mat-card-actions>
         <p>
             <mat-form-field appearance="outline">
@@ -36,6 +49,10 @@
           </p>
     </mat-card-actions>
   </mat-card>
+
+  
+
+  
 
 
 
