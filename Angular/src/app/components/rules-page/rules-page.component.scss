@@ -1,0 +1,27 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+}
+
+.container-ticket {
+    display: flex;
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+    width: 1000px;
+}
+
+.tickets {
+    text-align: center; /* Centra l'immagine orizzontalmente */
+}
+
+.tickets img {
+    max-width: 100%; /* Assicura che l'immagine non superi la larghezza del contenitore */
+}
+
+h2{
+    text-align: center;
+    color: #542754;
+}
