@@ -1,0 +1,19 @@
+<mat-card-actions>
+    <form class="checkMovie-form data-form" #GuessMovieForm="ngForm">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>titolo...</mat-label>
+                <input matInput type="tmdService.movie.title"  name="movieTitle" 
+                ngModel #movieTitle="ngModel"
+                placeholder="titolo">
+                <mat-icon matSuffix>help_outline</mat-icon>
+            </mat-form-field>
+        </p>
+        <div class="button-container">
+            <button class="button-63" role="button" >
+                Guess The Movie?
+                    </button>
+        </div>
+    </form>
+    {{GuessMovieForm.value | json}}
+</mat-card-actions>

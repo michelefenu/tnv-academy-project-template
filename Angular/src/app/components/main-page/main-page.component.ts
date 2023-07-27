@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tnv-main-page',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+  @Input() title:string = "";
 
   constructor() { }
 
