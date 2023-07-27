@@ -1,3 +1,5 @@
+
+
 .welcome-container {
     display: flex;
     justify-content: center;
@@ -68,4 +70,28 @@
       min-width: 216px;    
     }
   }
+ 
+  .line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: #542754;
+  }
   
+  .line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+  }
+  
+  
+  h2{
+    text-align: center;
+    color: #542754;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }

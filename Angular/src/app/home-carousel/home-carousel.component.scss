@@ -1,0 +1,151 @@
+body {
+  font-family: 'Kanit', sans-serif, 'Mukta', sans-serif;
+}
+
+.container {
+  height: 300px;
+  width: 600px;
+  top: 60px;
+  left: calc(50% - 300px);
+  display: flex;
+}
+
+.card1{
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background: url("/assets/images/film1.jpg");
+  background-size: cover;
+border-radius: 10px;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card2{
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background: url("/assets/images/film2.jpeg");
+  background-size: cover;
+border-radius: 10px;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card3{
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background: url("/assets/images/film3.jpg");
+  background-size: cover;
+border-radius: 10px;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card4{
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background: url("/assets/images/film4.jpg");
+  background-size: cover;
+border-radius: 10px;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card5{
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background: url("/assets/images/film5.jpg");
+  background-size: cover;
+border-radius: 10px;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card{
+  height: 280px;
+  width: 200px;
+}
+.card:not(:first-child) {
+    margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+
+.title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 150px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0,154,217);
+  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+  transition: 0.6s ease-out;
+}
+
+.card:hover .filledbar {
+  width: 120px;
+  transition: 0.4s ease-out;
+}
+
+.circle {
+  position: absolute;
+  top: 150px;
+  left: calc(50% - 60px);
+}
+
+.stroke {
+  stroke: white;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+
+svg {
+  fill: #17141d;
+  stroke-width: 2px;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
+}
