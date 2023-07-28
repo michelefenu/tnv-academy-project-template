@@ -2,24 +2,25 @@ body {
     margin: 0px;
     padding: 0px;
     display: flex;
-    justify-content: center; /* Centra il contenuto orizzontalmente */
-    align-items: center; /* Centra il contenuto verticalmente */
+    justify-content: center; 
+    align-items: center; 
 }
 
 .container-ticket {
     display: flex;
-    justify-content: center; /* Centra il contenuto orizzontalmente */
-    align-items: center; /* Centra il contenuto verticalmente */
+    justify-content: center; 
+    align-items: center; 
     width: 1000px;
 }
 
 .tickets {
-    text-align: center; /* Centra l'immagine orizzontalmente */
+    text-align: center; 
 }
 
 .tickets img {
-    max-width: 100%; /* Assicura che l'immagine non superi la larghezza del contenitore */
+    max-width: 100%;
 }
+
 
 h2{
     text-align: center;
