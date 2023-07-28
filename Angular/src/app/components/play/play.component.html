@@ -5,11 +5,12 @@
 <head>
   <title>Avvia Partita!</title>
 </head>
+<div *ngIf="!youWon">
   <div class="button-container">
     <button class="button-63" role="button" (click)="startTimer()">Avvia partita!</button>
-</div>
+  </div>
 
-<mat-card class="movie-card">
+  <mat-card class="movie-card">
     <mat-card-header>
       <mat-card-title>Indovina il titolo!</mat-card-title>
     </mat-card-header>
@@ -18,28 +19,32 @@
       <button class="button-63" role="button" [disabled]="clickedBtOne" (click)="onClickButtonShowOverview()" name="bt">
         Premi per sapere la trama!
       </button><br>
-      <h2 *ngIf="showOverview" >
-        {{tmdService.movie.overview}} 
+      <h2 *ngIf="showOverview">
+        {{tmdService.movie.overview}}
       </h2><br>
-      <button class="button-63" role="button"  id="bt" [disabled]="clickedBtTwo" (click)="onClickButtonShowReleaseDate()" name="bt">
+      <button class="button-63" role="button" id="bt" [disabled]="clickedBtTwo" (click)="onClickButtonShowReleaseDate()"
+        name="bt">
         Premi per sapere la data di uscita!
       </button><br>
       <h2 *ngIf="showReleaseDate">
-        {{tmdService.movie.release_date | date: 'dd/MM/yyyy'}} 
+        {{tmdService.movie.release_date | date: 'dd/MM/yyyy'}}
       </h2><br>
-      <button class="button-63" role="button" id="bt" [disabled]="clickedBtThree" (click)="onClickButtonShowVoteAverage()">
+      <button class="button-63" role="button" id="bt" [disabled]="clickedBtThree"
+        (click)="onClickButtonShowVoteAverage()">
         Premi per sapere il voto!
       </button><br>
       <h2 *ngIf="showVoteAverage">
         {{tmdService.movie.vote_average}}
       </h2><br>
-      <button class="button-63" role="button" id="bt" [disabled]="clickedBtFour" (click)="onClickButtonShowOriginalLanguage()">
+      <button class="button-63" role="button" id="bt" [disabled]="clickedBtFour"
+        (click)="onClickButtonShowOriginalLanguage()">
         Premi per sapere la lingua originale!
       </button><br>
       <h2 *ngIf="showOriginalLanguage">
         {{tmdService.movie.original_language}}
       </h2><br>
-      <button class="button-63" role="button" id="bt" [disabled]="clickedBtFive" (click)="onClickButtonShowPopularity()">
+      <button class="button-63" role="button" id="bt" [disabled]="clickedBtFive"
+        (click)="onClickButtonShowPopularity()">
         Premi per sapere quanti voti ha ricevuto dalla community!
       </button><br>
       <h2 *ngIf="showPopularity">
@@ -49,42 +54,32 @@
     <h1>Prova a indovinare il titolo..</h1>
     <!---->
     <mat-card-actions>
-    <form class="checkMovie-form data-form" #GuessMovieForm="ngForm" (ngSubmit)="checkIfMovieCorrect(GuessMovieForm.value, tmdService.movieTitle)">
+      <form class="checkMovie-form data-form" #GuessMovieForm="ngForm"
+        (ngSubmit)="checkIfMovieCorrect(GuessMovieForm.value, tmdService.movieTitle)">
         <p>
-            <mat-form-field appearance="outline">
-                <mat-label>titolo...</mat-label>
-                <input matInput  name="attempt" 
-                [(ngModel)]="val.movieTitleAttempt" [ngModelOptions]="{updateOn: 'submit'}"
-                #movieTitleAttempt="ngModel"
-                placeholder="titolo">
-                <mat-icon matSuffix>help_outline</mat-icon>
-            </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>titolo...</mat-label>
+            <input matInput name="attempt" [(ngModel)]="val.movieTitleAttempt" [ngModelOptions]="{updateOn: 'submit'}"
+              #movieTitleAttempt="ngModel" placeholder="titolo">
+            <mat-icon matSuffix>help_outline</mat-icon>
+          </mat-form-field>
         </p>
         <div class="button-container">
-            <button class="button-63" role="button" >
-                Guess The Movie?
-                    </button>
+          <button class="button-63" role="button">
+            Guess The Movie?
+          </button>
         </div>
-    </form>
-</mat-card-actions>
-      <!---->
+      </form>
+    </mat-card-actions>
+    <!---->
   </mat-card>
 
   <div>
     <p>Timer: {{totalElapsedTime}} secondi</p>
-   </div>
+  </div>
+</div>
 
-  
-
-  
-
-
-
-
-
-
-  
-    
-
-
-    
+<div *ngIf="youWon">
+  <!-- mettiamo come background l'immagine del film-->
+  <tnv-review-movie></tnv-review-movie>
+</div>

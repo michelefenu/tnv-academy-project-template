@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TmdService } from 'src/app/@shared/servicesTMD/tmd.service';
 
@@ -46,7 +46,9 @@ clickedBtFour: boolean = false;
 clickedBtFive: boolean = false;
 //
 
-
+//
+youWon: boolean = false;
+isVisible:boolean = true;
   
 
   constructor(public tmdService: TmdService){
@@ -125,53 +127,12 @@ clickedBtFive: boolean = false;
     if(this.val.movieTitleAttempt === movieTitle){
       console.log("bravo hai vinto")
       this.stopTimer();
+      this.youWon = true;
     }
 
   }
 }
 
-
-    
-      
-    
- 
-
-
-
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-//`https://api.themoviedb.org/3/trending/movie/week?api_key=8401b10a43e9d31af2e82091f450d1f4`
-
-
-
-
-  //https://www.encodedna.com/angular/how-to-show-hide-or-toggle-elements-in-angular-4.htm#:~:text=The%20*ngIf%20directive%20has%20a,hide%20elements%20inside%20the%20container.
-
-  /*
-  -fare meglio l'hiding dei bottoni, sono separati
-  -far apparire l'immagine, penso basti l'API
-  -ogni volta che un bottone viene premuto, deve essere chiamata la funzione aumentaTimer
-  -far iniziare una funzione aumenta timer
-  -far si che quando si digita il form ci sia un check se corrisponde a movie.title
-  -se corrisponde a invio del form, invoca fermaTimer e
-            -manda a review component/appare
-            -invia come parametri id film, id utente e string recensione
-  -se non corrisponde deve angular sound o un messaggio rosso
-
-  */ 
 
 
 
