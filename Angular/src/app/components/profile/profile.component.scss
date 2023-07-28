@@ -105,13 +105,11 @@ body {
   position: relative;
   top: -55px;
   margin: 0 auto;
-  font-family: "Kanit', sans-serif, 'Mukta', sans-serif";
   font-size: 22px;
   backface-visibility: hidden;
 
   .front__text-header {
     font-weight: 700;
-    font-family: "Kanit', sans-serif, 'Mukta', sans-serif";
     text-transform: uppercase;
     font-size: 25px;
     
@@ -125,7 +123,6 @@ body {
     font-size: 22px;
     letter-spacing: 0.4px;
     font-weight: 400;
-    font-family: "Kanit', sans-serif, 'Mukta', sans-serif";
   }
 
   .front-icons {
@@ -143,10 +140,8 @@ body {
     backface-visibility: hidden;
 
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: .4px;
 
-    border: 2px solid $red;
     padding: 15px 17px;
 
     color: $white;
