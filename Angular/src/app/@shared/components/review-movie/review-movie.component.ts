@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { TmdService } from '../../servicesTMD/tmd.service';
 
 
@@ -14,8 +14,12 @@ export class ReviewMovieComponent implements OnInit{
     title: string;
 
     val = {
-      review: ""
+
+      review: "",
+     // rating: number
     };
+
+    
 
     constructor(tmdService: TmdService){
       this.title = tmdService.movieTitle;
@@ -27,8 +31,8 @@ export class ReviewMovieComponent implements OnInit{
       
     }
 
-    onSubmit(): void {
-      
+    sendReview(reviewform: NgForm){
+      console.log(reviewform.value)
     }
 
 }
