@@ -1,0 +1,28 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.container-ticket {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 1000px;
+}
+
+.tickets {
+    text-align: center; 
+}
+
+.tickets img {
+    max-width: 100%;
+}
+
+
+h2{
+    text-align: center;
+    color: #542754;
+}
