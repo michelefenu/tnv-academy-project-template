@@ -11,6 +11,7 @@ export class TmdService {
 
   movie: Movie;
   poster: string;
+  movieTitle: string;
 
   
   
@@ -25,7 +26,7 @@ export class TmdService {
       next: (response) => {
         this.movie = response;
         this.poster += response.poster_path; //vedi commento su
-        console.log(this.poster)
+        this.movieTitle = response.title;
       },
       error: (error) => console.log('Errore', error)
       

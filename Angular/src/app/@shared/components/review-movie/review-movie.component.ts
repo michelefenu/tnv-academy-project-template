@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RatingService } from '../../servicesRating/rating.service';
+import { FormGroup } from '@angular/forms';
+import { TmdService } from '../../servicesTMD/tmd.service';
+
 
 @Component({
   selector: 'tnv-review-movie',
@@ -10,18 +11,24 @@ import { RatingService } from '../../servicesRating/rating.service';
 export class ReviewMovieComponent implements OnInit{
   reviewform: FormGroup;
 
-    constructor(private rating: RatingService){}
+    title: string;
+
+    val = {
+      review: ""
+    };
+
+    constructor(tmdService: TmdService){
+      this.title = tmdService.movieTitle;
+    }
 
     ngOnInit(): void {
-      this.reviewform = new FormGroup({
-        recensione: new FormControl(Validators.required )
-      })
+      
 
       
     }
 
     onSubmit(): void {
-      console.log(this.reviewform);
+      
     }
 
 }
