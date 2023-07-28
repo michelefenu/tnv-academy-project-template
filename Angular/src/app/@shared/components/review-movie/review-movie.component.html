@@ -1,5 +1,5 @@
 
-<h2 class="card-title">Recensioni film</h2>
+<h2 class="card-title">{{title}}</h2>
 <div>
   <form action="">
     <hr>
@@ -20,7 +20,7 @@
     <div class="form-group row">
       <label for="review" class="col-sm-2 col-form-label">Recensione</label>
       <div class="col-sm-10">
-        <textarea name="review" id="review" rows="5" class="form-
+        <textarea name="review" id="review" rows="5" style="width: 500px" class="form-
         control"></textarea>
       </div>
     </div>
@@ -28,10 +28,27 @@
       <div class="col-12">
         <button type="submit" class="btn btn-primary float-right"
         style="margin-left:15px">Aggiungi recensione!</button>
-        <button type="button" class="btn btn-default float-
-         right">Gioca ancora</button>
+        <button type="button" class="btn btn-primary float-right" role="button">Gioca ancora</button>
       </div>
     </div>
     <hr>
   </form>
 </div>
+
+
+<!-- <form class="checkMovie-form data-form" #GuessMovieForm="ngForm"
+(ngSubmit)="checkIfMovieCorrect(GuessMovieForm.value, tmdService.movieTitle)">
+<p>
+<mat-form-field appearance="outline">
+  <mat-label>titolo...</mat-label>
+  <input matInput name="attempt" [(ngModel)]="val.movieTitleAttempt" [ngModelOptions]="{updateOn: 'submit'}"
+    #movieTitleAttempt="ngModel" placeholder="titolo">
+  <mat-icon matSuffix>help_outline</mat-icon>
+</mat-form-field>
+</p>
+<div class="button-container">
+<button class="button-63" role="button">
+  Guess The Movie?
+</button>
+</div>
+</form> -->

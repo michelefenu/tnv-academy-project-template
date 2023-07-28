@@ -57,7 +57,7 @@
       <form class="checkMovie-form data-form" #GuessMovieForm="ngForm"
         (ngSubmit)="checkIfMovieCorrect(GuessMovieForm.value, tmdService.movieTitle)">
         <p>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" style="width: 500px">
             <mat-label>titolo...</mat-label>
             <input matInput name="attempt" [(ngModel)]="val.movieTitleAttempt" [ngModelOptions]="{updateOn: 'submit'}"
               #movieTitleAttempt="ngModel" placeholder="titolo">
