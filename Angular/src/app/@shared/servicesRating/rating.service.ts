@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { switchMap } from 'rxjs';
 import { Rating } from 'src/app/models/rating';
 import { TmdService } from '../servicesTMD/tmd.service';
-import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
+
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class RatingService {
 
   /* rating: Rating | undefined| null; */
 
-  constructor(private httpClient: HttpClient, tmdService: TmdService, authService: AuthService) {
+  constructor(private httpClient: HttpClient, tmdService: TmdService) {
     /* this.rating.movieId = tmdService.movie.id.toString();
     this.rating.id = (Math.floor(Math.random() * 100000) + 1).toString();
     //this.rating.userId = authService.getCurrentUser(). */
