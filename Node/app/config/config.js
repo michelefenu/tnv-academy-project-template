@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize({
-  database: "gtm_movies",
+  database: "gtm",
   username: "root",
-  password: "andreaSQL6064",
+  password: "Famosissim090",
   host: "localhost",
   port: 3306,
   dialect: "mysql",
