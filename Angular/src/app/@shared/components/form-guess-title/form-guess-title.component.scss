@@ -1,13 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0; 
-  }
-  
-  .button-container {
+.button-container {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
@@ -23,7 +14,7 @@ body {
     box-sizing: border-box;
     color: #FFFFFF;
     display: flex;
-    font-family:'Lato', sans-serif;
+    font-family: Phantomsans, sans-serif;
     font-size: 20px;
     justify-content: center;
     line-height: 1em;
@@ -51,4 +42,3 @@ body {
       min-width: 196px;
     }
   }
-  

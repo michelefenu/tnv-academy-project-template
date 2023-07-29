@@ -4,7 +4,7 @@ body {
     display: flex;
     height: 100vh;
     justify-content: center;
-    margin: 0; /* Aggiunto per rimuovere il margine di default del body */
+    margin: 0; 
   }
   
   @mixin white-gradient {
@@ -13,22 +13,21 @@ body {
   
   $animationSpeed: 40s;
   
-  // Animation
   @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-250px * 7)); }
   }
   
-  // Styling
+  
   .slider {
     background: white;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
     height: 100px;
     margin: auto;
-    margin-top: 70px; /* Aggiunto margine superiore di 40px */
+    margin-top: 70px;
     overflow: hidden;
     position: relative;
-    width: 100vw; /* Imposta la larghezza del contenitore sulla larghezza della viewport */
+    width: 100vw; 
     
     &::before,
     &::after {
@@ -54,16 +53,16 @@ body {
       animation: scroll $animationSpeed linear infinite;
       display: flex;
       width: calc(250px * 14);
-      align-items: center; /* Centra verticalmente le immagini */
-      margin-left: -250px; /* Sposta il carosello verso sinistra per far iniziare dal bordo */
+      align-items: center; 
+      margin-left: -250px; 
     }
     
     .slide {
       height: 100px;
       width: 250px;
       display: flex;
-      justify-content: center; /* Centra orizzontalmente le immagini */
-      align-items: center; /* Centra verticalmente le immagini */
+      justify-content: center; 
+      align-items: center; 
     }
   
     .slide img {
