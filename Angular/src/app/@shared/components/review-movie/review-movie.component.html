@@ -1,14 +1,21 @@
-
 <h2 class="card-title">{{title}}</h2>
 <div>
   <form class="review-form" #reviewForm="ngForm" (ngSubmit)="sendReview()">
     <hr>
     <h4>La tua recensione</h4>
-    
+
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Titolo recensione</label>
+      <div class="col-sm-10">
+        <input id="name" name="name" class="form-control" [(ngModel)]="val.reviewTitle" #reviewTitle="ngModel"
+        [ngModelOptions]="{updateOn: 'submit'}">
+      </div>
+    </div>
     <div class="form-group row">
       <label for="rating" class="col-sm-2 col-form-label">Voto</label>
       <div class="col-sm-10 col-md-2">
-        <select id="rating" name="ratingMovie" class="form-control" ngModel #rating [ngModelOptions]="{updateOn: 'submit'}">
+        <select id="rating" name="ratingMovie" class="form-control" [(ngModel)]="val.ratingMovie" #ratingMovie="ngModel"
+          [ngModelOptions]="{updateOn: 'submit'}">
           <option value="5">5</option>
           <option value="4">4</option>
           <option value="3">3</option>
@@ -21,15 +28,16 @@
       <label for="review" class="col-sm-2 col-form-label">Recensione</label>
       <div class="col-sm-10">
         <textarea name="reviewField" id="review" rows="5" style="width: 500px" class="form-
-        control" ngModel #review [ngModelOptions]="{updateOn: 'submit'}"></textarea>
+        control" [(ngModel)]="val.reviewField" #reviewField [ngModelOptions]="{updateOn: 'submit'}"></textarea>
       </div>
     </div>
     <hr>
     <div class="form-group row">
       <div class="col-12">
-        <button type="submit" class="btn btn-primary float-right"
-        role="button" style="margin-left:15px">Aggiungi recensione!</button>
-        <button type="button" class="btn btn-primary float-right" role="button" style="margin-left:10px">Gioca ancora</button>
+        <button type="submit" class="btn btn-primary float-right" role="button" style="margin-left:15px">Aggiungi
+          recensione!</button>
+        <button type="button" class="btn btn-primary float-right" role="button" style="margin-left:10px" (click)="giocaAncora()">Gioca
+          ancora</button>
       </div>
     </div>
     <hr>

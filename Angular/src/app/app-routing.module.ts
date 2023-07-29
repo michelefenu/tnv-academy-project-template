@@ -21,7 +21,6 @@ const routes: Routes = [
       { path: "profile", component: ProfileComponent },
       { path: "rules", component: RulesPageComponent },
       { path: "play", component: PlayComponent},
-      { path: "review", component: ReviewMovieComponent},
       { path: "", redirectTo: "home", pathMatch: 'full' },
     ],
   },
