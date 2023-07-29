@@ -6,6 +6,7 @@ import { Rating } from 'src/app/models/rating';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
 import { AuthGuard } from 'src/app/@core/helpers/auth-guard';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -18,9 +19,17 @@ export class ReviewMovieComponent implements OnInit{
 
     title: string;
     movieId: number;
+
+    currentUser: User;
     
   //
-    completeUserRating: Rating;
+    completeUserRating: Rating = {
+      idNomeReview: 0,
+      userId: 0,
+      movieId: 0,
+      rating: 0,
+      review: ''
+    };
     
     val = {
       reviewTitle: "inserisci qui il titolo della tua recensione!",
@@ -31,7 +40,7 @@ export class ReviewMovieComponent implements OnInit{
 
     constructor(public tmdService: TmdService, public ratingService: RatingService, public router: Router, public authService: AuthService, public authGuard: AuthGuard){
       this.title = tmdService.movieTitle;
-      
+      this.movieId = 10;
       
     }
 
@@ -43,15 +52,21 @@ export class ReviewMovieComponent implements OnInit{
     
 
     sendReview(){
-      console.log(this.val.reviewField);
-      console.log(this.val.reviewTitle);
-      console.log(this.val.ratingMovie);
-      this.completeUserRating = this.generateRatingObject(this.completeUserRating);
-      console.log(this.completeUserRating);
+      this.completeUserRating.idNomeReview = 5;
+      this.completeUserRating.movieId = this.movieId;
+      this.completeUserRating.review = this.val.reviewField;
+      this.completeUserRating.rating = this.val.ratingMovie;
+      this.completeUserRating.userId = 2;
+      console.log(this.completeUserRating.idNomeReview);
+      console.log(this.completeUserRating.userId);
+      console.log(this.completeUserRating.movieId);
+      console.log(this.completeUserRating.rating);
+      console.log(this.completeUserRating.review);
+
       this.ratingService.addRating(this.completeUserRating).subscribe({
         next: (res: Rating) => {
           this.completeUserRating = res;
-          this.router.navigateByUrl("/profile");
+          this.router.navigateByUrl("/home");
         },
         error: (error: any) => {
           console.error("errore");
@@ -59,15 +74,6 @@ export class ReviewMovieComponent implements OnInit{
       });
     }
 
-    generateRatingObject(userRating: Rating){
-      userRating = {
-        userId: "esempio",
-        movieId: "this.movieId",
-        rating: this.val.ratingMovie,
-        review: this.val.reviewField,
-      }
-      return userRating;
-    }
 
     giocaAncora(){
       location.reload();
