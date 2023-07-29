@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { TmdService } from '../../servicesTMD/tmd.service';
+import { RatingService } from '../../servicesRating/rating.service';
+import { Rating } from 'src/app/models/rating';
 
 
 @Component({
@@ -13,15 +15,24 @@ export class ReviewMovieComponent implements OnInit{
 
     title: string;
 
-    val = {
-
-      review: "",
-     // rating: number
-    };
 
     
 
-    constructor(tmdService: TmdService){
+      
+      /* id?: string,
+      userId: string,
+      movieId: string,
+      rating: number */
+  
+   // reviewedMovie: Rating = {
+      //review: "scrivi qui una recensione, non superare le 150 parole!",
+      //rating: 0,
+     // userId: ""
+   // }//;
+
+    
+
+    constructor(tmdService: TmdService, ratingService: RatingService){
       this.title = tmdService.movieTitle;
     }
 
@@ -31,8 +42,12 @@ export class ReviewMovieComponent implements OnInit{
       
     }
 
-    sendReview(reviewform: NgForm){
-      console.log(reviewform.value)
+    sendReview(/* reviewform: NgForm, ratingService: RatingService */){
+      
+
+
+      /* console.log(reviewform.value)
+      console.log(this.val.rating, this.val.review) */
     }
 
 }
