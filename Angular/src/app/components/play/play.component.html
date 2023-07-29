@@ -5,77 +5,80 @@
 <head>
   <title>Avvia Partita!</title>
 </head>
-<div *ngIf="!youWon">
-  <div class="button-container">
-    <button class="button-63" role="button" (click)="startTimer()">Avvia partita!</button>
-  </div>
 
-  <mat-card class="movie-card">
-    <mat-card-header>
-      <mat-card-title>Indovina il titolo!</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title">
-    <mat-card-content>
-      <button class="button-63" role="button" [disabled]="clickedBtOne" (click)="onClickButtonShowOverview()" name="bt">
-        Premi per sapere la trama!
-      </button><br>
-      <h2 *ngIf="showOverview">
-        {{tmdService.movie.overview}}
-      </h2><br>
-      <button class="button-63" role="button" id="bt" [disabled]="clickedBtTwo" (click)="onClickButtonShowReleaseDate()"
-        name="bt">
-        Premi per sapere la data di uscita!
-      </button><br>
-      <h2 *ngIf="showReleaseDate">
-        {{tmdService.movie.release_date | date: 'dd/MM/yyyy'}}
-      </h2><br>
-      <button class="button-63" role="button" id="bt" [disabled]="clickedBtThree"
-        (click)="onClickButtonShowVoteAverage()">
-        Premi per sapere il voto!
-      </button><br>
-      <h2 *ngIf="showVoteAverage">
-        {{tmdService.movie.vote_average}}
-      </h2><br>
-      <button class="button-63" role="button" id="bt" [disabled]="clickedBtFour"
-        (click)="onClickButtonShowOriginalLanguage()">
-        Premi per sapere la lingua originale!
-      </button><br>
-      <h2 *ngIf="showOriginalLanguage">
-        {{tmdService.movie.original_language}}
-      </h2><br>
-      <button class="button-63" role="button" id="bt" [disabled]="clickedBtFive"
-        (click)="onClickButtonShowPopularity()">
-        Premi per sapere quanti voti ha ricevuto dalla community!
-      </button><br>
-      <h2 *ngIf="showPopularity">
-        {{tmdService.movie.vote_count | number: '1.0'}}
-      </h2><br>
-    </mat-card-content>
-    <h1>Prova a indovinare il titolo..</h1>
-    <!---->
-    <mat-card-actions>
-      <form class="checkMovie-form data-form" #GuessMovieForm="ngForm"
-        (ngSubmit)="checkIfMovieCorrect(GuessMovieForm.value, tmdService.movieTitle)">
-        <p>
-          <mat-form-field appearance="outline" style="width: 500px">
-            <mat-label>titolo...</mat-label>
-            <input matInput name="attempt" [(ngModel)]="val.movieTitleAttempt" [ngModelOptions]="{updateOn: 'submit'}"
-              #movieTitleAttempt="ngModel" placeholder="titolo">
-            <mat-icon matSuffix>help_outline</mat-icon>
-          </mat-form-field>
-        </p>
-        <div class="button-container">
-          <button class="button-63" role="button">
-            Guess The Movie?
-          </button>
-        </div>
-      </form>
-    </mat-card-actions>
-    <!---->
-  </mat-card>
+<div class="button-container" *ngIf="!showGame">
+  <button class="button-63" role="button" (click)="startTimer()">Avvia partita!</button>
+</div>
+<div *ngIf="showGame">
+  <div *ngIf="!youWon">
+    <mat-card class="movie-card">
+      <mat-card-header>
+        <mat-card-title>Indovina il titolo!</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title">
+      <mat-card-content>
+        <button class="button-63" role="button" [disabled]="clickedBtOne" (click)="onClickButtonShowOverview()"
+          name="bt">
+          Premi per sapere la trama!
+        </button><br>
+        <h2 *ngIf="showOverview">
+          {{tmdService.movie.overview}}
+        </h2><br>
+        <button class="button-63" role="button" id="bt" [disabled]="clickedBtTwo"
+          (click)="onClickButtonShowReleaseDate()" name="bt">
+          Premi per sapere la data di uscita!
+        </button><br>
+        <h2 *ngIf="showReleaseDate">
+          {{tmdService.movie.release_date | date: 'dd/MM/yyyy'}}
+        </h2><br>
+        <button class="button-63" role="button" id="bt" [disabled]="clickedBtThree"
+          (click)="onClickButtonShowVoteAverage()">
+          Premi per sapere il voto!
+        </button><br>
+        <h2 *ngIf="showVoteAverage">
+          {{tmdService.movie.vote_average}}
+        </h2><br>
+        <button class="button-63" role="button" id="bt" [disabled]="clickedBtFour"
+          (click)="onClickButtonShowOriginalLanguage()">
+          Premi per sapere la lingua originale!
+        </button><br>
+        <h2 *ngIf="showOriginalLanguage">
+          {{tmdService.movie.original_language}}
+        </h2><br>
+        <button class="button-63" role="button" id="bt" [disabled]="clickedBtFive"
+          (click)="onClickButtonShowPopularity()">
+          Premi per sapere quanti voti ha ricevuto dalla community!
+        </button><br>
+        <h2 *ngIf="showPopularity">
+          {{tmdService.movie.vote_count | number: '1.0'}}
+        </h2><br>
+      </mat-card-content>
+      <h1>Prova a indovinare il titolo..</h1>
+      <!---->
+      <mat-card-actions>
+        <form class="checkMovie-form data-form" #GuessMovieForm="ngForm"
+          (ngSubmit)="checkIfMovieCorrect(GuessMovieForm.value, tmdService.movieTitle)">
+          <p>
+            <mat-form-field appearance="outline" style="width: 500px">
+              <mat-label>titolo...</mat-label>
+              <input matInput name="attempt" [(ngModel)]="val.movieTitleAttempt" [ngModelOptions]="{updateOn: 'submit'}"
+                #movieTitleAttempt="ngModel" placeholder="titolo">
+              <mat-icon matSuffix>help_outline</mat-icon>
+            </mat-form-field>
+          </p>
+          <div class="button-container">
+            <button class="button-63" role="button">
+              Guess The Movie?
+            </button>
+          </div>
+        </form>
+      </mat-card-actions>
+      <!---->
+    </mat-card>
 
-  <div>
-    <p>Timer: {{totalElapsedTime}} secondi</p>
+    <div>
+      <p>Timer: {{totalElapsedTime}} secondi</p>
+    </div>
   </div>
 </div>
 
