@@ -48,7 +48,7 @@ clickedBtFive: boolean = false;
 
 //
 youWon: boolean = false;
-isVisible:boolean = true;
+showGame:boolean = false;
   
 
   constructor(public tmdService: TmdService){
@@ -65,7 +65,8 @@ isVisible:boolean = true;
 
   //
   startTimer(){
-    this.isRunning= true;
+    this.isRunning = true;
+    this.showGame = true;
     this.intervalId = setInterval(() => {
       this.totalElapsedTime++;
     }, 1000);
