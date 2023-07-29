@@ -7,25 +7,29 @@
 </head>
 
 <div class="button-container" *ngIf="!showGame">
-  <button class="button-63" role="button" (click)="startTimer()">Avvia partita!</button>
+  <button class="button-start" role="button" (click)="startTimer()">Avvia partita!</button>
 </div>
+
 <div *ngIf="showGame">
   <div *ngIf="!youWon">
     <mat-card class="movie-card">
       <mat-card-header>
-        <mat-card-title>Indovina il titolo!</mat-card-title>
+        <h1>Indovina il titolo!</h1>
       </mat-card-header>
-      <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title">
+      <img mat-card-image src={{tmdService.poster}} [alt]="tmdService.movie.title" style="width: 450px;">
+      <div class="timer">
+        <p>Timer: {{totalElapsedTime}} secondi</p>
+      </div>
       <mat-card-content>
-        <button class="button-63" role="button" [disabled]="clickedBtOne" (click)="onClickButtonShowOverview()"
-          name="bt">
+        <button class="button-63" role="button" id="bt" [disabled]="clickedBtOne" 
+        (click)="onClickButtonShowOverview()">
           Premi per sapere la trama!
         </button><br>
         <h2 *ngIf="showOverview">
           {{tmdService.movie.overview}}
         </h2><br>
         <button class="button-63" role="button" id="bt" [disabled]="clickedBtTwo"
-          (click)="onClickButtonShowReleaseDate()" name="bt">
+          (click)="onClickButtonShowReleaseDate()">
           Premi per sapere la data di uscita!
         </button><br>
         <h2 *ngIf="showReleaseDate">
@@ -76,7 +80,7 @@
       <!---->
     </mat-card>
 
-    <div>
+    <div class="timer">
       <p>Timer: {{totalElapsedTime}} secondi</p>
     </div>
   </div>

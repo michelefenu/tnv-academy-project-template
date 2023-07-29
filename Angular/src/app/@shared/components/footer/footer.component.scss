@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* -------------reset----------------*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -37,8 +36,8 @@ ul li{
 }
 
 html,body{
-	font-family: 'Kanit', sans-serif, 'Mukta', sans-serif;
-	color:black; /*color-text*/;
+	font-family: 'Lato', sans-serif;
+	color:black; 
 	height:100%;
 	width:100%;
 }
@@ -47,10 +46,8 @@ h1{
 	font-size: 1.5em;
 	text-align:center;
 	font-weight: bold;
-	color:white;/* primary color*/;
+	color:white;
 }
-
-/* -----------------contenitore e contenuto ------------------ */
 
 .contenitore .contenuto{
 	max-width:1200px;
@@ -59,14 +56,12 @@ h1{
 	padding-bottom: 70px;
 }
 
-/* -----------------footer html-----------------*/
-
 footer{
-	border-top: 1px solid #99c4ff; /* primary-color */
+	border-top: 1px solid #99c4ff; 
 	padding:30px 10px;
 	line-height: 1.6em;
 	font-size:18px;
-	background-color: #487a26;/* primary color*/
+	background-color: #487a26;
 	color: white;
 }
 
@@ -77,11 +72,11 @@ p{
 }
 
 footer a{
-	color:#c4e2b7; /* secondary-color*/
+	color:#c4e2b7; 
 }
 
 footer a:hover{
-	color:white; /* light seconday color*/	
+	color:white; 
 }
 
 footer .credits {
@@ -93,16 +88,16 @@ iframe{
 width: 16000px;}
 
 .copyright {
-    display: flex; /* Imposta il layout del blocco come "flex" */
-    justify-content: flex-start; /* Allinea il contenuto del blocco a sinistra */
-    margin: 0; /* Rimuove i margini predefiniti per il blocco */
+    display: flex; 
+    justify-content: flex-start; 
+    margin: 0;
   }
 
   footer .social-cont {
-    display: flex; /* Imposta il layout del blocco come "flex" */
-    justify-content: flex-end; /* Allinea il contenuto del blocco a destra */
-    width: 100%; /* Imposta la larghezza del blocco al 100% del contenitore genitore */
-    margin: 0; /* Rimuove i margini predefiniti per il blocco */
+    display: flex; 
+    justify-content: flex-end; 
+    width: 100%; 
+    margin: 0; 
   }
 
 footer .social-cont .social-list > li {
@@ -112,7 +107,7 @@ footer .social-cont .social-list > li {
 	height: 32px;
 	width: 32px;
 	border-radius: 6em;
-	background-color:#487a26; /* secondary-color*/
+	background-color:#487a26; 
 }
 
 footer .social-cont .social-list li img {
@@ -123,7 +118,6 @@ footer .social-cont .social-list > li:hover {
   transform: scale(1.2);
 }
 
-/* Stile per la lista nel footer */
 .menu-menu-footer{
     display: flex; 
     flex-wrap: wrap; 
@@ -134,13 +128,12 @@ footer .social-cont .social-list > li:hover {
     margin: 0;
   }
   
-  /* Stile per gli elementi della lista */
   .menu-menu-footer li {
-    margin-right: 20px; /* Aggiunge uno spazio tra gli elementi della lista */
+    margin-right: 20px; 
   }
   
   .menu-menu-footer li:last-child {
-    margin-right: 0; /* Rimuove lo spazio per l'ultimo elemento della lista */
+    margin-right: 0; 
   }
   
   .menu-menu-footer ul li a {
@@ -158,16 +151,13 @@ footer .social-cont .social-list > li:hover {
   }
   
   div.by {
-    display: flex; /* Imposta il layout del blocco come "flex" */
-    flex-direction: column; /* Imposta la direzione dei figli come verticale */
-    align-items: center; /* Allinea gli elementi lungo l'asse orizzontale al centro */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
   }
 
-  /* Imposta il layout del footer come "flex" e allinea il contenuto verticalmente al centro */
-
-  
   div.by {
-    margin-top: 0px; /* Aggiunge uno spazio tra "Designed by" e il resto del contenuto */
+    margin-top: 0px; 
   text-align: center;
     display: flex;
     justify-content: center;
