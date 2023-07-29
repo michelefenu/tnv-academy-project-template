@@ -12,6 +12,9 @@ const Rating = db.define('ratings', {
   },
   rating: {
     type: DataTypes.INTEGER
+  },
+  review: {
+    type: DataTypes.STRING
   }
 }, {
   freezeTableName: true

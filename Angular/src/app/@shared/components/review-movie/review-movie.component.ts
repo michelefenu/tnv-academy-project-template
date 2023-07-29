@@ -3,6 +3,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 import { TmdService } from '../../servicesTMD/tmd.service';
 import { RatingService } from '../../servicesRating/rating.service';
 import { Rating } from 'src/app/models/rating';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -11,43 +12,58 @@ import { Rating } from 'src/app/models/rating';
   styleUrls: ['./review-movie.component.scss']
 })
 export class ReviewMovieComponent implements OnInit{
-  reviewform: FormGroup;
+    reviewform: FormGroup;
 
     title: string;
-
-
+    //
+    movieId: string = "15";
+  //
+    completeUserRating: Rating;
+    
+    val = {
+      reviewTitle: "inserisci qui il titolo della tua recensione!",
+      reviewField: "inserisci qui la tua recensione!",
+      ratingMovie: 1
+    }
     
 
-      
-      /* id?: string,
-      userId: string,
-      movieId: string,
-      rating: number */
-  
-   // reviewedMovie: Rating = {
-      //review: "scrivi qui una recensione, non superare le 150 parole!",
-      //rating: 0,
-     // userId: ""
-   // }//;
-
-    
-
-    constructor(tmdService: TmdService, ratingService: RatingService){
+    constructor(public tmdService: TmdService, public ratingService: RatingService){
       this.title = tmdService.movieTitle;
+      
     }
 
     ngOnInit(): void {
-      
 
       
     }
 
-    sendReview(/* reviewform: NgForm, ratingService: RatingService */){
+    
+
+    sendReview(){
+      console.log(this.val.reviewField);
+      console.log(this.val.reviewTitle);
+      console.log(this.val.ratingMovie);
+      this.completeUserRating = this.generateRatingObject(this.completeUserRating);
+      console.log(this.completeUserRating);
+      this.ratingService.addRating(this.completeUserRating);
       
-
-
-      /* console.log(reviewform.value)
-      console.log(this.val.rating, this.val.review) */
     }
+
+    generateRatingObject(userRating: Rating){
+      userRating = {
+        userId: this.val.reviewTitle,
+        movieId: this.movieId,
+        rating: this.val.ratingMovie,
+        review: this.val.reviewField,
+      }
+      return userRating;
+    }
+
+    giocaAncora(){
+      location.reload();
+    }
+
+
 
 }
+

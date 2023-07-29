@@ -8,6 +8,8 @@ import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
   providedIn: "root",
 })
 export class AuthService {
+
+
   springBootUrl = 'http://localhost:8080/guessthemovie/users';
 
   constructor(private router: Router, private http: HttpClient) {}
@@ -19,7 +21,7 @@ export class AuthService {
             return user;
           })
           );
-    //return of(user);
+
 
   }
 
