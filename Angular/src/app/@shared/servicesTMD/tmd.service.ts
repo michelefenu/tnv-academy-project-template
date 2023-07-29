@@ -21,7 +21,7 @@ export class TmdService {
   }
 
   getMovie(movieId: number){
-    this.http.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=8401b10a43e9d31af2e82091f450d1f4`)
+    this.http.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}?language=it-IT&api_key=8401b10a43e9d31af2e82091f450d1f4`)
     .subscribe({
       next: (response) => {
         this.movie = response;
