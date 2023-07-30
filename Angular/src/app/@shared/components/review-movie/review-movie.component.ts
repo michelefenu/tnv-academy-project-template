@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TmdService } from '../../servicesTMD/tmd.service';
 import { RatingService } from '../../servicesRating/rating.service';
@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
 import { AuthGuard } from 'src/app/@core/helpers/auth-guard';
 import { User } from 'src/app/models/user';
+
 
 
 @Component({
@@ -23,12 +24,15 @@ export class ReviewMovieComponent implements OnInit{
     currentUser: User;
     
   //
+    @Input() savedTotalTime: number = 0;
+  //
     completeUserRating: Rating = {
       idReview: 0,
       userId: 0,
       movieId: 0,
       rating: 0,
-      review: ''
+      review: '',
+      totalTime: 0
     };
     
     val = {
@@ -41,27 +45,25 @@ export class ReviewMovieComponent implements OnInit{
       this.title = tmdService.movieTitle;
       this.currentUser = JSON.parse(localStorage.getItem("user") || '') as User;
       this.movieId = tmdService.movie.id;
+
       
     }
 
     ngOnInit(): void {
-
+      console.log()
       
     }
 
     
 
     sendReview(){
-      this.completeUserRating.movieId = this.movieId;
-      this.completeUserRating.review = this.val.reviewField;
-      this.completeUserRating.rating = this.val.ratingMovie;
       this.completeUserRating.userId = this.currentUser.id;
-      console.log(this.completeUserRating);
-      console.log('***********************************')
-       console.log(this.completeUserRating.userId);
-      console.log(this.completeUserRating.movieId);
-      console.log(this.completeUserRating.rating);
-      console.log(this.completeUserRating.review); 
+      this.completeUserRating.movieId = this.movieId;
+      this.completeUserRating.rating = this.val.ratingMovie;
+      this.completeUserRating.review = this.val.reviewField;
+      this.completeUserRating.totalTime = this.savedTotalTime;
+
+    
 
       this.ratingService.addRating(this.completeUserRating).subscribe({
         next: (res: Rating) => {

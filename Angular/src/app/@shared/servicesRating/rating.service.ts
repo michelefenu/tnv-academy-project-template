@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { switchMap } from 'rxjs';
-import { Rating } from 'src/app/models/rating';
+
 import { TmdService } from '../servicesTMD/tmd.service';
+import { Rating } from 'src/app/models/rating';
 
 
 @Injectable({
