@@ -20,6 +20,9 @@ const Rating = db.define('ratings', {
   },
   review: {
     type: DataTypes.STRING
+  },
+  totalTime: {
+    type: DataTypes.INTEGER
   }
 }, {
   freezeTableName: true,
