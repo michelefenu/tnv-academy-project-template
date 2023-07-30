@@ -57,6 +57,9 @@
           {{tmdService.movie.vote_count | number: '1.0'}}
         </h2><br>
       </mat-card-content>
+      <div *ngIf="showError" class="error-message">
+        Hai sbagliato, riprova.
+      </div>
       <h1>Prova a indovinare il titolo..</h1>
       <!---->
       <mat-card-actions>
