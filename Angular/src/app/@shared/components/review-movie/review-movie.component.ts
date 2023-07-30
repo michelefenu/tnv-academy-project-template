@@ -66,7 +66,7 @@ export class ReviewMovieComponent implements OnInit{
       this.ratingService.addRating(this.completeUserRating).subscribe({
         next: (res: Rating) => {
           this.completeUserRating = res;
-          /*this.router.navigateByUrl("/home");*/
+          this.router.navigateByUrl("/favorites");
         },
         error: (error: any) => {
           console.error("errore", error);
