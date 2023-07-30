@@ -34,4 +34,8 @@ export class RatingService {
   deleteRating(id: string) {
     return this.httpClient.delete(`${this.API_ROOT}/ratings/${id}`);
   }
+  
+  getRatings(userId: number) {
+    return this.httpClient.get<Rating[]>(`${this.API_ROOT}/ratings/${userId}`);
+  }
 }

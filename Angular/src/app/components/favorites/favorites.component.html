@@ -1,1 +1,25 @@
-<p>Recensione e voto inseriti correttamente !</p>
+<mat-card class="example-card" *ngFor="let reviewOfThisUser of reviewsArray">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title></mat-card-title>
+        <mat-card-subtitle>{{tmdService.movie.title}}</mat-card-subtitle>
+        <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+      </mat-card-title-group>
+    </mat-card-header>
+    {{reviewOfThisUser.review}}
+    <mat-card-content>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+<!--   export interface Rating {
+    idReview: number, 
+    userId: number,
+    movieId: number,
+    rating: number,
+    review: string,
+    totalTime: number
+}
+ -->
