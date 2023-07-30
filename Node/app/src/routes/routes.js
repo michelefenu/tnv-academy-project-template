@@ -6,9 +6,9 @@ import { getRating, createRating, updateRating, deleteRating } from "../controll
 
 const router = express.Router();
 
-router.get(`${API_ROOT}/rating/:userId/:movieId`, getRating);
-router.post(`${API_ROOT}/rating`, createRating);
-router.patch(`${API_ROOT}/rating/:id`, updateRating);
-router.delete(`${API_ROOT}/rating/:id`, deleteRating);
+router.get(`${API_ROOT}/ratings/:userId/:movieId`, getRating);
+router.post(`${API_ROOT}/ratings`, createRating);
+router.patch(`${API_ROOT}/ratings/:id`, updateRating);
+router.delete(`${API_ROOT}/ratings/:id`, deleteRating);
 
 export default router;
