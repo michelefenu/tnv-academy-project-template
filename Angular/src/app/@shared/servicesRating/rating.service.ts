@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { switchMap } from 'rxjs';
 import { Rating } from 'src/app/models/rating';
 import { TmdService } from '../servicesTMD/tmd.service';
-import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
+
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +11,13 @@ import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
 export class RatingService {
   API_ROOT = 'http://localhost:1234/api';
 
-  /* rating: Rating | undefined| null; */
 
-  constructor(private httpClient: HttpClient, tmdService: TmdService, authService: AuthService) {
-    /* this.rating.movieId = tmdService.movie.id.toString();
-    this.rating.id = (Math.floor(Math.random() * 100000) + 1).toString();
-    //this.rating.userId = authService.getCurrentUser(). */
+  constructor(private httpClient: HttpClient, tmdService: TmdService) {
+
   }
 
 
-  getRating(userId: string, movieId: string) {
+  getRating(userId: number, movieId: number) {
     return this.httpClient.get<Rating>(`${this.API_ROOT}/ratings/${userId}/${movieId}`);
   }
 
@@ -29,7 +26,7 @@ export class RatingService {
   }
 
   editRating(rating: Rating) {
-    return this.httpClient.patch<Rating>(`${this.API_ROOT}/ratings/${rating.id}`, rating)
+    return this.httpClient.patch<Rating>(`${this.API_ROOT}/ratings/${rating.idNomeReview}`, rating)
       .pipe(switchMap(() => this.getRating(rating.userId, rating.movieId)));
   }
 

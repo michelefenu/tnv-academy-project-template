@@ -4,11 +4,16 @@ import db from "../../config/config.js";
 const { DataTypes } = Sequelize;
 
 const Rating = db.define('ratings', {
+  IdNomeReview: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoincrement: true
+  },
   userId: {
-    type: DataTypes.STRING
+    type: DataTypes.INTEGER
   },
   movieId: {
-    type: DataTypes.STRING
+    type: DataTypes.INTEGER
   },
   rating: {
     type: DataTypes.INTEGER
