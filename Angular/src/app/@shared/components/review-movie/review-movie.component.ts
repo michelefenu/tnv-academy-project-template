@@ -32,7 +32,6 @@ export class ReviewMovieComponent implements OnInit{
     };
     
     val = {
-      reviewTitle: "inserisci qui il titolo della tua recensione!",
       reviewField: "inserisci qui la tua recensione!",
       ratingMovie: 1
     }
