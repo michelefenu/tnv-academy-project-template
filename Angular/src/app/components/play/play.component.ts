@@ -133,7 +133,7 @@ savedTotalTime: number = 0;
   checkIfMovieCorrect(guessMovieForm: NgForm, movieTitle: string){
     console.log(movieTitle)
     console.log(this.val.movieTitleAttempt)
-    if(this.val.movieTitleAttempt === movieTitle){
+    if (this.val.movieTitleAttempt.toLowerCase() === movieTitle.toLowerCase()) {
       console.log("bravo hai vinto");
       this.savedTotalTime = this.totalElapsedTime;
       this.stopTimer();
