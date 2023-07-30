@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TmdService } from 'src/app/@shared/servicesTMD/tmd.service';
 
-
 @Component({
   selector: 'tnv-play',
   templateUrl: './play.component.html',
@@ -49,6 +48,7 @@ clickedBtFive: boolean = false;
 //
 youWon: boolean = false;
 showGame:boolean = false;
+showError: boolean = false;
 
 //
 savedTotalTime: number = 0;
@@ -63,8 +63,8 @@ savedTotalTime: number = 0;
     ];
     this.movieId = this.idFamousMovies[Math.floor(Math.random() * this.idFamousMovies.length)];
 
-
   }
+  
 
   ngOnInit(): void {
     this.tmdService.getMovie(this.movieId)
@@ -129,20 +129,20 @@ savedTotalTime: number = 0;
     this.clickedBtFive = true;
   }
 
-  
-  checkIfMovieCorrect(guessMovieForm: NgForm, movieTitle: string){
-    console.log(movieTitle)
-    console.log(this.val.movieTitleAttempt)
+  checkIfMovieCorrect(guessMovieForm: NgForm, movieTitle: string) {
     if (this.val.movieTitleAttempt.toLowerCase() === movieTitle.toLowerCase()) {
-      console.log("bravo hai vinto");
+      console.log("Bravo, hai vinto!");
       this.savedTotalTime = this.totalElapsedTime;
       this.stopTimer();
       this.youWon = true;
+    } else {
+      // Mostra il messaggio di errore
+      this.showError = true;
     }
-
   }
 }
 
+  
 
 
 
