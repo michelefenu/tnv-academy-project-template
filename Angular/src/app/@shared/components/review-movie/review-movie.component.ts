@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { TmdService } from '../../servicesTMD/tmd.service';
 import { RatingService } from '../../servicesRating/rating.service';
 import { Rating } from 'src/app/models/rating';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
 import { AuthGuard } from 'src/app/@core/helpers/auth-guard';
 import { User } from 'src/app/models/user';
@@ -19,12 +19,12 @@ export class ReviewMovieComponent implements OnInit{
 
     title: string;
     movieId: number;
-
+    rating: number = 0;
     currentUser: User;
     
   //
     completeUserRating: Rating = {
-      idNomeReview: 0,
+      idReview: 0,
       userId: 0,
       movieId: 0,
       rating: 0,
@@ -38,9 +38,10 @@ export class ReviewMovieComponent implements OnInit{
     }
     
 
-    constructor(public tmdService: TmdService, public ratingService: RatingService, public router: Router, public authService: AuthService, public authGuard: AuthGuard){
+    constructor(public tmdService: TmdService, public ratingService: RatingService, public router: Router, public authService: AuthService, public authGuard: AuthGuard, public activatedRoute: ActivatedRoute){
       this.title = tmdService.movieTitle;
-      this.movieId = 10;
+      this.currentUser = JSON.parse(localStorage.getItem("user") || '') as User;
+      this.movieId = tmdService.movie.id;
       
     }
 
@@ -52,24 +53,24 @@ export class ReviewMovieComponent implements OnInit{
     
 
     sendReview(){
-      this.completeUserRating.idNomeReview = 5;
       this.completeUserRating.movieId = this.movieId;
       this.completeUserRating.review = this.val.reviewField;
       this.completeUserRating.rating = this.val.ratingMovie;
-      this.completeUserRating.userId = 2;
-      console.log(this.completeUserRating.idNomeReview);
-      console.log(this.completeUserRating.userId);
+      this.completeUserRating.userId = this.currentUser.id;
+      console.log(this.completeUserRating);
+      console.log('***********************************')
+       console.log(this.completeUserRating.userId);
       console.log(this.completeUserRating.movieId);
       console.log(this.completeUserRating.rating);
-      console.log(this.completeUserRating.review);
+      console.log(this.completeUserRating.review); 
 
       this.ratingService.addRating(this.completeUserRating).subscribe({
         next: (res: Rating) => {
           this.completeUserRating = res;
-          this.router.navigateByUrl("/home");
+          /*this.router.navigateByUrl("/home");*/
         },
         error: (error: any) => {
-          console.error("errore");
+          console.error("errore", error);
         }
       });
     }

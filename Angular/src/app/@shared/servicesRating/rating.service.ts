@@ -26,7 +26,7 @@ export class RatingService {
   }
 
   editRating(rating: Rating) {
-    return this.httpClient.patch<Rating>(`${this.API_ROOT}/ratings/${rating.idNomeReview}`, rating)
+    return this.httpClient.patch<Rating>(`${this.API_ROOT}/ratings/${rating.idReview}`, rating)
       .pipe(switchMap(() => this.getRating(rating.userId, rating.movieId)));
   }
 
