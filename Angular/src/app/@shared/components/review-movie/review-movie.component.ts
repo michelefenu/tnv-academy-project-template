@@ -32,7 +32,9 @@ export class ReviewMovieComponent implements OnInit{
       movieId: 0,
       rating: 0,
       review: '',
-      totalTime: 0
+      totalTime: 0,
+      movieTitle: '',
+      moviePoster: ''
     };
     
     val = {
@@ -45,6 +47,7 @@ export class ReviewMovieComponent implements OnInit{
       this.title = tmdService.movieTitle;
       this.currentUser = JSON.parse(localStorage.getItem("user") || '') as User;
       this.movieId = tmdService.movie.id;
+      
 
       
     }
@@ -62,6 +65,8 @@ export class ReviewMovieComponent implements OnInit{
       this.completeUserRating.rating = this.val.ratingMovie;
       this.completeUserRating.review = this.val.reviewField;
       this.completeUserRating.totalTime = this.savedTotalTime;
+      this.completeUserRating.movieTitle = this.tmdService.movieTitle;
+      this.completeUserRating.moviePoster = this.tmdService.poster;
 
     
 

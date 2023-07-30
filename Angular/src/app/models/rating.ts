@@ -4,5 +4,7 @@ export interface Rating {
     movieId: number,
     rating: number,
     review: string,
-    totalTime: number
+    totalTime: number,
+    movieTitle: string,
+    moviePoster: string
 }
