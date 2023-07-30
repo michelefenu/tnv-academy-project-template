@@ -9,7 +9,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RulesPageComponent } from "./components/rules-page/rules-page.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { PlayComponent } from "./components/play/play.component";
-import { ReviewMovieComponent } from "./@shared/components/review-movie/review-movie.component";
+import { FavoritesComponent } from "./components/favorites/favorites.component";
 
 const routes: Routes = [
   {
@@ -21,6 +21,7 @@ const routes: Routes = [
       { path: "profile", component: ProfileComponent },
       { path: "rules", component: RulesPageComponent },
       { path: "play", component: PlayComponent},
+      { path: "favorites", component: FavoritesComponent}, 
       { path: "", redirectTo: "home", pathMatch: 'full' },
     ],
   },

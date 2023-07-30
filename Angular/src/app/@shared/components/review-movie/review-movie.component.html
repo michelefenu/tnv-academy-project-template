@@ -21,7 +21,7 @@
     <div class="form-group row">
       <label for="review" class="col-sm-2 col-form-label">Recensione</label>
       <div class="col-sm-10">
-        <textarea name="reviewField" id="review" rows="5" style="width: 500px" class="form-
+        <textarea name="reviewField" id="review" rows="5" style="width: 500px" minlength="2" maxlength="160"class="form-
         control" [(ngModel)]="val.reviewField" #reviewField [ngModelOptions]="{updateOn: 'submit'}"></textarea>
       </div>
     </div>
