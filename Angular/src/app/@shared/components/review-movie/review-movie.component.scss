@@ -32,9 +32,10 @@ h2{
 }
 
 .rating-container label {
-  font-size: 24px; /* Dimensione delle stelline */
+  font-size: 24px; /* Dimensione delle stelle */
   color: #ccc; /* Colore stelline vuote */
   cursor: pointer;
+  float: right; /* Allinea le stelle da destra a sinistra */
 }
 
 .rating-container label:hover,
@@ -42,9 +43,3 @@ h2{
 .rating-container input[type="radio"]:checked ~ label {
   color: gold; /* Colore stelline piene al passaggio del mouse o quando selezionate */
 }
-
-
-
-
-
-
