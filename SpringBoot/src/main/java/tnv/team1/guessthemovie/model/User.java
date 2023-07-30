@@ -1,3 +1,7 @@
+/** Questa classe rappresenta l'entità utente che viene mappata a una tabella nel database. È annotata con @Entity,
+che indica che è una classe persistente. Contiene i campi per l'ID dell'utente, il nome, il cognome,
+ il nome utente e la password, insieme ai relativi metodi getter e setter. */
+
 
 package tnv.team1.guessthemovie.model;
 

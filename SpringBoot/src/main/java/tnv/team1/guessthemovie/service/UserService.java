@@ -1,3 +1,8 @@
+/** Questa è una classe di servizio che fornisce metodi per la gestione degli utenti.
+Implementa l'interfaccia UserServiceInterface. Contiene metodi per ottenere tutti gli utenti, ottenere un utente per ID,
+ registrare un nuovo utente e consentire il login di un utente esistente.
+ Utilizza UserRepositoryDAO per accedere ai dati degli utenti. */
+
 package tnv.team1.guessthemovie.service;
 
 
