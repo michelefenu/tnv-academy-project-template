@@ -2,22 +2,28 @@
 <div>
   <form class="review-form" #reviewForm="ngForm" (ngSubmit)="sendReview()">
     <hr>
-    <h4>La tua recensione</h4>
-    <h4>Tempo totale impiegato: {{savedTotalTime}}</h4>
+    <h4>LA TUA RECENSIONE</h4>
+    <h4>Tempo totale impiegato: {{savedTotalTime}}<mat-icon>timer</mat-icon></h4>
     
     <div class="form-group row">
-      <label for="rating" class="col-sm-2 col-form-label">Voto</label>
+      <label class="col-sm-2 col-form-label">Voto</label>
       <div class="col-sm-10 col-md-2">
-        <select id="rating" name="ratingMovie" class="form-control" [(ngModel)]="val.ratingMovie" #ratingMovie="ngModel"
-          [ngModelOptions]="{updateOn: 'submit'}">
-          <option value="5">5</option>
-          <option value="4">4</option>
-          <option value="3">3</option>
-          <option value="2">2</option>
-          <option value="1">1</option>
-        </select>
+        <div class="rating-container">
+          <input type="radio" id="star5" name="rating" value="5" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <label for="star5"></label>
+          <input type="radio" id="star4" name="rating" value="4" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <label for="star4"></label>
+          <input type="radio" id="star3" name="rating" value="3" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <label for="star3"></label>
+          <input type="radio" id="star2" name="rating" value="2" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <label for="star2"></label>
+          <input type="radio" id="star1" name="rating" value="1" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <label for="star1"></label>
+        </div>
+        
       </div>
     </div>
+    
     <div class="form-group row">
       <label for="review" class="col-sm-2 col-form-label">Recensione</label>
       <div class="col-sm-10">
