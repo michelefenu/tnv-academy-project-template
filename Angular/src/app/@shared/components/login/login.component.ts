@@ -9,7 +9,8 @@ import { AuthService } from "src/app/@core/servicesAuth/auth.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("user", JSON.stringify(response));
           this.router.navigateByUrl("/home");
         },
-        error: () => alert("Login Errrato"),
+        error: () => alert("Login Errato"),
       });
     }
   }

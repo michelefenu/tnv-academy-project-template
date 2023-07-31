@@ -5,14 +5,4 @@ import { Component, Input } from '@angular/core';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
-export class HeroComponent {
-
-  @Input() title: string = "Welcome";
-
-  constructor(){}
-
-  ngOnInit(): void {}
-
-  
-
-}
+export class HeroComponent { }

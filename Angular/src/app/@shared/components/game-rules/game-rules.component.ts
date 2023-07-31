@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
 
 
 @Component({
@@ -9,17 +7,12 @@ import { AuthService } from 'src/app/@core/servicesAuth/auth.service';
   styleUrls: ['./game-rules.component.scss'],
 
 })
-export class GameRulesComponent implements OnInit{
+export class GameRulesComponent {
 
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
-    /*
-  goToGioca() {
-    this.router.navigateByUrl("/gioca");
-  }*/
+
+
 }
 
-  
