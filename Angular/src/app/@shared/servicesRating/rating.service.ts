@@ -31,8 +31,8 @@ export class RatingService {
       .pipe(switchMap(() => this.getRating(rating.userId, rating.movieId)));
   }
 
-  deleteRating(movieId: number) {
-    return this.httpClient.delete(`${this.API_ROOT}/ratings/${movieId}`);
+  deleteRating(id: string) {
+    return this.httpClient.delete(`${this.API_ROOT}/ratings/${id}`);
   }
   
   getRatings(userId: number) {
