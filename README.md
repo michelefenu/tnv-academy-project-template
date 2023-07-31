@@ -1,12 +1,12 @@
-Progetto finale X Edizione TNV Academy per Full Stack Web Developer
+# Progetto finale X Edizione TNV Academy per Full Stack Web Developer
 
-Team:
+## Team:
+          
+* Andrea Loviselli (Team Leader)
+* Davide Lo Cascio
+* Giorgia Grisi
 
-Andrea Loviselli
-Davide Lo Cascio
-Giorgia Grisi
-
-Nome: Guess The Movie
+## Nome Progetto: Guess The Movie
 
 Realizzare un’applicazione web che recuperi casualmente un film attaverso un’API esterna e lo proponga
 all’utente nascondendo tutti i suoi campi tra cui la locandina (almeno 5, come ad esempio: titolo, genere,
@@ -21,11 +21,11 @@ possibile eliminare i film.
 L’accesso al sistema dovrà avvenire attraverso un servizio di BE Springboot.
 L’inserimento della review dovrà essere effettuato con un servizio di BE in Node.js.
 
-Come sincronizzare tutto:
+## Come sincronizzare tutto
 
-Scaricare il file .zip e creare 2 database con MySql,
+Scaricare il file .zip e passare alla creazione di 2 database su MySql
 
-Database per SpringBoot:
+## Database per SpringBoot
 
 CREATE DATABASE gtm_users;
 
@@ -39,7 +39,7 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL
 );
 
-Database per Node:
+## Database per Node
 
 CREATE DATABASE gtm_reviews;
 
@@ -58,24 +58,28 @@ CREATE TABLE ratings (
   updatedAt datetime NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-Front-end:
+## Front-end
 
-Angular = Viene utilizzato per gestire tutte le logiche del lato client e le rotte HTML.
+## Angular
+Viene utilizzato per gestire tutte le logiche del lato client e le rotte HTML.
 
 Settaggio Angular = Aprire il terminale, andare nella cartella Angular ed eseguire il comando "npm install" per installare le dipendenze npm e il comando "ng serve" per avviare il server.
 
-Back-end:
+## Back-end
 
-Spring Boot = Viene utilizzato come API per la registrazione e il login dell'utente. (DB gtm_users)
+## Spring Boot
+Viene utilizzato come API per la registrazione e il login dell'utente. (DB gtm_users)
 
-Settaggio Spring Boot = Utilizzare IntelliJ per aprire il progetto nella cartella Spring Boot e far partire il programma dal main (cambiare la password di MySql con la propria nel file application.properties).
+## Settaggio SpringBoot
+Utilizzare IntelliJ per aprire il progetto nella cartella Spring Boot e far partire il programma dal main (cambiare la password di MySql con la propria nel file application.properties).
 
-Node.js = Viene utilizzato come API per gestire la lista dei preferiti e le recensioni. (DB gtm_reviews)
+## Node.js
+Viene utilizzato come API per gestire la lista dei preferiti e le recensioni. (DB gtm_reviews)
 
-Settaggio Node.js = Aprire il terminale, andare nella cartella Node ed eseguire il comando "npm install" per installare le dipendenze npm e il comando "nodemon server.js" per avviare il server (cambiare la password di MySQL con la propria nel file config.js).
+## Settaggio Node.js
+Aprire il terminale, andare nella cartella Node ed eseguire il comando "npm install" per installare le dipendenze npm e il comando "nodemon server.js" per avviare il server. (cambiare la password di MySQL con la propria nel file config.js)
 
-API esterna per film:
-
+## API esterna per film:
 https://www.themoviedb.org/ <----- Da questo sito abbiamo un database di film da utilizzare nel gioco.
 
 
