@@ -1,6 +1,6 @@
-.row{
-margin: 0px;
-padding: 0px;
+.row {
+  margin: 0px;
+  padding: 0px;
 }
 
 $black: #071011;
@@ -68,8 +68,7 @@ body {
   position: relative;
   height: 150px;
   width: $card-width;
-  background: url("/assets/images/profilo-back.jpg")
-    no-repeat;
+  background: url("/assets/images/profilo-back.jpg") no-repeat;
   background-size: cover;
   backface-visibility: hidden;
   overflow: hidden;
@@ -94,12 +93,11 @@ body {
   margin: 0 auto;
   border-radius: 50%;
   border: 5px solid $white;
-  background: url("/assets/images/profilo.png")
-    no-repeat;
-    background-color: white;
+  background: url("/assets/images/profilo.png") no-repeat;
+  background-color: white;
   background-size: contain;
   overflow: hidden;
- 
+
 }
 
 .front__text {
@@ -113,7 +111,7 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     font-size: 25px;
-    
+
   }
 
   .front__text-para {
@@ -160,17 +158,16 @@ body {
 }
 
 .back {
-    cursor: pointer;
-    height: 100%;
-    background: url("/assets/images/back-profilo.jpg");
-    background-size: cover;
-    backface-visibility: hidden;
-    border-radius: 5px;
-    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
-      0 0 40px rgba(0, 0, 0, 0.1) inset;
-  }
-
-h3{
-  color: #542754;
+  cursor: pointer;
+  height: 100%;
+  background: url("/assets/images/back-profilo.jpg");
+  background-size: cover;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
+h3 {
+  color: #542754;
+}

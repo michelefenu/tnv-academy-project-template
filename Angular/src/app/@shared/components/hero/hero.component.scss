@@ -1,21 +1,21 @@
 header {
-    width: 100%;
-    height: 450px;
-    background-image: url('../../../../assets/images/background.jpg');
-    background-size: contain;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: 0 3px 5px lightgray;
-  }
+  width: 100%;
+  height: 450px;
+  background-image: url('../../../../assets/images/background.jpg');
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 3px 5px lightgray;
+}
 
 
 
 header title {
-    color: white;
-    font-size: 128px;
-    margin: 0;
-    text-shadow: 2px 2px 4px black;
+  color: white;
+  font-size: 128px;
+  margin: 0;
+  text-shadow: 2px 2px 4px black;
 }
