@@ -2,9 +2,9 @@
 
 ## Team:
           
-* Andrea Loviselli (Team Leader)
-* Davide Lo Cascio
-* Giorgia Grisi
+* Andrea Loviselli (Team Leader) -----> https://github.com/AndreaLoviselli
+* Davide Lo Cascio -----> https://github.com/davideLCD
+* Giorgia Grisi -----> https://github.com/Grisi-Gio
 
 ## Nome Progetto: Guess The Movie
 
