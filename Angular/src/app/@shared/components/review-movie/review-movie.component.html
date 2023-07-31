@@ -4,31 +4,36 @@
     <hr>
     <h4>LA TUA RECENSIONE</h4>
     <h4>Tempo totale impiegato: {{savedTotalTime}}<mat-icon>timer</mat-icon></h4>
-    
+
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Voto</label>
       <div class="col-sm-10 col-md-2">
 
         <div class="rating-container">
-          <input type="radio" id="star5" name="rating" value="5" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <input type="radio" id="star5" name="rating" value="5" [(ngModel)]="val.ratingMovie"
+            [ngModelOptions]="{updateOn: 'submit'}">
           <label for="star5"><i class="fa fa-star"></i></label>
-          <input type="radio" id="star4" name="rating" value="4" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <input type="radio" id="star4" name="rating" value="4" [(ngModel)]="val.ratingMovie"
+            [ngModelOptions]="{updateOn: 'submit'}">
           <label for="star4"><i class="fa fa-star"></i></label>
-          <input type="radio" id="star3" name="rating" value="3" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <input type="radio" id="star3" name="rating" value="3" [(ngModel)]="val.ratingMovie"
+            [ngModelOptions]="{updateOn: 'submit'}">
           <label for="star3"><i class="fa fa-star"></i></label>
-          <input type="radio" id="star2" name="rating" value="2" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <input type="radio" id="star2" name="rating" value="2" [(ngModel)]="val.ratingMovie"
+            [ngModelOptions]="{updateOn: 'submit'}">
           <label for="star2"><i class="fa fa-star"></i></label>
-          <input type="radio" id="star1" name="rating" value="1" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
+          <input type="radio" id="star1" name="rating" value="1" [(ngModel)]="val.ratingMovie"
+            [ngModelOptions]="{updateOn: 'submit'}">
           <label for="star1"><i class="fa fa-star"></i></label>
         </div>
-        
+
       </div>
     </div>
-    
+
     <div class="form-group row">
       <label for="review" class="col-sm-2 col-form-label">Recensione</label>
       <div class="col-sm-10">
-        <textarea name="reviewField" id="review" rows="5" style="width: 500px" minlength="2" maxlength="160"class="form-
+        <textarea name="reviewField" id="review" rows="5" style="width: 500px" minlength="2" maxlength="160" class="form-
         control" [(ngModel)]="val.reviewField" #reviewField [ngModelOptions]="{updateOn: 'submit'}"></textarea>
       </div>
     </div>
@@ -37,11 +42,11 @@
       <div class="col-12">
         <button type="submit" class="btn btn-primary float-right" role="button" style="margin-left:15px">Aggiungi
           ai preferiti!</button>
-        <button type="button" class="btn btn-primary float-right" role="button" style="margin-left:10px" (click)="giocaAncora()">Gioca
+        <button type="button" class="btn btn-primary float-right" role="button" style="margin-left:10px"
+          (click)="giocaAncora()">Gioca
           ancora</button>
       </div>
     </div>
     <hr>
   </form>
 </div>
-

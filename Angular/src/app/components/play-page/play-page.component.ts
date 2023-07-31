@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { TmdService } from 'src/app/@shared/servicesTMD/tmd.service';
 
 @Component({
@@ -133,7 +134,7 @@ export class PlayPageComponent implements OnInit {
     this.clickedBtFive = true;
   }
 
-  checkIfMovieCorrect( movieTitle: string) {
+  checkIfMovieCorrect(guessMovieForm: NgForm, movieTitle: string) {
     console.log(movieTitle);
     if (this.val.movieTitleAttempt.toLowerCase() === movieTitle.toLowerCase()) {
       console.log("Bravo, hai vinto!");

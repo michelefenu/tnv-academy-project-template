@@ -5,10 +5,10 @@
     <img mat-card-image src={{reviewOfThisUser.moviePoster}} alt="foto del film">
     <mat-card-content class="content">
       <h4>{{reviewOfThisUser.movieTitle}}</h4>
-      <h5>VOTO: <span class="rating"> 
-        <i *ngFor="let star of getStars(reviewOfThisUser.rating)" class="fas fa-star"></i>
-        <i *ngFor="let star of getEmptyStars(reviewOfThisUser.rating)" class="far fa-star"></i>
-      </span></h5>
+      <h5>VOTO: <span class="rating">
+          <i *ngFor="let star of getStars(reviewOfThisUser.rating)" class="fas fa-star"></i>
+          <i *ngFor="let star of getEmptyStars(reviewOfThisUser.rating)" class="far fa-star"></i>
+        </span></h5>
       <h5>RECENSIONE:</h5>
       <p>
         {{reviewOfThisUser.review}}
@@ -18,5 +18,4 @@
         <button mat-button (click)="onDeleteReview(reviewOfThisUser)">Delete</button>
       </mat-card-actions>
     </mat-card-content>
-</mat-card>
-
+  </mat-card>
