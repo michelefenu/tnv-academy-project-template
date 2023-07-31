@@ -1,4 +1,4 @@
-h2{
+h2 {
     color: #542754;
 }
 
@@ -6,8 +6,8 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -18,7 +18,7 @@ body {
 }
 
 .mat-list {
-    list-style: none; 
+    list-style: none;
     padding: 0;
     margin: 0;
 }
@@ -53,24 +53,21 @@ p.matListItemLine {
 
 .titolo {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
 .row {
-    width: 80%; 
-    max-width: 800px; 
-    margin: 0 auto; 
-    padding: 0px; 
-    border-radius: 8px; 
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+    border-radius: 8px;
 }
 
 
 .section-title {
     margin: 0;
     font-size: 28px;
-    text-align: center; 
+    text-align: center;
 }
-
-
-

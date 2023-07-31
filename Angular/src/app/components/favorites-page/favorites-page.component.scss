@@ -1,64 +1,62 @@
-img{
+img {
   width: 400px;
 }
 
-  h4{
-    color: white;
-    background: #542754;
-    padding: 10px;
-  }
+h4 {
+  color: white;
+  background: #542754;
+  padding: 10px;
+}
 
-  h2{
-    margin-bottom: 20px;
-    color: #542754;
-  }
+h2 {
+  margin-bottom: 20px;
+  color: #542754;
+}
 
-  h5{
-    color: #542754;
-  }
+h5 {
+  color: #542754;
+}
 
-  p{
-    font-size: 20px;
-  }
+p {
+  font-size: 20px;
+}
 
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    margin-right: 10px;
-  }
-  
-  .mat-card {
-    width: 48%; 
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  }
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-right: 10px;
+}
 
-  
-  .delete-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-    margin-top: 15px;
-  }
- 
-  .delete-container button {
-    background-color: red;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  .delete-container button:hover {
-    background-color: darkred;
-  }
-  
-.content{
-  width: 400px;
+.mat-card {
+  width: 48%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
+.delete-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  margin-top: 15px;
+}
+
+.delete-container button {
+  background-color: red;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.delete-container button:hover {
+  background-color: darkred;
+}
+
+.content {
+  width: 400px;
+}

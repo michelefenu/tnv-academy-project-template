@@ -14,13 +14,10 @@ $tnv-project-template-primary: mat.define-palette($primary-palette);
 $tnv-project-template-accent: mat.define-palette($secondary-palette);
 $tnv-project-template-warn: mat.define-palette(mat.$red-palette);
 
-$tnv-project-template-theme: mat.define-light-theme((
-  color: (
-    primary: $tnv-project-template-primary,
-    accent: $tnv-project-template-accent,
-    warn: $tnv-project-template-warn,
-  )
-));
+$tnv-project-template-theme: mat.define-light-theme((color: (primary: $tnv-project-template-primary,
+        accent: $tnv-project-template-accent,
+        warn: $tnv-project-template-warn,
+      )));
 
 @include mat.all-component-themes($tnv-project-template-theme);
 
@@ -45,10 +42,17 @@ ngb-rating {
   color: $primary;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Lato', sans-serif}
+html,
+body {
+  height: 100%;
+}
 
-hr{
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif
+}
+
+hr {
   color: #542754;
   border-width: 2px;
 }

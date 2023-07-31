@@ -10,72 +10,73 @@ body {
   display: flex;
 }
 
-.card1{
+.card1 {
   display: flex;
   height: 280px;
   width: 200px;
   background: url("/assets/images/film1.jpg");
   background-size: cover;
-border-radius: 10px;
+  border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
   left: 0px;
 }
 
-.card2{
+.card2 {
   display: flex;
   height: 280px;
   width: 200px;
   background: url("/assets/images/film2.jpeg");
   background-size: cover;
-border-radius: 10px;
+  border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
   left: 0px;
 }
 
-.card3{
+.card3 {
   display: flex;
   height: 280px;
   width: 200px;
   background: url("/assets/images/film3.jpg");
   background-size: cover;
-border-radius: 10px;
+  border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
   left: 0px;
 }
 
-.card4{
+.card4 {
   display: flex;
   height: 280px;
   width: 200px;
   background: url("/assets/images/film4.jpg");
   background-size: cover;
-border-radius: 10px;
+  border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
   left: 0px;
 }
 
-.card5{
+.card5 {
   display: flex;
   height: 280px;
   width: 200px;
   background: url("/assets/images/film5.jpg");
   background-size: cover;
-border-radius: 10px;
+  border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
   left: 0px;
 }
 
-.card{
+.card {
   height: 280px;
   width: 200px;
 }
+
 .card:not(:first-child) {
-    margin-left: -50px;
+  margin-left: -50px;
 }
 
 .card:hover {
@@ -83,7 +84,7 @@ border-radius: 10px;
   transition: 0.4s ease-out;
 }
 
-.card:hover ~ .card {
+.card:hover~.card {
   position: relative;
   left: 50px;
   transition: 0.4s ease-out;
@@ -117,8 +118,8 @@ border-radius: 10px;
   z-index: 3;
   width: 0px;
   height: 100%;
-  background: rgb(0,154,217);
-  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+  background: rgb(0, 154, 217);
+  background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
   transition: 0.6s ease-out;
 }
 

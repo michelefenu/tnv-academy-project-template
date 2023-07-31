@@ -1,23 +1,24 @@
-h4, label{
+h4,
+label {
   color: #542754;
 }
 
-hr{
+hr {
   color: #542754;
 }
 
-button{
+button {
   background-image: linear-gradient(144deg, #542754, #ab4dab 50%, #cf99cf);
-    border: 0;
-    border-radius: 8px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-    color: #FFFFFF;
-    font-family:'Lato', sans-serif;
-    font-size: 18px;
-    cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-h2{
+h2 {
   color: white;
   background: #542754;
   padding: 10px;
@@ -32,14 +33,18 @@ h2{
 }
 
 .rating-container label {
-  font-size: 24px; /* Dimensione delle stelle */
-  color: #ccc; /* Colore stelline vuote */
+  font-size: 24px;
+  /* Dimensione delle stelle */
+  color: #ccc;
+  /* Colore stelline vuote */
   cursor: pointer;
-  float: right; /* Allinea le stelle da destra a sinistra */
+  float: right;
+  /* Allinea le stelle da destra a sinistra */
 }
 
 .rating-container label:hover,
-.rating-container label:hover ~ label,
-.rating-container input[type="radio"]:checked ~ label {
-  color: gold; /* Colore stelline piene al passaggio del mouse o quando selezionate */
+.rating-container label:hover~label,
+.rating-container input[type="radio"]:checked~label {
+  color: gold;
+  /* Colore stelline piene al passaggio del mouse o quando selezionate */
 }
