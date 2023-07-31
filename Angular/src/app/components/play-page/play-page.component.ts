@@ -3,12 +3,12 @@ import { NgForm } from '@angular/forms';
 import { TmdService } from 'src/app/@shared/servicesTMD/tmd.service';
 
 @Component({
-  selector: 'tnv-play',
-  templateUrl: './play.component.html',
-  styleUrls: ['./play.component.scss']
+  selector: 'tnv-play-page',
+  templateUrl: './play-page.component.html',
+  styleUrls: ['./play-page.component.scss']
 })
 
-export class PlayComponent implements OnInit{
+export class PlayPageComponent implements OnInit{
 
 // 
   val = {

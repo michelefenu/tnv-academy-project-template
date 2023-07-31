@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavbarComponent } from './@shared/components/navbar/navbar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { RulesPageComponent } from './components/rules-page/rules-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
@@ -20,11 +20,11 @@ import { GameRulesComponent } from './@shared/components/game-rules/game-rules.c
 import { HeroComponent } from './@shared/components/hero/hero.component';
 import { GtmCarouselComponent } from './@shared/components/gtm-carousel/gtm-carousel.component';
 import { PlayButtonComponent } from './@shared/components/play-button/play-button.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { PlayComponent } from './components/play/play.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { PlayPageComponent } from './components/play-page/play-page.component';
 import { ReviewMovieComponent } from './@shared/components/review-movie/review-movie.component';
-import { HomeCarouselComponent } from './components/home-carousel/home-carousel.component';
-import { FavoritesComponent } from './components/favorites/favorites.component';
+import { HomeCarouselComponent } from './@shared/components/home-carousel/home-carousel.component';
+import { FavoritesPageComponent } from './components/favorites-page/favorites-page.component';
 
 
 
@@ -42,18 +42,18 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     LogoutComponent,
     NavbarComponent,
     HomePageComponent,
-    ProfileComponent,
+    ProfilePageComponent,
     RulesPageComponent,
     FooterComponent,
     GameRulesComponent,
     HeroComponent,
     PlayButtonComponent,
     GtmCarouselComponent,
-    NotFoundComponent,
-    PlayComponent,
+    NotFoundPageComponent,
+    PlayPageComponent,
     ReviewMovieComponent,
     HomeCarouselComponent,
-    FavoritesComponent,
+    FavoritesPageComponent,
 
   ],
   imports: [
