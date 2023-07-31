@@ -23,7 +23,15 @@ const Rating = db.define('ratings', {
   },
   totalTime: {
     type: DataTypes.INTEGER
+  },
+  movieTitle: {
+    type: DataTypes.STRING
+  },
+  moviePoster: {
+    type: DataTypes.STRING
   }
+
+
 }, {
   freezeTableName: true,
   timestamps: true

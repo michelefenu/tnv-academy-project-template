@@ -66,3 +66,22 @@ export const deleteRating = async (req, res) => {
         res.sendStatus(500);
     }
 }
+
+export const getRatings = async (req, res) => {
+    try {
+      const ratings = await Rating.findAll({
+        where: {
+          userId: req.params.userId,
+        },
+      });
+  
+      if (ratings) {
+        res.send(ratings);
+      } else {
+        res.sendStatus(404);
+      }
+    } catch (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+  };

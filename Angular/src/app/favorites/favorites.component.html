@@ -1,0 +1,20 @@
+<mat-card class="review-card" *ngFor="let reviewOfThisUser of reviewsArray">
+    
+    <img mat-card-image src={{reviewOfThisUser.moviePoster}} alt="foto del film">
+    
+    <mat-card-content>
+        <h4>{{reviewOfThisUser.movieTitle}}</h4>
+        <h4>Voto:  {{reviewOfThisUser.rating}}</h4>
+        
+        <h4>Recensione:</h4>
+            <p>
+                {{reviewOfThisUser.review}}
+            </p>
+
+        <h4>Tempo impiegato: {{reviewOfThisUser.totalTime}} secondi</h4>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>DELETE</button>
+    </mat-card-actions>
+</mat-card>
+
