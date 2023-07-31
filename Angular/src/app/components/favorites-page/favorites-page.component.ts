@@ -6,11 +6,11 @@ import { RatingService } from '../../@shared/servicesRating/rating.service';
 import { TmdService } from '../../@shared/servicesTMD/tmd.service';
 
 @Component({
-  selector: 'tnv-favorites',
-  templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.scss']
+  selector: 'tnv-favorites-page',
+  templateUrl: './favorites-page.component.html',
+  styleUrls: ['./favorites-page.component.scss']
 })
-export class FavoritesComponent implements OnInit{
+export class FavoritesPageComponent implements OnInit{
 
   review: Rating;
      reviewsArray: Rating [] = [];

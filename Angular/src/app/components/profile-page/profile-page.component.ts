@@ -4,11 +4,11 @@ import { User } from 'src/app/models/user';
 
 
 @Component({
-  selector: 'tnv-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'tnv-profile-page',
+  templateUrl: './profile-page.component.html',
+  styleUrls: ['./profile-page.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfilePageComponent implements OnInit {
 
 
 
