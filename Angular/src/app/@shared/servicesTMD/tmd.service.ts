@@ -12,7 +12,7 @@ export class TmdService {
   movie: Movie;
   poster: string;
   movieTitle: string;
-
+  posterIsPresent: boolean = false;
   
   
 
@@ -27,9 +27,10 @@ export class TmdService {
         this.movie = response;
         this.poster += response.poster_path; //vedi commento su
         this.movieTitle = response.title;
+        this.posterIsPresent = true;
       },
-      error: (error) => console.log('Errore', error)
-      
+      error: (error) => 
+        console.log('Errore', error)
     })
   }
 
