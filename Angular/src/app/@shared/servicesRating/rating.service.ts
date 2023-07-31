@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { switchMap } from 'rxjs';
-
-import { TmdService } from '../servicesTMD/tmd.service';
 import { Rating } from 'src/app/models/rating';
 
 
@@ -13,7 +11,7 @@ export class RatingService {
   API_ROOT = 'http://localhost:1234/api';
 
 
-  constructor(private httpClient: HttpClient, tmdService: TmdService) {
+  constructor(private httpClient: HttpClient) {
 
   }
 

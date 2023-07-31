@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './rules-page.component.html',
   styleUrls: ['./rules-page.component.scss']
 })
-export class RulesPageComponent implements OnInit {
+export class RulesPageComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

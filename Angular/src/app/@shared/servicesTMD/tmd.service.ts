@@ -17,7 +17,9 @@ export class TmdService {
   
 
   constructor(private http: HttpClient ) {
-    this.poster = "http://image.tmdb.org/t/p/original"  //link condiviso per il passaggio di immagini per regolamento di tmd. ci accodiamo per ogni chiamata la restante parte specifica di ogni immagine
+    //variabile contenente l'url di tutte le immagini di "The Movie Database". Viene agganciata durante la get sottostante al "poster_path" ottenuto tramite API.
+    //questo procedimento genera l'immagine che viene poi contenuta in "this.poster"
+    this.poster = "http://image.tmdb.org/t/p/original"  
   }
 
   getMovie(movieId: number){
