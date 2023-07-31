@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Rating } from '../models/rating';
 import { Movie } from '../models/movie';
 import { User } from '../models/user';
@@ -13,20 +13,21 @@ import { TmdService } from '../@shared/servicesTMD/tmd.service';
 export class FavoritesComponent implements OnInit{
 
   review: Rating;
-     reviewsArray: Rating [] = [];
-     currentMovie: Movie;
-     currentUser: User;
-  
+  reviewsArray: Rating [] = [];
+  currentMovie: Movie;
+  currentUser: User;
+  idSurrogato: number = 7;
+
+
 
   constructor(public ratingService: RatingService, public tmdService: TmdService){
     this.currentUser= JSON.parse(localStorage.getItem("user") || '') as User;
   }
 
   ngOnInit(): void {
-     
     
-    console.log(this.reviewsArray);
     this.getReviewsArray();
+
 }
 
 
@@ -43,12 +44,21 @@ getReviewsArray(){
   }); 
 }
 
-/* deleteReview(id: number){
-  this.ratingService.deleteRating(id){
 
-  }
+ onDeleteReview(review: Rating){
+  console.log(review.movieId)
+  this.ratingService.deleteRating(review.movieId).subscribe({
+    next: () => {
+      this.getReviewsArray();
+      console.log('review eliminata');
+    },
+    error: (error: any) => {
+      console.log('errore', error)
+    }
+
+  })
 }
- */
 }
+
 
 
