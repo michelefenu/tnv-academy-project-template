@@ -45,7 +45,7 @@
 }
 
 img {
-  filter: blur(15px);
+  filter: blur(8px);
 }
 
 .button-start {
@@ -134,4 +134,37 @@ p {
 
 h2 {
   text-align: center;
+}
+
+.error-message{
+  color: red;
+}
+
+.rigenera{
+  margin-top: 10px;
+  background: #487a26;
+  color: white;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  justify-content: center;
+  line-height: 1em;
+  width: 400px;
+  padding: 15px 20px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.rigenera:active,
+.rigenera:hover {
+  outline: 0;
+  transform: scale(1.1);
 }

@@ -141,6 +141,9 @@ savedTotalTime: number = 0;
       this.showError = true;
     }
   }
+  giocaAncora(){
+    location.reload();
+  }
 }
 
   

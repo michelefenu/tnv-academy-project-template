@@ -43,6 +43,34 @@ getReviewsArray(){
   }); 
 }
 
+// getStars è una funzione che restituisce un array di numeri
+  // rappresentanti il numero di stelline piene da visualizzare
+getStars(rating: number): number[] {
+  // Utilizziamo Array.fill() per creare un array di lunghezza uguale al voto
+    // ad esempio, se il rating è 4, restituirà [0, 0, 0, 0]
+    // poi usiamo ngFor nell'HTML per visualizzare le stelline piene
+  return Array(Math.floor(rating)).fill(0);
+}
+
+// getEmptyStars è una funzione simile a getStars, ma restituisce un array di numeri
+  // rappresentanti il numero di stelline vuote da visualizzare
+getEmptyStars(rating: number): number[] {
+  // Utilizziamo Array.fill() per creare un array di lunghezza uguale alle stelline vuote
+    // ad esempio, se il rating è 4, restituirà [0]
+    // poi usiamo ngFor nell'HTML per visualizzare le stelline vuote
+  return Array(Math.floor(5 - rating)).fill(0);
+}
+
+
+
+
+  
+
+
+
+
+
+
 /* deleteReview(id: number){
   this.ratingService.deleteRating(id){
 

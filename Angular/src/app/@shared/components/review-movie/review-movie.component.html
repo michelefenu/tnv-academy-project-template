@@ -8,6 +8,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Voto</label>
       <div class="col-sm-10 col-md-2">
+
         <div class="rating-container">
           <input type="radio" id="star5" name="rating" value="5" [(ngModel)]="val.ratingMovie" [ngModelOptions]="{updateOn: 'submit'}">
           <label for="star5"><i class="fa fa-star"></i></label>
@@ -35,7 +36,7 @@
     <div class="form-group row">
       <div class="col-12">
         <button type="submit" class="btn btn-primary float-right" role="button" style="margin-left:15px">Aggiungi
-          recensione!</button>
+          ai preferiti!</button>
         <button type="button" class="btn btn-primary float-right" role="button" style="margin-left:10px" (click)="giocaAncora()">Gioca
           ancora</button>
       </div>
