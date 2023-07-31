@@ -9,7 +9,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RulesPageComponent } from "./components/rules-page/rules-page.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { PlayComponent } from "./components/play/play.component";
-import { FavoritesComponent } from "./favorites/favorites.component";
+import { FavoritesComponent } from "./components/favorites/favorites.component";
 
 const routes: Routes = [
   {

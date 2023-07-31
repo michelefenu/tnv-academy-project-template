@@ -15,7 +15,7 @@
       </p>
       <h5>Tempo impiegato: {{reviewOfThisUser.totalTime}} secondi</h5>
       <mat-card-actions class="delete-container">
-        <button mat-button>Delete</button>
+        <button mat-button (click)="onDeleteReview(reviewOfThisUser)">Delete</button>
       </mat-card-actions>
     </mat-card-content>
 </mat-card>

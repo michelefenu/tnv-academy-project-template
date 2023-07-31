@@ -23,8 +23,8 @@ import { PlayButtonComponent } from './@shared/components/play-button/play-butto
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PlayComponent } from './components/play/play.component';
 import { ReviewMovieComponent } from './@shared/components/review-movie/review-movie.component';
-import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
-import { FavoritesComponent } from './favorites/favorites.component';
+import { HomeCarouselComponent } from './components/home-carousel/home-carousel.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 
