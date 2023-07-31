@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Rating } from '../models/rating';
-import { Movie } from '../models/movie';
-import { User } from '../models/user';
-import { RatingService } from '../@shared/servicesRating/rating.service';
-import { TmdService } from '../@shared/servicesTMD/tmd.service';
+import { Rating } from '../../models/rating';
+import { Movie } from '../../models/movie';
+import { User } from '../../models/user';
+import { RatingService } from '../../@shared/servicesRating/rating.service';
+import { TmdService } from '../../@shared/servicesTMD/tmd.service';
 
 @Component({
   selector: 'tnv-favorites',
@@ -59,6 +59,20 @@ getReviewsArray(){
       // ad esempio, se il rating è 4, restituirà [0]
       // poi usiamo ngFor nell'HTML per visualizzare le stelline vuote
     return Array(Math.floor(5 - rating)).fill(0);
+  }
+
+  onDeleteReview(review: Rating){
+    console.log(review.movieId)
+    this.ratingService.deleteRating(review.movieId).subscribe({
+      next: () => {
+        this.getReviewsArray();
+        console.log('review eliminata');
+      },
+      error: (error: any) => {
+        console.log('errore', error)
+      }
+  
+    })
   }
 
   }
