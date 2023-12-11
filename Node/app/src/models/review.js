@@ -3,21 +3,18 @@ import db from "../../config/config.js";
  
 const { DataTypes } = Sequelize;
 
-const Rating = db.define('ratings', {
+const Review = db.define('review', {
   userId: {
     type: DataTypes.STRING
   },
   movieId: {
     type: DataTypes.STRING
   },
-  movieTitle: {
+  text: {
     type: DataTypes.STRING
   },
-  rating: {
-    type: DataTypes.INTEGER
-  }
 }, {
   freezeTableName: true
 });
  
-export default Rating;
+export default Review;
