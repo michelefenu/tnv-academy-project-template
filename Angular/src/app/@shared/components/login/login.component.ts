@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(form.value).subscribe({
         next: (response) => {
           localStorage.setItem("user", JSON.stringify(response));
-          this.router.navigateByUrl("/rankings");
+          this.router.navigateByUrl("/welcome");
         },
         error: () => alert("Login Errato"),
       });

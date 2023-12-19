@@ -15,6 +15,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
+import { SearchComponent } from './components/search/search.component';
+import { TrendingSectionComponent } from './components/trending-section/trending-section.component';
+import { FilmCardComponent } from './components/film-card/film-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { AngularMaterialModule } from './@shared/modules/angular-material/angula
     NavbarComponent,
     WelcomeComponent,
     ProfileComponent,
-    RankingsComponent
+    RankingsComponent,
+    SearchComponent,
+    TrendingSectionComponent,
+    FilmCardComponent
   ],
   imports: [
     BrowserModule,
