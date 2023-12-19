@@ -18,7 +18,8 @@ import { AngularMaterialModule } from './@shared/modules/angular-material/angula
 import { SearchComponent } from './components/search/search.component';
 import { TrendingSectionComponent } from './components/trending-section/trending-section.component';
 import { FilmCardComponent } from './components/film-card/film-card.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,10 @@ import { FilmCardComponent } from './components/film-card/film-card.component';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
