@@ -20,6 +20,8 @@ import { TrendingSectionComponent } from './components/trending-section/trending
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,9 @@ import { MatInputModule } from '@angular/material/input';
     AngularMaterialModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
