@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { of } from "rxjs";
 import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
@@ -13,11 +13,13 @@ export class AuthService {
   constructor(private router: Router, private http: HttpClient) {}
 
   login(loginData: LoginDTO) {
-    console.log('auth service.ts', loginData);
-
+    console.log('auth service.ts', loginData);//qui ha dati - visti in console
+  
     // Passare username e password
-    // return this.http.get(`${this.springBootUrl}/api/user`);
+    return this.http.post(`${this.springBootUrl}/users/login`,loginData);
 
+
+/*
     // Stub prima di implementare l'API
     const user: User = {
       name: 'Paolino',
@@ -26,6 +28,7 @@ export class AuthService {
     }
     return of(user);
     // Fine stub
+  */
   }
 
   register(registerData: RegisterDTO) {
