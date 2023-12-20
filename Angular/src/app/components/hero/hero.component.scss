@@ -1,12 +1,4 @@
 
-/* hero */
-.hero-section {
-    background: url('/assets/images/2.jpg') no-repeat center center/cover;
-    margin-top: 0; 
-    padding-top: 12vh;
-}
-
-
 .index {
     position: relative;
     z-index: 1;
@@ -14,7 +6,29 @@
 
 .titleBox{
     padding-top: 24vh;
+    padding-left: 16vw;
+    padding-right: 16vw;
+
 }
+
+/* style titles and text */
+.titleBox h1 {
+    font-weight: 500;
+    font-size: 4rem !important; /* Sostituisci con la dimensione desiderata */
+}
+
+.titleBox h3 {
+    font-weight: 400;
+    font-size: 2.8rem !important;
+}
+
+.titleBox p {
+    font-weight: 400;
+    font-size: 1.7rem !important;
+
+}
+
+/* Altri stili rimanenti... */
 
 
 /* fattori di leggibilità: opacità nera 0.01% */
@@ -44,9 +58,19 @@
 .custom-background .container .index h5,
 .custom-background .container .index h6 {
     /* Stili per tutti gli elementi h all'interno di .index */
-    color: rgb(255, 255, 255); /* Esempio: colore del testo bianco */
+    color: rgb(238, 238, 238); /* Esempio: colore del testo bianco */
     font-family: 'Your Font', sans-serif; /* Esempio: specifica il tuo font */
-    font-weight: bolder !important;
+    font-weight: bolder;
+}
+
+.custom-background .container .index h1{
+    font-size: 3.7rem;
+}
+
+.custom-background .container .index h3{
+    
+    font-weight: 100;
+    font-size: 1.4rem;
 }
 
 

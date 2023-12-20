@@ -1,47 +1,41 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top px-3">
-  <a class="navbar-brand" routerLink="/">TNV Final Project Template</a>
-  <button
-    class="navbar-toggler hidden-sm-up"
-    type="button"
-    (click)="isNavbarCollapsed = !isNavbarCollapsed"
-    data-target="#navbarsDefault"
-    aria-controls="navbarsDefault"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div
-    [ngbCollapse]="isNavbarCollapsed"
-    class="collapse navbar-collapse"
-    id="navbarsDefault"
-  >
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/welcome" routerLinkActive="active"
-          >Welcome</a
-        >
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#"
-          >Gioca</a
-        >
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/rankings" routerLinkActive="active"
-          >Classifica</a
-        >
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#"
-          >Preferiti</a
-        >
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/profile" routerLinkActive="active"
-          >Profilo</a
-        >
-      </li>
-    </ul>
-  </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">
+        <img id="imgLogo" src="/assets/images/logo.jpg" alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <button class="btn btn-dark btn-with-border">
+                    <i class="fas fa-play"></i> Play
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-dark btn-with-border">
+                    Accedi
+                </button>
+            </li>
+            <li class="nav-item dropdown d-none"><!-- dropdown button menu is on : display hidden -->
+                <i class="fa-regular fa-square-ellipsis"></i>
+                <a class="btn btn-dark btn-with-border dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <i class="fas fa-ellipsis-h"></i>
+                     <!-- Icona utente -->
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <!-- Contenuto del menu dropdown -->
+                    <a class="dropdown-item color " href="#">Profilo</a>
+                    <a class="dropdown-item" href="#">Impostazioni</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Esci</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </nav>

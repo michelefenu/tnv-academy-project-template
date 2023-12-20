@@ -1,0 +1,85 @@
+/* Custom Styles */
+body {
+    background-color: rgb(0, 0, 36);
+    color: #ecf0f1;
+    font-family: 'Avenir', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* navbar  */
+.navbar-brand {
+    width: 100%;
+    padding: 8px 15px; /* Regola il padding per mantenere spazi consistenti intorno al logo */
+    padding-left: 32px;
+}
+
+.navbar-brand img {
+    max-height: 12vh; /* Altezza massima del logo */
+    border: 2px solid white;
+    border-radius: 30px;
+    margin-top: 2vh;
+    margin-left: 2vh;
+
+}
+
+.navbar-nav {
+    padding-left: 32px;
+    padding-right: 16px;
+}
+
+/* navbar  */
+nav.navbar {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    position: absolute; /* Posizionato in modo fisso in cima alla pagina */
+    z-index: 1000; /* Assegna uno z-index più alto */
+}
+
+.navbar-dark .navbar-toggler-icon {
+    border: 2px solid #fff;
+}
+
+.navbar-toggler {
+    border: 2px solid #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    border: 2px solid #fff;
+    margin: 0 5px;  
+}
+
+.navbar-dark .navbar-nav .nav-item .btn:hover {
+    background-color: #ffffff; /* Cambia colore di sfondo dei pulsanti durante l'hover */
+    color: #000000; /* Cambia colore del testo dei pulsanti durante l'hover */
+}
+
+.dropdown-menu {
+    border: 2px solid #fff;
+    margin-right: 100px;
+    background-color: #000000 !important;  /* Cambia il colore di sfondo del menu dropdown */
+    color: #ffffff; /* Cambia il colore del testo del menu dropdown */
+}
+
+/* Stile degli elementi del menu dropdown durante l'hover */
+.dropdown-menu a:hover {
+    background-color: #ffffff; /* Cambia il colore di sfondo durante l'hover */
+    color: #000000; /* Cambia il colore del testo durante l'hover */
+}
+
+.navbar-dark .navbar-nav .nav-item {
+    margin-right: 16px; /* Aumenta il margine tra i pulsanti */
+}
+
+.navbar-dark .navbar-nav .nav-item .btn {
+    background-color: #000000; /* Cambia colore di sfondo dei pulsanti */
+    border-color: #ffffff; /* Cambia colore del bordo dei pulsanti */
+    margin: 0 16px; /* Aggiungi margine tra i pulsanti */
+    width: 164px;
+    height: 64px;
+
+    font-family: 'Avenir', sans-serif;
+    font-size: 1.4rem;
+}
