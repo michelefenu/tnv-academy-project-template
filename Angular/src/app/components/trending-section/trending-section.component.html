@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-12 pt-5 pb-2">
       <h3>Trending</h3>
@@ -8,14 +8,25 @@
       <div class="row">
         <div class="col-12 col-sm-6 col-md-4 py-2">
           <tnv-film-card></tnv-film-card>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 py-2">
-          <tnv-film-card></tnv-film-card>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 py-2">
-          <tnv-film-card></tnv-film-card>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 pt-5 pb-2">
+      <h3>Trending</h3>
+    </div>
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 py-2" *ngFor="let movie of movies">
+          <tnv-film-card [movie]="movie"></tnv-film-card>
         </div>
       </div>
     </div>
   </div>
 </div>
+
