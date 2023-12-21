@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MovieService } from 'src/app/movie.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
@@ -13,5 +14,9 @@ import {MatCardModule} from '@angular/material/card';
   standalone: false
 })
 export class FilmCardComponent {
+  @Input() movie: any;
+
+  constructor(private movieService: MovieService){}
 
 }
+
