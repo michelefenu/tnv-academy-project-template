@@ -16,6 +16,7 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { HeroComponent } from './components/hero/hero.component';
+import { LoginBetaComponent } from './@shared/components/login-beta/login-beta.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeroComponent } from './components/hero/hero.component';
     WelcomeComponent,
     ProfileComponent,
     RankingsComponent,
-    HeroComponent
+    HeroComponent,
+    LoginBetaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,11 @@
 
 .login-card {
   width: 800px;
+  background: radial-gradient( rgba(162, 162, 245, 0.486),rgb(0, 0, 36));
 }
 
 .img {
-  background-image: url('/assets/images/login-screen.jpg');
+  background-image: url('/assets/images/logoLogin.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -14,6 +15,25 @@
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.btn{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+h3{
+  color: white;
+}
+
+a{
+  color: white;
+}
+
+.btn:hover{
+  background-color: white;
+  color: black;
 }
 
 @media only screen and (max-width: 768px){
