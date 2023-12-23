@@ -1,7 +1,8 @@
-
 .login-card {
   width: 800px;
-  background: radial-gradient( rgba(162, 162, 245, 0.486),rgb(0, 0, 36));
+  background-color: rgba(0, 0, 36, 0.8);
+  /* background: radial-gradient( rgba(162, 162, 245, 0.486),rgb(0, 0, 36,0.5)); colore alternativo effetto radiale center highlights*/
+  border-radius: 20px;
 }
 
 .img {
@@ -15,6 +16,7 @@
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 .btn{
