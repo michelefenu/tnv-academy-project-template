@@ -18,7 +18,7 @@ di benvenuto e invito a registrarsi */
 /* style titles and text */
 .titleBox h1 {
     font-weight: 500;
-    font-size: 4rem !important; /* Sostituisci con la dimensione desiderata */
+    font-size: 4rem !important; 
 }
 
 .titleBox h3 {
@@ -32,10 +32,8 @@ di benvenuto e invito a registrarsi */
 
 }
 
-/* Altri stili rimanenti... */
-
-
 /* fattori di leggibilità: opacità nera 0.01% */
+/* 
 .hero-section::after {
     content: ' ';
     width: 100%;
@@ -47,6 +45,7 @@ di benvenuto e invito a registrarsi */
     opacity: 0.0;
     z-index: 1;
 }
+ */
 
 /* sovrapposizione titles */
 .index{
@@ -62,8 +61,8 @@ di benvenuto e invito a registrarsi */
 .custom-background .container .index h5,
 .custom-background .container .index h6 {
     /* Stili per tutti gli elementi h all'interno di .index */
-    color: rgb(238, 238, 238); /* Esempio: colore del testo bianco */
-    font-family: 'Your Font', sans-serif; /* Esempio: specifica il tuo font */
+    color: rgb(238, 238, 238); 
+    font-family: 'Your Font', sans-serif; 
     font-weight: bolder;
 }
 
@@ -81,7 +80,7 @@ di benvenuto e invito a registrarsi */
 .custom-background .container .index p{
     font-weight:400;
 }
-
+    
 
 /* background hero e opacità */
 .custom-background {
@@ -93,6 +92,7 @@ di benvenuto e invito a registrarsi */
     overflow: hidden;
 }
 
+/* 
 .custom-background::before {
     content: '';
     position: absolute;
@@ -102,3 +102,32 @@ di benvenuto e invito a registrarsi */
     height: 100%;
     background: radial-gradient( rgba(162, 162, 245, 0),rgb(0, 0, 36));
 }
+ */
+
+.btn {
+    width: 24vw;
+    height: 6vh;
+   
+    background-color: black;
+    border: 1px solid white;
+    margin-top: 2vh;
+
+    color: white;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 4vh; /* Centra il testo verticalmente */
+  }
+
+  .btn:hover {
+    width: 24vw;
+    height: 6vh;
+   
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    margin-top: 2vh;
+
+    color: rgb(0, 0, 0);
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 4vh; /* Centra il testo verticalmente */
+  }
