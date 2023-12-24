@@ -1,0 +1,28 @@
+/* Stili per tutti gli elementi h e p all'interno del componente */
+.container{
+    background-color: rgb(2, 2, 33); 
+    color: rgb(255, 255, 255);
+    font-family: 'Your Font', sans-serif;
+    font-weight: bolder;
+}
+
+.h1 {
+  font-size: 3.7rem;
+}
+
+h3 {
+  font-weight: 100;
+  font-size: 1.4rem;
+}
+
+p {
+  font-weight: 400;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.separator {
+  height: 2px;
+}

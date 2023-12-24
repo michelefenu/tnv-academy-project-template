@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { HeroComponent } from './components/hero/hero.component';
 import { ITComponent } from './components/it/it.component';
+import { BioComponent } from './components/bio/bio.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ITComponent } from './components/it/it.component';
     RankingsComponent,
     HeroComponent,
     ITComponent,
+    BioComponent,
   ],
   imports: [
     BrowserModule,
