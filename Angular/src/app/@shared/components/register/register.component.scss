@@ -1,6 +1,7 @@
 .register-card {
   width: 800px;
   background: radial-gradient( rgba(162, 162, 245, 0.486),rgb(0, 0, 36));
+  border-radius: 20px;
 }
 
 .img {
@@ -8,6 +9,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
 }
 
 .wrap {
