@@ -18,6 +18,7 @@ import { AngularMaterialModule } from './@shared/modules/angular-material/angula
 import { HeroComponent } from './components/hero/hero.component';
 import { ITComponent } from './components/it/it.component';
 import { BioComponent } from './components/bio/bio.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BioComponent } from './components/bio/bio.component';
     HeroComponent,
     ITComponent,
     BioComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
