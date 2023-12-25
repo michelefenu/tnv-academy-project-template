@@ -1,0 +1,35 @@
+footer{
+  background-color: rgb(0, 0, 19); 
+  color: white;
+}
+
+/* Stili per il testo in color bianco nel footer */
+.text-white {
+    color: white;
+}
+
+/* Override del colore di alcuni link all'interno del footer */
+.text-white a {
+    color: white !important;
+}
+
+/* Override del colore per gli elementi con la classe 'text-reset' all'interno del footer */
+.text-reset {
+    color: white !important;
+}
+
+/* Stili per tutti gli elementi h */
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+/* Stili per tutti gli elementi p */
+p {
+    color: white;
+}
+
+span {
+    color: white;
+}
+
+

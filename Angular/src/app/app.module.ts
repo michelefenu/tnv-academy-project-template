@@ -19,6 +19,9 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ITComponent } from './components/it/it.component';
 import { BioComponent } from './components/bio/bio.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
 
 @NgModule({
   declarations: [
@@ -43,8 +46,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
-  ],
+    FontAwesomeModule,
+    AngularMaterialModule  ],
   providers: [],
   bootstrap: [AppComponent]
 })
