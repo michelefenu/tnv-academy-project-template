@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: "rankings", component: RankingsComponent },
       { path: "hero", component: HeroComponent },
 
-      { path: "", redirectTo: "welcome", pathMatch: 'full' },
+      { path: "", redirectTo: "it", pathMatch: 'full' },
     ],
   },
   {
