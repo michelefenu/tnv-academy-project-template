@@ -8,11 +8,12 @@ import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
 import { HeroComponent } from "./components/hero/hero.component";
+import {ITComponent} from "./components/it/it.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: MainPageComponent,
+    component: ITComponent,
     canActivate: [AuthGuard],
     children: [
       { path: "welcome", component: WelcomeComponent },
