@@ -1,0 +1,38 @@
+.rankings{
+    width: 100%;
+    background-color: rgb(0, 0, 19); 
+    color: white;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-top: 8vh;
+}
+
+.table {
+    background-color: rgb(0, 0, 19); /* Sfondo delle righe */
+    color: white; /* Colore del testo */
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid white; /* Aggiungi bordo bianco alle celle */
+  }
+  
+  /* Facoltativo: Aggiungi stile a hover sulle righe */
+  .table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia lo sfondo al passaggio del mouse */
+  }
+
+  .col{
+    background-color: rgb(0, 0, 19); /* Sfondo delle righe */
+    color: white; /* Colore del testo */
+  }
+
+  .thead{
+    background-color: rgb(0, 0, 19); /* Sfondo delle righe */
+    color: white; /* Colore del testo */
+  }
+
+  .tbody{
+    background-color: rgb(0, 0, 19); /* Sfondo delle righe */
+    color: white; /* Colore del testo */
+  }
