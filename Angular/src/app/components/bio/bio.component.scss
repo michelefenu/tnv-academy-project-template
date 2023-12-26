@@ -28,15 +28,6 @@ h2 {
   margin-top: 50px;
 }
 
-.col{ 
-  max-height: 100%;
-  background-color: rgb(0, 0, 19); 
-  padding-top: 2vh;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  padding-bottom: 4vh;
-}
-
 .card {
   height: 75vh;
   background-color: rgb(0, 0, 19); 
@@ -44,6 +35,17 @@ h2 {
   padding-left: 2vw;
   padding-right: 2vw;
 }
+
+
+.col{ 
+  max-height: 100%;
+  background-color: rgb(0, 0, 19); 
+  padding-top: 4vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 2vh;
+}
+
 
  .hr {
   border: none;
