@@ -7,7 +7,7 @@ import { faFacebookF, faTwitter, faInstagram, faLinkedin, faGithub, faGoogle } f
 @Component({
   selector: 'tnv-footer',
   template: `
-    <!-- Usa le icone social -->
+    <!-- Imported icons social nella section contacts social -->
     <fa-icon [icon]="faFacebookF"></fa-icon>
     <fa-icon [icon]="faTwitter"></fa-icon>
     <fa-icon [icon]="faInstagram"></fa-icon>
