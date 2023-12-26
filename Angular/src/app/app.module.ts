@@ -21,6 +21,7 @@ import { BioComponent } from './components/bio/bio.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { GridlistComponent } from './components/gridlist/gridlist.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
     ITComponent,
     BioComponent,
     FooterComponent,
+    GridlistComponent,
   ],
   imports: [
     BrowserModule,
