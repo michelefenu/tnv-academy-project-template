@@ -11,7 +11,7 @@ import { HeroComponent } from "./components/hero/hero.component";
 
 const routes: Routes = [
   {
-    path: "",
+    path: "it",
     component: MainPageComponent,
     canActivate: [AuthGuard],
     children: [
