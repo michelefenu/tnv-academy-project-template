@@ -58,7 +58,8 @@
 .register-section {
   background: url('/assets/images/2.jpg') no-repeat center center/cover;
   margin-top: 0; 
-  padding-top: 12vh;
+  height: 63vh; /* Riduci del 30% */
+  padding-top: 8.4vh !important; 
 }
 
 
@@ -76,6 +77,18 @@
   width: 800px;
   background: radial-gradient( rgba(162, 162, 245, 0.486),rgb(0, 0, 36));
   border-radius: 20px;
+  position: relative;
+  z-index: 2;
+  transform: scale(0.7); /* Riduci del 30% */
+}
+
+/* Riduci la dimensione del font del pulsante */
+.register-card .btn {
+  font-size: 1.5rem; /* Riduci del 30% */
+}
+
+label{
+  font-size: 1.1rem;
 }
 
 .img {
