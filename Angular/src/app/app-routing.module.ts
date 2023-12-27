@@ -9,6 +9,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
 import { HeroComponent } from "./components/hero/hero.component";
 import {ITComponent} from "./components/it/it.component";
+import { UserAccountComponent } from "./components/user-account/user-account.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: "profile", component: ProfileComponent },
       { path: "rankings", component: RankingsComponent },
       { path: "hero", component: HeroComponent },
+      { path: "userAccount", component: UserAccountComponent },
 
       { path: "", redirectTo: "it", pathMatch: 'full' },
     ],
