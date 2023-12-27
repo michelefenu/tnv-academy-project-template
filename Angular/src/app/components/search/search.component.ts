@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
@@ -15,7 +15,16 @@ import {FormsModule} from '@angular/forms';
   
 })
 
-
 export class SearchComponent {
+  @Output() searchEvent = new EventEmitter<string>();
+  @ViewChild('actorName') actorName: any;
 
+  search() {
+    const actorName = this.actorName.value;
+    this.searchEvent.emit(actorName);
+  }
 }
+
+
+
+
