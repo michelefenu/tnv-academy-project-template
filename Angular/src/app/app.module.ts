@@ -16,6 +16,13 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { HeroComponent } from './components/hero/hero.component';
+import { ITComponent } from './components/it/it.component';
+import { BioComponent } from './components/bio/bio.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { GridlistComponent } from './components/gridlist/gridlist.component';
+import { FooterComponent } from './@shared/components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +35,11 @@ import { HeroComponent } from './components/hero/hero.component';
     WelcomeComponent,
     ProfileComponent,
     RankingsComponent,
-    HeroComponent
+    HeroComponent,
+    ITComponent,
+    BioComponent,
+    GridlistComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +48,8 @@ import { HeroComponent } from './components/hero/hero.component';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
-  ],
+    FontAwesomeModule,
+    AngularMaterialModule  ],
   providers: [],
   bootstrap: [AppComponent]
 })

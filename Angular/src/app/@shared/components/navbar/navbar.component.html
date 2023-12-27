@@ -1,6 +1,6 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/">
         <img id="imgLogo" src="/assets/images/logo.jpg" alt="Logo">
     </a>
 
@@ -11,13 +11,28 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li class="nav-item d-none">
                 <button class="btn btn-dark btn-with-border">
                     <i class="fas fa-play"></i> Play
                 </button>
             </li>
+            <!-- switch button language IT/ENG: italiano/inglese 
+                ngx-translate MODULE
+                VEDI url:('https://www.youtube.com/watch?v=ikIEA1cCt_w')-->
+            <li class="nav-item dropdown d-none"><!-- dropdown button menu is on : display hidden -->
+                <i class="fa-regular fa-square-ellipsis"></i>
+                <a class="btn btn-dark btn-with-border dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language
+                   <i class="fas fa-ellipsis-h"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <!-- Contenuto del menu dropdown -->
+                    <a class="dropdown-item color " href="#">IT</a>
+                    <a class="dropdown-item" href="#">ENG</a>
+                </div>
+            </li>
             <li class="nav-item">
-                <button class="btn btn-dark btn-with-border">
+                <button data-toggle="tab" routerLink="/login" class="btn btn-dark btn-with-border">
                     Accedi
                 </button>
             </li>

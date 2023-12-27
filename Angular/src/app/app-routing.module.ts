@@ -7,17 +7,21 @@ import { RegisterComponent } from "./@shared/components/register/register.compon
 import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
+import { HeroComponent } from "./components/hero/hero.component";
+import {ITComponent} from "./components/it/it.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: MainPageComponent,
+    component: ITComponent,
     canActivate: [AuthGuard],
     children: [
       { path: "welcome", component: WelcomeComponent },
       { path: "profile", component: ProfileComponent },
       { path: "rankings", component: RankingsComponent },
-      { path: "", redirectTo: "welcome", pathMatch: 'full' },
+      { path: "hero", component: HeroComponent },
+
+      { path: "", redirectTo: "it", pathMatch: 'full' },
     ],
   },
   {

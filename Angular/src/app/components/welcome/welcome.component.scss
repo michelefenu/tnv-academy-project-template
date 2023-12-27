@@ -17,7 +17,11 @@
 }
 
 
-/* fattori di leggibilità: opacità nera 0.01% */
+/* fattori di leggibilità: opacità nera 0.01%
+ATTENZIONE! : questo style genera un layer di opacità che migliora la leggibilità
+ma va anche a coprire il button 'Registrati' annullandone le proprietà :hover e onclick
+Nel caso di riattivazione valutare lo spostamento del button in altro div indipendente */
+/* 
 .hero-section::after {
     content: ' ';
     width: 100%;
@@ -29,7 +33,7 @@
     opacity: 0.0;
     z-index: 1;
 }
-
+ */
 /* sovrapposizione titles */
 .index{
     position: relative;
@@ -44,8 +48,8 @@
 .custom-background .container .index h5,
 .custom-background .container .index h6 {
     /* Stili per tutti gli elementi h all'interno di .index */
-    color: rgb(255, 255, 255); /* Esempio: colore del testo bianco */
-    font-family: 'Your Font', sans-serif; /* Esempio: specifica il tuo font */
+    color: rgb(255, 255, 255); 
+    font-family: 'Your Font', sans-serif; 
     font-weight: bolder !important;
 }
 
