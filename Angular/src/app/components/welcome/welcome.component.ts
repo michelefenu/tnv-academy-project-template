@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { TrendingSectionComponent } from '../trending-section/trending-section.component';
 import { MovieService } from 'src/app/movie.service';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'tnv-welcome',
@@ -16,17 +17,22 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
     // Effettua la chiamata API al servizio MovieService
-    this.movieService.getMoviesByActor('Tom Cruise').subscribe((result) => {
+    this.movieService.getMoviesByActor('Tom Cruise').subscribe(
+      (result) => {
       console.log('Risultati ricerca:', result);
   
       // Verifica se 'results' è definito e non vuoto
-      if (result && result.results && result.results.length > 0) {
+      if (result && result.length > 0) {
         // Assegna i risultati alla tua variabile movieResult
-        this.movieResult = result.results[0].known_for;
+        this.movieResult = result;
       } else {
         console.log('Nessun risultato trovato.');
       }
-    });
+    },
+    (error) => {
+      console.error('Errore durante la chiamata API', error);
+    }
+    );
   }
 
   movieResult: any[] = [];
