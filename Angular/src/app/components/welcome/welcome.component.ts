@@ -4,6 +4,7 @@ import { TrendingSectionComponent } from '../trending-section/trending-section.c
 import { MovieService } from 'src/app/movie.service';
 import { catchError } from 'rxjs';
 
+
 @Component({
   selector: 'tnv-welcome',
   templateUrl: './welcome.component.html',
@@ -16,7 +17,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    // Effettua la chiamata API al servizio MovieService
+    /* // Effettua la chiamata API al servizio MovieService
     this.movieService.getMoviesByActor('Tom Cruise').subscribe(
       (result) => {
       console.log('Risultati ricerca:', result);
@@ -32,19 +33,32 @@ export class WelcomeComponent implements OnInit {
     (error) => {
       console.error('Errore durante la chiamata API', error);
     }
-    );
+    ); */
   }
 
-  movieResult: any[] = [];
-
-  handleSearchResults(result: any[]) {
-    console.log('Risultati ricerca:', result);
   
-    if (result && result.length > 0) {
-      this.movieResult = result[0].known_for;
-    } else {
-      console.log('Nessun risultato trovato.');
-    }
+
+  movieResult: any[] = [];
+  actorName: string = "";
+
+  handleSearchResults(actorName: string) {
+    this.actorName = actorName;
+    this.movieService.getMoviesByActor(actorName).subscribe(
+      (result) => {
+        console.log('Risultati ricerca:', result);
+
+        if (result && result.length > 0) {
+          // Assegna i risultati alla tua variabile movieResult
+          this.movieResult = result;
+        } else {
+          console.log('Nessun risultato trovato.');
+        }
+      },
+      (error) => {
+        console.error('Errore durante la chiamata API', error);
+      }
+      );
+      
   }
 
 }

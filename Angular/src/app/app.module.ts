@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MovieService } from './movie.service';
 import { MovieSearchResultComponent } from './components/movie-search-result/movie-search-result.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { MovieSearchResultComponent } from './components/movie-search-result/mov
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    CommonModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

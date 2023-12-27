@@ -20,24 +20,40 @@ export class MovieService {
     return this.httpClient.get(url);
   }
 
+  //funzione per trovare id dal nome della persona
+  getActorId(actorName: string): Observable<number | undefined> {
+    const url = `${this.apiUrl}/search/person?api_key=${this.apiKey}&query=${actorName}&include_adult=true`;
+    
+    return this.httpClient.get(url).pipe(
+      map((response: any) => {
+        console.log('Risposta API per ricerca attore:', response);
+        const actor = response.results[0];
+
+        if (actor) {
+        console.log(`ID dell'attore ${actorName}: ${actor.id}`);
+        return actor.id;
+      } else {
+        console.log(`Attore non trovato per il nome ${actorName}`);
+        return undefined;
+      }
+      })
+    );
+  }
+
   //funzione per ottenere film per attore
   getMoviesByActor(actorName: string): Observable<any> {
-    const actorSearchUrl = `${this.apiUrl}/search/person?api_key=${this.apiKey}&query=${actorName}`;
-    
-    return this.httpClient.get(actorSearchUrl).pipe(
-      switchMap((response: any) => {
-        const actorId = response.results[0]?.id;
-        
+    return this.getActorId(actorName).pipe(
+      switchMap((actorId) => {
         if (actorId) {
           const moviesUrl = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_people=${actorId}`;
-          
-          return this.httpClient.get(moviesUrl);
+          return this.httpClient.get(moviesUrl).pipe(
+            map((moviesResponse: any) => moviesResponse.results)
+          );
         } else {
           // Ritorna un array vuoto se non è presente alcun attore con il nome specificato
           return of([]);
         }
-      }),
-      map((moviesResponse: any) => moviesResponse.results)
+      })
     );
   }
   /* getMoviesByActor(actorName: string): Observable<any> {

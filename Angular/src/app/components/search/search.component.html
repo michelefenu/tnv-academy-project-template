@@ -1,10 +1,9 @@
-
-  <form class="example-form" (ngSubmit)="search($event)">
-    <mat-form-field class="example-full-width">
-      <mat-label>cerca...</mat-label>
-      <input matInput #actorName maxlength="256" placeholder="Ex. Leonardo DiCaprio">
-      <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
-      <mat-hint align="end">{{actorName.value.length}} / 256</mat-hint>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Cerca</button>
-  </form>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>cerca...</mat-label>
+    <input matInput #actorName maxlength="256" placeholder="Ex. Leonardo DiCaprio">
+    <mat-hint align="start"><strong>Don't disclose personal info</strong></mat-hint>
+    <mat-hint align="end">{{actorName.value.length}} / 256</mat-hint>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="search()">Cerca</button>
+</form>
