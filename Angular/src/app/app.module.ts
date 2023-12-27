@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MovieService } from './movie.service';
+import { MovieSearchResultComponent } from './components/movie-search-result/movie-search-result.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { MovieService } from './movie.service';
     RankingsComponent,
     SearchComponent,
     TrendingSectionComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    MovieSearchResultComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { TrendingSectionComponent } from '../trending-section/trending-section.component';
 
@@ -9,9 +9,17 @@ import { TrendingSectionComponent } from '../trending-section/trending-section.c
 })
 export class WelcomeComponent implements OnInit {
 
+  @ViewChild(SearchComponent) searchComponent!: SearchComponent;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  movieResult: any[] = [];
+
+  handleSearchResults(result: any[]) {
+    this.movieResult = result;
   }
 
 }
