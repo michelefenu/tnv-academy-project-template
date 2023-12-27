@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieSearchResultComponent {
   @Input() moviesResult: any[] = [];
-
+  @Input() actorName: string = "";
 }

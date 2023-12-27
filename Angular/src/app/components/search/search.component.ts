@@ -16,12 +16,14 @@ import {FormsModule} from '@angular/forms';
 })
 
 export class SearchComponent {
-  @Output() searchEvent = new EventEmitter<string>();
+  @Output() searchEvent = new EventEmitter<any[]>();
   @ViewChild('actorName') actorName: any;
 
-  search() {
-    const actorName = this.actorName.value;
-    this.searchEvent.emit(actorName);
+  search(event: Event) {
+    event.preventDefault();
+    const actorName = this.actorName.nativeElement.value;
+    //console.log('Actor Name:', actorName);
+    this.searchEvent.emit([actorName]);
   }
 }
 
