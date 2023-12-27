@@ -18,18 +18,17 @@ di benvenuto e invito a registrarsi */
 /* style titles and text */
 .titleBox h1 {
     font-weight: 500;
-    font-size: 4rem !important; 
+    font-size: 2.8rem !important; /* Ridotto del 30% */
 }
 
 .titleBox h3 {
     font-weight: 400;
-    font-size: 2.8rem !important;
+    font-size: 1.96rem !important; /* Ridotto del 30% */
 }
 
 .titleBox p {
     font-weight: 400;
-    font-size: 1.7rem !important;
-
+    font-size: 1.19rem !important; /* Ridotto del 30% */
 }
 
 /* fattori di leggibilità: opacità nera 0.01% */
@@ -112,7 +111,7 @@ di benvenuto e invito a registrarsi */
     margin-top: 2vh;
 
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
     line-height: 4vh; /* Centra il testo verticalmente */
   }
