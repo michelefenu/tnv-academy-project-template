@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
 import { map } from 'rxjs';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -23,12 +24,20 @@ export class MovieService {
   getMoviesByActor(actorName: string): Observable<any> {
     const url = `${this.apiUrl}/search/person?api_key=${this.apiKey}&query=${actorName}`;
     //chiamata per ottenere id attore
+    
     return this.httpClient.get(url).pipe(
       map((response: any) => {
-        const actorId = response.results[0].id;
+        const actorId = response.results[0]?.id;
         //chaimata per ottenere i film tramite id attore
-        const moviesUrl = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_people=${actorId}`;
-        return this.httpClient.get(moviesUrl);
+        if (actorId) {
+          const moviesUrl = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_people=${actorId}`;
+          return this.httpClient.get(moviesUrl).pipe(
+            map((moviesResponse: any) => moviesResponse.results)
+          );
+        } else {
+          // Ritorna un array vuoto se non è presente alcun attore con il nome specificato
+          return of([]);
+        }
       })
     );
   }
