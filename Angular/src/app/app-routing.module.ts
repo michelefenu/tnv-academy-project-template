@@ -17,15 +17,18 @@ const routes: Routes = [
     component: ITComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: "welcome", component: WelcomeComponent },
-      { path: "profile", component: ProfileComponent },
-      { path: "rankings", component: RankingsComponent },
-      { path: "hero", component: HeroComponent },
-      { path: "userAccount", component: UserAccountComponent },
-
       { path: "", redirectTo: "it", pathMatch: 'full' },
     ],
   },
+  {
+  path: "userAccount",
+        component: UserAccountComponent,
+        children: [
+          // Altri percorsi relativi a UserAccountComponent
+          { path: "profile", component: ProfileComponent },
+          { path: "rankings", component: RankingsComponent },
+        ],
+      },
   {
     path: "login",
     component: LoginComponent,
