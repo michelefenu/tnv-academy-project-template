@@ -63,7 +63,7 @@ public class SecurityConfiguration {
         JdbcUserDetailsManager judm = new JdbcUserDetailsManager(dataSource);
 //        judm.createUser(user);
 //        judm.createUser(admin);
-          judm.createUser(alessio);
+//          judm.createUser(alessio);
 
         return judm;
 

@@ -29,9 +29,25 @@ export class AuthService {
   }
 
   register(registerData: RegisterDTO) {
+    // Effettua la chiamata HTTP al backend per la registrazione
+    this.http.post(`${this.springBootUrl}/api/register`, registerData).subscribe({
+      next: (response: any) => {
+        // Se la registrazione ha successo, reindirizza l'utente alla pagina desiderata dopo il login
+        this.router.navigateByUrl("/userAccount");
+      },
+      error: (error) => {
+        console.error("Errore durante la registrazione:", error);
+        // Gestire eventuali errori durante la registrazione qui
+      }
+    });
+  }
+
+/*   versione originale progetto
+  register(registerData: RegisterDTO) {
     // TODO Chiamare il servizio per la registrazione e redirigere l'utente alla root per il login
     this.router.navigateByUrl("/");
   }
+ */
 
   logout() {
     localStorage.removeItem("user");

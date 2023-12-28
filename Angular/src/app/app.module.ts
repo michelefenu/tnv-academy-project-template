@@ -22,6 +22,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { GridlistComponent } from './components/gridlist/gridlist.component';
 import { FooterComponent } from './@shared/components/footer/footer.component';
+import { UserAccountComponent } from './components/user-account/user-account.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FooterComponent } from './@shared/components/footer/footer.component';
     ITComponent,
     BioComponent,
     GridlistComponent,
-    FooterComponent
+    FooterComponent,
+    UserAccountComponent
   ],
   imports: [
     BrowserModule,
