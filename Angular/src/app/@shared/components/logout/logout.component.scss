@@ -1,0 +1,12 @@
+.btn{
+    width: 12vw;
+    background-color: black;
+    color: #fff;
+    border: 2px solid #fff;
+    margin: 0 5px;  
+}
+
+.btn:hover {
+    background-color: #ffffff; /* Cambia colore di sfondo dei pulsanti durante l'hover */
+    color: #000000; /* Cambia colore del testo dei pulsanti durante l'hover */
+}
