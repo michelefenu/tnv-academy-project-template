@@ -23,6 +23,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { GridlistComponent } from './components/gridlist/gridlist.component';
 import { FooterComponent } from './@shared/components/footer/footer.component';
 import { UserAccountComponent } from './components/user-account/user-account.component';
+import { GameroomComponent } from './components/gameroom/gameroom.component';
+import { InterfaceUserAccountComponent } from './components/interface-user-account/interface-user-account.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { UserAccountComponent } from './components/user-account/user-account.com
     BioComponent,
     GridlistComponent,
     FooterComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    GameroomComponent,
+    InterfaceUserAccountComponent
   ],
   imports: [
     BrowserModule,
