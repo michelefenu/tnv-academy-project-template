@@ -36,7 +36,7 @@ export class WelcomeComponent implements OnInit {
     ); */
   }
 
-  
+
 
   movieResult: any[] = [];
   actorName: string = "";
@@ -57,8 +57,8 @@ export class WelcomeComponent implements OnInit {
       (error) => {
         console.error('Errore durante la chiamata API', error);
       }
-      );
-      
+    );
+
   }
 
 }
