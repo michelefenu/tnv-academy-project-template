@@ -38,11 +38,9 @@ const routes: Routes = [
     path: "login",
     component: LoginComponent,
     children: [
-      { path: "", component: ITComponent },
       { path: "userAccount/gameroom", component: GameroomComponent },
       { path: "userAccount", component: UserAccountComponent },
-
-
+      { path: "it", component: ITComponent },
     ],
   },
   {
