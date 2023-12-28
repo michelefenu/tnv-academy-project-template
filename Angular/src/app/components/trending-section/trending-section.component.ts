@@ -8,13 +8,13 @@ import { MovieService } from 'src/app/movie.service';
   standalone: false
 })
 export class TrendingSectionComponent implements OnInit {
-  movies: any[] = [];
+  trendingMovies: any[] = [];
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    this.movieService.getMovies().subscribe(data => {
-      this.movies = data.results;
+    this.movieService.getTrendingMovies().subscribe(data => {
+      this.trendingMovies = data.results;
     });
   }
 }
