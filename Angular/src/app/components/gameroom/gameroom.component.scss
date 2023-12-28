@@ -26,10 +26,22 @@
 
 .game{
     width: 50vw;
-    height: 50vh;
+    height: 55vh;
 
     border: 2px black;
     border-radius: 20px;
     background-color: rgba(0, 0, 19, 0.6); 
+}
+
+.btn{
+    margin-top: 32px;
+}
+
+.btn-start{
+    background-color: transparent;
+    color: white;
+    margin: 2px white solid;
+    font-weight: bold;
+    font-size: 1.5rem;
 
 }
