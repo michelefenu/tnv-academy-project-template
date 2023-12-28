@@ -27,17 +27,21 @@ const routes: Routes = [
           // Altri percorsi relativi a UserAccountComponent
           { path: "profile", component: ProfileComponent },
           { path: "rankings", component: RankingsComponent },
+          { path: "it", component: ITComponent },
         ],
       },
   {
     path: "login",
     component: LoginComponent,
+    children: [
+      { path: "", component: ITComponent },
+    ],
   },
   {
     path: "register",
     component: RegisterComponent,
   },
-  { path: "**", redirectTo: "" },
+  { path: "**", redirectTo: "" },   /* equipara un url fake-unvalid a non scrivere nessun carattere */
 ];
 
 @NgModule({
