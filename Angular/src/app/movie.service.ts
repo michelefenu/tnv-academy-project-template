@@ -56,6 +56,12 @@ export class MovieService {
       })
     );
   }
+  getMoviesByTitle(title: string): Observable<any> {
+    const url = `${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${title}`;
+    return this.httpClient.get(url).pipe(
+      map((response: any) => response.results)
+    );
+  }
   /* getMoviesByActor(actorName: string): Observable<any> {
     const url = `${this.apiUrl}/search/person?api_key=${this.apiKey}&query=${actorName}`;
     

@@ -25,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MovieService } from './movie.service';
 import { MovieSearchResultComponent } from './components/movie-search-result/movie-search-result.component';
 import { CommonModule } from '@angular/common';
+import { MatRadioModule } from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    CommonModule
+    CommonModule,
+    MatRadioModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]
