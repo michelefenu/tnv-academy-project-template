@@ -75,14 +75,14 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.GET, "/users/**")
                         .hasAnyRole("USER","ADMIN")
                         .requestMatchers(HttpMethod.POST, "/users/")
-                        .hasRole("ADMIN")
+                        .hasAnyRole("USER","ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/users/**")
-                        .hasRole("ADMIN")
+                        .hasAnyRole("USER","ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/users/**")
                         .hasRole("ADMIN")
                         .anyRequest().authenticated())
             .httpBasic(Customizer.withDefaults());
-
+        //TODO controllare autorithies post e put
         return http.build();
     }
 
