@@ -9,6 +9,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
 import { HeroComponent } from "./components/hero/hero.component";
 import {ITComponent} from "./components/it/it.component";
+import { UserAccountComponent } from "./components/user-account/user-account.component";
 
 const routes: Routes = [
   {
@@ -16,14 +17,18 @@ const routes: Routes = [
     component: ITComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: "welcome", component: WelcomeComponent },
-      { path: "profile", component: ProfileComponent },
-      { path: "rankings", component: RankingsComponent },
-      { path: "hero", component: HeroComponent },
-
       { path: "", redirectTo: "it", pathMatch: 'full' },
     ],
   },
+  {
+  path: "userAccount",
+        component: UserAccountComponent,
+        children: [
+          // Altri percorsi relativi a UserAccountComponent
+          { path: "profile", component: ProfileComponent },
+          { path: "rankings", component: RankingsComponent },
+        ],
+      },
   {
     path: "login",
     component: LoginComponent,
