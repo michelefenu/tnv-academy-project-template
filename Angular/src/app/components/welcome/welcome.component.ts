@@ -14,9 +14,12 @@ import { error } from 'console';
 export class WelcomeComponent implements OnInit {
 
   @ViewChild(SearchComponent) searchComponent!: SearchComponent;
+	currentSearch: string = "";
+	public moviesByTitle: any[];
 
-  constructor(private movieService: MovieService) { }
-
+  constructor(private movieService: MovieService) { 
+    this.moviesByTitle = [];
+  }
   ngOnInit(): void {
     /* // Effettua la chiamata API al servizio MovieService
     this.movieService.getMoviesByActor('Tom Cruise').subscribe(
@@ -36,8 +39,6 @@ export class WelcomeComponent implements OnInit {
     }
     ); */
   }
-
-
 
   movieResult: any[] = [];
   actorName: string = "";
@@ -61,13 +62,14 @@ export class WelcomeComponent implements OnInit {
     );
 
   } */
-
   handleSearchResults(searchData: { type: string, searchTerm: string }) {
-    if (searchData.type === '1') {
+    if (searchData.type === "1") {
       this.searchMoviesByActor(searchData.searchTerm);
-    } else if (searchData.type === '2') {
+    } 
+    /*
+    else if (searchData.type === "2") {
       this.searchMoviesByTitle(searchData.searchTerm);
-    }
+    }*/
   }
 
 
@@ -89,22 +91,28 @@ export class WelcomeComponent implements OnInit {
       }
     );
   }
-
+/*
   private searchMoviesByTitle(title: string){
-    this.movieService.getMoviesByTitle(title).subscribe(
-      (result) => {
-        console.log('Risultato ricerca per titolo:', result);
-        if(result && result.length > 0) {
-          this.movieResult = result;
-        } else {
-          console.log('Nessun risultato per il titolo cercato.');
-        }
-      },
-      (error) => {
-        console.error('Errore durante la chiamata API per il titolo', error);
-      }
-    );
-  }
+		this.actorName = title;
+		this.movieService.getMoviesByTitle(this.actorName).subscribe({
+			next: (response) => {
+				console.log(this.movieResult);
+				this.movieResult = response.results;
+			},
+			error: (err) => console.log(err),
+		});
+  }*/
+  searchByTitle(title: string) {
+		this.currentSearch = title;
+		this.movieService.getMoviesByTitle(this.currentSearch).subscribe({
+			next: (response) => {
+				//console.log(this.moviesByTitle);
+				this.moviesByTitle = response.results;
+        console.log(this.moviesByTitle);
+			},
+			error: (err) => console.log(err),
+		});
+	}
 
 }
 
