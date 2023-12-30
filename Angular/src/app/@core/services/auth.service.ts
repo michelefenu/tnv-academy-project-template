@@ -33,23 +33,19 @@ export class AuthService {
   }
 
   register(registerData: RegisterDTO) {
-
-   /* console.log('auth service.ts', registerData);
-
-    const url = `${this.springBootUrl}/`; // Sostituisci con il tuo endpoint effettivo per il login
-    return this.http.post(url, registerData);*/
-
-
-
-    // Effettua la chiamata HTTP al backend per la registrazione
-    this.http.post(`${this.springBootUrl}/api/register`, registerData).subscribe({
+     // Effettua la chiamata HTTP al backend per la registrazione
+     this.http.post(`${this.springBootUrl}/api/register`, registerData).subscribe({
       next: (response: any) => {
         // Se la registrazione ha successo, reindirizza l'utente alla pagina desiderata dopo il login
-        this.router.navigateByUrl("/userAccount");
+        this.router.navigateByUrl("/login");
       },
       error: (error) => {
         console.error("Errore durante la registrazione:", error);
         // Gestire eventuali errori durante la registrazione qui
+
+   /* console.log('auth service.ts', registerData);
+    const url = `${this.springBootUrl}/`; // Sostituisci con il tuo endpoint effettivo per il login
+    return this.http.post(url, registerData);*/
       }
     });
   }
