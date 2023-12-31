@@ -1,8 +1,12 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" routerLink="/">
-        <img id="imgLogo" src="/assets/images/logo.jpg" alt="Logo">
-    </a>
+    <div>
+        <a class="navbar-brand" routerLink="/">
+            <img id="imgLogo" src="/assets/images/logo.jpg" alt="Logo">
+        </a>
+        <div class="fakebar"></div>
+    </div>
+
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +35,7 @@
                     <a class="dropdown-item" href="#">ENG</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ml-auto">
                 <button data-toggle="tab" routerLink="/login" class="btn btn-dark btn-with-border">
                     Accedi
                 </button>

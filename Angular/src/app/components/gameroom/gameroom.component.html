@@ -6,23 +6,70 @@
 
     <h1>Benvenuto in schermata game</h1>
 
-        <div class="game">
-            <div class="locandina-box">
-                <img src="" alt="">
-            </div>
-            <div class="timer">
-                <!-- costruire timer con RXJS -->
-            </div>
-            <h3>Qual'è il titolo del film?</h3>
-            <form action="" method="get"></form>
-            <div class="indizi-box">
-                <ul>
-                    <li>indizio</li>
-                    <li>indizio</li>
-                    <li>indizio</li>
-
-                </ul>
-            </div>
+    <div class="game">
+        <!-- Prima colonna -->
+        <div class="col">
+          <h4>Qual'è il titolo del film?</h4>
+          <div class="locandina-box">
+            <img src="" alt="" class="blurred-img">
+          </div>
+          <form action="" method="get">
+            <input type="text">
+            
+            <!-- Aggiungi gli input necessari nel form -->
+          </form>
         </div>
+      
+        <!-- Seconda colonna -->
+        <div class="col d-flex align-items-center flex-column text-center">
+            <button
+        type="button"
+        class="btn btn-outline-secondary me-2"
+        placement="end"
+        ngbPopover="Comedy"
+        popoverTitle=""
+        >
+        Indizio Genere
+        </button>
+        <button
+        type="button"
+        class="btn btn-outline-secondary me-2"
+        placement="end"
+        ngbPopover="2024"
+        popoverTitle=""
+        >
+        Indizio Anno di Uscita
+        </button>
+        <button
+        type="button"
+        class="btn btn-outline-secondary me-2"
+        placement="end"
+        ngbPopover="J. Ford, Danny De Vito"
+        >
+        Attori
+        </button>
+        <button
+        type="button"
+        class="btn btn-outline-secondary me-2"
+        placement="end"
+        ngbPopover="FOX Studio"
+        popoverTitle=""
+        >
+        Production Company
+        </button>
+      
+    <div class="recordTab">
+        <div class="timer">
+        <!-- Costruisci il timer RXJS qui -->
+        </div>
+        
+        <div class="points-counter">
+        <!-- Punti: {{ points }}  -->
+        </div>
+    </div>
+      
+    <button class="btn btn-start">Start</button>
+        </div>
+      </div>
 
 </div>
