@@ -25,6 +25,7 @@ import { FooterComponent } from './@shared/components/footer/footer.component';
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { GameroomComponent } from './components/gameroom/gameroom.component';
 import { InterfaceUserAccountComponent } from './components/interface-user-account/interface-user-account.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { InterfaceUserAccountComponent } from './components/interface-user-accou
     FooterComponent,
     UserAccountComponent,
     GameroomComponent,
-    InterfaceUserAccountComponent
+    InterfaceUserAccountComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
