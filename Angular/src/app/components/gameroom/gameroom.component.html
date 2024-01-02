@@ -1,4 +1,4 @@
-<div class="container-fluid room d-flex align-items-center flex-column text-center">
+<div class="room container-fluid d-flex align-items-center flex-column text-center">
     <video class="video-background" autoplay muted loop>
         <source src="/assets/images/tunnel_-_26475 (720p).mp4" type="video/mp4">
         Il tuo browser non supporta la riproduzione di video.
@@ -6,57 +6,34 @@
 
     <h1>Benvenuto in schermata game</h1>
 
-    <div class="game">
+    <div class="game d-flex align-items-center flex-column text-center">
         <!-- Prima colonna -->
         <div class="col">
           <h4>Qual'è il titolo del film?</h4>
-          <div class="locandina-box">
-            <img src="" alt="" class="blurred-img">
-          </div>
-          <form action="" method="get">
-            <input type="text">
-            
-            <!-- Aggiungi gli input necessari nel form -->
-          </form>
+            <img src="assets/images/locandina.jpg" alt="" class="locandinaImg blurred-img">
+      
         </div>
       
         <!-- Seconda colonna -->
         <div class="col d-flex align-items-center flex-column text-center">
-            <button
-        type="button"
-        class="btn btn-outline-secondary me-2"
-        placement="end"
-        ngbPopover="Comedy"
-        popoverTitle=""
-        >
-        Indizio Genere
-        </button>
-        <button
-        type="button"
-        class="btn btn-outline-secondary me-2"
-        placement="end"
-        ngbPopover="2024"
-        popoverTitle=""
-        >
-        Indizio Anno di Uscita
-        </button>
-        <button
-        type="button"
-        class="btn btn-outline-secondary me-2"
-        placement="end"
-        ngbPopover="J. Ford, Danny De Vito"
-        >
-        Attori
-        </button>
-        <button
-        type="button"
-        class="btn btn-outline-secondary me-2"
-        placement="end"
-        ngbPopover="FOX Studio"
-        popoverTitle=""
-        >
-        Production Company
-        </button>
+          <form action="" method="get">
+            <input type="text">
+            
+          </form>
+          <div class="row mt-20">
+            <div class="colbtn col-md-6 ">
+                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="Comedy" popoverTitle="">Indizio Genere</button>
+            </div>
+            <div class="colbtn col-md-6 ">
+                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="2024" popoverTitle="">Indizio Anno di Uscita</button>
+            </div>
+            <div class="colbtn col-md-6 ">
+                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="J. Ford, Danny De Vito">Attori</button>
+            </div>
+            <div class="colbtn col-md-6 ">
+                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="FOX Studio" popoverTitle="">Production Company</button>
+            </div>
+        </div>
       
     <div class="recordTab">
         <div class="timer">
@@ -69,7 +46,6 @@
     </div>
       
     <tnv-timer></tnv-timer>
-    <button class="btn btn-start">Start</button>
         </div>
       </div>
 
