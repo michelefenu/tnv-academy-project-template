@@ -11,3 +11,11 @@
   .mat-mdc-radio-button ~ .mat-mdc-radio-button {
     margin-left: 16px;
   }
+
+  #searchByTitleTemplate{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+

@@ -26,6 +26,8 @@ import { MovieService } from './movie.service';
 import { MovieSearchResultComponent } from './components/movie-search-result/movie-search-result.component';
 import { CommonModule } from '@angular/common';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { SearchResultTimelineComponent } from './components/search-result-timeline/search-result-timeline.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { MatRadioModule } from '@angular/material/radio';
     SearchComponent,
     TrendingSectionComponent,
     FilmCardComponent,
-    MovieSearchResultComponent
+    MovieSearchResultComponent,
+    SearchResultTimelineComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCardModule,
     MatButtonModule,
     CommonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatExpansionModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]
