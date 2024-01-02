@@ -27,6 +27,7 @@ import { MovieSearchResultComponent } from './components/movie-search-result/mov
 import { CommonModule } from '@angular/common';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { SearchResultTimelineComponent } from './components/search-result-timeline/search-result-timeline.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     SearchComponent,
     TrendingSectionComponent,
     FilmCardComponent,
-    MovieSearchResultComponent
+    MovieSearchResultComponent,
+    SearchResultTimelineComponent
   ],
   imports: [
     BrowserModule,

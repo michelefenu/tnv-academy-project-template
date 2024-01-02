@@ -108,7 +108,7 @@ export class WelcomeComponent implements OnInit {
 			next: (response) => {
 				//console.log(this.moviesByTitle);
 				this.moviesByTitle = response.results;
-        console.log(this.moviesByTitle);
+        //console.log(this.moviesByTitle);
 			},
 			error: (err) => console.log(err),
 		});
