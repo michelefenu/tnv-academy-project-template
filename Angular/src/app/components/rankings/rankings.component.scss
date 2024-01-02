@@ -1,9 +1,13 @@
 .rankings{
-    width: 100%;
-    background-color: rgb(0, 0, 19); 
+    width: 50vw;
+    background-color: rgba(0, 0, 19, 0.50); 
+    border-radius: 20px;
     color: white;
-    padding-left: 4vw;
-    padding-right: 4vw;
-    padding-top: 8vh;
-    padding-bottom: 8vh;
+
+    margin-top: 4vh;
+
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
