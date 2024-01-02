@@ -9,43 +9,29 @@ import { error } from "console";
 })
 export class SearchResultTimelineComponent {
 
-	@Input() moviesByTitle!: any[];
+	@Input() moviesList!: any[];
 
-	public yearsOfMoviesByTitle: any[];
-	public movieResultByYear: any[];
-
+	public yearsOfMovies: any[];
+	
 	constructor() {
-    this.movieResultByYear=[];
-    this.yearsOfMoviesByTitle=[];
+    this.yearsOfMovies=[];
   }
 
 	ngOnChanges() {
 		//0: ottenere solo anno da data
-		for (let movie of this.moviesByTitle) {
+		for (let movie of this.moviesList) {
 			let year = movie.release_date.substring(0, 4);
-			this.yearsOfMoviesByTitle.push(year);
+			this.yearsOfMovies.push(year);
 		}
 		// 1 - set di anni 
-		const years = [...new Set(this.yearsOfMoviesByTitle)];
-    this.yearsOfMoviesByTitle=years;
-    this.yearsOfMoviesByTitle.sort();
-
-    //creare raggruppamenti di film per anno
-    
-    for(let year of this.yearsOfMoviesByTitle) {
-      for(let movie of this.moviesByTitle){
-        if(movie.release_date.substring(0, 4)===year){
-          this.movieResultByYear.push(movie);
-        }
-      }
-    }
-
-
+		const years = [...new Set(this.yearsOfMovies)];
+    this.yearsOfMovies=years;
+    this.yearsOfMovies.sort();
 	}
 
   filterMovieByYear = (year: string): string[] =>  {
     let result = [];
-    for(let movie of this.moviesByTitle){
+    for(let movie of this.moviesList){
       if(movie.release_date.substring(0, 4)===year){
         result.push(movie);
       }
