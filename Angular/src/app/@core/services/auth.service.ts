@@ -3,32 +3,28 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { of } from "rxjs";
 import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
-import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
-  springBootUrl = 'http://localhost:8080/users';
+  springBootUrl = 'http://localhost:8080';
 
   constructor(private router: Router, private http: HttpClient) {}
 
-  login(loginData: LoginDTO) : Observable<any> {
+  login(loginData: LoginDTO) {
     console.log('auth service.ts', loginData);
-
-    const url = `${this.springBootUrl}/login`; // Sostituisci con il tuo endpoint effettivo per il login
-    return this.http.post(url, loginData);
 
     // Passare username e password
     // return this.http.get(`${this.springBootUrl}/api/user`);
 
     // Stub prima di implementare l'API
-    /*const user: User = {
+    const user: User = {
       name: 'Paolino',
       surname: 'Paperino',
       username: 'papero123'
     }
-    return of(user);*/
+    return of(user);
     // Fine stub
   }
 

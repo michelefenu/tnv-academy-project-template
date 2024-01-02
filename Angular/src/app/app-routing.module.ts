@@ -18,12 +18,12 @@ const routes: Routes = [
   {
     path: "",
     component: ITComponent,
-    canActivate: [AuthGuard],
     children: [
     ],
   },
   {
   path: "userAccount",
+  canActivate: [AuthGuard],
         component: UserAccountComponent,
         children: [
           // Altri percorsi relativi a UserAccountComponent
@@ -40,7 +40,6 @@ const routes: Routes = [
     children: [
       { path: "userAccount/gameroom", component: GameroomComponent },
       { path: "userAccount", component: UserAccountComponent },
-      { path: "it", component: ITComponent },
     ],
   },
   {
