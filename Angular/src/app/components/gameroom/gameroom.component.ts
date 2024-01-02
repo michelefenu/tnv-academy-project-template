@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountdownModule } from 'ngx-countdown';
 
 @Component({
@@ -6,6 +6,12 @@ import { CountdownModule } from 'ngx-countdown';
   templateUrl: './gameroom.component.html',
   styleUrl: './gameroom.component.scss'
 })
-export class GameroomComponent {
+export class GameroomComponent implements OnInit {
+
+  movie : Movie;
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
 }
