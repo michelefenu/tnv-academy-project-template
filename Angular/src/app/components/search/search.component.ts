@@ -33,20 +33,18 @@ export class RadioOverviewExample {} */
 export class SearchComponent {
   @Output() searchEvent = new EventEmitter<{ type: string, searchTerm: string}>();
   @ViewChild('actorName') actorName: any;
-
   @Output() searchByTitleEvent = new EventEmitter<string>();
-  /*righe 39-43 relative a espansione ricerca */
+  /*righe relative a espansione ricerca 
   step = 0;
 
   setStep(index: number) {
     this.step = index;
   }
-
+  */
   searchType: string = '1';
 
   search() {
     const searchTerm = this.actorName.nativeElement.value;
-    
     this.searchEvent.emit({type: this.searchType, searchTerm});
   }
 

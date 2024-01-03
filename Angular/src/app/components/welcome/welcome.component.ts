@@ -15,10 +15,12 @@ export class WelcomeComponent implements OnInit {
 
   @ViewChild(SearchComponent) searchComponent!: SearchComponent;
 	currentSearch: string = "";
-	public moviesByTitle: any[];
+  public movieResult: any[] = [];
+  actorName: string = "";
+ 
 
   constructor(private movieService: MovieService) { 
-    this.moviesByTitle = [];
+
   }
   ngOnInit(): void {
     /* // Effettua la chiamata API al servizio MovieService
@@ -39,9 +41,6 @@ export class WelcomeComponent implements OnInit {
     }
     ); */
   }
-
-  movieResult: any[] = [];
-  actorName: string = "";
 
   /* handleSearchResults(actorName: string) {
     this.actorName = actorName;
@@ -72,13 +71,11 @@ export class WelcomeComponent implements OnInit {
     }*/
   }
 
-
     private searchMoviesByActor(actorName: string) {
     this.actorName = actorName;
     this.movieService.getMoviesByActor(actorName).subscribe(
       (result) => {
         console.log('Risultati ricerca:', result);
-
         if (result && result.length > 0) {
           // Assegna i risultati alla tua variabile movieResult
           this.movieResult = result;
@@ -107,7 +104,7 @@ export class WelcomeComponent implements OnInit {
 		this.movieService.getMoviesByTitle(this.currentSearch).subscribe({
 			next: (response) => {
 				//console.log(this.moviesByTitle);
-				this.moviesByTitle = response.results;
+				this.movieResult = response.results;
         //console.log(this.moviesByTitle);
 			},
 			error: (err) => console.log(err),
