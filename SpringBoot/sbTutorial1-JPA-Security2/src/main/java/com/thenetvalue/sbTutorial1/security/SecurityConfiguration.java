@@ -41,7 +41,7 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsManager users(DataSource dataSource) {
-        /*UserDetails user = User
+        UserDetails user = User
                 .withUsername("user")
                 .password(passwordEncoder.encode("user"))
                 .roles("USER")
@@ -50,7 +50,7 @@ public class SecurityConfiguration {
                 .withUsername("admin")
                 .password(passwordEncoder.encode("admin"))
                 .roles("ADMIN")
-                .build();*/
+                .build();
 
 
         JdbcUserDetailsManager judm = new JdbcUserDetailsManager(dataSource);
