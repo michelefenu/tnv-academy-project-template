@@ -43,7 +43,7 @@ import { SearchResultTimelineComponent } from './components/search-result-timeli
     TrendingSectionComponent,
     FilmCardComponent,
     MovieSearchResultComponent,
-    SearchResultTimelineComponent
+    SearchResultTimelineComponent,
   ],
   imports: [
     BrowserModule,
