@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountdownModule } from 'ngx-countdown';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'tnv-gameroom',
@@ -8,10 +9,9 @@ import { CountdownModule } from 'ngx-countdown';
 })
 export class GameroomComponent implements OnInit {
 
-  movie : Movie;
-
+  movie : Movie | undefined;    //any
+  
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
 }
