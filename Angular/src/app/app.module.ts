@@ -26,6 +26,7 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 import { GameroomComponent } from './components/gameroom/gameroom.component';
 import { InterfaceUserAccountComponent } from './components/interface-user-account/interface-user-account.component';
 import { TimerComponent } from './components/timer/timer.component';
+import { WinnerCardComponent } from './components/winner-card/winner-card.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { TimerComponent } from './components/timer/timer.component';
     UserAccountComponent,
     GameroomComponent,
     InterfaceUserAccountComponent,
-    TimerComponent
+    TimerComponent,
+    WinnerCardComponent
   ],
   imports: [
     BrowserModule,
