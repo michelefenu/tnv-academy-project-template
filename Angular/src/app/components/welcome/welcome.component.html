@@ -2,6 +2,22 @@
   <div class="col-12">
     <h5>Cosa ti va di vedere oggi?</h5>
     <tnv-search (searchEvent)="handleSearchResults($event)" (searchByTitleEvent)="searchByTitle($event)"></tnv-search>
+  <tnv-filter
+  [(selectedYear)]="selectedYear"
+  [(selectedGenre)]="selectedGenre"
+  [(selectedLanguage)]="selectedLanguage"
+  [(selectedPopularityGrade)]="selectedPopularityGrade"
+  [(selectedDuration)]="selectedDuration"
+  ></tnv-filter>
+
+  <tnv-movie-list
+  [selectedYear]="selectedYear"
+  [selectedGenre]="selectedGenre"
+  [selectedLanguage]="selectedLanguage"
+  [selectedPopularityGrade]="selectedPopularityGrade"
+  [selectedDuration]="selectedDuration"
+  ></tnv-movie-list>
+
     <!--
     <tnv-movie-search-result [moviesResult]="movieResult" [actorName]="actorName" [moviesByTitle]="moviesByTitle"></tnv-movie-search-result>
     -->
