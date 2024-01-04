@@ -8,10 +8,12 @@ import { Movie } from 'src/app/models/movie';
   styleUrl: './gameroom.component.scss'
 })
 export class GameroomComponent implements OnInit {
+[x: string]: any;
   movie : Movie | undefined;    //any
 
-  
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
+
+  inviaTempoPartita():void{}
 }
