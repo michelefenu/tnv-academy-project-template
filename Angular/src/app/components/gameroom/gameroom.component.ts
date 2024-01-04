@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CountdownModule } from 'ngx-countdown';
-import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'tnv-gameroom',
@@ -9,7 +8,6 @@ import { Movie } from 'src/app/models/movie';
 })
 export class GameroomComponent implements OnInit {
 [x: string]: any;
-  movie : Movie | undefined;    //any
 
   constructor() {}
 
