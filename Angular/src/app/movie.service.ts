@@ -57,6 +57,41 @@ export class MovieService {
     );
   }
 
+  //funzione per filtrare i film in base ai criteri scelti
+  getMoviesByFilter(year?: number, genreId?: number, language?: string, popularity?: string, duration?: number): Observable<any> {
+    let url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&include_adult=false&include_video=false&language=it&page=1`;
+  
+    if (year !== undefined) {
+      url += `&primary_release_year=${year}`;
+    }
+  
+    if (genreId !== undefined) {
+      url += `&with_genres=${genreId}`;
+    }
+  
+    if (language !== undefined) {
+      url += `&with_original_language=${language}`;
+    }
+  
+    if (popularity !== undefined) {
+  
+      if(popularity === "desc"){
+        url += `&sort_by=popularity.desc`;
+      }
+      else if(popularity === "asc"){
+        url += `&sort_by=popularity.asc`;
+      }
+    }
+  
+    if (duration !== undefined) {
+      url += `&with_runtime.gte=${duration}`
+      }  
+  
+    console.log("Service URL:", url);
+    return this.httpClient.get(url);
+  }
+  
+
   getMoviesByTitle(title: String): Observable<any> {
     let url = `${this.apiUrl}/search/movie?query=${title}&api_key=${this.apiKey}`;
     return this.httpClient.get(url);

@@ -19,6 +19,12 @@ export class WelcomeComponent implements OnInit {
   actorName: string = "";
  
 
+  selectedYear: number | undefined;
+  selectedGenre: number | undefined;
+  selectedLanguage: string | undefined;
+  selectedPopularityGrade: string | undefined;
+  selectedDuration: number | undefined;
+
   constructor(private movieService: MovieService) { 
 
   }
