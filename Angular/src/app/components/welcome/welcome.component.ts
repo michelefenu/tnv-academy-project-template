@@ -17,6 +17,12 @@ export class WelcomeComponent implements OnInit {
 	currentSearch: string = "";
 	public moviesByTitle: any[];
 
+  selectedYear: number | undefined;
+  selectedGenre: number | undefined;
+  selectedLanguage: string | undefined;
+  selectedPopularityGrade: string | undefined;
+  selectedDuration: number | undefined;
+
   constructor(private movieService: MovieService) { 
     this.moviesByTitle = [];
   }
