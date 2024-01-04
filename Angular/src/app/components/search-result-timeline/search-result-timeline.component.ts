@@ -27,7 +27,7 @@ export class SearchResultTimelineComponent {
 		//0: ottenere solo anno da data
 		for (let movie of this.moviesList) {
       if(movie.release_date!=""){
-			  let year = movie.release_date.substring(0, 3);
+			  let year = movie.release_date.substring(0, 4);
 			  this.yearsOfMovies.push(year);
       }
 		}
@@ -42,7 +42,7 @@ export class SearchResultTimelineComponent {
     let result = [];
     console.log(year);
     for(let movie of this.moviesList){
-      if(movie.release_date!="" && movie.release_date.substring(0, 3)===year){
+      if(movie.release_date!="" && movie.release_date.substring(0, 4)===year){
         result.push(movie);
       }
     }
