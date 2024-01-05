@@ -9,7 +9,7 @@
         <!-- Prima colonna -->
         <div class="col BoxLocandina">
           <h4>Qual'è il titolo del film?</h4>
-            <img src="assets/images/locandina.jpg" alt="" class="locandinaImg blurIMG">
+            <img [src]="poster" alt="" class="locandinaImg blurIMG">
         </div>
       
         <!-- Seconda colonna -->
@@ -21,18 +21,19 @@
           </form>
           <div class="row mt-20">
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="Comedy" popoverTitle="">Indizio Genere</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="genres" popoverTitle="">Indizio Genere</button>
             </div>
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="2024" popoverTitle="">Indizio Anno di Uscita</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="release" popoverTitle="">Indizio Anno di Uscita</button>
             </div>
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="J. Ford, Danny De Vito">Attori</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="description">Descrizione</button>
             </div>
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" ngbPopover="FOX Studio" popoverTitle="">Production Company</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="production" popoverTitle="">Production Company</button>
             </div>
         </div>
+       
       
     <div class="recordTab">
         <div class="timer">
