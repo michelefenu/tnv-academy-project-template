@@ -97,6 +97,19 @@ export class MovieService {
     return this.httpClient.get(url);
   }
 
+  addToFavourites(movieId: number): Observable<any>{
+    const userId = this.getCurrentUserId();
+
+    if (!userId) {
+      throw new Error('ID utente non disponibile.');
+    }
+
+    const url = 'http://localhost/1234/api/favourites';
+    const body = { userId, movieId };
+
+    return this.httpClient.post(url, body);
+  }
+
   /*
   getMoviesByTitle(title: string): Observable<any> {
     const url = `${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${title}`;
