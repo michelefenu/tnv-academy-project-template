@@ -1,0 +1,29 @@
+<div class="container d-flex align-items-center flex-column text-center">
+    <video class="video-background" autoplay muted loop>
+        <source src="/assets/images/tunnel_-_26475 (720p).mp4" type="video/mp4">
+        Il tuo browser non supporta la riproduzione di video.
+    </video>
+    <!-- Prima colonna -->
+   
+    <div class="col game d-flex align-items-center flex-column text-center">
+      <h2>You Guessed the Movie !</h2>
+        <img src="assets/images/locandina.jpg" alt="" class="locandinaImg blurIMG">
+      <h3>Interstellar</h3>
+
+      <hr class="divider">
+
+      <div>
+      <p>Congratulazioni! Hai sbloccato questo movie. Vuoi salvarlo nella lista preferiti ?</p>
+
+        <p>Tempo impiegato per indovinare:  0. 00</p>
+      </div>
+
+      <form  #reviewForm="ngForm"> <!-- (ngSubmit)="inviaRecensione()" -->
+
+        <div class="mb-3 d-flex align-items-center flex-column text-center">
+          <label for="descrizione" class="form-label">Lascia una recensione</label>
+          <textarea class="form-control" id="descrizione" name="descrizione" placeholder="..max 160 caratteri" ngModel required maxlength="160"></textarea>
+        </div>
+        <button type="submit"  class="btn btn-start">Salva Movie</button>
+      </form>
+    </div>
