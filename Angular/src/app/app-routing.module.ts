@@ -19,35 +19,30 @@ const routes: Routes = [
   {
     path: "",
     component: ITComponent,
-    children: [
-
-    ],
   },
   {
   path: "userAccount",
   canActivate: [AuthGuard],
         component: UserAccountComponent,
         children: [
-          // Altri percorsi relativi a UserAccountComponent
+    /* commentare in caso si voglia visualizzare la gameroom o la winner room senza loggare */
           { path: "gameroom", component: GameroomComponent },
-          { path: "winner-card", component: WinnerCardComponent },
+          { path: "winner-card", component: WinnerCardComponent }, 
         ],
       },
-    {
-      path: "gameroom",
-      component: GameroomComponent
-    },
-    {
-      path: "winner-card",
-    component: WinnerCardComponent
-  },
+        /*  In versione di uscita, eliminare i path gameroom e winner-card e lasciare l'accesso solo tramite authguard da userAccount*/
+        {
+          path: "gameroom",
+          component: GameroomComponent
+        },
+        {
+          path: "winner-card",
+        component: WinnerCardComponent
+      },
+
   {
     path: "login",
     component: LoginComponent,
-    children: [
-      { path: "userAccount/gameroom", component: GameroomComponent },
-      { path: "userAccount", component: UserAccountComponent },
-    ],
   },
   {
     path: "register",
