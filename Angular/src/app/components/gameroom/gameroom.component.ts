@@ -1,58 +1,66 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { CountdownModule } from 'ngx-countdown';
 import { MovieService } from 'src/app/@core/services/movie.service';
+import { Movie,MovieResponse } from 'src/app/models/movie';
 
 @Component({
-  selector: 'tnv-gameroom',
-  templateUrl: './gameroom.component.html',
-  styleUrl: './gameroom.component.scss'
+  selector: "tnv-gameroom",
+  templateUrl: "./gameroom.component.html",
+  styleUrls: ["./gameroom.component.scss"],
 })
-export class GameroomComponent implements OnInit{
-  movieData: any;
+export class GameroomComponent implements OnInit {
+  allMovies!: MovieResponse;
+  movieData!: Movie;
   genres!: string;
   release!: string;
   description!: string;
   production!: string;
   poster!: string;
-  imageurl: string = 'https://image.tmdb.org/t/p/w500';
+  imageurl: string = "https://image.tmdb.org/t/p/w500";
 
   userInput!: string;
+  guess!: boolean;
 
-  guess!:boolean;
+  constructor(private movieService: MovieService) {}
 
-  
-  constructor(private movie:MovieService){ }
+  RandomMovie(): void {
+    if (this.allMovies.results.length > 0) {
+      // indice casuale array di film
+      const randomIndex = Math.floor(Math.random() * this.allMovies.results.length);
 
-  ngOnInit(): void {
-    this.movie.getMovieData().subscribe((data) => {
-      this.movieData = data;
-      this.genres = this.movieData.genres[0].name;
+      // Assegna il film casuale a movieData
+      this.movieData = this.allMovies.results[randomIndex];
+      console.log("Film casuale scelto:", this.movieData);
+      // Assegna alle variabili del componente
+      this.genres = this.movieData.original_language;
       this.release = this.movieData.release_date;
       this.description = this.movieData.overview;
-      this.production = this.movieData.production_companies[2].name;
+      this.production = this.movieData.original_title;
       this.poster = this.imageurl + this.movieData.poster_path;
-    });
+    }
+  }
 
-    
+  ngOnInit(): void {
+    this.movieService.getMovies().subscribe((data) => {
+      this.allMovies = data;
+      this.RandomMovie();
+      console.log("stampa un film", this.movieData);
+      console.log("stampa tutti film", this.allMovies.results);
+    });
   }
 
   onSubmit(form: NgForm) {
-    console.log(this.userInput);
-    console.log(this.movieData.title);
+    console.log("Input utente:", this.userInput);
+    console.log("Titolo film:", this.movieData.title);
 
     const title = this.movieData.title;
     if (this.userInput.toLowerCase() === title.toLowerCase()) {
       this.guess = true;
-      // Esegui azioni basate sul confronto positivo
+      // confronto positivo
     } else {
       this.guess = false;
-      // Esegui azioni basate sul confronto negativo
+      // confronto negativo
     }
-
-   
-
   }
-    
-  
 }
+
