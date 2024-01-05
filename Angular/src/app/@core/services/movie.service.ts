@@ -16,5 +16,10 @@ export class MovieService {
   getMovies(): Observable<MovieResponse> {
     return this.http.get<MovieResponse>(this.apiUrl);
   }
+
+  getMovieDetailsById(movieId: number): Observable<Movie> {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=f6440e97063436b16714f99cdb7da862`;
+    return this.http.get<Movie>(url);
+  }
  
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MovieService } from 'src/app/@core/services/movie.service';
-import { Movie,MovieResponse } from 'src/app/models/movie';
+import { Movie, MovieResponse } from 'src/app/models/movie';
 
 @Component({
-  selector: "tnv-gameroom",
-  templateUrl: "./gameroom.component.html",
-  styleUrls: ["./gameroom.component.scss"],
+  selector: 'tnv-gameroom',
+  templateUrl: './gameroom.component.html',
+  styleUrls: ['./gameroom.component.scss'],
 })
 export class GameroomComponent implements OnInit {
   allMovies!: MovieResponse;
@@ -16,7 +16,7 @@ export class GameroomComponent implements OnInit {
   description!: string;
   production!: string;
   poster!: string;
-  imageurl: string = "https://image.tmdb.org/t/p/w500";
+  imageurl: string = 'https://image.tmdb.org/t/p/w500';
 
   userInput!: string;
   guess!: boolean;
@@ -30,13 +30,17 @@ export class GameroomComponent implements OnInit {
 
       // Assegna il film casuale a movieData
       this.movieData = this.allMovies.results[randomIndex];
-      console.log("Film casuale scelto:", this.movieData);
-      // Assegna alle variabili del componente
-      this.genres = this.movieData.original_language;
-      this.release = this.movieData.release_date;
-      this.description = this.movieData.overview;
-      this.production = this.movieData.original_title;
-      this.poster = this.imageurl + this.movieData.poster_path;
+
+      // Ottieni i dettagli del film
+      this.movieService.getMovieDetailsById(this.movieData.id).subscribe((details: Movie) => {
+        // Assegna alle variabili del componente
+      
+        this.genres = details.genres[0].name
+        this.release = details.release_date;
+        this.description = details.overview;
+        this.production = details.production_companies[0].name;
+        this.poster = this.imageurl + details.poster_path;
+      });
     }
   }
 
@@ -44,14 +48,14 @@ export class GameroomComponent implements OnInit {
     this.movieService.getMovies().subscribe((data) => {
       this.allMovies = data;
       this.RandomMovie();
-      console.log("stampa un film", this.movieData);
-      console.log("stampa tutti film", this.allMovies.results);
+      console.log('stampa un film', this.movieData);
+      console.log('stampa tutti film', this.allMovies.results);
     });
   }
 
   onSubmit(form: NgForm) {
-    console.log("Input utente:", this.userInput);
-    console.log("Titolo film:", this.movieData.title);
+    console.log('Input utente:', this.userInput);
+    console.log('Titolo film:', this.movieData.title);
 
     const title = this.movieData.title;
     if (this.userInput.toLowerCase() === title.toLowerCase()) {
@@ -63,4 +67,3 @@ export class GameroomComponent implements OnInit {
     }
   }
 }
-
