@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize({
-  database: "firstSpring",
+  database: "tnv_final_project",
   username: "root",
   password: "Normix200",
   host: "localhost",
