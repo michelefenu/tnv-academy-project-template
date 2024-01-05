@@ -13,12 +13,14 @@ import { UserAccountComponent } from "./components/user-account/user-account.com
 import { GameroomComponent } from "./components/gameroom/gameroom.component";
 import { CountdownModule } from 'ngx-countdown';
 import { InterfaceUserAccountComponent } from "./components/interface-user-account/interface-user-account.component";
+import { WinnerCardComponent } from "./components/winner-card/winner-card.component";
 
 const routes: Routes = [
   {
     path: "",
     component: ITComponent,
     children: [
+
     ],
   },
   {
@@ -28,12 +30,17 @@ const routes: Routes = [
         children: [
           // Altri percorsi relativi a UserAccountComponent
           { path: "gameroom", component: GameroomComponent },
+          { path: "winner-card", component: WinnerCardComponent },
         ],
       },
     {
       path: "gameroom",
       component: GameroomComponent
     },
+    {
+      path: "winner-card",
+    component: WinnerCardComponent
+  },
   {
     path: "login",
     component: LoginComponent,
