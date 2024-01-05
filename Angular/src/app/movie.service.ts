@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, observable, switchMap } from 'rxjs';
 import { map } from 'rxjs';
 import { of } from 'rxjs';
+import { Filter } from './models/filter';
 
 
 @Injectable({
@@ -58,40 +59,40 @@ export class MovieService {
   }
 
   //funzione per filtrare i film in base ai criteri scelti
-  getMoviesByFilter(year?: number, genreId?: number, language?: string, popularity?: string, duration?: number): Observable<any> {
+  getMoviesByFilter(filter: Filter): Observable<any> {
     let url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&include_adult=false&include_video=false&language=it&page=1`;
   
-    if (year !== undefined) {
-      url += `&primary_release_year=${year}`;
+    if (filter.selectedYear !== undefined) {
+      url += `&primary_release_year=${filter.selectedYear}`;
     }
   
-    if (genreId !== undefined) {
-      url += `&with_genres=${genreId}`;
+    if (filter.selectedGenre !== undefined) {
+      url += `&with_genres=${filter.selectedGenre}`;
     }
   
-    if (language !== undefined) {
-      url += `&with_original_language=${language}`;
+    if (filter.selectedLanguage !== undefined) {
+      url += `&with_original_language=${filter.selectedLanguage}`;
     }
   
-    if (popularity !== undefined) {
+    if (filter.selectedPopularityGrade !== undefined) {
   
-      if(popularity === "desc"){
+      if(filter.selectedPopularityGrade === "desc"){
         url += `&sort_by=popularity.desc`;
       }
-      else if(popularity === "asc"){
+      else if(filter.selectedPopularityGrade === "asc"){
         url += `&sort_by=popularity.asc`;
       }
     }
   
-    if (duration !== undefined) {
-      url += `&with_runtime.gte=${duration}`
+    if (filter.selectedDuration !== undefined) {
+      url += `&with_runtime.gte=${filter.selectedDuration}`
       }  
   
     console.log("Service URL:", url);
     return this.httpClient.get(url);
   }
   
-
+  //funzione per filtrare i film in base al titolo (anche parziale)
   getMoviesByTitle(title: String): Observable<any> {
     let url = `${this.apiUrl}/search/movie?query=${title}&api_key=${this.apiKey}`;
     return this.httpClient.get(url);
