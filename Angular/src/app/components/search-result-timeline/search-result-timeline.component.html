@@ -28,9 +28,9 @@
 									animation-delay: 0.2s;
 									animation-name: fadeInLeft;
 								"
-								
-							>
-							<p>{{year}}</p>
+								*ngIf="filterMovieByYear(year).length>0"
+							>			
+								<p>{{year}}</p>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 py-2" *ngFor="let movie of filterMovieByYear(year)">

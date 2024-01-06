@@ -70,7 +70,7 @@ export class WelcomeComponent implements OnInit {
 			let years = [...new Set(this.yearsOfMovies)];
 			this.yearsOfMovies = years;
 			this.yearsOfMovies.sort();
-      console.log("getMovies yearsOfMovies",this.yearsOfMovies);
+      //console.log("getMovies yearsOfMovies",this.yearsOfMovies);
   }
 
   yearsofMovieDisplay = (yearsofMovies: any[], movieResult: any[])=>{
