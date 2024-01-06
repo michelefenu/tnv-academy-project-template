@@ -1,17 +1,40 @@
 import Favourite from "../models/favourites.js";
 
+export const checkIfMovieInFavourites = async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const movieId = req.params.movieId;
+  
+      const exists = await Favourite.findOne({
+        where: {
+          userId: userId,
+          movieId: movieId,
+        },
+      });
+  
+      res.json({
+        exists: exists !== null,
+      });
+    } catch (error) {
+      console.error("Errore durante il controllo se il film è nei preferiti:", error);
+      res.status(500).json({
+        error: "Errore durante il controllo se il film è nei preferiti",
+      });
+    }
+  };
+
 export const deleteFavourite = async (req, res) => {
     try {
-        const { movieId } = req.params;
+        const { userId, movieId } = req.params;
 
-        if(!movieId) {
+        if(!userId || !movieId) {
             return res.status(400).json({
                 message:"ID del film mancante per la rimozione dai preferiti!",
             });
         }
 
         const deletedFavourite = await Favourite.destroy({
-            where: { movieId },
+            where: { userId, movieId },
         });
 
         if(deletedFavourite) {
@@ -25,9 +48,9 @@ export const deleteFavourite = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error);
-        res.sendStatus(500).json({
-            message:"Errore durante la rimozione dai preferiti",
+        console.error('Errore durante la rimozione dai preferiti', error);
+        res.status(500).json({
+            message: "Errore durante la rimozione dai preferiti",
         });
     }
 };

@@ -31,6 +31,39 @@ export class MovieService {
     return this.httpClient.post(url, body);
   }
 
+  isMovieInFavourites(movieId: number): Observable<boolean> {
+    const userId = this.authService.getCurrentUserId();
+
+    if (!userId) {
+      throw new Error('ID utente non disponibile.');
+    }
+
+    const url = `http://localhost:1234/api/favourites/${userId}/${movieId}`;
+
+    return this.httpClient.get(url).pipe(
+      map((response: any) => {
+        // Se il film è nei preferiti, restituisce true, altrimenti false
+        return response.exists;
+      }),
+      catchError((error) => {
+        console.error('Errore durante il controllo se il film è nei preferiti', error);
+        return of(false);
+      })
+    );
+  } 
+
+  removeFromFavourites(movieId: number): Observable<any> {
+    const userId = this.authService.getCurrentUserId();
+
+    if (!userId) {
+      throw new Error('ID utente non disponibile.');
+    }
+
+    const url = `http://localhost:1234/api/favourites/${userId}/${movieId}`;
+
+    return this.httpClient.delete(url);
+  }
+
   //funzione che chiama i film trend del momento
   getTrendingMovies(): Observable<any> {
     const url = `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`;
