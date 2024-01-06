@@ -9,16 +9,18 @@
         <!-- Prima colonna -->
         <div class="col BoxLocandina">
           <h4>Qual'è il titolo del film?</h4>
-            <img [src]="poster" alt="" class="locandinaImg blurIMG">
+            <img *ngIf="!guess" [src]="poster" alt="" class="locandinaImg blurIMG">
+            <a *ngIf="guess">
+                <tnv-winner-card></tnv-winner-card>
+            </a> 
         </div>
       
         <!-- Seconda colonna -->
         <div class=" col titleMovie d-flex align-items-center flex-column text-center">
-          <form method="get">
-            <input type="text">
-            <input type="submit">
-            
-          </form>
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+                <input matInput name="inputField" [(ngModel)]="userInput" required>
+               <button type="submit">Submit</button>
+            </form>
           <div class="row mt-20">
             <div class="colbtn col-md-6 ">
                 <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="genres" popoverTitle="">Indizio Genere</button>
