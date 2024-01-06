@@ -20,7 +20,7 @@ export class FilmCardComponent {
     ) {}
 
   addFavourites(){
-    console.log("chiamata addFavourites nel film-card component");
+    //console.log("chiamata addFavourites nel film-card component");
     if (!this.movie || !this.movie.id){
       return;
     }

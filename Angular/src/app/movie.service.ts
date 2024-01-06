@@ -16,10 +16,10 @@ export class MovieService {
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
   addToFavourites(movieId: number): Observable<any>{
-    console.log("chaimata addToFavourites su movie.service");
+    //console.log("chiamata addToFavourites su movie.service");
     const userId = this.authService.getCurrentUserId();
-    console.log("userd id è ", userId);
-    console.log("movieId è ", movieId);
+    //console.log("userd id è ", userId);
+    //console.log("movieId è ", movieId);
   
     if (!userId) {
       throw new Error('ID utente non disponibile.');
