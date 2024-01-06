@@ -9,11 +9,12 @@
         <!-- Prima colonna -->
         <div class="col BoxLocandina">
           <h4>Qual'è il titolo del film?</h4>
-            <img *ngIf="!guess" [src]="poster" alt="" class="locandinaImg blurIMG">
-            <a *ngIf="guess">
-                <tnv-winner-card></tnv-winner-card>
-            </a> 
+            <img [src]="poster" alt="" class="locandinaImg blurIMG">
+
+          
+        
         </div>
+
       
         <!-- Seconda colonna -->
         <div class=" col titleMovie d-flex align-items-center flex-column text-center">
