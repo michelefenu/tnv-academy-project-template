@@ -20,20 +20,21 @@ export class FilmCardComponent {
     ) {}
 
   addFavourites(){
+    console.log("chiamata addFavourites nel film-card component");
     if (!this.movie || !this.movie.id){
       return;
     }
-
-    this.movieService.addFavourites(this.movie.id).subscribe(
+    console.log("movieId è ", this.movie.id);
+    this.movieService.addToFavourites(this.movie.id).subscribe(
       (Response) => {
-        console.log('Film aggiunto ai preferiti!', response);
+        console.log('Film aggiunto ai preferiti!', Response);
         this.snackBar.open('Film aggiunto ai preferiti!', 'OK', {
           duration: 3000,
         });
       },
       (error) => {
         console.error('Errore durante l\'aggiunta ai preferiti', error);
-        this.snackBar.open('Errore durante l\'aggiunta ai preferiti', 'OK', {
+        this.snackBar.open('Errore 1 durante l\'aggiunta ai preferiti', 'OK', {
           duration: 3000,
         });
       }
