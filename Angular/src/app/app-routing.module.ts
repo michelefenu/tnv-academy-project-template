@@ -7,6 +7,7 @@ import { RegisterComponent } from "./@shared/components/register/register.compon
 import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
+import { FavouritesComponent } from "./components/favourites/favourites.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: "welcome", component: WelcomeComponent },
       { path: "profile", component: ProfileComponent },
       { path: "rankings", component: RankingsComponent },
+      { path: "favourites", component: FavouritesComponent},
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
     ],
   },
