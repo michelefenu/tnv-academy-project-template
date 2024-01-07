@@ -8,7 +8,7 @@ body {
 .single-timeline-area {
     position: relative;
     z-index: 1;
-    padding-left: 180px;
+    padding-left: 100px;
 }
 @media only screen and (max-width: 575px) {
     .single-timeline-area {
@@ -17,7 +17,7 @@ body {
 }
 .single-timeline-area .timeline-date {
     position: absolute;
-    width: 180px;
+    width: 100px;
     height: 100%;
     top: 0;
     left: 0;

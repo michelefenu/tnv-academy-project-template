@@ -32,6 +32,7 @@ import { SearchResultTimelineComponent } from './components/search-result-timeli
 import { FilterComponent } from './components/filter/filter.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { SearchFinalComponent } from './components/search-final/search-final.component';
+import { FilmCardTimelineComponent } from './components/film-card-timeline/film-card-timeline.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SearchFinalComponent } from './components/search-final/search-final.com
     SearchResultTimelineComponent,
     FilterComponent,
     MovieListComponent,
-    SearchFinalComponent
+    SearchFinalComponent,
+    FilmCardTimelineComponent
   ],
   imports: [
     BrowserModule,

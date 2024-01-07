@@ -3,10 +3,11 @@
     <h5>Cosa ti va di vedere oggi?</h5>
     <tnv-search-final (selectedChange)="getMovies($event)" (searchEvent)="searchMoviesByActor($event)" (searchByTitleEvent)="searchByTitle($event)"></tnv-search-final>
     <tnv-search-result-timeline [moviesList]="movieResult" [yearsOfMovies]="yearsOfMovies"></tnv-search-result-timeline>
+    
 
-<!-- 
-    <tnv-search (searchEvent)="searchMoviesByActor($event)" (searchByTitleEvent)="searchByTitle($event)"></tnv-search> 
-    <tnv-filter (selectedChange)="getMovies($event)"></tnv-filter>
+<!--
+  <tnv-search (searchEvent)="searchMoviesByActor($event)" (searchByTitleEvent)="searchByTitle($event)"></tnv-search> 
+  <tnv-filter (selectedChange)="getMovies($event)"></tnv-filter>
   (selectedGenre)="selectedChanges($event)"
   (selectedLanguage)="selectedChanges($event)"
   (selectedPopularityGrade)="selectedChanges($event)"
@@ -19,7 +20,8 @@
   [selectedDuration]="selectedDuration"
   ></tnv-movie-list>
   <tnv-movie-search-result [moviesResult]="movieResult" [actorName]="actorName" ></tnv-movie-search-result>
-    <tnv-trending-section></tnv-trending-section>-->
+    <tnv-trending-section></tnv-trending-section>
+  -->
   </div>
 </div>
 
