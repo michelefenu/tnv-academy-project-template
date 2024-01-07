@@ -66,7 +66,7 @@ export class MovieService {
 
   //funzione che chiama i film trend del momento
   getTrendingMovies(): Observable<any> {
-    const url = `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`;
+    const url = `${this.apiUrl}/movie/popular?api_key=${this.apiKey}&language=it-IT`;
     return this.httpClient.get(url);
   }
 
@@ -95,7 +95,7 @@ export class MovieService {
     return this.getActorId(actorName).pipe(
       switchMap((actorId) => {
         if (actorId) {
-          const moviesUrl = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_people=${actorId}`;
+          const moviesUrl = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_people=${actorId}&language=it-IT`;
           return this.httpClient.get(moviesUrl).pipe(
             map((moviesResponse: any) => moviesResponse.results)
           );
@@ -143,7 +143,7 @@ export class MovieService {
   
 
   getMoviesByTitle(title: String): Observable<any> {
-    let url = `${this.apiUrl}/search/movie?query=${title}&api_key=${this.apiKey}`;
+    let url = `${this.apiUrl}/search/movie?query=${title}&api_key=${this.apiKey}&language=it-IT`;
     return this.httpClient.get(url);
   }
   
