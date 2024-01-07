@@ -1,5 +1,22 @@
 import Favourite from "../models/favourites.js";
 
+export const getFavouritesByUserId = async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        
+        const favourites = await Favourite.findAll({
+            where: { userId },
+        });
+
+        res.json(favourites);
+    } catch (error){
+        console.error('Errore durante il recupero dei preferiti', error);
+    res.status(500).json({
+      error: 'Errore durante il recupero dei preferiti',
+    });
+}
+};
+
 export const checkIfMovieInFavourites = async (req, res) => {
     try {
       const userId = req.params.userId;
