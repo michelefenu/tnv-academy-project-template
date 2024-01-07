@@ -32,6 +32,7 @@ import { SearchResultTimelineComponent } from './components/search-result-timeli
 import { FilterComponent } from './components/filter/filter.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
+import { FilmCardFavouriteComponent } from './components/film-card-favourite/film-card-favourite.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
     SearchResultTimelineComponent,
     FilterComponent,
     MovieListComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    FilmCardFavouriteComponent
   ],
   imports: [
     BrowserModule,

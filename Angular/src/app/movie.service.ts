@@ -15,6 +15,12 @@ export class MovieService {
 
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
+  getFavouritesByUserId(userId: number): Observable<any> {
+    const url = `http://localhost:1234/api/favourites/${userId}`;
+  
+    return this.httpClient.get(url);
+  }
+
   addToFavourites(movieData:{ movieId: number, movieTitle: string, moviePosterPath: string }): Observable<any>{
     //console.log("chiamata addToFavourites su movie.service");
     const userId = this.authService.getCurrentUserId();
