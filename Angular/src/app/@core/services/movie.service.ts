@@ -10,6 +10,7 @@ import { Movie, MovieResponse } from 'src/app/models/movie';
 })
 export class MovieService {
   private apiUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=f6440e97063436b16714f99cdb7da862';
+  selectedMovie!: Movie;
  
    constructor(private http: HttpClient) { }
 
@@ -20,6 +21,14 @@ export class MovieService {
   getMovieDetailsById(movieId: number): Observable<Movie> {
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=f6440e97063436b16714f99cdb7da862`;
     return this.http.get<Movie>(url);
+  }
+
+  setSelectedMovie(movie: Movie): void {
+    this.selectedMovie = movie;
+  }
+
+  getSelectedMovie(): Movie {
+    return this.selectedMovie;
   }
  
 }

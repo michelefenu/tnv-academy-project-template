@@ -50,10 +50,13 @@ export class GameroomComponent implements OnInit {
         this.description = details.overview;
         this.production = details.production_companies[0].name;
         this.poster = this.imageurl + details.poster_path;
+        this.movieService.setSelectedMovie(details);
         
       });
     }
   }
+
+  
 
   ngOnInit(): void {
     this.movieService.getMovies().subscribe((data) => {
@@ -62,7 +65,7 @@ export class GameroomComponent implements OnInit {
       console.log('stampa un film', this.movieData);
       console.log('stampa tutti film', this.allMovies.results);     
     });
-  
+
   }
 
   
