@@ -1,29 +1,56 @@
-<div class="container d-flex align-items-center flex-column text-center">
+<div class="container">
+  <div class="card d-flex align-items-center flex-column text-center">
     <video class="video-background" autoplay muted loop>
-        <source src="/assets/images/tunnel_-_26475 (720p).mp4" type="video/mp4">
-        Il tuo browser non supporta la riproduzione di video.
+      <source src="assets/images/tunnel_-_26475 (720p).mp4" type="video/mp4" />
+      Il tuo browser non supporta la riproduzione di video.
     </video>
     <!-- Prima colonna -->
-   
+
     <div class="col game d-flex align-items-center flex-column text-center">
       <h2>You Guessed the Movie !</h2>
-        <img src="assets/images/locandina.jpg" alt="" class="locandinaImg blurIMG">
-      <h3>Interstellar</h3>
+      <img [src]="poster" alt="" class="locandinaImg blurIMG" />
+      <h3>{{ title }}</h3>
+      <p>
+        Congratulazioni! Hai sbloccato questo movie. Tempo impiegato per
+        indovinare: 0. 00.
+      </p>
+      <hr class="divider" />
 
-      <hr class="divider">
+      <div class="mb-3 d-flex align-items-center flex-column text-center">
+        <label for="descrizione" class="form-label"
+          >Vuoi salvare questo Movie?</label
+        >
 
-      <div>
-      <p>Congratulazioni! Hai sbloccato questo movie. Vuoi salvarlo nella lista preferiti ?</p>
-
-        <p>Tempo impiegato per indovinare:  0. 00</p>
-      </div>
-
-      <form  #reviewForm="ngForm"> <!-- (ngSubmit)="inviaRecensione()" -->
-
-        <div class="mb-3 d-flex align-items-center flex-column text-center">
-          <label for="descrizione" class="form-label">Lascia una recensione</label>
-          <textarea class="form-control" id="descrizione" name="descrizione" placeholder="..max 160 caratteri" ngModel required maxlength="160"></textarea>
+        <div class="btn-group" role="group">
+          <button
+            (click)="salvaMovie()"
+            class="btn btn-start btn-outline-primary"
+          >
+            Si
+          </button>
+          <button
+            (click)="annullaSalvataggio()"
+            class="btn btn-start btn-outline-danger"
+          >
+            No
+          </button>
         </div>
-        <button type="submit"  class="btn btn-start">Salva Movie</button>
-      </form>
+        
+        <form *ngIf="chose" #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)"> 
+          <div class="d-flex flex-column align-items-center justify-content-center mb-4">
+            <span class="font-size-18 mt-4 pt-3">Voto</span>
+            <ngb-rating [rate]="ratingValue" [max]="5" class="star-size mt-2"></ngb-rating>
+          </div>
+          <div class="mb-3 d-flex align-items-center flex-column text-center">
+            <label for="descrizione" class="form-label">Lascia una recensione</label>
+            <textarea class="form-control" id="descrizione" name="descrizione" placeholder="..max 160 caratteri" [(ngModel)]="review" required maxlength="160"></textarea>
+          </div>
+          <button type="submit" class="btn btn-start mt-3">Salva Movie</button>
+        </form>
+        
+        
+
+      </div>
     </div>
+  </div>
+</div>

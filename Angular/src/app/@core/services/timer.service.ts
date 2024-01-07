@@ -1,33 +1,41 @@
-// timer.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, timer } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { Observable, Subject, timer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TimerService {
-  private timerSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private seconds = 0;
+  private timerSubject = new Subject<number>();
+  private timerSubscription: any;
 
-  get timer$(): Observable<number> {
+  getTimer(): Observable<number> {
     return this.timerSubject.asObservable();
   }
 
+  getSecondsElapsed(): number {
+    return this.seconds;
+  }
+
+
   startTimer(): void {
-    timer(0, 1000)
-      .pipe(
-        switchMap(() => this.timerSubject),
-        tap((currentValue) => this.timerSubject.next(currentValue + 1000))
-      )
-      .subscribe();
+    if (!this.timerSubscription) {
+      this.timerSubscription = timer(0, 1000).subscribe(() => {
+        this.seconds++;
+        this.timerSubject.next(this.seconds);
+      });
+    }
   }
 
-  incrementTimer(seconds: number): void {
-    const currentValue = this.timerSubject.value;
-    this.timerSubject.next(currentValue + seconds * 1000);
+  stopTimer(): void {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+      this.timerSubscription = null; // Resetta la sottoscrizione
+    }
   }
 
-  clearTimer(): void {
-    this.timerSubject.next(0);
+  resetTimer(): void {
+    this.seconds = 0;
+    this.timerSubject.next(this.seconds);
   }
 }

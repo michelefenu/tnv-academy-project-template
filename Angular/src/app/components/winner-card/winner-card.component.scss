@@ -1,4 +1,4 @@
-.container{
+.card{
     background-image: url(/Angular/src/assets/images/);
     position: relative;
     z-index: 1;
@@ -20,11 +20,10 @@
 
     border: 2px black;
     border-radius: 20px;
-    margin-top: 8vh;
+    margin-top: 4vh;
 
     padding-left: 4vw;
     padding-right: 4vw;
-    padding-top: 4vh;
     padding-bottom: 4vh;
 
     color: white;
@@ -56,6 +55,10 @@ h3{
     margin-top: 2vh;
 }
 
+p{
+    margin-top: 2vh;
+}
+
 
 .locandinaImg{
     width: 180px;
@@ -81,3 +84,8 @@ h3{
     font-weight: bold;
     font-size: 1.5rem;
 }
+
+.star-size {
+    font-size: 48px; 
+    border-radius: 2px;
+  }
