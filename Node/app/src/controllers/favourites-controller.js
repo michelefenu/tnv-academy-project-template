@@ -57,7 +57,7 @@ export const deleteFavourite = async (req, res) => {
 
 export const addFavourite = async (req, res) => {
      try {
-        const { userId, movieId } = req.body;
+        const { userId, movieId, movieTitle, moviePosterPath, } = req.body;
 
         if (!userId || !movieId) {
             return res.status(400).json({
@@ -68,6 +68,8 @@ export const addFavourite = async (req, res) => {
         const newFavourite = await Favourite.create({
             userId,
             movieId,
+            movieTitle,
+            moviePosterPath,
         });
 
         res.json({

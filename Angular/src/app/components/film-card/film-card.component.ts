@@ -41,13 +41,20 @@ export class FilmCardComponent {
 
   addFavourites(){
     //console.log("chiamata addFavourites nel film-card component");
-    /* if (!this.movie || !this.movie.id){
-      return;
-    } */
     //console.log("movieId è ", this.movie.id);
-    this.movieService.addToFavourites(this.movie.id).subscribe(
+    if (!this.movie || !this.movie.id || !this.movie.title || !this.movie.poster_path) {
+      return;
+    }
+
+    const movieData = {
+      movieId : this.movie.id,
+      movieTitle : this.movie.title,
+      moviePosterPath: this.movie.poster_path,
+    };
+
+    this.movieService.addToFavourites(movieData).subscribe(
       (Response) => {
-        console.log('Film aggiunto ai preferiti!', Response);
+        //console.log('Film aggiunto ai preferiti!', Response);
         this.snackBar.open('Film aggiunto ai preferiti!', 'OK', {
           duration: 3000,
         });
@@ -85,8 +92,6 @@ export class FilmCardComponent {
   }
 
   private checkIfFavourite() {
-    // Aggiungi la logica per verificare se il film è nei preferiti al caricamento del componente
-    // Usa un nuovo metodo nel tuo MovieService per controllare lo stato
     this.movieService.isMovieInFavourites(this.movie.id).subscribe(
       (response) => {
         this.isMovieFavourite = response;

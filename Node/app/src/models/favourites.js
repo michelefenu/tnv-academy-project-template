@@ -10,6 +10,12 @@ const Favourite = db.define('favourite', {
   movieId: {
     type: DataTypes.INTEGER
   },
+  movieTitle: {
+    type: DataTypes.STRING
+  },
+  moviePosterPath: {
+    type: DataTypes.STRING
+  },
 }, {
   freezeTableName: true
 });
