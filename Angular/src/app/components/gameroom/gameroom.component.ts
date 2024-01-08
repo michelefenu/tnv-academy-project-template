@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { MovieService } from 'src/app/@core/services/movie.service';
 import { TimerService } from 'src/app/@core/services/timer.service';
 import { Movie, MovieResponse } from 'src/app/models/movie';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @Component({
   selector: 'tnv-gameroom',
@@ -24,12 +26,18 @@ export class GameroomComponent implements OnInit {
   userInput!: string;
   guess!: boolean;
 
-  secondsElapsed = 0;
+  secondsElapsed: number = 0;
+
+  timeGenere: number = 0;
+  timeDescrizione: number = 0;
+  timeUscita: number = 0;
+  timeProduction: number = 0;
+  tempoTotale: number = 0;
   
   
 
  constructor(private router:Router ,private movieService: MovieService, private timeService: TimerService) {
-    
+  
     
   }
 
@@ -66,9 +74,27 @@ export class GameroomComponent implements OnInit {
       console.log('stampa tutti film', this.allMovies.results);     
     });
 
-  }
+      this.timeService.getTimer().subscribe((x) =>{
+      this.secondsElapsed = x;
+      console.log("tempo", this.secondsElapsed);
+   });
 
-  
+      this.timeService.data$.subscribe(data => {
+      this.tempoTotale = data;
+      console.log("tempindizi",this.tempoTotale);
+  });
+
+
+ }
+
+ isTimerZero(): boolean {
+  return this.secondsElapsed === 0;
+}
+
+
+ getTotalTime(): number {
+  return this.timeService.getTimeIndiziValue();
+}
 
   onSubmit(form: NgForm) {
     console.log('Input utente:', this.userInput);
@@ -84,5 +110,31 @@ export class GameroomComponent implements OnInit {
     }
   }
 
+  timeIndizi(x:string):void {
+
+    switch(x){
+      case 'genres':
+        this.timeGenere = 30;
+        break;
+      case 'release':
+        this.timeUscita = 30;
+        break;
+      case 'description':
+        this.timeDescrizione = 30;
+        break;
+      case 'production':
+        this.timeProduction = 30;   
+        break;   
+    }
+
+    this.timeService.setTimeIndiziValue(this.timeGenere,this.timeDescrizione,this.timeUscita,this.timeProduction);
+ }
+
+ 
+
+   
+
  
 }
+
+
