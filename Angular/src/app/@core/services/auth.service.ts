@@ -16,10 +16,11 @@ export class AuthService {
   login(loginData: LoginDTO) : Observable<any> {
 
        const user: User = {
-        name: 'Paolino',
-      surname: 'Paperino',
-      username: 'papero123'
-    }
+         name: 'Paolino',
+         surname: 'Paperino',
+         username: 'papero123',
+         id: undefined
+       }
     return of(user);
     // Fine stub 
   }
