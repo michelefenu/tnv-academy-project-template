@@ -12,6 +12,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  .example-card button {
+    width: 60px;
+    height: 30px;
+    font-size: 12px;
+  }
   
   
   mat-card-actions {
