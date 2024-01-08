@@ -30,6 +30,7 @@ export class WelcomeComponent implements OnInit {
 				console.log("Risultati ricerca:", result);
 				if (result && result.length > 0) {
 					this.movieResult = result;
+					this.yearsOfMoviesValues(result.results);
 				} else {
 					console.log("Nessun risultato trovato.");
 				}
@@ -45,6 +46,7 @@ export class WelcomeComponent implements OnInit {
 		this.movieService.getMoviesByTitle(this.currentSearch).subscribe({
 			next: (response) => {
 				this.movieResult = response.results;
+				this.yearsOfMoviesValues(response.results);
 			},
 			error: (err) => console.log(err),
 		});
@@ -54,7 +56,8 @@ export class WelcomeComponent implements OnInit {
 		this.filter = event;
 		this.movieService.getMoviesByFilter(event).subscribe((data) => {
 			this.movieResult = data.results;
-      this.yearsOfMoviesValues(data.results);
+     
+	  
     })
 	}
 
