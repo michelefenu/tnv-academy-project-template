@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 pt-5 pb-2">
+      <h3>I Tuoi Preferiti</h3>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-2 py-2" *ngFor="let movie of favouriteMovies">
+        <app-film-card-favourite [movie]="movie" (removeMovie)="removeMovie($event)"></app-film-card-favourite>
+      </div>
+    </div>
+  </div>
+</div>

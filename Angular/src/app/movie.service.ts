@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, observable, switchMap } from 'rxjs';
 import { map } from 'rxjs';
 import { of } from 'rxjs';
+import { AuthService } from './@core/services/auth.service';
 
 
 @Injectable({
@@ -12,11 +13,66 @@ export class MovieService {
   private apiKey = '363a63846c046b7a3c0d656f3881759b';
   private apiUrl = 'https://api.themoviedb.org/3';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private authService: AuthService) { }
+
+  getFavouritesByUserId(userId: number): Observable<any> {
+    const url = `http://localhost:1234/api/favourites/${userId}`;
+  
+    return this.httpClient.get(url);
+  }
+
+  addToFavourites(movieData:{ movieId: number, movieTitle: string, moviePosterPath: string }): Observable<any>{
+    //console.log("chiamata addToFavourites su movie.service");
+    const userId = this.authService.getCurrentUserId();
+    //console.log("userd id è ", userId);
+    //console.log("movieId è ", movieId);
+  
+    if (!userId) {
+      throw new Error('ID utente non disponibile.');
+    }
+  
+    const url = 'http://localhost:1234/api/favourites';
+    const body = { userId, ...movieData };
+  
+    return this.httpClient.post(url, body);
+  }
+
+  isMovieInFavourites(movieId: number): Observable<boolean> {
+    const userId = this.authService.getCurrentUserId();
+
+    if (!userId) {
+      throw new Error('ID utente non disponibile.');
+    }
+
+    const url = `http://localhost:1234/api/favourites/${userId}/${movieId}`;
+
+    return this.httpClient.get(url).pipe(
+      map((response: any) => {
+        // Se il film è nei preferiti, restituisce true, altrimenti false
+        return response.exists;
+      }),
+      catchError((error) => {
+        console.error('Errore durante il controllo se il film è nei preferiti', error);
+        return of(false);
+      })
+    );
+  } 
+
+  removeFromFavourites(movieId: number): Observable<any> {
+    const userId = this.authService.getCurrentUserId();
+
+    if (!userId) {
+      throw new Error('ID utente non disponibile.');
+    }
+
+    const url = `http://localhost:1234/api/favourites/${userId}/${movieId}`;
+
+    return this.httpClient.delete(url);
+  }
 
   //funzione che chiama i film trend del momento
   getTrendingMovies(): Observable<any> {
-    const url = `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`;
+    const url = `${this.apiUrl}/movie/popular?api_key=${this.apiKey}&language=it-IT`;
     return this.httpClient.get(url);
   }
 
@@ -45,7 +101,7 @@ export class MovieService {
     return this.getActorId(actorName).pipe(
       switchMap((actorId) => {
         if (actorId) {
-          const moviesUrl = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_people=${actorId}`;
+          const moviesUrl = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_people=${actorId}&language=it-IT`;
           return this.httpClient.get(moviesUrl).pipe(
             map((moviesResponse: any) => moviesResponse.results)
           );
@@ -93,9 +149,12 @@ export class MovieService {
   
 
   getMoviesByTitle(title: String): Observable<any> {
-    let url = `${this.apiUrl}/search/movie?query=${title}&api_key=${this.apiKey}`;
+    let url = `${this.apiUrl}/search/movie?query=${title}&api_key=${this.apiKey}&language=it-IT`;
     return this.httpClient.get(url);
   }
+  
+
+  
 
   /*
   getMoviesByTitle(title: string): Observable<any> {
