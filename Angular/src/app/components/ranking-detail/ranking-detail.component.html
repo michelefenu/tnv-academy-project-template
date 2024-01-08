@@ -1,0 +1,16 @@
+<!-- ranking-detail.component.html -->
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text">{{ review.text }}</p>
+          <!-- Aggiungi altre informazioni sul film se necessario -->
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <span><ngb-rating [rate]="rating.rating" [max]="5"></ngb-rating></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

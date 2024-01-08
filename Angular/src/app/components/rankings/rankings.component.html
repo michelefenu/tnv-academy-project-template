@@ -1,13 +1,10 @@
 <section class="rankings">
   <div class="col-8 d-flex align-items-center flex-column text-center mx-auto my-5">
-    <h1>Le tue recensioni</h1>
+    <h1>I tuoi movies preferiti</h1>
       <table class="table ">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Titolo</th>
-            <th scope="col">Anno</th>
-            <th scope="col">Voto</th>
+            <tnv-ranking-detail [movie] = "movie" [review] = "review" [rating] = "rating"></tnv-ranking-detail>
           </tr>
         </thead>
         <tbody>

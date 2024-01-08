@@ -27,6 +27,7 @@ import { GameroomComponent } from './components/gameroom/gameroom.component';
 import { InterfaceUserAccountComponent } from './components/interface-user-account/interface-user-account.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { WinnerCardComponent } from './components/winner-card/winner-card.component';
+import { RankingDetailComponent } from './components/ranking-detail/ranking-detail.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { WinnerCardComponent } from './components/winner-card/winner-card.compon
     GameroomComponent,
     InterfaceUserAccountComponent,
     TimerComponent,
-    WinnerCardComponent
+    WinnerCardComponent,
+    RankingDetailComponent
   ],
   imports: [
     BrowserModule,

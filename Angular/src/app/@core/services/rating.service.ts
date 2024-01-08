@@ -13,19 +13,19 @@ export class RatingService {
 
 
   getRating(userId: string, movieId: string) {
-    return this.httpClient.get<Rating>(`${this.API_ROOT}/ratings/${userId}/${movieId}`);
+    return this.httpClient.get<Rating>(`${this.API_ROOT}/rating/${userId}/${movieId}`);
   }
 
   addRating(rating: Rating) {
-    return this.httpClient.post<Rating>(`${this.API_ROOT}/ratings/`, rating);
+    return this.httpClient.post<Rating>(`${this.API_ROOT}/rating/`, rating);
   }
 
   editRating(rating: Rating) {
-    return this.httpClient.patch<Rating>(`${this.API_ROOT}/ratings/${rating.id}`, rating)
+    return this.httpClient.patch<Rating>(`${this.API_ROOT}/rating/${rating.id}`, rating)
       .pipe(switchMap(() => this.getRating(rating.userId, rating.movieId)));
   }
 
   deleteRating(id: string) {
-    return this.httpClient.delete(`${this.API_ROOT}/ratings/${id}`);
+    return this.httpClient.delete(`${this.API_ROOT}/rating/${id}`);
   }
 }
