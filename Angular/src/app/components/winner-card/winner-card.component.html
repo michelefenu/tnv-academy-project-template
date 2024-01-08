@@ -11,9 +11,10 @@
       <img [src]="poster" alt="" class="locandinaImg blurIMG" />
       <h3>{{ title }}</h3>
       <p>
-        Congratulazioni! Hai sbloccato questo movie. Tempo impiegato per
-        indovinare: 0. 00.
+        Congratulazioni! Hai sbloccato questo movie. Tempo impiegato per indovinare:
+        <strong> <br> {{ tempoTotale}}</strong> secondi.
       </p>
+      
       <hr class="divider" />
 
       <div class="mb-3 d-flex align-items-center flex-column text-center">
@@ -23,7 +24,7 @@
 
         <div class="btn-group" role="group">
           <button
-            (click)="salvaMovie()"
+            (click)="scegliSalva()"
             class="btn btn-start btn-outline-primary"
           >
             Si
@@ -35,21 +36,43 @@
             No
           </button>
         </div>
-        
-        <form *ngIf="chose" #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)"> 
-          <div class="d-flex flex-column align-items-center justify-content-center mb-4">
+
+        <form
+          *ngIf="chose"
+          #reviewForm="ngForm"
+          (ngSubmit)="onSubmit(reviewForm)"
+        >
+          <div
+            class="d-flex flex-column align-items-center justify-content-center mb-4"
+          >
             <span class="font-size-18 mt-4 pt-3">Voto</span>
-            <ngb-rating [rate]="ratingValue" [max]="5" class="star-size mt-2"></ngb-rating>
+            <ngb-rating
+              [rate]="ratingValue"
+              [max]="5"
+              class="star-size mt-2"
+            ></ngb-rating>
           </div>
           <div class="mb-3 d-flex align-items-center flex-column text-center">
-            <label for="descrizione" class="form-label">Lascia una recensione</label>
-            <textarea class="form-control" id="descrizione" name="descrizione" placeholder="..max 160 caratteri" [(ngModel)]="review" required maxlength="160"></textarea>
+            <label for="descrizione" class="form-label"
+              >Lascia una recensione</label
+            >
+            <textarea
+              class="form-control"
+              id="descrizione"
+              name="descrizione"
+              placeholder="..max 160 caratteri"
+              [(ngModel)]="review"
+              required
+              maxlength="160"
+            ></textarea>
           </div>
-          <button type="submit" class="btn btn-start mt-3">Salva Movie</button>
+          <button
+            (click)="salvaMovie()"
+            class="btn btn-start btn-outline-danger"
+          >
+            Salva Movie
+          </button>
         </form>
-        
-        
-
       </div>
     </div>
   </div>
