@@ -20,20 +20,22 @@
         <div class=" col titleMovie d-flex align-items-center flex-column text-center">
             <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
                 <input matInput name="inputField" [(ngModel)]="userInput" required>
-               <button type="submit">Submit</button>
+               <button type="submit"[disabled]="isTimerZero()">GUESS</button>
             </form>
+           
+            
           <div class="row mt-20">
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="genres" popoverTitle="">Indizio Genere</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('genres')" [ngbPopover]="genres" popoverTitle="" [disabled]="isTimerZero()">Indizio Genere</button>
             </div>
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="release" popoverTitle="">Indizio Anno di Uscita</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('release')" [ngbPopover]="release" popoverTitle="" [disabled]="isTimerZero()">Indizio Anno di Uscita</button>
             </div>
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="description">Descrizione</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('description')" [ngbPopover]="description" [disabled]="isTimerZero()">Descrizione</button>
             </div>
             <div class="colbtn col-md-6 ">
-                <button type="button" class="btn btn-outline-secondary btn-block" [ngbPopover]="production" popoverTitle="">Production Company</button>
+                <button  type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('production')" [ngbPopover]="production" popoverTitle="" [disabled]="isTimerZero()">Production Company</button>
             </div>
         </div>
        
