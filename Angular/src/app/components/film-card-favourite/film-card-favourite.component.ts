@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-film-card-favourite',
@@ -7,6 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class FilmCardFavouriteComponent {
   @Input() movie: any;
+  @Output() removeMovie = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
+
+  onRemoveClick() {
+    this.removeMovie.emit(this.movie.movieId);
+    //console.log("invia movieId", this.movie.movieId);
+  }
 }

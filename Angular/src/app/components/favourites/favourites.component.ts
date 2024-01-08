@@ -16,6 +16,20 @@ export class FavouritesComponent implements OnInit {
     this.loadFavouriteMovies();
   }
 
+  removeMovie(movieId: number) {
+    //console.log("passo al service movieId ", movieId);
+    this.movieService.removeFromFavourites(movieId).subscribe(
+      () => {
+        // Rimuovere il film dall'array locale
+        this.favouriteMovies = this.favouriteMovies.filter((m) => m.id !== movieId);
+        this.loadFavouriteMovies(); //ricaricare pagina per eliminare card
+      },
+      (error) => {
+        console.error('Errore durante la rimozione del film dai preferiti', error);
+      }
+    );
+  }
+
   private loadFavouriteMovies() {
     {
       const userId = this.authService.getCurrentUserId();
