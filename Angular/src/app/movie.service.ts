@@ -27,14 +27,14 @@ export class MovieService {
     
     return this.httpClient.get(url).pipe(
       map((response: any) => {
-        console.log('Risposta API per ricerca attore:', response);
+        //console.log('Risposta API per ricerca attore:', response);
         const actor = response.results[0];
 
         if (actor) {
-        console.log(`ID dell'attore ${actorName}: ${actor.id}`);
+        //console.log(`ID dell'attore ${actorName}: ${actor.id}`);
         return actor.id;
       } else {
-        console.log(`Attore non trovato per il nome ${actorName}`);
+        //console.log(`Attore non trovato per il nome ${actorName}`);
         return undefined;
       }
       })

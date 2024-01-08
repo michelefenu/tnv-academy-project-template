@@ -25,20 +25,17 @@ export class WelcomeComponent implements OnInit {
 
 	public searchMoviesByActor(actorName: string) {
 		this.actorName = actorName;
-		this.movieService.getMoviesByActor(actorName).subscribe(
-			(result) => {
-				console.log("Risultati ricerca:", result);
-				if (result && result.length > 0) {
+		this.movieService.getMoviesByActor(this.actorName).subscribe({
+			next: (result) => {
+					//console.log(result);
 					this.movieResult = result;
-					this.yearsOfMoviesValues(result.results);
-				} else {
-					console.log("Nessun risultato trovato.");
-				}
+					this.yearsOfMoviesValues(result);
+				
 			},
-			(error) => {
+			error: (error) => {
 				console.error("Errore durante la chiamata API", error);
 			}
-		);
+	});
 	}
 
 	public searchByTitle(title: string) {
@@ -56,7 +53,7 @@ export class WelcomeComponent implements OnInit {
 		this.filter = event;
 		this.movieService.getMoviesByFilter(event).subscribe((data) => {
 			this.movieResult = data.results;
-     
+			this.yearsOfMoviesValues(data.results);
 	  
     })
 	}
@@ -76,7 +73,5 @@ export class WelcomeComponent implements OnInit {
       //console.log("getMovies yearsOfMovies",this.yearsOfMovies);
   }
 
-  yearsofMovieDisplay = (yearsofMovies: any[], movieResult: any[])=>{
-
-  }
+  
 }
