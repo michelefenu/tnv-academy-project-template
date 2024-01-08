@@ -1,8 +1,9 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize({
-  database: "spring",
+  database: "userdata",
   username: "root",
+  password: "kirby6153",
  
   host: "localhost",
   port: 3306,
