@@ -1,5 +1,19 @@
 import Rating from "../models/rating.js";
 
+export const createRating = async (req, res) => {
+    try {
+        const rating = await Rating.create(req.body);
+        console.log(req.body)
+        res.json({
+            "message": "Rating Created",
+            data: rating
+        });
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+}
+
 export const getRating = async (req, res) => {
     try {
         const rating = await Rating.findOne({
@@ -33,20 +47,6 @@ export const getRatingByUserId = async (req, res) => {
         } else {
             res.sendStatus(404);
         }
-    } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
-    }
-}
-
-export const createRating = async (req, res) => {
-    try {
-        const rating = await Rating.create(req.body);
-        console.log(req.body)
-        res.json({
-            "message": "Rating Created",
-            data: rating
-        });
     } catch (err) {
         console.log(err);
         res.sendStatus(500);

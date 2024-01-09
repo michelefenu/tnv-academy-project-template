@@ -16,8 +16,21 @@ export class ReviewService {
     return this.httpClient.get<Review>(`${this.API_ROOT}/review/${userId}/${movieId}`);
   }
 
+  getReviewByUserId(userId: string) {
+    return this.httpClient.get<Review>(`${this.API_ROOT}/review/${userId}`);
+  }
+
   addReview(review: Review) {
     return this.httpClient.post<Review>(`${this.API_ROOT}/review/`, review);
+  }
+
+  editReview(review: Review) {
+    return this.httpClient.patch<Rating>(`${this.API_ROOT}/review/${review.id}`, review)
+      .pipe(switchMap(() => this.getReview(review.userId, review.movieId)));
+  }
+
+  deleteReview(id: string) {
+    return this.httpClient.delete(`${this.API_ROOT}/review/${id}`);
   }
 }
 
