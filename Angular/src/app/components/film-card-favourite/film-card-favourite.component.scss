@@ -1,8 +1,10 @@
 .example-card {
-    max-width: none;
-    height: 450px;
-    overflow: hidden;
-  }
+  max-width: none;
+  height: 450px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
   
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -22,5 +24,62 @@
   
   mat-card-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    flex-direction: row-reverse; // Inverte l'ordine dei figli lungo l'asse principale
+  }
+
+  #myStarButton {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #8c00ff;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  #myStarButton:hover {
+    transform: scale(1.2);
+  }
+
+  #myStarButton.mat-mdc-icon-button .mat-mdc-button-persistent-ripple{
+    display: none !important;
+  }
+
+  .myRemoveButton {
+    display: flex;
+    align-items: flex-start; /* Allinea l'elemento myRemoveButton all'inizio dell'asse trasversale (verticale) */
+    justify-content: flex-start; /* Allinea l'elemento myRemoveButton all'inizio dell'asse principale (orizzontale) */
+  }
+
+  .myRemoveButton:hover {
+    transform: scale(1.2);
+  }
+
+  td {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+  
+  #ratingButton {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end; 
+    margin-top: auto;
+  }
+  
+  #ratingButton:hover {
+    transform: scale(1.2);
   }

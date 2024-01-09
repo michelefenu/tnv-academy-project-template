@@ -33,6 +33,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { FilmCardFavouriteComponent } from './components/film-card-favourite/film-card-favourite.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { FilmCardFavouriteComponent } from './components/film-card-favourite/fil
     MatExpansionModule,
     MatRadioModule, 
     MatSelectModule,
+    MatIconModule,
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]
