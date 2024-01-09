@@ -1,0 +1,24 @@
+
+.bottoniera{
+    width: 100%;
+    margin-top: 32px;
+}
+
+.btn{
+    width: 12vw;
+    background-color: black;
+    color: #fff;
+    border: 2px solid #fff;
+    margin-right: 50px;
+}
+
+.btn:hover {
+    background-color: #ffffff; /* Cambia colore di sfondo dei pulsanti durante l'hover */
+    color: #000000; /* Cambia colore del testo dei pulsanti durante l'hover */
+}
+
+.divider{
+    width: 100%;
+    height: 4px;
+    background-color: aliceblue;
+}

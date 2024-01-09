@@ -47,7 +47,8 @@ ngb-rating {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    
+    body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif ; color: white;    background-color: rgb(0, 0, 19);     }
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

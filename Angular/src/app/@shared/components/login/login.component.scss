@@ -1,19 +1,105 @@
+/* Rimuovi l'elemento ::after dallo stile generico di .custom-background */
+.custom-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(162, 162, 245, 0), rgb(0, 0, 36));
+  z-index: -1; /* Posiziona l'elemento ::after dietro il contenuto */
+}
+
+/* Imposta l'indice Z solo per l'immagine di sfondo */
+.custom-background .img {
+  position: relative;
+  z-index: 1; /* Posiziona l'immagine di sfondo sopra l'elemento ::after */
+}
 
 .login-card {
   width: 800px;
+  background-color: rgba(0, 0, 36, 0.8);
+  border-radius: 20px;
+  position: relative; /* Aggiungi posizione relativa */
+  z-index: 2; /* Assicura che il contenuto del form sia sopra l'elemento ::after */
+}
+
+/* Rimuovi l'elemento ::after da .wrap, non è più necessario */
+.wrap {
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+/* Rimuovi l'elemento ::after da .custom-background, non è più necessario */
+.custom-background {
+  position: relative;
+  background: url('/assets/images/2.jpg') no-repeat center center/cover;
+  height: 90vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 2vh !important;
+}
+
+/* Rimuovi l'elemento ::after dallo stile generico di .login-section */
+.login-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(162, 162, 245, 0), rgb(0, 0, 36));
+}
+
+
+
+
+
+.login-section {
+  background: url('/assets/images/2.jpg') no-repeat center center/cover;
+  margin-top: 0; 
+  padding-top: 12vh;
+}
+
+
+/* background hero e opacità */
+.custom-background {
+  position: relative;
+  background: url('/assets/images/2.jpg') no-repeat center center/cover;
+  height: 90vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
 }
 
 .img {
-  background-image: url('/assets/images/login-screen.jpg');
+  background-image: url('/assets/images/logoLogin.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-.wrap {
-  overflow: hidden;
-  border-radius: 5px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+.btn{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+h3{
+  color: white;
+}
+
+a{
+  color: white;
+}
+
+.btn:hover{
+  background-color: white;
+  color: black;
 }
 
 @media only screen and (max-width: 768px){

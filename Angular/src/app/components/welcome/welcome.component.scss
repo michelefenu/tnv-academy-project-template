@@ -1,0 +1,80 @@
+
+/* hero */
+.hero-section {
+    background: url('/assets/images/2.jpg') no-repeat center center/cover;
+    margin-top: 0; 
+    padding-top: 12vh;
+}
+
+
+.index {
+    position: relative;
+    z-index: 1;
+}
+
+.titleBox{
+    padding-top: 24vh;
+}
+
+
+/* fattori di leggibilità: opacità nera 0.01%
+ATTENZIONE! : questo style genera un layer di opacità che migliora la leggibilità
+ma va anche a coprire il button 'Registrati' annullandone le proprietà :hover e onclick
+Nel caso di riattivazione valutare lo spostamento del button in altro div indipendente */
+/* 
+.hero-section::after {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    background-color: #000;
+    opacity: 0.0;
+    z-index: 1;
+}
+ */
+/* sovrapposizione titles */
+.index{
+    position: relative;
+    z-index: 1;
+}
+
+/* style titles and text  */
+.custom-background .container .index h1,
+.custom-background .container .index h2,
+.custom-background .container .index h3,
+.custom-background .container .index h4,
+.custom-background .container .index h5,
+.custom-background .container .index h6 {
+    /* Stili per tutti gli elementi h all'interno di .index */
+    color: rgb(255, 255, 255); 
+    font-family: 'Your Font', sans-serif; 
+    font-weight: bolder !important;
+}
+
+
+.custom-background .container .index p{
+    font-weight:400;
+}
+
+
+/* background hero e opacità */
+.custom-background {
+    position: relative;
+    background: url('/assets/images/2.jpg') no-repeat center center/cover;
+    height: 90vh;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.custom-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient( rgba(162, 162, 245, 0),rgb(0, 0, 36));
+}

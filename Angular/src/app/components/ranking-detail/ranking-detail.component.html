@@ -1,0 +1,14 @@
+<!-- ranking-detail.component.html -->
+
+<div class="card mb-3  d-flex" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="card-body d-flex align-items-center flex-column text-center">
+          <p class="card-text">1{{ ratingUser.movieId}}</p>
+          <h5 class="card-title">Pirati dei caraibi{{ ratingUser.movieTitle }}</h5>
+          <!-- Aggiungi altre informazioni sul film se necessario -->
+          <p class="card-text"><small class="text-muted">Testo prova per template</small></p>
+          <span><ngb-rating [rate]="ratingUser.rating" [max]="5" class="star-size"></ngb-rating></span>
+      </div>
+    </div>
+  </div>
+  

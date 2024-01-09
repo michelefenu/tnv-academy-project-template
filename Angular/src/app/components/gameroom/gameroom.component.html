@@ -1,0 +1,56 @@
+<div class="room container-fluid d-flex align-items-center flex-column text-center">
+    <video class="video-background" autoplay muted loop>
+        <source src="/assets/images/tunnel_-_26475 (720p).mp4" type="video/mp4">
+        Il tuo browser non supporta la riproduzione di video.
+    </video>
+
+
+    <div class="game d-flex align-items-center flex-column text-center">
+        <!-- Prima colonna -->
+        <div class="col BoxLocandina">
+          <h3>Qual'è il titolo del film?</h3>
+            <img [src]="poster" alt="" class="locandinaImg blurIMG">
+        </div>
+
+      
+        <!-- Seconda colonna -->
+        <div class=" col titleMovie d-flex align-items-center flex-column text-center">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+                <input matInput name="inputField" [(ngModel)]="userInput" required>
+
+               <button class="submit" type="submit"[disabled]="isTimerZero()">GUESS</button>
+
+            </form>
+           
+            
+          <div class="row mt-20">
+            <div class="colbtn col-md-6 ">
+                <button type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('genres')" [ngbPopover]="genres" popoverTitle="" [disabled]="isTimerZero()">Indizio Genere</button>
+            </div>
+            <div class="colbtn col-md-6 ">
+                <button type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('release')" [ngbPopover]="release" popoverTitle="" [disabled]="isTimerZero()">Indizio Anno di Uscita</button>
+            </div>
+            <div class="colbtn col-md-6 ">
+                <button type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('description')" [ngbPopover]="description" [disabled]="isTimerZero()">Descrizione</button>
+            </div>
+            <div class="colbtn col-md-6 ">
+                <button  type="button" class="btn btn-outline-secondary btn-block" (click)="timeIndizi('production')" [ngbPopover]="production" popoverTitle="" [disabled]="isTimerZero()">Production Company</button>
+            </div>
+        </div>
+       
+      
+    <div class="recordTab">
+        <div class="timer">
+        <!-- Costruisci il timer RXJS qui -->
+        </div>
+        
+        <div class="points-counter">
+        <!-- Punti: {{ points }}  -->
+        </div>
+    </div>
+      
+    <tnv-timer></tnv-timer>
+        </div>
+      </div>
+
+</div>

@@ -1,0 +1,131 @@
+/* @AlessioS: 
+styles sheet per card che viene iniettata in welcome.component per visualizzare i titles
+di benvenuto e invito a registrarsi */
+
+/*  */
+.index {
+    position: relative;
+    z-index: 1;
+}
+
+.titleBox{
+    padding-top: 24vh;
+    padding-left: 16vw;
+    padding-right: 16vw;
+
+}
+
+/* style titles and text */
+.titleBox h1 {
+    font-weight: 500;
+    font-size: 2.8rem !important; /* Ridotto del 30% */
+}
+
+.titleBox h3 {
+    font-weight: 400;
+    font-size: 1.96rem !important; /* Ridotto del 30% */
+}
+
+.titleBox p {
+    font-weight: 400;
+    font-size: 1.19rem !important; /* Ridotto del 30% */
+}
+
+/* fattori di leggibilità: opacità nera 0.01% */
+/* 
+.hero-section::after {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    background-color: #000;
+    opacity: 0.0;
+    z-index: 1;
+}
+ */
+
+/* sovrapposizione titles */
+.index{
+    position: relative;
+    z-index: 1;
+}
+
+/* style titles and text  */
+.custom-background .container .index h1,
+.custom-background .container .index h2,
+.custom-background .container .index h3,
+.custom-background .container .index h4,
+.custom-background .container .index h5,
+.custom-background .container .index h6 {
+    /* Stili per tutti gli elementi h all'interno di .index */
+    color: rgb(238, 238, 238); 
+    font-family: 'Your Font', sans-serif; 
+    font-weight: bolder;
+}
+
+.custom-background .container .index h1{
+    font-size: 3.7rem;
+}
+
+.custom-background .container .index h3{
+    font-weight: 100;
+    font-size: 1.4rem;
+}
+
+
+.custom-background .container .index p{
+    font-weight:400;
+}
+
+
+/* background hero e opacità */
+.custom-background {
+    position: relative;
+    background: url('/assets/images/2.jpg') no-repeat center center/cover;
+    height: 90vh;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* 
+.custom-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient( rgba(162, 162, 245, 0),rgb(0, 0, 36));
+}
+ */
+
+.btn {
+    width: 16vw;
+    height: 6vh;
+   
+    background-color: black;
+    border: 1px solid white;
+    margin-top: 2vh;
+
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 4vh; /* Centra il testo verticalmente */
+  }
+
+  .btn:hover {
+    width: 16vw;
+    height: 6vh;
+   
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    margin-top: 2vh;
+
+    color: rgb(0, 0, 0);
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 4vh; /* Centra il testo verticalmente */
+  }

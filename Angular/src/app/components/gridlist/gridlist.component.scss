@@ -1,0 +1,53 @@
+.gridlist{
+    background-color: rgb(0, 0, 19); 
+    color: white;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-top: 8vh;
+}
+
+.row{
+    padding-top: 6vw;
+    padding-bottom: 16vh;
+}
+
+.container{
+    background-color: rgb(0, 0, 19); 
+    width: 100%;
+}
+
+.column-header {
+    text-align: center; /* Allinea il testo al centro */
+  }
+  
+  .column-header img {
+    max-width: 50%; /* Imposta la larghezza massima dell'immagine al 100% */
+    height: auto; /* Imposta l'altezza automaticamente per mantenere le proporzioni */
+  }
+
+  .imgGrid{
+    width: 30%;
+    color: white;
+  }
+
+  h2{
+    font-size: 1.8rem ;
+    margin-top: 36px;
+  }
+
+  h5{
+    margin-top: 36px;
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+
+  .gridTitle{
+    font-size: 3rem;
+    font-weight: bolder;
+  }
+  /* css logo img header gridlist */
+  .imgGridlist{
+    max-width: 65%;
+    margin-top: 8vh;
+  }
+  
