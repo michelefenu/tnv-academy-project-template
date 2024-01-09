@@ -16,6 +16,10 @@ export class RatingService {
     return this.httpClient.get<Rating>(`${this.API_ROOT}/rating/${userId}/${movieId}`);
   }
 
+  getRatingByUserId(userId: string) {
+    return this.httpClient.get<Rating>(`${this.API_ROOT}/rating/${userId}`);
+  }
+
   addRating(rating: Rating) {
     return this.httpClient.post<Rating>(`${this.API_ROOT}/rating/`, rating);
   }
