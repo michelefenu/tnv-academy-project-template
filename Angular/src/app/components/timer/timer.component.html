@@ -1,3 +1,9 @@
-<button class="btn btn-start" (click)="startTimer()">Avvia Timer</button>
-<p class="time">Time: {{ secondsElapsed }}</p>
+
+<div class="time">
+    <p>Time: {{ secondsElapsed }}</p>
+    <button  (click)="startTimer()" [disabled]="timerRunning">inizio Gioco</button>
+    <p> per ogni indizio +30s nel tempo finale </p>
+    
+  </div>
+
 
