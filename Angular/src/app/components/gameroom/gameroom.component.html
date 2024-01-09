@@ -8,11 +8,8 @@
     <div class="game d-flex align-items-center flex-column text-center">
         <!-- Prima colonna -->
         <div class="col BoxLocandina">
-          <h4>Qual'è il titolo del film?</h4>
+          <h3>Qual'è il titolo del film?</h3>
             <img [src]="poster" alt="" class="locandinaImg blurIMG">
-
-          
-        
         </div>
 
       
@@ -20,7 +17,9 @@
         <div class=" col titleMovie d-flex align-items-center flex-column text-center">
             <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
                 <input matInput name="inputField" [(ngModel)]="userInput" required>
+
                <button type="submit"[disabled]="isTimerZero()">GUESS</button>
+
             </form>
            
             
