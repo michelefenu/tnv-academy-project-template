@@ -1,6 +1,7 @@
 .btn {
-    width: 30vw;
+    width: 15vw;
     margin-top: 32px;
+    margin-bottom: 32px;
   }
   
   .btn-start {
@@ -9,6 +10,10 @@
     border: 2px solid white;
     font-weight: bold;
     font-size: 1.5rem;
+  }
+
+  .time{
+    font-size: 2rem;
   }
   
   /* Aggiungi ulteriori stili per personalizzare la presentazione dei numeri del timer */
