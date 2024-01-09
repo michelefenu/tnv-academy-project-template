@@ -1,5 +1,7 @@
 .profile{
     width: 50vw;
+    min-width: 400px;
+
     height: auto;
     background-color: rgba(0, 0, 19, 0.50); 
     border-radius: 20px;
@@ -42,6 +44,7 @@
 
 .btn{
     width: 12vw;
+    min-width: 100px;
     background-color: black;
     color: #fff;
     border: 2px solid #fff;
