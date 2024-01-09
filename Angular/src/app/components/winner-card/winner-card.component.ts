@@ -75,7 +75,9 @@ export class WinnerCardComponent implements OnInit {
     const newReview: Review ={
       userId: this.userService.getCurrentUser().id,
       movieId: this.movie?.id,
-      text:this.review
+      text: this.review,
+      id: undefined,
+      movieTitle: undefined
     }
 
     const newTimer: TimeGame= {

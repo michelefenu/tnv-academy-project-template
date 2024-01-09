@@ -1,5 +1,5 @@
 export interface TimeGame {
-    id:any,
+    id: any,
     userId: any,
     movieId: any,
     movieTitle: any,
