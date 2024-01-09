@@ -1,5 +1,19 @@
 import Timer from "../models/timer.js";
 
+export const createTimer = async (req, res) => {
+    try {
+        const timer = await Timer.create(req.body);
+        console.log(req.body)
+        res.json({
+            "message": "Timer Created",
+            data: timer
+        });
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+}
+
 export const getTimer = async (req, res) => {
     try {
         const timer = await Timer.findOne({
@@ -20,14 +34,19 @@ export const getTimer = async (req, res) => {
     }
 }
 
-export const createTimer = async (req, res) => {
+export const getTimerByUserId = async (req, res) => {
     try {
-        const timer = await Timer.create(req.body);
-        console.log(req.body)
-        res.json({
-            "message": "Timer Created",
-            data: timer
+        const timer = await Timer.findAll({
+            where: {
+                userId: req.params.userId,
+               }
         });
+        
+        if (timer) {
+            res.send(timer);
+        } else {
+            res.sendStatus(404);
+        }
     } catch (err) {
         console.log(err);
         res.sendStatus(500);

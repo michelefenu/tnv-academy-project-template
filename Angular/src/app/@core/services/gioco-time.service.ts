@@ -18,6 +18,10 @@ export class GiocoTimeService {
     getTimer(userId: string, movieId: string) {
       return this.httpClient.get<TimeGame>(`${this.API_ROOT}/timer/${userId}/${movieId}`);
     }
+
+    getTimerByUserId(userId: string) {
+      return this.httpClient.get<TimeGame>(`${this.API_ROOT}/timer/${userId}`);
+    }
   
     createTimer(timer: TimeGame) {
       return this.httpClient.post<TimeGame>(`${this.API_ROOT}/timer/`, timer);
