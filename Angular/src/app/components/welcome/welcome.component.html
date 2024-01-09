@@ -1,19 +1,17 @@
-<div class="row mt-3">
+<div class="row mt-3" id="welcome-area">
   <div class="col-12">
-    <h5>Cosa ti va di vedere oggi?</h5>
-    <tnv-search (searchEvent)="handleSearchResults($event)" (searchByTitleEvent)="searchByTitle($event)"></tnv-search>
+    <h5 id="welcome-text">Cosa ti va di vedere oggi?</h5>
+    <tnv-search-final (selectedChange)="getMovies($event)" (searchEvent)="searchMoviesByActor($event)" (searchByTitleEvent)="searchByTitle($event)"></tnv-search-final>
+    <tnv-search-result-timeline [moviesList]="movieResult" [yearsOfMovies]="yearsOfMovies"></tnv-search-result-timeline>
+    <tnv-trending-section></tnv-trending-section>    
 
-   <!--  <tnv-movie-search-result [moviesResult]="movieResult" [actorName]="actorName" ></tnv-movie-search-result> -->
-    <tnv-search-result-timeline [moviesList]="movieResult" ></tnv-search-result-timeline>
-    
-  <tnv-filter
-  [(selectedYear)]="selectedYear"
-  [(selectedGenre)]="selectedGenre"
-  [(selectedLanguage)]="selectedLanguage"
-  [(selectedPopularityGrade)]="selectedPopularityGrade"
-  [(selectedDuration)]="selectedDuration"
-  ></tnv-filter>
-
+<!--
+  <tnv-search (searchEvent)="searchMoviesByActor($event)" (searchByTitleEvent)="searchByTitle($event)"></tnv-search> 
+  <tnv-filter (selectedChange)="getMovies($event)"></tnv-filter>
+  (selectedGenre)="selectedChanges($event)"
+  (selectedLanguage)="selectedChanges($event)"
+  (selectedPopularityGrade)="selectedChanges($event)"
+  (selectedDuration)="selectedChanges($event)"
   <tnv-movie-list
   [selectedYear]="selectedYear"
   [selectedGenre]="selectedGenre"
@@ -21,7 +19,11 @@
   [selectedPopularityGrade]="selectedPopularityGrade"
   [selectedDuration]="selectedDuration"
   ></tnv-movie-list>
-
-    <tnv-trending-section></tnv-trending-section>
+  <tnv-movie-search-result [moviesResult]="movieResult" [actorName]="actorName" ></tnv-movie-search-result>
+  
+  -->
   </div>
 </div>
+
+
+

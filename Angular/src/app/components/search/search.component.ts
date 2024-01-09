@@ -17,35 +17,14 @@ import {MatExpansionModule} from '@angular/material/expansion';
   
 })
 
-/* export class SearchComponent {
+export class SearchComponent {
   @Output() searchEvent = new EventEmitter<string>();
   @ViewChild('actorName') actorName: any;
-
-  search() {
-    const actorName = this.actorName.nativeElement.value;
-    
-    this.searchEvent.emit(actorName);
-  }
-}
-
-export class RadioOverviewExample {} */
-
-export class SearchComponent {
-  @Output() searchEvent = new EventEmitter<{ type: string, searchTerm: string}>();
-  @ViewChild('actorName') actorName: any;
   @Output() searchByTitleEvent = new EventEmitter<string>();
-  /*righe relative a espansione ricerca 
-  step = 0;
 
-  setStep(index: number) {
-    this.step = index;
-  }
-  */
-  searchType: string = '1';
-
-  search() {
-    const searchTerm = this.actorName.nativeElement.value;
-    this.searchEvent.emit({type: this.searchType, searchTerm});
+  search(actorName: string) {
+    //const searchTerm = this.actorName.nativeElement.value;
+    this.searchEvent.emit(actorName);
   }
 
   searchByTitle(title: string){
@@ -53,6 +32,5 @@ export class SearchComponent {
   }
 }
 
-export class RadioOverviewExample {}
 
 

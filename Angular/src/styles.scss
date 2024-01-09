@@ -54,3 +54,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+@media print{
+  body{
+    display: block;
+    width: 100%;
+  }
+  nav, #trending-movies, #pdfBtn,#search-panel, #welcome-text{
+    display: none !important;
+  }
+
+
+}

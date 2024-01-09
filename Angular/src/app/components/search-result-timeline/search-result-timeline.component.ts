@@ -10,37 +10,32 @@ import html2canvas from 'html2canvas';
   templateUrl: './search-result-timeline.component.html',
   styleUrl: './search-result-timeline.component.scss'
 })
-export class SearchResultTimelineComponent {
+export class SearchResultTimelineComponent  implements OnInit, OnChanges {
 
 	@Input() moviesList!: any[];
+  @Input() yearsOfMovies!: any[];
   //@Input() moviesResult: any[] = [];
   @Input() actorName: string = "";
 
 
-	public yearsOfMovies: any[];
+	//public yearsOfMovies: any[];
 	
 	constructor() {
-    this.yearsOfMovies=[];
+  //  this.yearsOfMovies=[];
+  }
+  ngOnInit(): void {
+    
   }
 
 	ngOnChanges() {
-		//0: ottenere solo anno da data
-		for (let movie of this.moviesList) {
-      if(movie.release_date!=""){
-			  let year = movie.release_date.substring(0, 4);
-			  this.yearsOfMovies.push(year);
-      }
-		}
-		// 1 - set di anni 
-		const years = [...new Set(this.yearsOfMovies)];
-    this.yearsOfMovies=years;
-    this.yearsOfMovies.sort();
+    console.log(this.yearsOfMovies);
 	}
 
   //filtra film per anno per vedere in timeline i film divisi per anno 
   filterMovieByYear = (year: string): string[] =>  {
+    console.log("ADESSO ", year, this.moviesList);
     let result = [];
-    console.log(year);
+    //console.log(year);
     for(let movie of this.moviesList){
       if(movie.release_date!="" && movie.release_date.substring(0, 4)===year){
         result.push(movie);
@@ -49,19 +44,13 @@ export class SearchResultTimelineComponent {
     return result;
   }
 
+  //funzione per esportazione in pdf/png
   generatePDF(){
-    const elementToPrint: any = document.getElementById('searchResult');
-
-    html2canvas(elementToPrint, {scale:1}).then((canvas)=>{
-      const pdf = new jsPDF();
-      pdf.addImage(canvas.toDataURL("image/png"), 'PNG', 10, 10,211,298);
-      pdf.setProperties({
-        title: 'My PDF',
-        subject: 'PDF from HTML with Angular',
-        author: 'tnvStudents',
-      })
-      pdf.save('RisultatoRicerca.pdf');
+    const pdfArea = document.getElementById('searchResult');
+    pdfArea?.addEventListener('click', function(){
+      window.print();
     })
   }
+
 
 }

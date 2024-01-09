@@ -31,6 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { SearchResultTimelineComponent } from './components/search-result-timeline/search-result-timeline.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { SearchFinalComponent } from './components/search-final/search-final.component';
+import { FilmCardTimelineComponent } from './components/film-card-timeline/film-card-timeline.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { FilmCardFavouriteComponent } from './components/film-card-favourite/film-card-favourite.component';
 
@@ -52,6 +54,8 @@ import { FilmCardFavouriteComponent } from './components/film-card-favourite/fil
     SearchResultTimelineComponent,
     FilterComponent,
     MovieListComponent,
+    SearchFinalComponent,
+    FilmCardTimelineComponent,
     FavouritesComponent,
     FilmCardFavouriteComponent
   ],

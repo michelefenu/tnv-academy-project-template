@@ -3,47 +3,54 @@
 	rel="stylesheet"
 />
 
-<section class="timeline_area section_padding_130" >
-	<div class="container" >
-
-		<div id="searchResult" class="row justify-content-center" *ngIf="moviesList && moviesList.length > 0">
+<section class="timeline_area section_padding_130" style="padding: 20px">
+	<div class="container">
+		<div
+			id="searchResult"
+			class="row justify-content-center"
+			*ngIf="moviesList && moviesList.length > 0"
+		>
 			<div class="col-12 col-sm-8 col-lg-6">
 				<div class="section_heading text-center">
-			  		<h3>Risultati</h3>
+					<h3>Risultati</h3>
 				</div>
 			</div>
-		
 
 			<div class="row">
-				<div >
+				<div>
 					<!-- Timeline Area-->
 					<div class="apland-timeline-area">
 						<!--Single Timeline Content-->
-						<div class="single-timeline-area" *ngFor="let year of yearsOfMovies">
+						<div
+							class="single-timeline-area"
+							*ngFor="let year of yearsOfMovies"
+						>
 							<div
 								class="timeline-date wow fadeInLeft"
-								data-wow-delay="0.1s"
+								data-wow-delay="0.2s"
 								style="
 									visibility: visible;
-									animation-delay: 0.1s;
+									animation-delay: 0.2s;
 									animation-name: fadeInLeft;
 								"
+								*ngIf="filterMovieByYear(year).length > 0"
 							>
-							<p>{{year}}</p>
+								<p>{{ year }}</p>
 							</div>
 							<div class="row">
-								<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 py-2" *ngFor="let movie of filterMovieByYear(year)">
-									<tnv-film-card [movie]="movie" ></tnv-film-card>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 py-2" *ngFor="let movie of filterMovieByYear(year)">
+									<tnv-film-card-timeline [movie]="movie" ></tnv-film-card-timeline>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<button mat-raised-button color="primary" (click)="generatePDF()">Scarica PDF</button>
-
+			<button mat-raised-button color="primary" id="pdfBtn" (click)="generatePDF()">
+				Scarica PDF
+			</button>
 		</div>
-<!--
+		<!--
 		<div class="row" *ngIf="!yearsOfMovies || yearsOfMovies.length===0 ">
 			<div class="col-12 pt-5 pb-2">
 			  <h3>Nessun risultato trovato.</h3>

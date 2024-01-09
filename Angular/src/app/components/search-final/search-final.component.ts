@@ -1,22 +1,21 @@
-import { OnChanges } from '@angular/core';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MovieService } from 'src/app/movie.service';
-import {Filter} from "../../models/filter";
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
+import { Filter } from 'src/app/models/filter';
+import { MovieService } from 'src/app/movie.service';
 
 @Component({
-  selector: 'tnv-filter',
-  templateUrl: './filter.component.html',
-  styleUrl: './filter.component.scss'
+  selector: 'tnv-search-final',
+  templateUrl: './search-final.component.html',
+  styleUrl: './search-final.component.scss'
 })
-export class FilterComponent {
-
+export class SearchFinalComponent {
   public selectedFilter: Filter = new Filter();
 
+  @Output() searchEvent = new EventEmitter<string>();
+  @Output() searchByTitleEvent = new EventEmitter<string>();
   @Output() selectedChange = new EventEmitter<Filter>();
 
-  constructor(private movieService: MovieService) {
-  }
+  constructor(private movieService: MovieService) {}
 
   onYearChange = (event: MatSelectChange)=>{
     //console.log("onYearChange",event);
@@ -44,4 +43,18 @@ export class FilterComponent {
   }
 
 
+  search(actorName: string) {  
+    this.searchEvent.emit(actorName);
+  }
+
+  searchByTitle(title: string){
+    this.searchByTitleEvent.emit(title);
+  }  
+  
+  //codice relativo ad expansion panel dei filtri
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
 }
