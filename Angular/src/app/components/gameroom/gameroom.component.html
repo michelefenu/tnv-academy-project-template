@@ -18,7 +18,7 @@
             <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
                 <input matInput name="inputField" [(ngModel)]="userInput" required>
 
-               <button type="submit"[disabled]="isTimerZero()">GUESS</button>
+               <button class="submit" type="submit"[disabled]="isTimerZero()">GUESS</button>
 
             </form>
            
