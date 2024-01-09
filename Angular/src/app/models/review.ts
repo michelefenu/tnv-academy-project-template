@@ -1,5 +1,5 @@
 export interface Review {
-    userId: string,
-    movieId: string,
-    text: string
+    userId: any,
+    movieId: any,
+    text: any
 }
