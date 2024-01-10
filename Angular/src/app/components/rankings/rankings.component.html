@@ -3,7 +3,7 @@
     <h1>I tuoi movies preferiti</h1>
         <thead>
           <tr>
-            <tnv-ranking-detail [movie] = "movie" [review] = "review" [rating] = "rating"></tnv-ranking-detail>
+          <tnv-ranking-detail *ngFor="let data of preferiti" [data]="data"></tnv-ranking-detail>
           </tr>
         </thead>
   </div>
