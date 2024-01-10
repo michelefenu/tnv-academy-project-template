@@ -20,7 +20,15 @@ export class RegisterComponent implements OnInit {
   register(form: NgForm) {
     form.control.markAllAsTouched();
     if (form.valid) {
-      this.authService.register(form.value);
+      this.authService.register(form.value).subscribe({
+        next: (response) => {
+          this.router.navigateByUrl("/login");
+        },
+        error: (err) => {
+          alert("Registrazione non riuscita");//Deve comparire solo se registr non riuscita, come?
+          console.log(err);
+        }
+      });
     }
   }
 }

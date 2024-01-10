@@ -2,15 +2,17 @@ import Rating from "../models/rating.js";
 
 export const getRating = async (req, res) => {
     try {
-        const rating = await Rating.findOne({
+        const ratings = await Rating.findAll({
             where: {
                 userId: req.params.userId,
-                movieId: req.params.movieId,
-            }
+            },
+            order: [
+                ['rating', 'DESC']
+            ]
         });
         
-        if (rating) {
-            res.send(rating);
+        if (ratings.length > 0) {
+            res.send(ratings);
         } else {
             res.sendStatus(404);
         }
@@ -38,7 +40,7 @@ export const updateRating = async (req, res) => {
     try {
         const rating = await Rating.update(req.body, {
             where: {
-                id: req.params.id
+                movieId: req.params.movieId
             }
         });
         res.json({
@@ -55,7 +57,8 @@ export const deleteRating = async (req, res) => {
     try {
         await Rating.destroy({
             where: {
-                id: req.params.id
+                userId: req.params.userId,
+                movieId: req.params.movieId
             }
         });
         res.json({

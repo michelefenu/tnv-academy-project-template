@@ -1,0 +1,42 @@
+<form class="example-form">
+	<mat-form-field class="example-full-width">
+		<mat-label>cerca...</mat-label>
+		<input
+			matInput
+			#actorName
+			maxlength="256"
+			placeholder="Es. Leonardo DiCaprio"
+		/>
+	</mat-form-field>
+	<button mat-raised-button color="primary" (click)="search(actorName.value)">
+		Cerca
+	</button>
+</form>
+
+<div id="searchByTitleTemplate">
+	<mat-panel-title> Ricerca per titolo </mat-panel-title>
+
+	<mat-form-field class="example-full-width" id="titleInput">
+		<mat-label>Titolo</mat-label>
+		<input matInput #title maxlength="256" placeholder="Ex. Harry Potter..." />
+	</mat-form-field>
+
+	<mat-action-row>
+		<button
+			mat-raised-button
+			color="primary"
+			(click)="searchByTitle(title.value)"
+		>
+			Cerca
+		</button>
+	</mat-action-row>
+</div>
+
+<!-- Espansione pannello ricerca 
+  <mat-accordion class="example-headers-align">
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+        </mat-expansion-panel-header>  
+      </mat-expansion-panel>
+    </mat-accordion>
+-->
