@@ -1,14 +1,13 @@
-<!-- ranking-detail.component.html -->
 
-<div class="card mb-3  d-flex" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="card-body d-flex align-items-center flex-column text-center">
-          <p class="card-text">1{{ ratingUser.movieId}}</p>
-          <h5 class="card-title">Pirati dei caraibi{{ ratingUser.movieTitle }}</h5>
-          <!-- Aggiungi altre informazioni sul film se necessario -->
-          <p class="card-text"><small class="text-muted">Testo prova per template</small></p>
-          <span><ngb-rating [rate]="ratingUser.rating" [max]="5" class="star-size"></ngb-rating></span>
-      </div>
-    </div>
-  </div>
+<mat-card class="card mb-3" >
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{data.titoloFilm}}</mat-card-title>
+        <mat-card-subtitle>{{data.votoFilm}}</mat-card-subtitle>
+        <img mat-card-md-image [src]="data.locandina"  alt="Image">
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content> {{data.review}} </mat-card-content>
+    <mat-card-content> guess in: {{data.tempoGuess}} </mat-card-content>
+  </mat-card>
   

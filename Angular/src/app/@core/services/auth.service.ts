@@ -11,23 +11,77 @@ import { Observable } from "rxjs";
 export class AuthService {
   springBootUrl = 'http://localhost:8080/users';
 
+
+  private registeredUsers: User[] = [];
+
   constructor(private router: Router, private http: HttpClient) {}
 
-  login(loginData: LoginDTO) : Observable<any> {
+  login(loginData: LoginDTO): Observable<any> {
+    const user= this.registeredUsers.find(user => user.username === loginData.username);
+      if (user && user.password === loginData.password) {
+      localStorage.setItem("user", JSON.stringify(user));
+      return of(user);
+    } else {
+      return of({ error: 'Invalid credentials' });
+    }
+  }
+
+ 
+  register(registerData: RegisterDTO): Observable<any> {
+   
+    const newUser: User = {
+      id: this.generateId(),
+      username: registerData.username,
+      name: registerData.name,
+      surname: registerData.surname,
+      password: registerData.password
+    };
+       this.registeredUsers.push(newUser);
+
+       console.log("utente:",this.registeredUsers.length);
+
+    return of(null).pipe(
+      tap(() => {
+       
+        this.router.navigateByUrl('/login');
+      })
+    );
+  }
+
+  private generateId(): number {
+    
+    return Math.floor(Math.random() * 1000);
+  }
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  /*login(loginData: LoginDTO) : Observable<any> {
 
        const user: User = {
-         name: 'Paolino',
-         surname: 'Paperino',
-         username: 'papero123',
-         id: undefined
-       }
+       id: 4,
+        name: 'Paolino',
+      surname: 'Paperino',
+      username: 'papero123'
+    }
     return of(user);
     // Fine stub 
   }
-    
+  /* 
+  
  /*    console.log('auth service.ts', loginData);
 
-    const url = `${this.springBootUrl}/login`; // Sostituisci con il tuo endpoint effettivo per il login
+    const url = ${this.springBootUrl}/login; // Sostituisci con il tuo endpoint effettivo per il login
     return this.http.post(url, loginData);
 
     const user = loginData;
@@ -49,16 +103,18 @@ export class AuthService {
     // Fine stub 
   } */
 
-  register(registerData: RegisterDTO): Observable<any> {
+ /* register(registerData: RegisterDTO): Observable<any> {
     console.log('auth service.ts', registerData);
-        const url = `${this.springBootUrl}/users/`;
+        const url = ${this.springBootUrl}/users/;
 
     return this.http.post(url, registerData)
       .pipe(
         // Se la registrazione ha successo, reindirizza l'utente alla pagina di login
         tap(() => this.router.navigateByUrl('/login'))
       );
-  }
+  }*/
+
+ 
 
   logout() {
     localStorage.removeItem("user");
@@ -70,6 +126,6 @@ export class AuthService {
 
   getCurrentUser() {
     const user = JSON.parse(localStorage.getItem("user") || '') as User;
-    return user;
-  }
+    return user;
+  }
 }
