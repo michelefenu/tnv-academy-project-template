@@ -7,8 +7,10 @@ import { MovieService } from 'src/app/@core/services/movie.service';
 import { RatingService } from 'src/app/@core/services/rating.service';
 import { ReviewService } from 'src/app/@core/services/review.service';
 import { Movie } from 'src/app/models/movie';
+import { Preferiti } from 'src/app/models/preferiti';
 import { Rating } from 'src/app/models/rating';
 import { Review } from 'src/app/models/review';
+import { RankingsComponent } from '../rankings/rankings.component';
 
 @Component({
   selector: 'tnv-ranking-detail',
@@ -16,12 +18,11 @@ import { Review } from 'src/app/models/review';
   styleUrls: ['./ranking-detail.component.scss']
 })
 export class RankingDetailComponent implements OnInit {
-  @Input() movie!: Movie;
-  @Input() review!: Review;
-  @Input() rating!: Rating;
 
-  ratingUser!: Rating;
-  movietitle!: string;
+@Input() data!: Preferiti 
+   
+
+
 
 
   constructor(
@@ -32,29 +33,17 @@ export class RankingDetailComponent implements OnInit {
     private reviewService: ReviewService) {}
 
   ngOnInit(): void {
+    
+   
+   
 
-    //this.userService.getCurrentUser().id;
+    console.log("datad",this.data);
 
-    this.ratingUtente('2'); 
-  }
+  
 
-  ratingUtente(userId: string) {
-    this.ratingService.getRatingByUserId(userId).subscribe(
-      (valutazioni) => {
-       this.ratingUser = valutazioni;
-        console.log("dati",this.ratingUser);
-      },
-      (errore) => {
-      
-        console.error(errore);
-      }
-    );
-
-   this.movietitle = this.ratingUser.movieTitle;
-  }
-     
+    
 
 
   }
 
-
+}

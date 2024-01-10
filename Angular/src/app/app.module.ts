@@ -30,6 +30,9 @@ import { WinnerCardComponent } from './components/winner-card/winner-card.compon
 import { RankingDetailComponent } from './components/ranking-detail/ranking-detail.component';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +55,8 @@ import { RankingDetailComponent } from './components/ranking-detail/ranking-deta
     TimerComponent,
     WinnerCardComponent,
     RankingDetailComponent
+
+ 
   ],
   imports: [
     BrowserModule,
