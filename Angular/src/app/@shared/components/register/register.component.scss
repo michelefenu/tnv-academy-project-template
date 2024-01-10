@@ -16,6 +16,11 @@
   z-index: 1; /* Posiziona l'immagine di sfondo sopra l'elemento ::after */
 }
 
+.falseheader{
+  width: 100%;
+  height: 8vh;
+}
+
 .register-card {
   width: 800px;
   background-color: rgba(0, 0, 36, 0.8);
@@ -128,7 +133,7 @@ a{
 
 @media only screen and (max-width: 768px) {
   .register-card {
-    width: 400px;
+    width: 500px;
   }
   .img {
     height: 200px;

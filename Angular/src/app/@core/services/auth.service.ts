@@ -43,7 +43,7 @@ export class AuthService {
     return of(null).pipe(
       tap(() => {
        
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('login');
       })
     );
   }
