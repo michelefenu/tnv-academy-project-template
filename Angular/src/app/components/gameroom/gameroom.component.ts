@@ -106,6 +106,7 @@ export class GameroomComponent implements OnInit {
       this.router.navigateByUrl('winner-card');
     } else {
       this.guess = false;
+      alert("**titolo non corretto** ")
       // confronto negativo
     }
   }
