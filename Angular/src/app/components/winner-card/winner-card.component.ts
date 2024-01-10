@@ -49,12 +49,12 @@ export class WinnerCardComponent implements OnInit {
 
     this.timerService.getTimer().subscribe((x) => {
       this.secondsElapsed = x;
-      console.log("winner1", this.secondsElapsed);
+      console.log("tempo gioco", this.secondsElapsed);
     });
 
     this.timerService.data$.subscribe((data) => {
       this.tempoTotale = data;
-      console.log("winner2", this.tempoTotale);
+      console.log("tempo + indizi", this.tempoTotale);
     });
 
 
@@ -90,27 +90,31 @@ export class WinnerCardComponent implements OnInit {
 
     this.ratingService.addRating(newRating).subscribe(
       (result) => {
-        console.log("Valutazione aggiunta con successo:", result);
+          alert("Salvataggio riuscito");
       },
       (error) => {
         console.error("Errore durante l'aggiunta della valutazione:", error);
+        console.log("Errore durante l'aggiunta");
       }
     );
     this.reviewService.addReview(newReview).subscribe(
       (result) => {
-        console.log("Valutazione aggiunta con successo:", result);
+         
       },
       (error) => {
         console.error("Errore durante l'aggiunta della valutazione:", error);
+      
+      
       }
     );
 
     this.tempoGioco.createTimer(newTimer).subscribe(
       (result) => {
-        console.log("Valutazione aggiunta con successo:", result);
+        
       },
       (error) => {
         console.error("Errore durante l'aggiunta della valutazione:", error);
+       
       }
     );
 
