@@ -1,14 +1,27 @@
-<h2>Profilo Utente</h2>
-<div class="row">
-  <div>
-    <span>Nome</span>: <span class="profile-data">{{ currentUser.name }}</span
-    ><br />
-    <span>Cognome</span>:
-    <span class="profile-data">{{ currentUser.surname }}</span
-    ><br />
-    <span>Username</span>:
-    <span class="profile-data">{{ currentUser.username }}</span
-    ><br />
+<div class="container video-background profile d-flex align-items-center flex-column text-center">
+  <h1>Il tuo account</h1>
+  <hr class="divider">
+ 
+  <h2>Profilo Utente</h2>
+  <div class="imgProfile">
+    <!-- inserisci immagine profilo <img src="" alt=""> -->
   </div>
-  <tnv-logout class="mt-3"></tnv-logout>
+  <div class="row">
+    <div>
+      <div class="personalData">
+        <span>Nome</span>: <span class="profile-data">{{ currentUser.name }}</span><br />
+        <span>Cognome</span>: <span class="profile-data">{{ currentUser.surname }}</span><br />
+        <span>Username</span>: <span class="profile-data">{{ currentUser.username }}</span><br />
+      </div>
+
+      <div class="bottoniera">
+        <button data-toggle="tab" routerLink="/gameroom" class="btn btn-dark btn-with-border">
+          <i class="fas fa-play"></i> Play
+        </button>
+        <tnv-logout class="mt-3"></tnv-logout>
+      </div>
+      <hr class="divider">
+    </div>
+  </div>
 </div>
+

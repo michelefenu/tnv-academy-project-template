@@ -1,0 +1,12 @@
+<!-- possibile prototipo di main menu -->
+<tnv-navbar></tnv-navbar>
+<div class="container bottoniera">
+    <h1>MENU</h1>
+    <button data-toggle="tab" routerLink="/gameroom" class="btn btn-dark btn-with-border">
+      <i class="fas fa-play"></i> Play
+    </button>
+    <router-outlet></router-outlet>
+    <tnv-logout class="mt-3"></tnv-logout>
+  </div>
+<router-outlet></router-outlet>
+<tnv-footer></tnv-footer>

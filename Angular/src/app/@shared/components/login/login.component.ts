@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/login");
     }
   }
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(form.value).subscribe({
         next: (response) => {
           localStorage.setItem("user", JSON.stringify(response));
-          this.router.navigateByUrl("/rankings");
+          this.router.navigateByUrl("/userAccount");
         },
         error: () => alert("Login Errato"),
       });

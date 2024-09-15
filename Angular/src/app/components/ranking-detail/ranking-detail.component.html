@@ -1,0 +1,13 @@
+
+<mat-card class="card mb-3" >
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{data.titoloFilm}}</mat-card-title>
+        <mat-card-subtitle>{{data.votoFilm}}</mat-card-subtitle>
+        <img mat-card-md-image [src]="data.locandina"  alt="Image">
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content> {{data.review}} </mat-card-content>
+    <mat-card-content> guess in: {{data.tempoGuess}} </mat-card-content>
+  </mat-card>
+  
